@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE project [
+<!ENTITY name "bnb_nu_cosmic_pandora_electron_filter_detsyst_larg4">
+<!ENTITY version "v06_26_01_17">
+<!ENTITY larsoft_version "v06_26_01_13">
+<!ENTITY qualifier "e10:prof">
+<!ENTITY dataset "prodgenie_bnb_nu_cosmic_uboone_detsyst_LArG4BugFix_mcc8.11_reco">
+<!ENTITY user "srsoleti">
+]>
+
+<project name="&name;">
+    <!-- Doesn't matter for non-generating jobs -->
+    <numevents>1000000</numevents>
+
+    <!--  Operating System  -->
+    <os>SL6</os>
+
+    <!--  Batch resources  -->
+    <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+
+    <!--  Larsoft information  -->
+    <larsoft>
+        <tag>&larsoft_version;</tag>
+        <qual>&qualifier;</qual>
+        <fcldir>/uboone/app/users/&user;/&version;/srcs/1e1pFilter/pandoraElectronFilter/job</fcldir>
+        <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local> 
+    </larsoft>
+
+    <!--  Project stages  -->
+    <stage name="selection">
+        <fcl>run_PandoraOnly_detsyst.fcl</fcl>
+        <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
+        <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
+        <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
+        <bookdir>/uboone/data/users/&user;/&version;/&name;</bookdir>
+        <inputdef>&dataset;</inputdef>
+        <numjobs>384</numjobs>
+        <disk>2GB</disk>
+        <memory>3096</memory>
+        <maxfilesperjob>5</maxfilesperjob>
+        <datatier>reconstructed</datatier>
+        <jobsub>--expected-lifetime=24h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
+        <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>        
+        <schema>root</schema>
+    </stage>
+    <!--  file type  -->
+    <!-- <filetype>mc</filetype> -->
+    <!--  run type  -->
+    <!-- <runtype>physics</runtype> -->
+</project>

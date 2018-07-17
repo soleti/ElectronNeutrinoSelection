@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE project [
+<!ENTITY name "cosmic_in_time">
+<!ENTITY version "v06_26_01_10">
+<!ENTITY qualifier "e10:prof">
+<!ENTITY dataset "prodcosmics_corsika_cmc_uboone_intime_mcc8.6_reco2">
+<!ENTITY user "srsoleti">
+]>
+
+<project name="&name;">
+    <!-- Doesn't matter for non-generating jobs -->
+    <numevents>1000000</numevents>
+
+    <!--  Operating System  -->
+    <os>SL6</os>
+
+    <!--  Batch resources  -->
+    <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+
+
+    <!--  Larsoft information  -->
+    <larsoft>
+        <tag>&version;</tag>
+        <qual>&qualifier;</qual>
+        <local>/pnfs/uboone/scratch/users/&user;/&version;.tar</local>
+    </larsoft>
+
+    <!--  Project stages  -->
+    <stage name="selection">
+        <fcl>run_PandoraOnly_intime.fcl</fcl>
+        <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
+        <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
+        <workdir>/pnfs/uboone/scratch/users/&user;/work/lee/&name;</workdir>
+        <inputdef>&dataset;</inputdef>
+        <numjobs>349</numjobs>
+        <disk>10GB</disk>
+        <memory>4096</memory>
+        <maxfilesperjob>40</maxfilesperjob>
+        <datatier>filtered</datatier>
+        <jobsub>--expected-lifetime=24h -Q</jobsub>
+        <schema>root</schema>
+    </stage>
+    <!--  file type  -->
+    <!-- <filetype>mc</filetype> -->
+    <!--  run type  -->
+    <!-- <runtype>physics</runtype> -->
+</project>

@@ -1,0 +1,107 @@
+#include "decisiontreeid.fcl"
+#include "lee_selection_alg.fcl"
+#include "ubxsec_mc_common.fcl"
+#include "pandora_lee_ana_common.fcl"
+
+lee_pandora_analyzer:
+{
+    module_type:                "PandoraLEEAnalyzer"
+    ElectronSelectionAlg:       @local::lee_electron_alg
+    PrintDebug:                 false
+    HitFinderLabel:             "pandoraCosmicHitRemoval::McRecoStage2CV"
+    PFParticleLabel:            "pandoraNu::McRecoStage2CV"
+    SpacePointLabel:            "pandoraNu::McRecoStage2CV"
+    ParticleIDModuleLabel:      "pandoraNupid::McRecoStage2CV"
+    CalorimetryLabel:           "pandoraNucali::McRecoStage2CV"
+}
+
+lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu::McRecoStage2CV"
+
+physics: {
+
+  producers : {
+     # ParameterSets for zero or more producer modules
+     decisiontreeid: @local::DecisionTreeID
+     @table::ubxsec_mc_reco
+     @table::ubxsec_mc_flashmatch
+  }
+
+  analyzers: {
+     # ParameterSets for zero or more analyzer modules
+     robertoana:  @local::lee_pandora_analyzer
+     # @table::ubxsec_mc_ana
+  }
+  
+  filters : {
+     # ParameterSets for zero or more filter modules
+  }
+
+  reco: [ @sequence::ubxsec_mc_producers ]
+
+  path0 : [ robertoana ]
+
+  trigger_paths: [ reco ]
+
+  end_paths: [ path0 ]
+
+}
+
+physics.analyzers.robertoana.isData: false
+physics.analyzers.robertoana.saveFluxInfo: true
+source.inputCommands:        [ "keep *_*_*_*", "drop *_opfiltercommon__McRecoStage1" ]
+services.SpaceCharge.EnableSimSpatialSCE: true
+
+
+
+physics.producers.pandoraCosmicTrackPFPart.FlashTimeVetoStart: 3.20
+physics.producers.pandoraCosmicTrackPFPart.FlashTimeVetoEnd:   4.80
+
+physics.producers.NeutrinoFlashMatch.FlashVetoTimeStart: 3.20
+physics.producers.NeutrinoFlashMatch.FlashVetoTimeEnd:   4.80
+physics.producers.UBXSec.NuMuCCSelectionSettings.BeamSpillStarts: 3.20 
+physics.producers.UBXSec.NuMuCCSelectionSettings.BeamSpillEnds:   4.80
+
+physics.producers.UBXSec.BeamSpillStart:                 3.20
+physics.producers.UBXSec.BeamSpillEnd:                   4.80
+
+physics.producers.UBXSec.PFParticleProducer:                   "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.UBXSec.SpacePointProducer:                   "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.UBXSec.ParticleIDProducer:                   "pandoraNupid::PandoraLEEAnalyzer"
+
+
+physics.producers.pandoraCosmicHitRemoval.CosmicProducerLabels:     ["pandoraCosmicTrackPFPart::PandoraLEEAnalyzer", "pandoraCosmicFlashTag::PandoraLEEAnalyzer", "pandoraCosmicACPTTagger::PandoraLEEAnalyzer", "pandoraCosmicStoppingMu::PandoraLEEAnalyzer" ]
+
+physics.producers.pandoraNu.HitFinderModuleLabel:                   "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+physics.producers.pandoraNucalo.TrackModuleLabel:                   "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.pandoraNucalo.SpacePointModuleLabel:              "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.pandoraNupid.CalorimetryModuleLabel:              "pandoraNucalo::PandoraLEEAnalyzer"
+physics.producers.pandoraNupid.TrackModuleLabel:                    "pandoraNu::PandoraLEEAnalyzer"
+
+physics.producers.pandoraNuMCSMu.inputs.inputLabel:                 "pandoraNu::PandoraLEEAnalyzer"
+
+physics.producers.pandoraNuMCSPi.inputs.inputLabel:                 "pandoraNu::PandoraLEEAnalyzer"
+
+physics.producers.NeutrinoFlashMatch.TrackModule:             "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.NeutrinoFlashMatch.PFParticleModule:        "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.RecoTrueMatcher.PFParticleProducer:         "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.RecoTrueMatcher.SpacePointProducer:         "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.RecoTrueMatcher.MCPHitAssProducer:          "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+physics.producers.RecoTrueMatcher.HitProducer:                "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+
+physics.producers.CandidateConsistency.TrackProducer:         "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.CandidateConsistency.ShowerProducer:         "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.CandidateConsistency.TPCObjectProducer:         "TPCObjectMaker::PandoraLEEAnalyzer"
+
+physics.producers.TPCObjectMaker.TrackProducer:               "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.TPCObjectMaker.ShowerProducer:               "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.TPCObjectMaker.VertexProducer:               "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.TPCObjectMaker.PFParticleProducer:           "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.TPCObjectMaker.HitProducer:                 "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+physics.producers.TPCObjectMaker.SpacePointProducer:                 "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.TPCObjectMaker.MCPHitAssProducer:                 "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+
+physics.producers.pandoraNuGeoCosmicTag.TrackProducer:              "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.pandoraNuGeoCosmicTag.PFParticleProducer:         "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.pandoraNu.HitFinderModuleLabel:                   "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+physics.producers.pandoraCosmicStoppingMu.TrackProducer:            "pandoraNu::PandoraLEEAnalyzer"
+physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandoraNu::PandoraLEEAnalyzer"

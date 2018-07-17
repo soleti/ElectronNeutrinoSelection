@@ -1,0 +1,49 @@
+
+#include "decisiontreeid.fcl"
+#include "lee_selection_alg.fcl"
+#include "pandora_lee_ana_common.fcl"
+
+
+lee_pandora_analyzer:
+{
+    module_type:                "PandoraLEEAnalyzer"
+    ElectronSelectionAlg:       @local::lee_electron_alg
+    PrintDebug:                 false
+}
+
+lee_electron_alg.startbeamtime: 3.65
+lee_electron_alg.endbeamtime: 5.25
+
+physics: {
+
+  producers : {
+     # ParameterSets for zero or more producer modules
+     decisiontreeid: @local::DecisionTreeID
+
+  }
+  analyzers: {
+     # ParameterSets for zero or more analyzer modules
+     robertoana:  @local::lee_pandora_analyzer
+
+}
+  filters : {
+     # ParameterSets for zero or more filter modules
+  }
+  reco: [decisiontreeid ]
+
+  path0 : [  robertoana ]
+
+  #path1 : [  comma separated list of module labels of analyzer or output modules  ]
+  #path2 : [  comma separated list of module labels of analyzer or output modules  ]
+  #path3 : [  comma separated list of module labels of analyzer or output modules  ]
+
+  #here, just a shorthand: could have done ana: [ robertoana ] then end_paths: [ ana ]
+  trigger_paths: [ reco]
+  end_paths: [ path0 ]
+
+}
+
+physics.analyzers.robertoana.isCosmicInTime: true
+physics.analyzers.robertoana.isData: false
+source.inputCommands:        [ "keep *_*_*_*", "drop *_opfiltercommon__McRecoStage1" ]
+services.SpaceCharge.EnableSimSpatialSCE: true
