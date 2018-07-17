@@ -647,44 +647,41 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   std::vector<double> true_neutrino_vertex(3);
   std::cout << "[PandoraLEEAnalyzer] Is real data? " << evt.isRealData() << std::endl;
 
-  try {
-    art::Handle<std::vector<ubana::SelectionResult>> selection_h;
-    evt.getByLabel("UBXSec", selection_h);
+  art::Handle<std::vector<ubana::SelectionResult>> selection_h;
+  evt.getByLabel("UBXSec", selection_h);
 
-    if (!selection_h.isValid() || selection_h->empty())
-    {
-      std::cout << "[PandoraLEEAnalyzer] SelectionResult handle is not valid or empty." << std::endl;
-    }
-
-    std::vector<art::Ptr<ubana::SelectionResult>> selection_v;
-    if (selection_h.isValid())
-      art::fill_ptr_vector(selection_v, selection_h);
-
-    if (selection_v.size() > 0) {
-      _numu_passed = int(selection_v.at(0)->GetSelectionStatus());
-      if (selection_v.at(0)->GetSelectionStatus())
-      {
-          std::cout << "[PandoraLEEAnalyzer] Event is selected by UBXSec" << std::endl;
-      }
-      else
-      {
-          std::cout << "[PandoraLEEAnalyzer] Event is not selected by UBXSec" << std::endl;
-          std::cout << "[PandoraLEEAnalyzer] Failure reason " << selection_v.at(0)->GetFailureReason() << std::endl;
-      }
-      std::map<std::string, bool> failure_map = selection_v.at(0)->GetCutFlowStatus();
-      for (auto iter : failure_map)
-      {
-        if (m_printDebug) {
-            std::cout << "[PandoraLEEAnalyzer] UBXSec Cut: " << iter.first << "  >>>  " << (iter.second ? "PASSED" : "NOT PASSED") << std::endl;
-        }
-        if (iter.second) {
-            _numu_cuts += 1;
-        }
-      }
-    }
-  } catch (cet::exception &e) {
-    std::cout << "[PandoraLEEAnalyzer] UBXSec data products not avaiable" << std::endl;
+  if (!selection_h.isValid() || selection_h->empty())
+  {
+    std::cout << "[PandoraLEEAnalyzer] SelectionResult handle is not valid or empty." << std::endl;
   }
+
+  std::vector<art::Ptr<ubana::SelectionResult>> selection_v;
+  if (selection_h.isValid())
+    art::fill_ptr_vector(selection_v, selection_h);
+
+  if (selection_v.size() > 0) {
+    _numu_passed = int(selection_v.at(0)->GetSelectionStatus());
+    if (selection_v.at(0)->GetSelectionStatus())
+    {
+        std::cout << "[PandoraLEEAnalyzer] Event is selected by UBXSec" << std::endl;
+    }
+    else
+    {
+        std::cout << "[PandoraLEEAnalyzer] Event is not selected by UBXSec" << std::endl;
+        std::cout << "[PandoraLEEAnalyzer] Failure reason " << selection_v.at(0)->GetFailureReason() << std::endl;
+    }
+    std::map<std::string, bool> failure_map = selection_v.at(0)->GetCutFlowStatus();
+    for (auto iter : failure_map)
+    {
+      if (m_printDebug) {
+          std::cout << "[PandoraLEEAnalyzer] UBXSec Cut: " << iter.first << "  >>>  " << (iter.second ? "PASSED" : "NOT PASSED") << std::endl;
+      }
+      if (iter.second) {
+          _numu_cuts += 1;
+      }
+    }
+  }
+
 
 
   if ((!evt.isRealData() || m_isOverlaidSample) && !m_isCosmicInTime)
@@ -902,7 +899,18 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
     auto const &pfparticle_handle = evt.getValidHandle<std::vector<recob::PFParticle>>(m_pfp_producer);
     auto const &track_handle = evt.getValidHandle<std::vector<recob::Track>>(m_pfp_producer);
-    auto const &pid_handle = evt.getValidHandle<std::vector<anab::ParticleID>>(m_pid_producer);
+
+    std::vector<art::Ptr<anab::ParticleID>> pids;
+    try {
+        auto const &pid_handle = evt.getValidHandle<std::vector<anab::ParticleID>>(m_pid_producer);
+        if (pid_handle.isValid()) {
+          art::fill_ptr_vector(pids, pid_handle);
+        } else {
+          std::cout << "[PandoraLEEAnalyzer] ParticleID handle invalid" << std::endl;
+        }
+    } catch (cet::exception &e) {
+      std::cout << "[PandoraLEEAnalyzer] ParticleID handle not available" << std::endl;
+    }
     auto const &spcpnts_handle = evt.getValidHandle<std::vector<recob::SpacePoint>>(m_pfp_producer);
     auto const &cluster_handle = evt.getValidHandle<std::vector<recob::Cluster>>(m_pfp_producer);
 
@@ -939,13 +947,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     if (_n_tracks > 0)
     {
       art::FindOneP<recob::Track> track_per_pfpart(pfparticle_handle, evt, m_pfp_producer);
-      std::vector<art::Ptr<anab::ParticleID>> pids;
-      if (pid_handle.isValid()) {
-        art::fill_ptr_vector(pids, pid_handle);
-      } else {
-        std::cout << "[PandoraLEEAnalyzer] ParticleID handle invalid" << std::endl;
-      }
-      
       _nu_track_ids = fElectronEventSelectionAlg.get_pfp_id_tracks_from_primary().at(ipf_candidate);
 
       for (auto &pf_id : _nu_track_ids)
@@ -990,10 +991,10 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                                   energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 2212));
 
         double bragg_mu = std::max(energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_fwd, 13),
-                                   energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 13));
+                                  energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 13));
 
         double bragg_mip = std::max(energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_fwd, 0),
-                                   energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 0));
+                                  energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 0));
 
         _track_bragg_p.push_back(bragg_p);
         _track_bragg_mu.push_back(bragg_mu);
@@ -1376,8 +1377,9 @@ void lee::PandoraLEEAnalyzer::reconfigure(fhicl::ParameterSet const &pset)
   m_hitmatching_producer = pset.get<std::string>("HitMatchingLabel", "crHitRemovalTruthMatch::McRecoStage2");
   m_pfp_producer = pset.get<std::string>("PFParticleLabel", "pandoraNu::McRecoStage2");
   m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandoraNu::McRecoStage2");
-
+  m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandoraNu::McRecoStage2");
   m_printDebug = pset.get<bool>("PrintDebug", false);
+  m_useParticleID = pset.get<bool>("UseParticleID", true);
 
   m_isData = pset.get<bool>("isData", false);
   m_isCosmicInTime = pset.get<bool>("isCosmicInTime", false);

@@ -23,7 +23,7 @@
     <larsoft>
         <tag>&larsoft_version;</tag>
         <qual>&qualifier;</qual>
-        <fcldir>/uboone/app/users/&user;/&version;/srcs/1e1pFilter/pandoraElectronFilter/job</fcldir>
+        <fcldir>/uboone/app/users/&user;/&version;/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
         <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local> 
     </larsoft>
 

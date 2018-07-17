@@ -108,6 +108,7 @@ private:
 
   int _interaction_type;
 
+  bool m_useParticleID;
   bool m_isData;
   bool m_isCosmicInTime;
   bool m_printDebug;
