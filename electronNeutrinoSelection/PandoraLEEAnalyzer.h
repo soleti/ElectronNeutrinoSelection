@@ -96,18 +96,6 @@ private:
   std::string _mctruthLabel = "generator";
   std::string m_hitmatching_producer;
 
-  std::vector<double> _predict_p;
-  std::vector<double> _predict_mu;
-  std::vector<double> _predict_pi;
-  std::vector<double> _predict_em;
-  std::vector<double> _predict_cos;
-
-  const anab::CosmicTagID_t TAGID_P = anab::CosmicTagID_t::kGeometry_YY;
-  const anab::CosmicTagID_t TAGID_MU = anab::CosmicTagID_t::kGeometry_YZ;
-  const anab::CosmicTagID_t TAGID_PI = anab::CosmicTagID_t::kGeometry_ZZ;
-  const anab::CosmicTagID_t TAGID_EM = anab::CosmicTagID_t::kGeometry_XX;
-  const anab::CosmicTagID_t TAGID_CS = anab::CosmicTagID_t::kGeometry_XY;
-
   lee::ElectronEventSelectionAlg fElectronEventSelectionAlg;
   EnergyHelper energyHelper;
   GeometryHelper geoHelper;
@@ -177,11 +165,6 @@ private:
   int _numu_cuts;
   double _distance;
   double _cosmic_fraction;
-  double _qsqr;
-  double _theta;
-  TLorentzVector _nu_p;
-  double _lepton_E;
-  TLorentzVector _lepton_p; 
 
   std::vector<int> _flash_passed;
   std::vector<int> _track_passed;
@@ -270,16 +253,16 @@ private:
   std::vector<double> _track_length;
   std::vector<double> _track_id;
 
-  std::vector< double > _track_bragg_p;
-  std::vector< double > _track_bragg_mu;
-  std::vector< double > _track_bragg_mip;
+  std::vector<double> _track_bragg_p;
+  std::vector<double> _track_bragg_mu;
+  std::vector<double> _track_bragg_mip;
 
-  std::vector< double > _track_pidchi;
-  std::vector< double > _track_pidchipr;
-  std::vector< double > _track_pidchika;
-  std::vector< double > _track_pidchipi;
-  std::vector< double > _track_pidchimu;
-  std::vector< double > _track_pida;
+  std::vector<double> _track_pidchi;
+  std::vector<double> _track_pidchipr;
+  std::vector<double> _track_pidchika;
+  std::vector<double> _track_pidchipi;
+  std::vector<double> _track_pidchimu;
+  std::vector<double> _track_pida;
 
   std::vector<double> _track_energy_dedx;
   std::vector<std::vector<double>> _track_energy_hits;
@@ -315,31 +298,57 @@ private:
 
   std::vector<std::vector<int>> _shower_nhits;
   std::vector<std::vector<int>> _track_nhits;
-  double m_dQdxRectangleWidth;
-  double m_dQdxRectangleLength;
 
-  size_t choose_candidate(std::vector<size_t> &candidates,
-                          const art::Event &evt);
-  void clear();
-  art::Ptr<recob::Track>
-  get_longest_track(std::vector<art::Ptr<recob::Track>> &tracks);
-
-  /**
-  * @brief Conversion between two different types of vectors
+  /*
+  * @brief Clears filled variables
   */
-  std::vector<int> vectorCast(std::vector<long unsigned int> vec_size_t);
+  void clear();
 
-  art::Ptr<recob::Shower>
-  get_most_energetic_shower(std::vector<art::Ptr<recob::Shower>> &showers);
-  /**
+  /*
+  * @brief Return the longest reconstructed track
+  *
+  * @param[in] candidates  vector of neutrino candidates indexes
+  * @param[in] evt         current art::Event
+  *
+  * @return            index of the chosen neutrino candidate
+  */
+  size_t choose_candidate(
+    std::vector<size_t> &candidates,
+    const art::Event &evt);
+
+  /*
+  * @brief Return the longest reconstructed track
+  *
+  * @param[in] tracks  vector of reconstructed tracks
+  *
+  * @return            longest reconstructed track object
+  */
+  art::Ptr<recob::Track> get_longest_track(
+    std::vector<art::Ptr<recob::Track>> &tracks);
+
+  /*
+  * @brief Return the most energetic reconstructed shower
+  *
+  * @param[in] showers  vector of reconstructed showers
+  *
+  * @return             most energetic reconstructed shower object
+  */
+  art::Ptr<recob::Shower> get_most_energetic_shower(
+    std::vector<art::Ptr<recob::Shower>> &showers);
+
+  /*
   * @brief Determines if a PFParticle is matched with a MCParticle coming from
   * a neutrino interaction or a cosmic ray
   *
-  * @param evt current art Event
-  * @param neutrino_pdg array of PDG codes for neutrino-matched PFParticles
-  * @param neutrino_pf array of neutrino-matched PFParticles
-  * @param cosmic_pdg array of PDG codes for cosmic-matched PFParticles
-  * @param cosmic_pf array of cosmic-matched PFParticles
+  * @param[in]  evt               current art Event
+  * @param[out] neutrino_pdg      vector of PDG codes for neutrino-matched PFParticles
+  * @param[out] neutrino_process  vector of interaction processes for neutrino-matched PFParticles
+  * @param[out] neutrino_energy   vector of true energy of neutrino-matched MCParticles
+  * @param[out] neutrino_pf       vector of neutrino-matched PFParticles
+  * @param[out] cosmic_pdg        vector of PDG codes for cosmic-matched PFParticles
+  * @param[out] cosmic_process    vector of interaction processes for cosmic-matched PFParticles
+  * @param[out] cosmic_energy     vector of true energy of cosmic-matched MCParticles
+  * @param[out] cosmic_pf         vector of cosmic-matched PFParticles
   */
   void categorizePFParticles(
     art::Event const &evt,
