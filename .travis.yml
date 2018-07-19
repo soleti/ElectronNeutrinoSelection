@@ -2,9 +2,13 @@
 sudo: false
 
 # Blacklist
+# branches:
+#   except:
+#     - gh-pages
+# Safelist
 branches:
-  except:
-    - gh-pages
+  only:
+    - master
 
 # Environment variables
 env:
@@ -25,10 +29,11 @@ addons:
 
 # Build your code e.g. by calling make
 script:
-  - make
-
-# Generate and deploy documentation
-after_success:
   - cd $TRAVIS_BUILD_DIR
   - chmod +x generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
+# Generate and deploy documentation
+# after_success:
+#   - cd $TRAVIS_BUILD_DIR
+#   - chmod +x generateDocumentationAndDeploy.sh
+#   - ./generateDocumentationAndDeploy.sh
