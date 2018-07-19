@@ -13,7 +13,7 @@ branches:
 # Environment variables
 env:
   global:
-    - GH_REPO_NAME: ElectroNeutrinoSelection
+    - GH_REPO_NAME: ElectronNeutrinoSelection
     - DOXYFILE: $TRAVIS_BUILD_DIR/doxyConf
     - GH_REPO_REF: github.com/soleti/ElectronNeutrinoSelection.git
 
