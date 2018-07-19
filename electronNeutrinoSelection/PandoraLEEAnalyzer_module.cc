@@ -46,15 +46,15 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("true_vz_sce", &_true_vz_sce, "true_vz_sce/d");
 
   myTTree->Branch("nu_E", &_nu_energy, "nu_E/d");
-  myTTree->Branch("passed", &_event_passed, "passed/I");
-  myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/I");
-  myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/I");
+  myTTree->Branch("passed", &_event_passed, "passed/i");
+  myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/i");
+  myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/i");
 
   myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/i");
   myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/i");
   myTTree->Branch("distance", &_distance, "distance/d");
   myTTree->Branch("true_nu_is_fiducial", &_true_nu_is_fiducial,
-                  "true_nu_is_fiducial/I");
+                  "true_nu_is_fiducial/i");
 
   myTTree->Branch("n_matched", &_n_matched, "n_matched/i");
   myTTree->Branch("nu_matched_tracks", &_nu_matched_tracks,
@@ -591,7 +591,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
   std::vector<size_t> nu_candidates;
 
-  _event_passed = int(fElectronEventSelectionAlg.eventSelected(evt));
+  _event_passed = (int)fElectronEventSelectionAlg.eventSelected(evt);
 
   if (_event_passed && !evt.isRealData() && m_save_flux_info) {
     std::cout<< "[PandoraLEEAnalyzer] Saving Flux info..." << std::endl;
@@ -660,7 +660,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     art::fill_ptr_vector(selection_v, selection_h);
 
   if (selection_v.size() > 0) {
-    _numu_passed = int(selection_v.at(0)->GetSelectionStatus());
+    _numu_passed = (int)selection_v.at(0)->GetSelectionStatus();
     if (selection_v.at(0)->GetSelectionStatus())
     {
         std::cout << "[PandoraLEEAnalyzer] Event is selected by UBXSec" << std::endl;
@@ -735,7 +735,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         _true_vx = true_neutrino_vertex[0];
         _true_vy = true_neutrino_vertex[1];
         _true_vz = true_neutrino_vertex[2];
-        _true_nu_is_fiducial = int(geoHelper.isFiducial(true_neutrino_vertex));
+        _true_nu_is_fiducial = (int)geoHelper.isFiducial(true_neutrino_vertex);
+
         _interaction_type = gen.GetNeutrino().Mode();
 
         if (sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz).size() == 3)
@@ -1015,8 +1016,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         end_point.push_back(track_obj->End().Y());
         end_point.push_back(track_obj->End().Z());
 
-        _track_is_fiducial.push_back(int(geoHelper.isFiducial(start_point) &&
-                                         geoHelper.isFiducial(end_point)));
+        _track_is_fiducial.push_back((int)(geoHelper.isFiducial(start_point) &&
+                                           geoHelper.isFiducial(end_point)));
 
         std::vector<double> this_energy;
         std::vector<int> this_nhits;
@@ -1137,8 +1138,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
             shower_obj->ShowerStart()[ix] + shower_length;
       }
 
-      _shower_is_fiducial.push_back(int(geoHelper.isFiducial(start_point) &&
-                                        geoHelper.isFiducial(end_point)));
+      _shower_is_fiducial.push_back((int)(geoHelper.isFiducial(start_point) &&
+                                          geoHelper.isFiducial(end_point)));
 
       _shower_start_x.push_back(shower_obj->ShowerStart().X());
       _shower_start_y.push_back(shower_obj->ShowerStart().Y());
@@ -1370,6 +1371,18 @@ void lee::PandoraLEEAnalyzer::reconfigure(fhicl::ParameterSet const &pset)
   //  m_particleLabel = pset.get<std::string>("PFParticleModule","pandoraNu");
   fElectronEventSelectionAlg.reconfigure(pset.get<fhicl::ParameterSet>("ElectronSelectionAlg"));
   energyHelper.reconfigure(pset.get<fhicl::ParameterSet>("EnergyHelper"));
+
+  m_fidvolXstart = pset.get<double>("fidvolXstart", 0);
+  m_fidvolXend = pset.get<double>("fidvolXend", 0);
+
+  m_fidvolYstart = pset.get<double>("fidvolYstart", 0);
+  m_fidvolYend = pset.get<double>("fidvolYend", 0);
+
+  m_fidvolZstart = pset.get<double>("fidvolZstart", 0);
+  m_fidvolZend = pset.get<double>("fidvolZend", 0);
+
+  geoHelper.setFiducialVolumeCuts(m_fidvolXstart, m_fidvolXend, m_fidvolYstart,
+                                  m_fidvolYend, m_fidvolZstart, m_fidvolZend);
 
   m_hitfinderLabel = pset.get<std::string>("HitFinderLabel", "pandoraCosmicHitRemoval::McRecoStage2");
   m_pid_producer = pset.get<std::string>("ParticleIDModuleLabel", "pandoraNucalipid::McRecoCali");

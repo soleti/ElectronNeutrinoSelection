@@ -108,6 +108,14 @@ private:
 
   int _interaction_type;
 
+  double m_fidvolXstart;
+  double m_fidvolXend;
+
+  double m_fidvolYstart;
+  double m_fidvolYend;
+
+  double m_fidvolZstart;
+  double m_fidvolZend;
   bool m_useParticleID;
   bool m_isData;
   bool m_isCosmicInTime;

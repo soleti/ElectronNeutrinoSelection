@@ -5,30 +5,24 @@
 
 namespace lee {
 
-bool GeometryHelper::isFiducial(const std::vector<double> &x) const {
-  if (x.size() != 3) {
+bool GeometryHelper::isFiducial(const std::vector<double> &x) const
+{
+  if (x.size() != 3)
+  {
     return false;
   }
+  double _x[3];
 
-  return this->isFiducial(&x[0]);
+  _x[0] = x[0];
+  _x[1] = x[1];
+  _x[2] = x[2];
+  return this->isFiducial(_x);
 
-  // art::ServiceHandle<geo::Geometry> geo;
-  // std::vector<double> bnd = {
-  //     0., 2. * geo->DetHalfWidth(), -geo->DetHalfHeight(),
-  //     geo->DetHalfHeight(),
-  //     0., geo->DetLength()};
-
-  // bool is_x =
-  //     x[0] > (bnd[0] + m_fidvolXstart) && x[0] < (bnd[1] - m_fidvolXend);
-  // bool is_y =
-  //     x[1] > (bnd[2] + m_fidvolYstart) && x[1] < (bnd[3] - m_fidvolYend);
-  // bool is_z =
-  //     x[2] > (bnd[4] + m_fidvolZstart) && x[2] < (bnd[5] - m_fidvolZend);
-  // return is_x && is_y && is_z;
 }
 
-bool GeometryHelper::isFiducial(const TVector3 &x) const {
-  std::vector<double> _x(3);
+bool GeometryHelper::isFiducial(const TVector3 &x) const
+{
+  double _x[3];
 
   _x[0] = x[0];
   _x[1] = x[1];
@@ -36,19 +30,6 @@ bool GeometryHelper::isFiducial(const TVector3 &x) const {
 
   return this->isFiducial(_x);
 
-  // art::ServiceHandle<geo::Geometry> geo;
-  // std::vector<double> bnd = {
-  //     0., 2. * geo->DetHalfWidth(), -geo->DetHalfHeight(),
-  //     geo->DetHalfHeight(),
-  //     0., geo->DetLength()};
-
-  // bool is_x =
-  //     x[0] > (bnd[0] + m_fidvolXstart) && x[0] < (bnd[1] - m_fidvolXend);
-  // bool is_y =
-  //     x[1] > (bnd[2] + m_fidvolYstart) && x[1] < (bnd[3] - m_fidvolYend);
-  // bool is_z =
-  //     x[2] > (bnd[4] + m_fidvolZstart) && x[2] < (bnd[5] - m_fidvolZend);
-  // return is_x && is_y && is_z;
 }
 
 bool GeometryHelper::isFiducial(const double x[3]) const {
@@ -58,13 +39,13 @@ bool GeometryHelper::isFiducial(const double x[3]) const {
       0., 2. * geo->DetHalfWidth(), -geo->DetHalfHeight(), geo->DetHalfHeight(),
       0., geo->DetLength()};
 
-
-  bool is_x =
+   bool is_x =
       x[0] > (bnd[0] + m_fidvolXstart) && x[0] < (bnd[1] - m_fidvolXend);
   bool is_y =
       x[1] > (bnd[2] + m_fidvolYstart) && x[1] < (bnd[3] - m_fidvolYend);
   bool is_z =
       x[2] > (bnd[4] + m_fidvolZstart) && x[2] < (bnd[5] - m_fidvolZend);
+
   return is_x && is_y && is_z;
 }
 
@@ -73,7 +54,13 @@ bool GeometryHelper::isActive(const std::vector<double> &x) const {
     return false;
   }
 
-  return this->isActive(&x[0]);
+  double _x[3];
+
+  _x[0] = x[0];
+  _x[1] = x[1];
+  _x[2] = x[2];
+
+  return this->isActive(_x);
 }
 
 bool GeometryHelper::isActive(const double x[3]) const {
