@@ -28,7 +28,15 @@ public:
   GeometryHelper() = default;
   ~GeometryHelper() = default;
 
-  int isInside( std::vector<double> P, std::vector< std::vector<double> > V);
+  /**
+   * @brief Determine if a point is within a rectangle (in 2D)
+   *
+   * @param P   vector containing the point's coordinates
+   * @param V   vector of vectors containing rectangle's vertices
+
+   * @return    True if the points is inside, False otherwise
+   */
+  bool isInside( std::vector<double> P, std::vector< std::vector<double> > V);
 
   /**
    * @brief Determine if the specified point is in the fiducial volume
@@ -115,7 +123,6 @@ public:
                              float m_fidvolYstart, float m_fidvolYend,
                              float m_fidvolZstart, float m_fidvolZend);
 
-  void setRectangleSize(float rectangleLength, float rectangleWidth);
 
   /**
    * @brief      Return the average position of a set of space points
@@ -139,17 +146,6 @@ public:
   void buildRectangle(double length, double width, std::vector<double> &start,
                       std::vector<double> &axis,
                       std::vector<std::vector<double>> &points);
-
-  /**
-   * @brief      { function_description }
-   *
-   * @param      points  The points
-   * @param      point   The point
-   *
-   * @return     { description_of_the_return_value }
-   */
-
-  int correct_direction(size_t pfp_id, const art::Event &evt, std::string _pfp_producer);
 
 
 private:

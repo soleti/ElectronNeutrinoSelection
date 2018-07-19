@@ -128,7 +128,7 @@ TVector3 GeometryHelper::getAveragePosition(
 }
 
 
-int GeometryHelper::isInside( std::vector<double> P,
+bool GeometryHelper::isInside( std::vector<double> P,
   std::vector< std::vector<double> > V) {
 
   int nvert = (int)V.size();
@@ -187,52 +187,7 @@ void GeometryHelper::buildRectangle(double length, double width,
                             start[1] - perp_axis[1] * width / 2};
   std::vector<double> p4 = {p3[0] + axis[0] * length, p3[1] + axis[1] * length};
 
-
-
-
   points.insert(points.end(), {p1, p2, p4, p3});
-}
-
-// CORRECT SHOWER DIRECTION THAT SOMETIMES IS INVERTED
-int GeometryHelper::correct_direction(size_t pfp_id, const art::Event &evt,
-                                      std::string _pfp_producer) {
-
-  auto const &pfparticle_handle =
-      evt.getValidHandle<std::vector<recob::PFParticle>>(_pfp_producer);
-
-  art::FindManyP<recob::SpacePoint> spcpnts_per_pfpart(pfparticle_handle, evt,
-                                                       _pfp_producer);
-  std::vector<art::Ptr<recob::SpacePoint>> spcpnts =
-      spcpnts_per_pfpart.at(pfp_id);
-
-  int direction = 1;
-
-  if (spcpnts.size() > 0) {
-    art::FindOneP<recob::Vertex> vertex_per_pfpart(pfparticle_handle, evt,
-                                                   _pfp_producer);
-    auto const &vertex_obj = vertex_per_pfpart.at(pfp_id);
-    double vertex_xyz[3];
-    vertex_obj->XYZ(vertex_xyz);
-    TVector3 start_vec(vertex_xyz[0], vertex_xyz[1], vertex_xyz[2]);
-
-    art::FindOneP<recob::Shower> shower_per_pfpart(pfparticle_handle, evt,
-                                                   _pfp_producer);
-    auto const &shower_obj = shower_per_pfpart.at(pfp_id);
-    TVector3 shower_vec(shower_obj->Direction().X(),
-                        shower_obj->Direction().Y(),
-                        shower_obj->Direction().Z());
-
-    TVector3 avg_spcpnt = getAveragePosition(spcpnts);
-
-    TVector3 a;
-    TVector3 b;
-    a = shower_vec;
-    b = avg_spcpnt - start_vec;
-    double costheta = a.Dot(b);
-    direction = costheta >= 0 ? 1 : -1;
-  }
-
-  return direction;
 }
 
 } // namespace lee
