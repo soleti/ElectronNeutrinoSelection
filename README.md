@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/soleti/ElectronNeutrinoSelection.svg?branch=master)](https://travis-ci.org/soleti/ElectronNeutrinoSelection)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/16286/badge.svg)](https://scan.coverity.com/projects/soleti-electronneutrinoselection)
 
 # Pandora &nu;<sub>e</sub> selection
 This module is a [LArSoft](http://www.larsoft.org) analyzer that builds a ROOT `TTree` with information from &nu;<sub>e</sub> candidates, reconstructed with the [Pandora framework](https://github.com/PandoraPFA).
