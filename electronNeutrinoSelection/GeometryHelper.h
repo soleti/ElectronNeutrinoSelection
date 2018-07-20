@@ -1,9 +1,21 @@
-////////////////////////////////////////////////////////////////////////
-// Class:       GeometryHelper
-// Module Type: filter
-// File:        GeometryHelper.h
-//
-////////////////////////////////////////////////////////////////////////
+/**
+ * \class GeometryHelper
+ *
+ * \ingroup ElectronNeutrinoSelection
+ *
+ * \brief Helper class with geometric methods (distance, point in a plane, etc. )
+ *
+ *
+ * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
+ *
+ *
+ * \date 20/07/2018
+ *
+ * Contact: stefano.soleti@physics.ox.ac.uk
+ *
+ * Created on: Fri Jul  20 11:20:39 2018
+ *
+ */
 
 #ifndef GEOMETRYHELPER_H
 #define GEOMETRYHELPER_H

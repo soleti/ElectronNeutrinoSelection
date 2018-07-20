@@ -1,10 +1,23 @@
-////////////////////////////////////////////////////////////////////////
-// Class:       PandoraLEEAnalyzer
-// Module Type: analyzer
-// File:        PandoraLEEAnalyzer.h
-//
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * \class PandoraLEEAnalyzer
+ *
+ * \ingroup ElectronNeutrinoSelection
+ *
+ * \brief Main analyzer class filling a ROOT TTree with information from the selected
+ * electron neutrino candidate
+ * 
+ *
+ * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
+ *
+ * \version analyzer (art v2_05_00)
+ *
+ * \date 20/07/2018
+ *
+ * Contact: stefano.soleti@physics.ox.ac.uk
+ *
+ * Created on: Fri Jul  20 11:20:39 2018
+ *
+ */
 
 #ifndef PANDORA_LEE_H
 #define PANDORA_LEE_H
@@ -26,8 +39,6 @@
 // uncomment the lines below as you use these objects
 
 #include "TFile.h"
-#include "TH1F.h"
-#include "THStack.h"
 #include "TTree.h"
 #include "TVector3.h"
 #include "TLorentzVector.h"
@@ -65,7 +76,7 @@
 
 #include "uboone/EventWeight/EventWeightTreeUtility.h"
 
-    namespace lee {
+namespace lee {
 
 class PandoraLEEAnalyzer : public art::EDAnalyzer {
 public:
@@ -80,10 +91,90 @@ public:
   PandoraLEEAnalyzer &operator=(PandoraLEEAnalyzer const &) = delete;
   PandoraLEEAnalyzer &operator=(PandoraLEEAnalyzer &&) = delete;
 
-  // Required functions.
+  /**
+  * @brief Main analyzer method, runs for every event in the file
+  *
+  * @param[in] evt  current art::Event
+  */
   void analyze(art::Event const &e) override;
+
+  /**
+  * @brief Method called at the end of each subrun, it stores the number of POT
+  *
+  * @param[in] sr  current art::SubRun
+  */
   void endSubRun(const art::SubRun &sr);
+
+  /**
+  * @brief Assigns the values of the FHICL file
+  *
+  * @param[in] pset  set of FHICL parameters
+  */
   void reconfigure(fhicl::ParameterSet const &pset) override;
+
+  /**
+  * @brief Clears filled variables
+  */
+  void clear();
+
+  /**
+  * @brief Return the longest reconstructed track
+  *
+  * @param[in] candidates  vector of neutrino candidates indexes
+  * @param[in] evt         current art::Event
+  *
+  * @return            index of the chosen neutrino candidate
+  */
+  size_t choose_candidate(
+      std::vector<size_t> &candidates,
+      const art::Event &evt);
+
+  /**
+  * @brief Return the longest reconstructed track
+  *
+  * @param[in] tracks  vector of reconstructed tracks
+  *
+  * @return            longest reconstructed track object
+  */
+  art::Ptr<recob::Track> get_longest_track(
+      std::vector<art::Ptr<recob::Track>> &tracks);
+
+  /*
+  * @brief Return the most energetic reconstructed shower
+  *
+  * @param[in] showers  vector of reconstructed showers
+  *
+  * @return             most energetic reconstructed shower object
+  */
+  art::Ptr<recob::Shower> get_most_energetic_shower(
+      std::vector<art::Ptr<recob::Shower>> &showers);
+
+  /**
+  * @brief Determines if a PFParticle is matched with a MCParticle coming from
+  * a neutrino interaction or a cosmic ray
+  *
+  * @param[in]  evt               current art Event
+  * @param[out] neutrino_pdg      vector of PDG codes for neutrino-matched PFParticles
+  * @param[out] neutrino_process  vector of interaction processes for neutrino-matched PFParticles
+  * @param[out] neutrino_energy   vector of true energy of neutrino-matched MCParticles
+  * @param[out] neutrino_pf       vector of neutrino-matched PFParticles
+  * @param[out] cosmic_pdg        vector of PDG codes for cosmic-matched PFParticles
+  * @param[out] cosmic_process    vector of interaction processes for cosmic-matched PFParticles
+  * @param[out] cosmic_energy     vector of true energy of cosmic-matched MCParticles
+  * @param[out] cosmic_pf         vector of cosmic-matched PFParticles
+  */
+  void categorizePFParticles(
+      art::Event const &evt,
+
+      std::vector<int> &neutrino_pdg,
+      std::vector<std::string> &neutrino_process,
+      std::vector<double> &neutrino_energy,
+      std::vector<art::Ptr<recob::PFParticle>> &neutrino_pf,
+
+      std::vector<int> &cosmic_pdg,
+      std::vector<std::string> &cosmic_process,
+      std::vector<double> &cosmic_energy,
+      std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf);
 
 private:
   std::string m_hitfinderLabel;
@@ -153,7 +244,7 @@ private:
   std::vector<double> _true_shower_z_sce;
   std::vector<int> _true_shower_pdg;
   std::vector<double> _true_shower_depE;
-  
+
   int _nu_matched_tracks;
   int _nu_matched_showers;
 
@@ -307,70 +398,6 @@ private:
 
   std::vector<std::vector<int>> _shower_nhits;
   std::vector<std::vector<int>> _track_nhits;
-
-  /*
-  * @brief Clears filled variables
-  */
-  void clear();
-
-  /*
-  * @brief Return the longest reconstructed track
-  *
-  * @param[in] candidates  vector of neutrino candidates indexes
-  * @param[in] evt         current art::Event
-  *
-  * @return            index of the chosen neutrino candidate
-  */
-  size_t choose_candidate(
-    std::vector<size_t> &candidates,
-    const art::Event &evt);
-
-  /*
-  * @brief Return the longest reconstructed track
-  *
-  * @param[in] tracks  vector of reconstructed tracks
-  *
-  * @return            longest reconstructed track object
-  */
-  art::Ptr<recob::Track> get_longest_track(
-    std::vector<art::Ptr<recob::Track>> &tracks);
-
-  /*
-  * @brief Return the most energetic reconstructed shower
-  *
-  * @param[in] showers  vector of reconstructed showers
-  *
-  * @return             most energetic reconstructed shower object
-  */
-  art::Ptr<recob::Shower> get_most_energetic_shower(
-    std::vector<art::Ptr<recob::Shower>> &showers);
-
-  /*
-  * @brief Determines if a PFParticle is matched with a MCParticle coming from
-  * a neutrino interaction or a cosmic ray
-  *
-  * @param[in]  evt               current art Event
-  * @param[out] neutrino_pdg      vector of PDG codes for neutrino-matched PFParticles
-  * @param[out] neutrino_process  vector of interaction processes for neutrino-matched PFParticles
-  * @param[out] neutrino_energy   vector of true energy of neutrino-matched MCParticles
-  * @param[out] neutrino_pf       vector of neutrino-matched PFParticles
-  * @param[out] cosmic_pdg        vector of PDG codes for cosmic-matched PFParticles
-  * @param[out] cosmic_process    vector of interaction processes for cosmic-matched PFParticles
-  * @param[out] cosmic_energy     vector of true energy of cosmic-matched MCParticles
-  * @param[out] cosmic_pf         vector of cosmic-matched PFParticles
-  */
-  void categorizePFParticles(
-    art::Event const &evt,
-
-    std::vector<int> &neutrino_pdg,
-    std::vector<std::string> &neutrino_process,
-    std::vector<double> &neutrino_energy,
-    std::vector<art::Ptr<recob::PFParticle>> &neutrino_pf,
-
-    std::vector<int> &cosmic_pdg,
-    std::vector<std::string> &cosmic_process,
-    std::vector<double> &cosmic_energy,
-    std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf);
 
 };
 

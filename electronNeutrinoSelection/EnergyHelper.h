@@ -1,9 +1,22 @@
-////////////////////////////////////////////////////////////////////////
-// Class:       EnergyHelper
-// Module Type: filter
-// File:        EnergyHelper.h
-//
-////////////////////////////////////////////////////////////////////////
+/**
+ * \class EnergyHelper
+ *
+ * \ingroup ElectronNeutrinoSelection
+ *
+ * \brief Helper class with methods accessing calorimetric information
+ * (energy and dE/dx)
+ *
+ *
+ * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
+ *
+ *
+ * \date 20/07/2018
+ *
+ * Contact: stefano.soleti@physics.ox.ac.uk
+ *
+ * Created on: Fri Jul  20 11:20:39 2018
+ *
+ */
 
 #ifndef ENERGYHELPER_H
 #define ENERGYHELPER_H
