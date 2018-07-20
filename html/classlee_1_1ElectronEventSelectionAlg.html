@@ -86,7 +86,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classlee_1_1ElectronEventSelectionAlg-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lee::ElectronEventSelectionAlg Class Reference</div>  </div>
@@ -95,212 +94,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac6ee12d1ca7a56aba8b2af813b5a1012"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ac6ee12d1ca7a56aba8b2af813b5a1012">eventSelected</a> (const art::Event &amp;evt)</td></tr>
-<tr class="memdesc:ac6ee12d1ca7a56aba8b2af813b5a1012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main Event Selection Function.  <a href="#ac6ee12d1ca7a56aba8b2af813b5a1012">More...</a><br/></td></tr>
-<tr class="separator:ac6ee12d1ca7a56aba8b2af813b5a1012"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5d09c1db1da5f32408233ba8db10a1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ac5d09c1db1da5f32408233ba8db10a1f">reconfigure</a> (fhicl::ParameterSet const &amp;p)</td></tr>
-<tr class="memdesc:ac5d09c1db1da5f32408233ba8db10a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure all of the parameters of this class.  <a href="#ac5d09c1db1da5f32408233ba8db10a1f">More...</a><br/></td></tr>
-<tr class="separator:ac5d09c1db1da5f32408233ba8db10a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a468d5973165360075a4a9abece4f1867"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a468d5973165360075a4a9abece4f1867">opticalfilter</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
-<tr class="memdesc:a468d5973165360075a4a9abece4f1867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge.  <a href="#a468d5973165360075a4a9abece4f1867">More...</a><br/></td></tr>
-<tr class="separator:a468d5973165360075a4a9abece4f1867"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48bac681dab43fcd1d116cb39302fe4a"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a48bac681dab43fcd1d116cb39302fe4a">flashBasedSelection</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
-<tr class="memdesc:a48bac681dab43fcd1d116cb39302fe4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE. and compatible with the center of charge, the best one is selected using flashmatching.  <a href="#a48bac681dab43fcd1d116cb39302fe4a">More...</a><br/></td></tr>
-<tr class="separator:a48bac681dab43fcd1d116cb39302fe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a194dc0ef0d33314f77e45d134932ac3c"><td class="memItemLeft" align="right" valign="top">const flashana::QCluster_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a194dc0ef0d33314f77e45d134932ac3c">collect3DHits</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist)</td></tr>
-<tr class="memdesc:a194dc0ef0d33314f77e45d134932ac3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a photon cluster for a neutrino pfp hierarchy PFParticle.  <a href="#a194dc0ef0d33314f77e45d134932ac3c">More...</a><br/></td></tr>
-<tr class="separator:a194dc0ef0d33314f77e45d134932ac3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38772f4cd346a40fd3f30eba3bc505a9"><td class="memItemLeft" align="right" valign="top">TVector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a38772f4cd346a40fd3f30eba3bc505a9">spaceChargeTrueToReco</a> (const TVector3 &amp;xyz)</td></tr>
-<tr class="memdesc:a38772f4cd346a40fd3f30eba3bc505a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the true coordinates corrected by the space-charge effect.  <a href="#a38772f4cd346a40fd3f30eba3bc505a9">More...</a><br/></td></tr>
-<tr class="separator:a38772f4cd346a40fd3f30eba3bc505a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f320d7d843471c4f61409adf2c4d690"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f320d7d843471c4f61409adf2c4d690"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a9f320d7d843471c4f61409adf2c4d690">clear</a> ()</td></tr>
-<tr class="memdesc:a9f320d7d843471c4f61409adf2c4d690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset internal variables. <br/></td></tr>
-<tr class="separator:a9f320d7d843471c4f61409adf2c4d690"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a317c107f710fc965cd7e062ac933d3df"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">get_primary_indexes</a> () const </td></tr>
-<tr class="memdesc:a317c107f710fc965cd7e062ac933d3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of neutrino candidates from pandora, regardless of whether the passed.  <a href="#a317c107f710fc965cd7e062ac933d3df">More...</a><br/></td></tr>
+<tr class="memitem:a59666f2bec60817a81fcdd467d9b9641"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a59666f2bec60817a81fcdd467d9b9641">eventSelected</a> (const art::Event &amp;evt)</td></tr>
+<tr class="memdesc:a59666f2bec60817a81fcdd467d9b9641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main Event Selection Function.  <a href="#a59666f2bec60817a81fcdd467d9b9641">More...</a><br/></td></tr>
+<tr class="separator:a59666f2bec60817a81fcdd467d9b9641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f1378ec08aba381d438816c8bc31951"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a8f1378ec08aba381d438816c8bc31951">reconfigure</a> (fhicl::ParameterSet const &amp;p)</td></tr>
+<tr class="memdesc:a8f1378ec08aba381d438816c8bc31951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure all of the parameters of this class.  <a href="#a8f1378ec08aba381d438816c8bc31951">More...</a><br/></td></tr>
+<tr class="separator:a8f1378ec08aba381d438816c8bc31951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1853e2053d74627cd4466cf670dc0c31"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a1853e2053d74627cd4466cf670dc0c31">opticalfilter</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
+<tr class="memdesc:a1853e2053d74627cd4466cf670dc0c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge.  <a href="#a1853e2053d74627cd4466cf670dc0c31">More...</a><br/></td></tr>
+<tr class="separator:a1853e2053d74627cd4466cf670dc0c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d8d979b26116ec25d26884702d0f9c6"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a4d8d979b26116ec25d26884702d0f9c6">flashBasedSelection</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
+<tr class="memdesc:a4d8d979b26116ec25d26884702d0f9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE. and compatible with the center of charge, the best one is selected using flashmatching.  <a href="#a4d8d979b26116ec25d26884702d0f9c6">More...</a><br/></td></tr>
+<tr class="separator:a4d8d979b26116ec25d26884702d0f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a3e470d9b2ca729d25822fac19e455"><td class="memItemLeft" align="right" valign="top">const flashana::QCluster_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a06a3e470d9b2ca729d25822fac19e455">collect3DHits</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist)</td></tr>
+<tr class="memdesc:a06a3e470d9b2ca729d25822fac19e455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a photon cluster for a neutrino pfp hierarchy PFParticle.  <a href="#a06a3e470d9b2ca729d25822fac19e455">More...</a><br/></td></tr>
+<tr class="separator:a06a3e470d9b2ca729d25822fac19e455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb99143e1546158d3f030724694e6a51"><td class="memItemLeft" align="right" valign="top">TVector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#afb99143e1546158d3f030724694e6a51">spaceChargeTrueToReco</a> (const TVector3 &amp;xyz)</td></tr>
+<tr class="memdesc:afb99143e1546158d3f030724694e6a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the true coordinates corrected by the space-charge effect.  <a href="#afb99143e1546158d3f030724694e6a51">More...</a><br/></td></tr>
+<tr class="separator:afb99143e1546158d3f030724694e6a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad936812d5e9dc7999a37c75b84b04ada"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad936812d5e9dc7999a37c75b84b04ada"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ad936812d5e9dc7999a37c75b84b04ada">clear</a> ()</td></tr>
+<tr class="memdesc:ad936812d5e9dc7999a37c75b84b04ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset internal variables. <br/></td></tr>
+<tr class="separator:ad936812d5e9dc7999a37c75b84b04ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317c107f710fc965cd7e062ac933d3df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a317c107f710fc965cd7e062ac933d3df"></a>
+const std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">get_primary_indexes</a> () const </td></tr>
+<tr class="memdesc:a317c107f710fc965cd7e062ac933d3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of the selected pfparticle top level neutrino candidate indexes. <br/></td></tr>
 <tr class="separator:a317c107f710fc965cd7e062ac933d3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6259851e755db48eb0dd831708212e27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6259851e755db48eb0dd831708212e27"></a>
 const size_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">get_n_neutrino_candidates</a> () const </td></tr>
 <tr class="memdesc:a6259851e755db48eb0dd831708212e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of neutrino candidates. <br/></td></tr>
 <tr class="separator:a6259851e755db48eb0dd831708212e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, bool &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">get_neutrino_candidate_passed</a> () const </td></tr>
-<tr class="memdesc:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informs whether a particular candidate passed or failed the algorithm.  <a href="#ab34dc2b97e0065b07a5233e3b46b83a4">More...</a><br/></td></tr>
+<tr class="memdesc:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform whether a particular candidate passed or failed the algorithm.  <a href="#ab34dc2b97e0065b07a5233e3b46b83a4">More...</a><br/></td></tr>
 <tr class="separator:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affda5b411008752c1355a9dd3a1d9c1e"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">get_op_flash_indexes</a> () const </td></tr>
-<tr class="memdesc:affda5b411008752c1355a9dd3a1d9c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index of the flash matched with the pfparticle.  <a href="#affda5b411008752c1355a9dd3a1d9c1e">More...</a><br/></td></tr>
+<tr class="memitem:affda5b411008752c1355a9dd3a1d9c1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affda5b411008752c1355a9dd3a1d9c1e"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">get_op_flash_indexes</a> () const </td></tr>
+<tr class="memdesc:affda5b411008752c1355a9dd3a1d9c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index of the flash matched with the pfparticle. <br/></td></tr>
 <tr class="separator:affda5b411008752c1355a9dd3a1d9c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac098d39d04f407c9bfc574da4b82fee6"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, <br class="typebreak"/>
+<tr class="memitem:ac098d39d04f407c9bfc574da4b82fee6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac098d39d04f407c9bfc574da4b82fee6"></a>
+const std::map&lt; size_t, <br class="typebreak"/>
 TVector3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">get_neutrino_vertex</a> () const </td></tr>
-<tr class="memdesc:ac098d39d04f407c9bfc574da4b82fee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pandora calculated vertex indexed by pfparticle id number.  <a href="#ac098d39d04f407c9bfc574da4b82fee6">More...</a><br/></td></tr>
+<tr class="memdesc:ac098d39d04f407c9bfc574da4b82fee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pandora calculated vertex indexed by pfparticle id number. <br/></td></tr>
 <tr class="separator:ac098d39d04f407c9bfc574da4b82fee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43afa7fb8c10333f89774c6d4ea714dc"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a> () const </td></tr>
-<tr class="memdesc:a43afa7fb8c10333f89774c6d4ea714dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of showers for this pfparticle.  <a href="#a43afa7fb8c10333f89774c6d4ea714dc">More...</a><br/></td></tr>
+<tr class="memitem:a43afa7fb8c10333f89774c6d4ea714dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43afa7fb8c10333f89774c6d4ea714dc"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a> () const </td></tr>
+<tr class="memdesc:a43afa7fb8c10333f89774c6d4ea714dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of showers for this pfparticle. <br/></td></tr>
 <tr class="separator:a43afa7fb8c10333f89774c6d4ea714dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24d64eca5e56d0550572b24d5e213f7"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a> () const </td></tr>
-<tr class="memdesc:ad24d64eca5e56d0550572b24d5e213f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of tracks for pfparticle index.  <a href="#ad24d64eca5e56d0550572b24d5e213f7">More...</a><br/></td></tr>
+<tr class="memitem:ad24d64eca5e56d0550572b24d5e213f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad24d64eca5e56d0550572b24d5e213f7"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a> () const </td></tr>
+<tr class="memdesc:ad24d64eca5e56d0550572b24d5e213f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of tracks for pfparticle index. <br/></td></tr>
 <tr class="separator:ad24d64eca5e56d0550572b24d5e213f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ea645ce175506b368ceb116bbb77889"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, <br class="typebreak"/>
+<tr class="memitem:a7ea645ce175506b368ceb116bbb77889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ea645ce175506b368ceb116bbb77889"></a>
+const std::map&lt; size_t, <br class="typebreak"/>
 std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">get_pfp_id_showers_from_primary</a> () const </td></tr>
-<tr class="memdesc:a7ea645ce175506b368ceb116bbb77889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes.  <a href="#a7ea645ce175506b368ceb116bbb77889">More...</a><br/></td></tr>
+<tr class="memdesc:a7ea645ce175506b368ceb116bbb77889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. <br/></td></tr>
 <tr class="separator:a7ea645ce175506b368ceb116bbb77889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00266c70e046a9ee27e979be75925a09"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, <br class="typebreak"/>
+<tr class="memitem:a00266c70e046a9ee27e979be75925a09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00266c70e046a9ee27e979be75925a09"></a>
+const std::map&lt; size_t, <br class="typebreak"/>
 std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">get_pfp_id_tracks_from_primary</a> () const </td></tr>
-<tr class="memdesc:a00266c70e046a9ee27e979be75925a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes.  <a href="#a00266c70e046a9ee27e979be75925a09">More...</a><br/></td></tr>
+<tr class="memdesc:a00266c70e046a9ee27e979be75925a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. <br/></td></tr>
 <tr class="separator:a00266c70e046a9ee27e979be75925a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a306e62904f73e727c6f938d2a197f68e"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">get_flash_PE</a> () const </td></tr>
-<tr class="memdesc:a306e62904f73e727c6f938d2a197f68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of total PE of the flashes.  <a href="#a306e62904f73e727c6f938d2a197f68e">More...</a><br/></td></tr>
+<tr class="memitem:a306e62904f73e727c6f938d2a197f68e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a306e62904f73e727c6f938d2a197f68e"></a>
+const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">get_flash_PE</a> () const </td></tr>
+<tr class="memdesc:a306e62904f73e727c6f938d2a197f68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of total PE of the flashes. <br/></td></tr>
 <tr class="separator:a306e62904f73e727c6f938d2a197f68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9990f4a980662e786fc8e38146ce4456"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">get_flash_time</a> () const </td></tr>
-<tr class="memdesc:a9990f4a980662e786fc8e38146ce4456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of times of the flashes.  <a href="#a9990f4a980662e786fc8e38146ce4456">More...</a><br/></td></tr>
+<tr class="memitem:a9990f4a980662e786fc8e38146ce4456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9990f4a980662e786fc8e38146ce4456"></a>
+const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">get_flash_time</a> () const </td></tr>
+<tr class="memdesc:a9990f4a980662e786fc8e38146ce4456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of times of the flashes. <br/></td></tr>
 <tr class="separator:a9990f4a980662e786fc8e38146ce4456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69b697a2eec43de221621bd4aca906e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69b697a2eec43de221621bd4aca906e2"></a>
-const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_flash_x</b> () const </td></tr>
+const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a69b697a2eec43de221621bd4aca906e2">get_flash_x</a> () const </td></tr>
+<tr class="memdesc:a69b697a2eec43de221621bd4aca906e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the flash. <br/></td></tr>
 <tr class="separator:a69b697a2eec43de221621bd4aca906e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c653a5d3225c3e3aa5dc84738ffa086"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c653a5d3225c3e3aa5dc84738ffa086"></a>
-const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_TPC_x</b> () const </td></tr>
+const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a2c653a5d3225c3e3aa5dc84738ffa086">get_TPC_x</a> () const </td></tr>
+<tr class="memdesc:a2c653a5d3225c3e3aa5dc84738ffa086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the center of the collected charge. <br/></td></tr>
 <tr class="separator:a2c653a5d3225c3e3aa5dc84738ffa086"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ab595a7373a091aab62b8f199248f320d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab595a7373a091aab62b8f199248f320d"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>_n_neutrino_candidates</b></td></tr>
-<tr class="separator:ab595a7373a091aab62b8f199248f320d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90143a319f9dd71c5ba32b658f30ceb7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90143a319f9dd71c5ba32b658f30ceb7"></a>
-std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_primary_indexes</b></td></tr>
-<tr class="separator:a90143a319f9dd71c5ba32b658f30ceb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad074e6a2ccd754a2c15efa834932ffb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad074e6a2ccd754a2c15efa834932ffb9"></a>
-std::map&lt; size_t, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_neutrino_candidate_passed</b></td></tr>
-<tr class="separator:ad074e6a2ccd754a2c15efa834932ffb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb55a71628710eb97f89b2e6d78d236"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2eb55a71628710eb97f89b2e6d78d236"></a>
-std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_op_flash_indexes</b></td></tr>
-<tr class="separator:a2eb55a71628710eb97f89b2e6d78d236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25adf65208b5fcbb82b5f2bf69bc132c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25adf65208b5fcbb82b5f2bf69bc132c"></a>
-std::map&lt; size_t, TVector3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_neutrino_vertex</b></td></tr>
-<tr class="separator:a25adf65208b5fcbb82b5f2bf69bc132c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76fb1477a75421ece942e311f9cac1d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76fb1477a75421ece942e311f9cac1d7"></a>
-std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_n_showers</b></td></tr>
-<tr class="separator:a76fb1477a75421ece942e311f9cac1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d6863ea6968da00aedb35cdcc11e857"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d6863ea6968da00aedb35cdcc11e857"></a>
-std::map&lt; size_t, std::vector<br class="typebreak"/>
-&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_pfp_id_showers_from_primary</b></td></tr>
-<tr class="separator:a6d6863ea6968da00aedb35cdcc11e857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed017ee63fe451fd266d9b16c9cf8d3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed017ee63fe451fd266d9b16c9cf8d3c"></a>
-std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_n_tracks</b></td></tr>
-<tr class="separator:aed017ee63fe451fd266d9b16c9cf8d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f8d5c0400bf9f2a5963a70615a04f7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f8d5c0400bf9f2a5963a70615a04f7f"></a>
-std::map&lt; size_t, std::vector<br class="typebreak"/>
-&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_pfp_id_tracks_from_primary</b></td></tr>
-<tr class="separator:a5f8d5c0400bf9f2a5963a70615a04f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace044c6f4da66c667ce2106cb82b9851"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace044c6f4da66c667ce2106cb82b9851"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_PE</b></td></tr>
-<tr class="separator:ace044c6f4da66c667ce2106cb82b9851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b833533a073320eb3142149ce708e58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b833533a073320eb3142149ce708e58"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_time</b></td></tr>
-<tr class="separator:a3b833533a073320eb3142149ce708e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a52193b5a38db1f71b010b47f745b21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a52193b5a38db1f71b010b47f745b21"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>_TPC_x</b></td></tr>
-<tr class="separator:a8a52193b5a38db1f71b010b47f745b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a323a6efba151edcc16bf3a13d575315e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a323a6efba151edcc16bf3a13d575315e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_x</b></td></tr>
-<tr class="separator:a323a6efba151edcc16bf3a13d575315e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7037dd08a637555158a8575ddca0219b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7037dd08a637555158a8575ddca0219b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nTracks</b></td></tr>
-<tr class="separator:a7037dd08a637555158a8575ddca0219b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3efb31abe249ff0a0172df48454c4a01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3efb31abe249ff0a0172df48454c4a01"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_printDebug</b></td></tr>
-<tr class="separator:a3efb31abe249ff0a0172df48454c4a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bc56efdd67fed68ea859f9c31e92689"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bc56efdd67fed68ea859f9c31e92689"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolXstart</b></td></tr>
-<tr class="separator:a2bc56efdd67fed68ea859f9c31e92689"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96a39585eb1cc6296f39fe20c411487b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96a39585eb1cc6296f39fe20c411487b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolXend</b></td></tr>
-<tr class="separator:a96a39585eb1cc6296f39fe20c411487b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a619e14aa36bea7cb4a1cda1af59e874c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a619e14aa36bea7cb4a1cda1af59e874c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolYstart</b></td></tr>
-<tr class="separator:a619e14aa36bea7cb4a1cda1af59e874c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa068d7654b2c313f37e6acca55d7cbde"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa068d7654b2c313f37e6acca55d7cbde"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolYend</b></td></tr>
-<tr class="separator:aa068d7654b2c313f37e6acca55d7cbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a947ab1201c69fc7ffcfd3eb6720a7912"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a947ab1201c69fc7ffcfd3eb6720a7912"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolZstart</b></td></tr>
-<tr class="separator:a947ab1201c69fc7ffcfd3eb6720a7912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6971785950632dd5afc288142aee39f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6971785950632dd5afc288142aee39f6"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolZend</b></td></tr>
-<tr class="separator:a6971785950632dd5afc288142aee39f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac32ee2582a0e2b1e61e1877bd00da44a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac32ee2582a0e2b1e61e1877bd00da44a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fractionsigmaflashwidth</b></td></tr>
-<tr class="separator:ac32ee2582a0e2b1e61e1877bd00da44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae16d1fff36b6960e4098741e251af01c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae16d1fff36b6960e4098741e251af01c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_absoluteflashdist</b></td></tr>
-<tr class="separator:ae16d1fff36b6960e4098741e251af01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb5023e8512933602d4347d1e1b7359"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeeb5023e8512933602d4347d1e1b7359"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_startbeamtime</b></td></tr>
-<tr class="separator:aeeb5023e8512933602d4347d1e1b7359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a4427349f2c202218e71dc8119ad811"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a4427349f2c202218e71dc8119ad811"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_endbeamtime</b></td></tr>
-<tr class="separator:a0a4427349f2c202218e71dc8119ad811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5125eb3abd5356cd0c33e9f47f2c6a3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5125eb3abd5356cd0c33e9f47f2c6a3d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_PE_threshold</b></td></tr>
-<tr class="separator:a5125eb3abd5356cd0c33e9f47f2c6a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac32c1e1db8ad6287912fb1447ae7e192"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac32c1e1db8ad6287912fb1447ae7e192"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_zwidth</b></td></tr>
-<tr class="separator:ac32c1e1db8ad6287912fb1447ae7e192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd6b33330d8666d823f3698cfa83785"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bd6b33330d8666d823f3698cfa83785"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_sigzwidth</b></td></tr>
-<tr class="separator:a1bd6b33330d8666d823f3698cfa83785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fca23cbb16ca60a2f593405f256f00e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fca23cbb16ca60a2f593405f256f00e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_ywidth</b></td></tr>
-<tr class="separator:a2fca23cbb16ca60a2f593405f256f00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67bbf323c59354b2029f668c58a8951a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67bbf323c59354b2029f668c58a8951a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_sigywidth</b></td></tr>
-<tr class="separator:a67bbf323c59354b2029f668c58a8951a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaeb4528a700866fdc0e362f540a8dea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaeb4528a700866fdc0e362f540a8dea"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_charge_light_ratio</b></td></tr>
-<tr class="separator:abaeb4528a700866fdc0e362f540a8dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa06afa8044a10a6497852854a811a00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa06afa8044a10a6497852854a811a00"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_flashmatching</b></td></tr>
-<tr class="separator:aaa06afa8044a10a6497852854a811a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd632e59d98a72d8040890f425d1a3f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd632e59d98a72d8040890f425d1a3f2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_FM_all</b></td></tr>
-<tr class="separator:abd632e59d98a72d8040890f425d1a3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a8178edfca11d99f8ccbd86dbd1c3bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a8178edfca11d99f8ccbd86dbd1c3bd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_isCosmicInTime</b></td></tr>
-<tr class="separator:a2a8178edfca11d99f8ccbd86dbd1c3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3cb19dac93bb287a5747ad4400c65ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3cb19dac93bb287a5747ad4400c65ef"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#af3cb19dac93bb287a5747ad4400c65ef">_do_opdet_swap</a></td></tr>
-<tr class="memdesc:af3cb19dac93bb287a5747ad4400c65ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true swaps reconstructed OpDets according to _opdet_swap_map. <br/></td></tr>
-<tr class="separator:af3cb19dac93bb287a5747ad4400c65ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b8e7b46ec5b2db6008972662b2feb7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b8e7b46ec5b2db6008972662b2feb7f"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a3b8e7b46ec5b2db6008972662b2feb7f">_opdet_swap_map</a></td></tr>
-<tr class="memdesc:a3b8e7b46ec5b2db6008972662b2feb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpDet swap map for reco flashes. <br/></td></tr>
-<tr class="separator:a3b8e7b46ec5b2db6008972662b2feb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22dc43acead400d57a885ef5f4eadfe0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22dc43acead400d57a885ef5f4eadfe0"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_pfp_producer</b></td></tr>
-<tr class="separator:a22dc43acead400d57a885ef5f4eadfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab3778b534309c11083d606aad56191b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab3778b534309c11083d606aad56191b"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>fOpticalFlashFinderLabel</b></td></tr>
-<tr class="separator:aab3778b534309c11083d606aad56191b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99a124186e74bce53dd84068083cc90d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99a124186e74bce53dd84068083cc90d"></a>
-<a class="el" href="classlee_1_1GeometryHelper.html">GeometryHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>geoHelper</b></td></tr>
-<tr class="separator:a99a124186e74bce53dd84068083cc90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6b3531c56323d02225e257a191d7a65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6b3531c56323d02225e257a191d7a65"></a>
-<a class="el" href="classlee_1_1PandoraInterfaceHelper.html">PandoraInterfaceHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pandoraHelper</b></td></tr>
-<tr class="separator:ab6b3531c56323d02225e257a191d7a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49fb9654c5609485ae6745fdbb84335c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49fb9654c5609485ae6745fdbb84335c"></a>
-flashana::FlashMatchManager&#160;</td><td class="memItemRight" valign="bottom"><b>m_mgr</b></td></tr>
-<tr class="separator:a49fb9654c5609485ae6745fdbb84335c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d19e99bac2aebf0710321e4b9d2d394"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d19e99bac2aebf0710321e4b9d2d394"></a>
-art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_geo</b></td></tr>
-<tr class="separator:a6d19e99bac2aebf0710321e4b9d2d394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a194dc0ef0d33314f77e45d134932ac3c"></a>
+<a class="anchor" id="a06a3e470d9b2ca729d25822fac19e455"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const flashana::QCluster_t lee::ElectronEventSelectionAlg::collect3DHits </td>
+          <td class="memname">const flashana::QCluster_t ElectronEventSelectionAlg::collect3DHits </td>
           <td>(</td>
           <td class="paramtype">const art::Event &amp;&#160;</td>
           <td class="paramname"><em>evt</em>, </td>
@@ -331,12 +208,12 @@ art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" val
 
 </div>
 </div>
-<a class="anchor" id="ac6ee12d1ca7a56aba8b2af813b5a1012"></a>
+<a class="anchor" id="a59666f2bec60817a81fcdd467d9b9641"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool lee::ElectronEventSelectionAlg::eventSelected </td>
+          <td class="memname">bool ElectronEventSelectionAlg::eventSelected </td>
           <td>(</td>
           <td class="paramtype">const art::Event &amp;&#160;</td>
           <td class="paramname"><em>evt</em></td><td>)</td>
@@ -357,12 +234,12 @@ art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" val
 
 </div>
 </div>
-<a class="anchor" id="a48bac681dab43fcd1d116cb39302fe4a"></a>
+<a class="anchor" id="a4d8d979b26116ec25d26884702d0f9c6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::map&lt; size_t, int &gt; lee::ElectronEventSelectionAlg::flashBasedSelection </td>
+          <td class="memname">const std::map&lt; size_t, int &gt; ElectronEventSelectionAlg::flashBasedSelection </td>
           <td>(</td>
           <td class="paramtype">const art::Event &amp;&#160;</td>
           <td class="paramname"><em>evt</em>, </td>
@@ -399,114 +276,6 @@ art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" val
 
 </div>
 </div>
-<a class="anchor" id="a306e62904f73e727c6f938d2a197f68e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;double&gt;&amp; lee::ElectronEventSelectionAlg::get_flash_PE </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the list of total PE of the flashes. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a9990f4a980662e786fc8e38146ce4456"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;double&gt;&amp; lee::ElectronEventSelectionAlg::get_flash_time </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the list of times of the flashes. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a43afa7fb8c10333f89774c6d4ea714dc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, int&gt;&amp; lee::ElectronEventSelectionAlg::get_n_showers </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return number of showers for this pfparticle. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ad24d64eca5e56d0550572b24d5e213f7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, int&gt;&amp; lee::ElectronEventSelectionAlg::get_n_tracks </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return number of tracks for pfparticle index. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="ab34dc2b97e0065b07a5233e3b46b83a4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -528,151 +297,17 @@ art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" val
 </table>
 </div><div class="memdoc">
 
-<p>Informs whether a particular candidate passed or failed the algorithm. </p>
+<p>Inform whether a particular candidate passed or failed the algorithm. </p>
 <dl class="section return"><dt>Returns</dt><dd>Vector of bool, one-to-one with get_primary_indexes </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac098d39d04f407c9bfc574da4b82fee6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, TVector3&gt;&amp; lee::ElectronEventSelectionAlg::get_neutrino_vertex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the pandora calculated vertex indexed by pfparticle id number. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="affda5b411008752c1355a9dd3a1d9c1e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, int &gt;&amp; lee::ElectronEventSelectionAlg::get_op_flash_indexes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the index of the flash matched with the pfparticle. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a7ea645ce175506b368ceb116bbb77889"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, std::vector&lt;size_t&gt; &gt;&amp; lee::ElectronEventSelectionAlg::get_pfp_id_showers_from_primary </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a00266c70e046a9ee27e979be75925a09"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, std::vector&lt;size_t&gt; &gt;&amp; lee::ElectronEventSelectionAlg::get_pfp_id_tracks_from_primary </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. </p>
-<p>[long description] </p>
-<dl class="section return"><dt>Returns</dt><dd>[description] </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a317c107f710fc965cd7e062ac933d3df"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::vector&lt;size_t&gt;&amp; lee::ElectronEventSelectionAlg::get_primary_indexes </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of neutrino candidates from pandora, regardless of whether the passed. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of candidates Return a list of the selected pfparticle top level neutrino candidate indexes </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a468d5973165360075a4a9abece4f1867"></a>
+<a class="anchor" id="a1853e2053d74627cd4466cf670dc0c31"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::map&lt; size_t, int &gt; lee::ElectronEventSelectionAlg::opticalfilter </td>
+          <td class="memname">const std::map&lt; size_t, int &gt; ElectronEventSelectionAlg::opticalfilter </td>
           <td>(</td>
           <td class="paramtype">const art::Event &amp;&#160;</td>
           <td class="paramname"><em>evt</em>, </td>
@@ -709,12 +344,12 @@ art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" val
 
 </div>
 </div>
-<a class="anchor" id="ac5d09c1db1da5f32408233ba8db10a1f"></a>
+<a class="anchor" id="a8f1378ec08aba381d438816c8bc31951"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::ElectronEventSelectionAlg::reconfigure </td>
+          <td class="memname">void ElectronEventSelectionAlg::reconfigure </td>
           <td>(</td>
           <td class="paramtype">fhicl::ParameterSet const &amp;&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -733,12 +368,12 @@ art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" val
 
 </div>
 </div>
-<a class="anchor" id="a38772f4cd346a40fd3f30eba3bc505a9"></a>
+<a class="anchor" id="afb99143e1546158d3f030724694e6a51"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">TVector3 lee::ElectronEventSelectionAlg::spaceChargeTrueToReco </td>
+          <td class="memname">TVector3 ElectronEventSelectionAlg::spaceChargeTrueToReco </td>
           <td>(</td>
           <td class="paramtype">const TVector3 &amp;&#160;</td>
           <td class="paramname"><em>xyz</em></td><td>)</td>

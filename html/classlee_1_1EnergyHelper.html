@@ -103,48 +103,48 @@ Inheritance diagram for lee::EnergyHelper:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa551642488e1a71f7b3d16965789a9f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa551642488e1a71f7b3d16965789a9f7"></a>
+<tr class="memitem:a4523185d78d6b7aa94dbf26475750282"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4523185d78d6b7aa94dbf26475750282"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhicl::ParameterSet const &amp;pset)</td></tr>
-<tr class="separator:aa551642488e1a71f7b3d16965789a9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a3122ca6339e77bb3524fd1762a1f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a4a3122ca6339e77bb3524fd1762a1f69">dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches)</td></tr>
-<tr class="memdesc:a4a3122ca6339e77bb3524fd1762a1f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="#a4a3122ca6339e77bb3524fd1762a1f69">More...</a><br/></td></tr>
-<tr class="separator:a4a3122ca6339e77bb3524fd1762a1f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7731238e9b8545a22c3aa456025470bd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a7731238e9b8545a22c3aa456025470bd">PID</a> (const std::vector&lt; art::Ptr&lt; anab::ParticleID &gt;&gt; *pids, int trackID, std::string AlgName, anab::kVariableType VariableType, int pdgCode)</td></tr>
-<tr class="memdesc:a7731238e9b8545a22c3aa456025470bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific ParticleID algorithm for a single track.  <a href="#a7731238e9b8545a22c3aa456025470bd">More...</a><br/></td></tr>
-<tr class="separator:a7731238e9b8545a22c3aa456025470bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54bc53c792be860c9b9eac24b6cc6729"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a54bc53c792be860c9b9eac24b6cc6729">dEdx_from_dQdx</a> (std::vector&lt; double &gt; &amp;dedx, std::vector&lt; double &gt; dqdx)</td></tr>
-<tr class="memdesc:a54bc53c792be860c9b9eac24b6cc6729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert dQ/dx vector into dE/dx vector (in MeV)  <a href="#a54bc53c792be860c9b9eac24b6cc6729">More...</a><br/></td></tr>
-<tr class="separator:a54bc53c792be860c9b9eac24b6cc6729"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75cf4cee4e6db93d52022be00eb86302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a75cf4cee4e6db93d52022be00eb86302">PCA</a> (std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; std::vector&lt; double &gt;&gt; &amp;pca_planes)</td></tr>
-<tr class="memdesc:a75cf4cee4e6db93d52022be00eb86302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Principal Component Analysis of reconstructed clusters.  <a href="#a75cf4cee4e6db93d52022be00eb86302">More...</a><br/></td></tr>
-<tr class="separator:a75cf4cee4e6db93d52022be00eb86302"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a188cdbff934accbcf32bb658abea2412"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a188cdbff934accbcf32bb658abea2412">get_cali</a> (std::vector&lt; art::Ptr&lt; recob::SpacePoint &gt;&gt; *spcpnts, art::FindManyP&lt; recob::Hit &gt; *hits_per_spcpnts, std::vector&lt; double &gt; &amp;cali_corr)</td></tr>
-<tr class="memdesc:a188cdbff934accbcf32bb658abea2412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibration value for the energy of a reconstructed object.  <a href="#a188cdbff934accbcf32bb658abea2412">More...</a><br/></td></tr>
-<tr class="separator:a188cdbff934accbcf32bb658abea2412"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a682a97a35bf38e4ef2e4b38732719dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a682a97a35bf38e4ef2e4b38732719dcd">energy_from_hits</a> (std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; int &gt; &amp;nHits, std::vector&lt; double &gt; &amp;pfenergy)</td></tr>
-<tr class="memdesc:a682a97a35bf38e4ef2e4b38732719dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure calorimetric energy for a reconstructed object.  <a href="#a682a97a35bf38e4ef2e4b38732719dcd">More...</a><br/></td></tr>
-<tr class="separator:a682a97a35bf38e4ef2e4b38732719dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae55ba831390287b749641b84b1be7e0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#ae55ba831390287b749641b84b1be7e0d">cluster_residuals</a> (std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, double &amp;mean_v, double &amp;std_v)</td></tr>
-<tr class="memdesc:ae55ba831390287b749641b84b1be7e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the spatial residuals of the hits in a reconstructed cluster along its direction.  <a href="#ae55ba831390287b749641b84b1be7e0d">More...</a><br/></td></tr>
-<tr class="separator:ae55ba831390287b749641b84b1be7e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5698af14612035f672a852041d067f9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a5698af14612035f672a852041d067f9d">track_dQdx</a> (std::vector&lt; art::Ptr&lt; anab::Calorimetry &gt;&gt; *calos, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dedx)</td></tr>
-<tr class="memdesc:a5698af14612035f672a852041d067f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQ/dx and dE/dx of a track using the anab::Calorimetry information.  <a href="#a5698af14612035f672a852041d067f9d">More...</a><br/></td></tr>
-<tr class="separator:a5698af14612035f672a852041d067f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad730a5ca3f5d4df30ee4aebb8f877e2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#ad730a5ca3f5d4df30ee4aebb8f877e2f">dQdx_cali</a> (const recob::Shower *shower_obj, std::vector&lt; double &gt; &amp;dqdx_cali)</td></tr>
-<tr class="memdesc:ad730a5ca3f5d4df30ee4aebb8f877e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibration value for the dQ/dx of a reconstructed shower.  <a href="#ad730a5ca3f5d4df30ee4aebb8f877e2f">More...</a><br/></td></tr>
-<tr class="separator:ad730a5ca3f5d4df30ee4aebb8f877e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a4523185d78d6b7aa94dbf26475750282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ab3ce039f7c08ce5fbb1126a861c36c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a3ab3ce039f7c08ce5fbb1126a861c36c">dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches)</td></tr>
+<tr class="memdesc:a3ab3ce039f7c08ce5fbb1126a861c36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="#a3ab3ce039f7c08ce5fbb1126a861c36c">More...</a><br/></td></tr>
+<tr class="separator:a3ab3ce039f7c08ce5fbb1126a861c36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a493326200e39f3aaa22999c55c22b6f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a493326200e39f3aaa22999c55c22b6f5">PID</a> (const std::vector&lt; art::Ptr&lt; anab::ParticleID &gt;&gt; *pids, int trackID, std::string AlgName, anab::kVariableType VariableType, int pdgCode)</td></tr>
+<tr class="memdesc:a493326200e39f3aaa22999c55c22b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific ParticleID algorithm for a single track.  <a href="#a493326200e39f3aaa22999c55c22b6f5">More...</a><br/></td></tr>
+<tr class="separator:a493326200e39f3aaa22999c55c22b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2844c7f27f79fbe5e16d9c674ca4afa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a2844c7f27f79fbe5e16d9c674ca4afa1">dEdx_from_dQdx</a> (std::vector&lt; double &gt; &amp;dedx, std::vector&lt; double &gt; dqdx)</td></tr>
+<tr class="memdesc:a2844c7f27f79fbe5e16d9c674ca4afa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert dQ/dx vector into dE/dx vector (in MeV)  <a href="#a2844c7f27f79fbe5e16d9c674ca4afa1">More...</a><br/></td></tr>
+<tr class="separator:a2844c7f27f79fbe5e16d9c674ca4afa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f41d2b1bee9a0f761179f3059f8a49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#ac5f41d2b1bee9a0f761179f3059f8a49">PCA</a> (std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; std::vector&lt; double &gt;&gt; &amp;pca_planes)</td></tr>
+<tr class="memdesc:ac5f41d2b1bee9a0f761179f3059f8a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Principal Component Analysis of reconstructed clusters.  <a href="#ac5f41d2b1bee9a0f761179f3059f8a49">More...</a><br/></td></tr>
+<tr class="separator:ac5f41d2b1bee9a0f761179f3059f8a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af141846d9be1716bcfcf351633bdf8e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#af141846d9be1716bcfcf351633bdf8e7">get_cali</a> (std::vector&lt; art::Ptr&lt; recob::SpacePoint &gt;&gt; *spcpnts, art::FindManyP&lt; recob::Hit &gt; *hits_per_spcpnts, std::vector&lt; double &gt; &amp;cali_corr)</td></tr>
+<tr class="memdesc:af141846d9be1716bcfcf351633bdf8e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibration value for the energy of a reconstructed object.  <a href="#af141846d9be1716bcfcf351633bdf8e7">More...</a><br/></td></tr>
+<tr class="separator:af141846d9be1716bcfcf351633bdf8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbb21a3db419c9580aec4976c5137a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#aabbb21a3db419c9580aec4976c5137a9">energy_from_hits</a> (std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; int &gt; &amp;nHits, std::vector&lt; double &gt; &amp;pfenergy)</td></tr>
+<tr class="memdesc:aabbb21a3db419c9580aec4976c5137a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure calorimetric energy for a reconstructed object.  <a href="#aabbb21a3db419c9580aec4976c5137a9">More...</a><br/></td></tr>
+<tr class="separator:aabbb21a3db419c9580aec4976c5137a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01205d4a5d2f8d5ad0d4d5462e0b7563"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a01205d4a5d2f8d5ad0d4d5462e0b7563">cluster_residuals</a> (std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, double &amp;mean_v, double &amp;std_v)</td></tr>
+<tr class="memdesc:a01205d4a5d2f8d5ad0d4d5462e0b7563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the spatial residuals of the hits in a reconstructed cluster along its direction.  <a href="#a01205d4a5d2f8d5ad0d4d5462e0b7563">More...</a><br/></td></tr>
+<tr class="separator:a01205d4a5d2f8d5ad0d4d5462e0b7563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27cd9ba04f447b9922c56bbb320bce08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a27cd9ba04f447b9922c56bbb320bce08">track_dQdx</a> (std::vector&lt; art::Ptr&lt; anab::Calorimetry &gt;&gt; *calos, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dedx)</td></tr>
+<tr class="memdesc:a27cd9ba04f447b9922c56bbb320bce08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQ/dx and dE/dx of a track using the anab::Calorimetry information.  <a href="#a27cd9ba04f447b9922c56bbb320bce08">More...</a><br/></td></tr>
+<tr class="separator:a27cd9ba04f447b9922c56bbb320bce08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4926738bfba2d91bc187ad8a7db6e997"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1EnergyHelper.html#a4926738bfba2d91bc187ad8a7db6e997">dQdx_cali</a> (const recob::Shower *shower_obj, std::vector&lt; double &gt; &amp;dqdx_cali)</td></tr>
+<tr class="memdesc:a4926738bfba2d91bc187ad8a7db6e997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibration value for the dQ/dx of a reconstructed shower.  <a href="#a4926738bfba2d91bc187ad8a7db6e997">More...</a><br/></td></tr>
+<tr class="separator:a4926738bfba2d91bc187ad8a7db6e997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classlee_1_1HelperBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlee_1_1HelperBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classlee_1_1HelperBase.html">lee::HelperBase</a></td></tr>
 <tr class="memitem:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1HelperBase.html#ad80955b099f76d5e298e6f5e37cd17aa">setDebug</a> (bool b)</td></tr>
 <tr class="memdesc:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug parameter.  <a href="#ad80955b099f76d5e298e6f5e37cd17aa">More...</a><br/></td></tr>
 <tr class="separator:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae55ba831390287b749641b84b1be7e0d"></a>
+<a class="anchor" id="a01205d4a5d2f8d5ad0d4d5462e0b7563"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::cluster_residuals </td>
+          <td class="memname">void EnergyHelper::cluster_residuals </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *&#160;</td>
           <td class="paramname"><em>clusters</em>, </td>
@@ -188,12 +188,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a54bc53c792be860c9b9eac24b6cc6729"></a>
+<a class="anchor" id="a2844c7f27f79fbe5e16d9c674ca4afa1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::dEdx_from_dQdx </td>
+          <td class="memname">void EnergyHelper::dEdx_from_dQdx </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
           <td class="paramname"><em>dedx</em>, </td>
@@ -223,12 +223,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a4a3122ca6339e77bb3524fd1762a1f69"></a>
+<a class="anchor" id="a3ab3ce039f7c08ce5fbb1126a861c36c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::dQdx </td>
+          <td class="memname">void EnergyHelper::dQdx </td>
           <td>(</td>
           <td class="paramtype">const recob::Shower *&#160;</td>
           <td class="paramname"><em>shower_obj</em>, </td>
@@ -286,12 +286,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="ad730a5ca3f5d4df30ee4aebb8f877e2f"></a>
+<a class="anchor" id="a4926738bfba2d91bc187ad8a7db6e997"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::dQdx_cali </td>
+          <td class="memname">void EnergyHelper::dQdx_cali </td>
           <td>(</td>
           <td class="paramtype">const recob::Shower *&#160;</td>
           <td class="paramname"><em>shower_obj</em>, </td>
@@ -321,12 +321,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a682a97a35bf38e4ef2e4b38732719dcd"></a>
+<a class="anchor" id="aabbb21a3db419c9580aec4976c5137a9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::energy_from_hits </td>
+          <td class="memname">void EnergyHelper::energy_from_hits </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *&#160;</td>
           <td class="paramname"><em>clusters</em>, </td>
@@ -370,12 +370,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a188cdbff934accbcf32bb658abea2412"></a>
+<a class="anchor" id="af141846d9be1716bcfcf351633bdf8e7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::get_cali </td>
+          <td class="memname">void EnergyHelper::get_cali </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::SpacePoint &gt;&gt; *&#160;</td>
           <td class="paramname"><em>spcpnts</em>, </td>
@@ -412,12 +412,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a75cf4cee4e6db93d52022be00eb86302"></a>
+<a class="anchor" id="ac5f41d2b1bee9a0f761179f3059f8a49"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::PCA </td>
+          <td class="memname">void EnergyHelper::PCA </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *&#160;</td>
           <td class="paramname"><em>clusters</em>, </td>
@@ -454,12 +454,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a7731238e9b8545a22c3aa456025470bd"></a>
+<a class="anchor" id="a493326200e39f3aaa22999c55c22b6f5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double lee::EnergyHelper::PID </td>
+          <td class="memname">double EnergyHelper::PID </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; art::Ptr&lt; anab::ParticleID &gt;&gt; *&#160;</td>
           <td class="paramname"><em>pids</em>, </td>
@@ -511,12 +511,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 
 </div>
 </div>
-<a class="anchor" id="a5698af14612035f672a852041d067f9d"></a>
+<a class="anchor" id="a27cd9ba04f447b9922c56bbb320bce08"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lee::EnergyHelper::track_dQdx </td>
+          <td class="memname">void EnergyHelper::track_dQdx </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; art::Ptr&lt; anab::Calorimetry &gt;&gt; *&#160;</td>
           <td class="paramname"><em>calos</em>, </td>

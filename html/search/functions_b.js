@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['track_5fdqdx',['track_dQdx',['../classlee_1_1EnergyHelper.html#a5698af14612035f672a852041d067f9d',1,'lee::EnergyHelper']]],
-  ['traversepfparticletree',['traversePFParticleTree',['../classlee_1_1PandoraInterfaceHelper.html#a43b81ca3b961e30d191ebc53f987cf2a',1,'lee::PandoraInterfaceHelper']]]
+  ['setdebug',['setDebug',['../classlee_1_1HelperBase.html#ad80955b099f76d5e298e6f5e37cd17aa',1,'lee::HelperBase']]],
+  ['setfiducialvolumecuts',['setFiducialVolumeCuts',['../classlee_1_1GeometryHelper.html#a5b67d6d907f9fca0e16ccd9dba85eb54',1,'lee::GeometryHelper']]],
+  ['spacechargetruetoreco',['spaceChargeTrueToReco',['../classlee_1_1ElectronEventSelectionAlg.html#afb99143e1546158d3f030724694e6a51',1,'lee::ElectronEventSelectionAlg']]]
 ];

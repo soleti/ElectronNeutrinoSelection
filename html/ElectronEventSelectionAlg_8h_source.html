@@ -86,225 +86,201 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ElectronEventSelectionAlg.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Class:       ElectronEventSelectionAlg</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Module Type: filter</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// File:        ElectronEventSelectionAlg.h</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef ELECTRON_EVENT_SELECTION_ALG_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ELECTRON_EVENT_SELECTION_ALG_H</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Principal/Event.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Principal/Handle.h&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// #include &quot;art/Framework/Principal/Run.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// #include &quot;art/Framework/Principal/SubRun.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Services/Registry/ServiceHandle.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Services/Registry/ServiceHandle.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;canvas/Persistency/Common/FindOneP.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;canvas/Persistency/Common/FindManyP.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;canvas/Utilities/InputTag.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/PFParticle.h&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Vertex.h&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Track.h&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Shower.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/SpacePoint.h&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// #include &quot;lardataobj/RecoBase/Cluster.h&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Hit.h&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/OpFlash.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//#include &quot;uboone/SpaceChargeServices/SpaceChargeServiceMicroBooNE.h&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;larevt/SpaceChargeServices/SpaceChargeService.h&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;fhiclcpp/ParameterSet.h&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;larcore/Geometry/Geometry.h&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Base/OpT0FinderTypes.h&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Algorithms/LightCharge.h&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Algorithms/PhotonLibHypothesis.h&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Base/FlashMatchManager.h&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;GeometryHelper.h&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;PandoraInterfaceHelper.h&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef ELECTRON_EVENT_SELECTION_ALG_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ELECTRON_EVENT_SELECTION_ALG_H</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Principal/Event.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Principal/Handle.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// #include &quot;art/Framework/Principal/Run.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// #include &quot;art/Framework/Principal/SubRun.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Services/Registry/ServiceHandle.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;art/Framework/Services/Registry/ServiceHandle.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;canvas/Persistency/Common/FindOneP.h&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;canvas/Persistency/Common/FindManyP.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;canvas/Utilities/InputTag.h&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/PFParticle.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Vertex.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Track.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Shower.h&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/SpacePoint.h&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// #include &quot;lardataobj/RecoBase/Cluster.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/Hit.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;lardataobj/RecoBase/OpFlash.h&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//#include &quot;uboone/SpaceChargeServices/SpaceChargeServiceMicroBooNE.h&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;larevt/SpaceChargeServices/SpaceChargeService.h&quot;</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">namespace </span>lee {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html">   50</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classlee_1_1ElectronEventSelectionAlg.html">ElectronEventSelectionAlg</a></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// ElectronEventSelectionAlg(){}</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// ~ElectronEventSelectionAlg(){}</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;fhiclcpp/ParameterSet.h&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;larcore/Geometry/Geometry.h&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Base/OpT0FinderTypes.h&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Algorithms/LightCharge.h&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Algorithms/PhotonLibHypothesis.h&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;uboone/LLSelectionTool/OpT0Finder/Base/FlashMatchManager.h&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;GeometryHelper.h&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;PandoraInterfaceHelper.h&quot;</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ac6ee12d1ca7a56aba8b2af813b5a1012">eventSelected</a>(<span class="keyword">const</span> art::Event &amp; evt);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ac5d09c1db1da5f32408233ba8db10a1f">reconfigure</a>(fhicl::ParameterSet <span class="keyword">const</span> &amp; p) ;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">namespace </span>lee {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html">   59</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classlee_1_1ElectronEventSelectionAlg.html">ElectronEventSelectionAlg</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// ElectronEventSelectionAlg(){}</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// ~ElectronEventSelectionAlg(){}</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a59666f2bec60817a81fcdd467d9b9641">eventSelected</a>(<span class="keyword">const</span> art::Event &amp; evt);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int &gt; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a468d5973165360075a4a9abece4f1867">opticalfilter</a>(<span class="keyword">const</span> art::Event &amp; evt,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                               <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp;pfplist,</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                               <span class="keyword">const</span> art::ValidHandle&lt;std::vector&lt;recob::PFParticle&gt;&gt; pfparticle_handle);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int &gt; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a48bac681dab43fcd1d116cb39302fe4a">flashBasedSelection</a>(<span class="keyword">const</span> art::Event &amp; evt,</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                                     <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp;pfplist,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                                     <span class="keyword">const</span> art::ValidHandle&lt;std::vector&lt;recob::PFParticle&gt;&gt; pfparticle_handle);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">const</span> flashana::QCluster_t <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a194dc0ef0d33314f77e45d134932ac3c">collect3DHits</a>(</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keyword">const</span> art::Event &amp;evt,</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp;pfplist);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    TVector3 <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a38772f4cd346a40fd3f30eba3bc505a9">spaceChargeTrueToReco</a>(<span class="keyword">const</span> TVector3 &amp; xyz);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a9f320d7d843471c4f61409adf2c4d690">clear</a>();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a8f1378ec08aba381d438816c8bc31951">reconfigure</a>(fhicl::ParameterSet <span class="keyword">const</span> &amp; p) ;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int &gt; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a1853e2053d74627cd4466cf670dc0c31">opticalfilter</a>(<span class="keyword">const</span> art::Event &amp; evt,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                               <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp;pfplist,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                               <span class="keyword">const</span> art::ValidHandle&lt;std::vector&lt;recob::PFParticle&gt;&gt; pfparticle_handle);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int &gt; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a4d8d979b26116ec25d26884702d0f9c6">flashBasedSelection</a>(<span class="keyword">const</span> art::Event &amp; evt,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                                     <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp;pfplist,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                                     <span class="keyword">const</span> art::ValidHandle&lt;std::vector&lt;recob::PFParticle&gt;&gt; pfparticle_handle);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">const</span> flashana::QCluster_t <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a06a3e470d9b2ca729d25822fac19e455">collect3DHits</a>(<span class="keyword">const</span> art::Event &amp;evt,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                                   <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp;pfplist);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    TVector3 <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#afb99143e1546158d3f030724694e6a51">spaceChargeTrueToReco</a>(<span class="keyword">const</span> TVector3 &amp; xyz);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ad936812d5e9dc7999a37c75b84b04ada">clear</a>();</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">// Access functions for the saved data:</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">  139</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">get_primary_indexes</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _primary_indexes;}</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">  144</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">get_n_neutrino_candidates</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _n_neutrino_candidates;}</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">  150</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, bool&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">get_neutrino_candidate_passed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _neutrino_candidate_passed;}</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">  157</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int &gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">get_op_flash_indexes</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _op_flash_indexes;}</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">  164</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, TVector3&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">get_neutrino_vertex</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _neutrino_vertex;}</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">  171</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _n_showers;}</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">  178</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _n_tracks;}</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t,  std::vector&lt;size_t&gt; &gt; &amp;</div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">  186</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">get_pfp_id_showers_from_primary</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _pfp_id_showers_from_primary;}</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t,  std::vector&lt;size_t&gt; &gt; &amp;</div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">  195</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">get_pfp_id_tracks_from_primary</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _pfp_id_tracks_from_primary;}</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;</div>
-<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">  203</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">get_flash_PE</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _flash_PE;}</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;</div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">  211</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">get_flash_time</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _flash_time;}</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> &amp; get_flash_x()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _flash_x;}</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">  132</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;size_t&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">get_primary_indexes</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _primary_indexes;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">  137</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">get_n_neutrino_candidates</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _n_neutrino_candidates;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">  143</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, bool&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">get_neutrino_candidate_passed</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _neutrino_candidate_passed;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">  148</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int &gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">get_op_flash_indexes</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _op_flash_indexes;}</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">  153</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, TVector3&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">get_neutrino_vertex</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _neutrino_vertex;}</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">  158</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _n_showers;}</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">  163</a></span>&#160;    <span class="keyword">const</span> std::map&lt;size_t, int&gt; &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _n_tracks;}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t,  std::vector&lt;size_t&gt; &gt; &amp;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">  169</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">get_pfp_id_showers_from_primary</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _pfp_id_showers_from_primary;}</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">const</span> std::map&lt;size_t,  std::vector&lt;size_t&gt; &gt; &amp;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">  176</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">get_pfp_id_tracks_from_primary</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _pfp_id_tracks_from_primary;}</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">  182</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">get_flash_PE</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _flash_PE;}</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">const</span> std::vector&lt;double&gt; &amp;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">  188</a></span>&#160;    <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">get_flash_time</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _flash_time;}</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a69b697a2eec43de221621bd4aca906e2">  193</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a69b697a2eec43de221621bd4aca906e2">get_flash_x</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _flash_x;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a2c653a5d3225c3e3aa5dc84738ffa086">  198</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> &amp; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a2c653a5d3225c3e3aa5dc84738ffa086">get_TPC_x</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _TPC_x;}</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">// Variables that are used to determine the selection and might be worth passing</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">// to an analyzer module:</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">size_t</span> _n_neutrino_candidates;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    std::vector&lt;size_t&gt; _primary_indexes;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    std::map&lt;size_t, bool&gt; _neutrino_candidate_passed;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    std::map&lt;size_t, int &gt; _op_flash_indexes;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    std::map&lt;size_t, TVector3&gt; _neutrino_vertex;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    std::map&lt;size_t, int&gt; _n_showers;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    std::map&lt;size_t,  std::vector &lt; size_t &gt; &gt; _pfp_id_showers_from_primary;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    std::map&lt;size_t, int&gt; _n_tracks;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    std::map&lt;size_t, std::vector &lt; size_t &gt; &gt; _pfp_id_tracks_from_primary;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> &amp; get_TPC_x()<span class="keyword"> const </span>{<span class="keywordflow">return</span> _TPC_x;}</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    std::vector&lt;double&gt; _flash_PE;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    std::vector&lt;double&gt; _flash_time;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">double</span> _TPC_x;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">double</span> _flash_x;</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">// Variables that are used to determine the selection and might be worth passing</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">// to an analyzer module:</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">size_t</span> _n_neutrino_candidates;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    std::vector&lt;size_t&gt; _primary_indexes;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    std::map&lt;size_t, bool&gt; _neutrino_candidate_passed;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    std::map&lt;size_t, int &gt; _op_flash_indexes;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    std::map&lt;size_t, TVector3&gt; _neutrino_vertex;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    std::map&lt;size_t, int&gt; _n_showers;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    std::map&lt;size_t,  std::vector &lt; size_t &gt; &gt; _pfp_id_showers_from_primary;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    std::map&lt;size_t, int&gt; _n_tracks;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    std::map&lt;size_t, std::vector &lt; size_t &gt; &gt; _pfp_id_tracks_from_primary;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    std::vector&lt;double&gt; _flash_PE;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    std::vector&lt;double&gt; _flash_time;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">double</span> _TPC_x;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordtype">double</span> _flash_x;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">// Configurable variables from the fcl file:</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">int</span> m_nTracks;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">bool</span> m_printDebug;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">double</span> m_fidvolXstart;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">double</span> m_fidvolXend;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordtype">double</span> m_fidvolYstart;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">double</span> m_fidvolYend;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordtype">double</span> m_fidvolZstart;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">double</span> m_fidvolZend;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">// Configurable variables from the fcl file:</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">int</span> m_nTracks;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">bool</span> m_printDebug;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">double</span> m_fidvolXstart;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">double</span> m_fidvolXend;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordtype">double</span> m_fidvolYstart;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">double</span> m_fidvolYend;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">double</span> m_fidvolZstart;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordtype">double</span> m_fidvolZend;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordtype">double</span> m_fractionsigmaflashwidth;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">double</span> m_absoluteflashdist;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">double</span> m_startbeamtime;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">double</span> m_endbeamtime;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">double</span> m_PE_threshold;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment">// Prematching cuts</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordtype">double</span> m_cut_zwidth;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">double</span> m_cut_sigzwidth;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordtype">double</span> m_cut_ywidth;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordtype">double</span> m_cut_sigywidth;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keywordtype">double</span> m_charge_light_ratio;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">bool</span> m_flashmatching;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">bool</span> m_FM_all;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">double</span> m_isCosmicInTime;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;          </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">bool</span> _do_opdet_swap;              </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    std::vector&lt;int&gt; _opdet_swap_map; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">// std::map&lt;unsigned short, double&gt; m_ly_map;</span></div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">double</span> m_fractionsigmaflashwidth;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordtype">double</span> m_absoluteflashdist;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">double</span> m_startbeamtime;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordtype">double</span> m_endbeamtime;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordtype">double</span> m_PE_threshold;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    std::string m_pfp_producer;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    std::string fOpticalFlashFinderLabel;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="comment">// Helper class for geometry functions:</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <a class="code" href="classlee_1_1GeometryHelper.html">GeometryHelper</a> geoHelper;</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="comment">// Prematching cuts</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">double</span> m_cut_zwidth;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">double</span> m_cut_sigzwidth;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">double</span> m_cut_ywidth;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">double</span> m_cut_sigywidth;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordtype">double</span> m_charge_light_ratio;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="comment">// Helper class for dealing with pandora heirarchy:</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <a class="code" href="classlee_1_1PandoraInterfaceHelper.html">PandoraInterfaceHelper</a> pandoraHelper;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    flashana::FlashMatchManager m_mgr;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    art::ServiceHandle&lt;geo::Geometry&gt; m_geo;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  };</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordtype">bool</span> m_flashmatching;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">bool</span> m_FM_all;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordtype">double</span> m_isCosmicInTime;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;          </div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#af3cb19dac93bb287a5747ad4400c65ef">  276</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#af3cb19dac93bb287a5747ad4400c65ef">_do_opdet_swap</a>;              </div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classlee_1_1ElectronEventSelectionAlg.html#a3b8e7b46ec5b2db6008972662b2feb7f">  277</a></span>&#160;    std::vector&lt;int&gt; <a class="code" href="classlee_1_1ElectronEventSelectionAlg.html#a3b8e7b46ec5b2db6008972662b2feb7f">_opdet_swap_map</a>; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="comment">// std::map&lt;unsigned short, double&gt; m_ly_map;</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    std::string m_pfp_producer;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    std::string fOpticalFlashFinderLabel;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="comment">// Helper class for geometry functions:</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <a class="code" href="classlee_1_1GeometryHelper.html">GeometryHelper</a> geoHelper;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">// Helper class for dealing with pandora heirarchy:</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <a class="code" href="classlee_1_1PandoraInterfaceHelper.html">PandoraInterfaceHelper</a> pandoraHelper;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    flashana::FlashMatchManager m_mgr;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    art::ServiceHandle&lt;geo::Geometry&gt; m_geo;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  };</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;} <span class="comment">// lee</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor">#endif // ELECTRON_EVENT_SELECTION_ALG_H</span></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a38772f4cd346a40fd3f30eba3bc505a9"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a38772f4cd346a40fd3f30eba3bc505a9">lee::ElectronEventSelectionAlg::spaceChargeTrueToReco</a></div><div class="ttdeci">TVector3 spaceChargeTrueToReco(const TVector3 &amp;xyz)</div><div class="ttdoc">Return the true coordinates corrected by the space-charge effect. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:27</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a7ea645ce175506b368ceb116bbb77889"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">lee::ElectronEventSelectionAlg::get_pfp_id_showers_from_primary</a></div><div class="ttdeci">const std::map&lt; size_t, std::vector&lt; size_t &gt; &gt; &amp; get_pfp_id_showers_from_primary() const </div><div class="ttdoc">Return the list of pfparticle indexes that are showers that are associated with primary pfparticle in...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:186</div></div>
-<div class="ttc" id="classlee_1_1PandoraInterfaceHelper_html"><div class="ttname"><a href="classlee_1_1PandoraInterfaceHelper.html">lee::PandoraInterfaceHelper</a></div><div class="ttdef"><b>Definition:</b> PandoraInterfaceHelper.h:39</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ac6ee12d1ca7a56aba8b2af813b5a1012"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ac6ee12d1ca7a56aba8b2af813b5a1012">lee::ElectronEventSelectionAlg::eventSelected</a></div><div class="ttdeci">bool eventSelected(const art::Event &amp;evt)</div><div class="ttdoc">Main Event Selection Function. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:381</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a306e62904f73e727c6f938d2a197f68e"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">lee::ElectronEventSelectionAlg::get_flash_PE</a></div><div class="ttdeci">const std::vector&lt; double &gt; &amp; get_flash_PE() const </div><div class="ttdoc">Return the list of total PE of the flashes. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:203</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html">lee::ElectronEventSelectionAlg</a></div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:50</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a48bac681dab43fcd1d116cb39302fe4a"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a48bac681dab43fcd1d116cb39302fe4a">lee::ElectronEventSelectionAlg::flashBasedSelection</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; flashBasedSelection(const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</div><div class="ttdoc">Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:97</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a317c107f710fc965cd7e062ac933d3df"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">lee::ElectronEventSelectionAlg::get_primary_indexes</a></div><div class="ttdeci">const std::vector&lt; size_t &gt; &amp; get_primary_indexes() const </div><div class="ttdoc">Returns the number of neutrino candidates from pandora, regardless of whether the passed...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:139</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ac5d09c1db1da5f32408233ba8db10a1f"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ac5d09c1db1da5f32408233ba8db10a1f">lee::ElectronEventSelectionAlg::reconfigure</a></div><div class="ttdeci">void reconfigure(fhicl::ParameterSet const &amp;p)</div><div class="ttdoc">Configure all of the parameters of this class. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:55</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_affda5b411008752c1355a9dd3a1d9c1e"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">lee::ElectronEventSelectionAlg::get_op_flash_indexes</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; &amp; get_op_flash_indexes() const </div><div class="ttdoc">Return the index of the flash matched with the pfparticle. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:157</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a194dc0ef0d33314f77e45d134932ac3c"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a194dc0ef0d33314f77e45d134932ac3c">lee::ElectronEventSelectionAlg::collect3DHits</a></div><div class="ttdeci">const flashana::QCluster_t collect3DHits(const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist)</div><div class="ttdoc">Creates a photon cluster for a neutrino pfp hierarchy PFParticle. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:288</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a9990f4a980662e786fc8e38146ce4456"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">lee::ElectronEventSelectionAlg::get_flash_time</a></div><div class="ttdeci">const std::vector&lt; double &gt; &amp; get_flash_time() const </div><div class="ttdoc">Return the list of times of the flashes. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:211</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ab34dc2b97e0065b07a5233e3b46b83a4"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">lee::ElectronEventSelectionAlg::get_neutrino_candidate_passed</a></div><div class="ttdeci">const std::map&lt; size_t, bool &gt; &amp; get_neutrino_candidate_passed() const </div><div class="ttdoc">Informs whether a particular candidate passed or failed the algorithm. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:150</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_af3cb19dac93bb287a5747ad4400c65ef"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#af3cb19dac93bb287a5747ad4400c65ef">lee::ElectronEventSelectionAlg::_do_opdet_swap</a></div><div class="ttdeci">bool _do_opdet_swap</div><div class="ttdoc">If true swaps reconstructed OpDets according to _opdet_swap_map. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:276</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a468d5973165360075a4a9abece4f1867"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a468d5973165360075a4a9abece4f1867">lee::ElectronEventSelectionAlg::opticalfilter</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; opticalfilter(const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</div><div class="ttdoc">Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:338</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a43afa7fb8c10333f89774c6d4ea714dc"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">lee::ElectronEventSelectionAlg::get_n_showers</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; &amp; get_n_showers() const </div><div class="ttdoc">Return number of showers for this pfparticle. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:171</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a6259851e755db48eb0dd831708212e27"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">lee::ElectronEventSelectionAlg::get_n_neutrino_candidates</a></div><div class="ttdeci">const size_t &amp; get_n_neutrino_candidates() const </div><div class="ttdoc">Return the number of neutrino candidates. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:144</div></div>
-<div class="ttc" id="classlee_1_1GeometryHelper_html"><div class="ttname"><a href="classlee_1_1GeometryHelper.html">lee::GeometryHelper</a></div><div class="ttdef"><b>Definition:</b> GeometryHelper.h:26</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ad24d64eca5e56d0550572b24d5e213f7"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">lee::ElectronEventSelectionAlg::get_n_tracks</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; &amp; get_n_tracks() const </div><div class="ttdoc">Return number of tracks for pfparticle index. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:178</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ac098d39d04f407c9bfc574da4b82fee6"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">lee::ElectronEventSelectionAlg::get_neutrino_vertex</a></div><div class="ttdeci">const std::map&lt; size_t, TVector3 &gt; &amp; get_neutrino_vertex() const </div><div class="ttdoc">Return the pandora calculated vertex indexed by pfparticle id number. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:164</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a3b8e7b46ec5b2db6008972662b2feb7f"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a3b8e7b46ec5b2db6008972662b2feb7f">lee::ElectronEventSelectionAlg::_opdet_swap_map</a></div><div class="ttdeci">std::vector&lt; int &gt; _opdet_swap_map</div><div class="ttdoc">The OpDet swap map for reco flashes. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:277</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a00266c70e046a9ee27e979be75925a09"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">lee::ElectronEventSelectionAlg::get_pfp_id_tracks_from_primary</a></div><div class="ttdeci">const std::map&lt; size_t, std::vector&lt; size_t &gt; &gt; &amp; get_pfp_id_tracks_from_primary() const </div><div class="ttdoc">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle ind...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:195</div></div>
-<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a9f320d7d843471c4f61409adf2c4d690"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a9f320d7d843471c4f61409adf2c4d690">lee::ElectronEventSelectionAlg::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Reset internal variables. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:9</div></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;} <span class="comment">// lee</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">#endif // ELECTRON_EVENT_SELECTION_ALG_H</span></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a7ea645ce175506b368ceb116bbb77889"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">lee::ElectronEventSelectionAlg::get_pfp_id_showers_from_primary</a></div><div class="ttdeci">const std::map&lt; size_t, std::vector&lt; size_t &gt; &gt; &amp; get_pfp_id_showers_from_primary() const </div><div class="ttdoc">Return the list of pfparticle indexes that are showers that are associated with primary pfparticle in...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:169</div></div>
+<div class="ttc" id="classlee_1_1PandoraInterfaceHelper_html"><div class="ttname"><a href="classlee_1_1PandoraInterfaceHelper.html">lee::PandoraInterfaceHelper</a></div><div class="ttdef"><b>Definition:</b> PandoraInterfaceHelper.h:53</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a306e62904f73e727c6f938d2a197f68e"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">lee::ElectronEventSelectionAlg::get_flash_PE</a></div><div class="ttdeci">const std::vector&lt; double &gt; &amp; get_flash_PE() const </div><div class="ttdoc">Return the list of total PE of the flashes. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:182</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html">lee::ElectronEventSelectionAlg</a></div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:59</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a317c107f710fc965cd7e062ac933d3df"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">lee::ElectronEventSelectionAlg::get_primary_indexes</a></div><div class="ttdeci">const std::vector&lt; size_t &gt; &amp; get_primary_indexes() const </div><div class="ttdoc">Return a list of the selected pfparticle top level neutrino candidate indexes. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:132</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_affda5b411008752c1355a9dd3a1d9c1e"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">lee::ElectronEventSelectionAlg::get_op_flash_indexes</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; &amp; get_op_flash_indexes() const </div><div class="ttdoc">Return the index of the flash matched with the pfparticle. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:148</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a9990f4a980662e786fc8e38146ce4456"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">lee::ElectronEventSelectionAlg::get_flash_time</a></div><div class="ttdeci">const std::vector&lt; double &gt; &amp; get_flash_time() const </div><div class="ttdoc">Return the list of times of the flashes. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:188</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ab34dc2b97e0065b07a5233e3b46b83a4"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">lee::ElectronEventSelectionAlg::get_neutrino_candidate_passed</a></div><div class="ttdeci">const std::map&lt; size_t, bool &gt; &amp; get_neutrino_candidate_passed() const </div><div class="ttdoc">Inform whether a particular candidate passed or failed the algorithm. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:143</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_afb99143e1546158d3f030724694e6a51"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#afb99143e1546158d3f030724694e6a51">lee::ElectronEventSelectionAlg::spaceChargeTrueToReco</a></div><div class="ttdeci">TVector3 spaceChargeTrueToReco(const TVector3 &amp;xyz)</div><div class="ttdoc">Return the true coordinates corrected by the space-charge effect. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:27</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a1853e2053d74627cd4466cf670dc0c31"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a1853e2053d74627cd4466cf670dc0c31">lee::ElectronEventSelectionAlg::opticalfilter</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; opticalfilter(const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</div><div class="ttdoc">Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:338</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a69b697a2eec43de221621bd4aca906e2"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a69b697a2eec43de221621bd4aca906e2">lee::ElectronEventSelectionAlg::get_flash_x</a></div><div class="ttdeci">const double &amp; get_flash_x() const </div><div class="ttdoc">Return the position in x of the flash. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:193</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ad936812d5e9dc7999a37c75b84b04ada"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ad936812d5e9dc7999a37c75b84b04ada">lee::ElectronEventSelectionAlg::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Reset internal variables. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:9</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a43afa7fb8c10333f89774c6d4ea714dc"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">lee::ElectronEventSelectionAlg::get_n_showers</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; &amp; get_n_showers() const </div><div class="ttdoc">Return number of showers for this pfparticle. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:158</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a8f1378ec08aba381d438816c8bc31951"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a8f1378ec08aba381d438816c8bc31951">lee::ElectronEventSelectionAlg::reconfigure</a></div><div class="ttdeci">void reconfigure(fhicl::ParameterSet const &amp;p)</div><div class="ttdoc">Configure all of the parameters of this class. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:55</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a2c653a5d3225c3e3aa5dc84738ffa086"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a2c653a5d3225c3e3aa5dc84738ffa086">lee::ElectronEventSelectionAlg::get_TPC_x</a></div><div class="ttdeci">const double &amp; get_TPC_x() const </div><div class="ttdoc">Return the position in x of the center of the collected charge. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:198</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a6259851e755db48eb0dd831708212e27"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">lee::ElectronEventSelectionAlg::get_n_neutrino_candidates</a></div><div class="ttdeci">const size_t &amp; get_n_neutrino_candidates() const </div><div class="ttdoc">Return the number of neutrino candidates. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:137</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a59666f2bec60817a81fcdd467d9b9641"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a59666f2bec60817a81fcdd467d9b9641">lee::ElectronEventSelectionAlg::eventSelected</a></div><div class="ttdeci">bool eventSelected(const art::Event &amp;evt)</div><div class="ttdoc">Main Event Selection Function. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:381</div></div>
+<div class="ttc" id="classlee_1_1GeometryHelper_html"><div class="ttname"><a href="classlee_1_1GeometryHelper.html">lee::GeometryHelper</a></div><div class="ttdef"><b>Definition:</b> GeometryHelper.h:38</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ad24d64eca5e56d0550572b24d5e213f7"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">lee::ElectronEventSelectionAlg::get_n_tracks</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; &amp; get_n_tracks() const </div><div class="ttdoc">Return number of tracks for pfparticle index. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:163</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_ac098d39d04f407c9bfc574da4b82fee6"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">lee::ElectronEventSelectionAlg::get_neutrino_vertex</a></div><div class="ttdeci">const std::map&lt; size_t, TVector3 &gt; &amp; get_neutrino_vertex() const </div><div class="ttdoc">Return the pandora calculated vertex indexed by pfparticle id number. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:153</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a00266c70e046a9ee27e979be75925a09"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">lee::ElectronEventSelectionAlg::get_pfp_id_tracks_from_primary</a></div><div class="ttdeci">const std::map&lt; size_t, std::vector&lt; size_t &gt; &gt; &amp; get_pfp_id_tracks_from_primary() const </div><div class="ttdoc">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle ind...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.h:176</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a06a3e470d9b2ca729d25822fac19e455"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a06a3e470d9b2ca729d25822fac19e455">lee::ElectronEventSelectionAlg::collect3DHits</a></div><div class="ttdeci">const flashana::QCluster_t collect3DHits(const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist)</div><div class="ttdoc">Creates a photon cluster for a neutrino pfp hierarchy PFParticle. </div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:288</div></div>
+<div class="ttc" id="classlee_1_1ElectronEventSelectionAlg_html_a4d8d979b26116ec25d26884702d0f9c6"><div class="ttname"><a href="classlee_1_1ElectronEventSelectionAlg.html#a4d8d979b26116ec25d26884702d0f9c6">lee::ElectronEventSelectionAlg::flashBasedSelection</a></div><div class="ttdeci">const std::map&lt; size_t, int &gt; flashBasedSelection(const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</div><div class="ttdoc">Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE...</div><div class="ttdef"><b>Definition:</b> ElectronEventSelectionAlg.cxx:97</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

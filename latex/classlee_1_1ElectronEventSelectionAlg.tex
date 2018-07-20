@@ -4,195 +4,73 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{classlee_1_1ElectronEventSelectionAlg_ac6ee12d1ca7a56aba8b2af813b5a1012}{event\-Selected} (const art\-::\-Event \&evt)
+bool \hyperlink{classlee_1_1ElectronEventSelectionAlg_a59666f2bec60817a81fcdd467d9b9641}{event\-Selected} (const art\-::\-Event \&evt)
 \begin{DoxyCompactList}\small\item\em Main Event Selection Function. \end{DoxyCompactList}\item 
-void \hyperlink{classlee_1_1ElectronEventSelectionAlg_ac5d09c1db1da5f32408233ba8db10a1f}{reconfigure} (fhicl\-::\-Parameter\-Set const \&p)
+void \hyperlink{classlee_1_1ElectronEventSelectionAlg_a8f1378ec08aba381d438816c8bc31951}{reconfigure} (fhicl\-::\-Parameter\-Set const \&p)
 \begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, int $>$ \hyperlink{classlee_1_1ElectronEventSelectionAlg_a468d5973165360075a4a9abece4f1867}{opticalfilter} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticle\-\_\-handle)
+const std\-::map$<$ size\-\_\-t, int $>$ \hyperlink{classlee_1_1ElectronEventSelectionAlg_a1853e2053d74627cd4466cf670dc0c31}{opticalfilter} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticle\-\_\-handle)
 \begin{DoxyCompactList}\small\item\em Checks if there is a flash within the 3.\-2-\/4.\-8 ms window and compatible with the center of charge. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, int $>$ \hyperlink{classlee_1_1ElectronEventSelectionAlg_a48bac681dab43fcd1d116cb39302fe4a}{flash\-Based\-Selection} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticle\-\_\-handle)
+const std\-::map$<$ size\-\_\-t, int $>$ \hyperlink{classlee_1_1ElectronEventSelectionAlg_a4d8d979b26116ec25d26884702d0f9c6}{flash\-Based\-Selection} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticle\-\_\-handle)
 \begin{DoxyCompactList}\small\item\em Checks if there is a flash within the flash\-\_\-window\-\_\-start -\/ flash\-\_\-window\-\_\-end window with enough P\-E. and compatible with the center of charge, the best one is selected using flashmatching. \end{DoxyCompactList}\item 
-const flashana\-::\-Q\-Cluster\-\_\-t \hyperlink{classlee_1_1ElectronEventSelectionAlg_a194dc0ef0d33314f77e45d134932ac3c}{collect3\-D\-Hits} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist)
+const flashana\-::\-Q\-Cluster\-\_\-t \hyperlink{classlee_1_1ElectronEventSelectionAlg_a06a3e470d9b2ca729d25822fac19e455}{collect3\-D\-Hits} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist)
 \begin{DoxyCompactList}\small\item\em Creates a photon cluster for a neutrino pfp hierarchy P\-F\-Particle. \end{DoxyCompactList}\item 
-T\-Vector3 \hyperlink{classlee_1_1ElectronEventSelectionAlg_a38772f4cd346a40fd3f30eba3bc505a9}{space\-Charge\-True\-To\-Reco} (const T\-Vector3 \&xyz)
+T\-Vector3 \hyperlink{classlee_1_1ElectronEventSelectionAlg_afb99143e1546158d3f030724694e6a51}{space\-Charge\-True\-To\-Reco} (const T\-Vector3 \&xyz)
 \begin{DoxyCompactList}\small\item\em Return the true coordinates corrected by the space-\/charge effect. \end{DoxyCompactList}\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a9f320d7d843471c4f61409adf2c4d690}{void \hyperlink{classlee_1_1ElectronEventSelectionAlg_a9f320d7d843471c4f61409adf2c4d690}{clear} ()}\label{classlee_1_1ElectronEventSelectionAlg_a9f320d7d843471c4f61409adf2c4d690}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_ad936812d5e9dc7999a37c75b84b04ada}{void \hyperlink{classlee_1_1ElectronEventSelectionAlg_ad936812d5e9dc7999a37c75b84b04ada}{clear} ()}\label{classlee_1_1ElectronEventSelectionAlg_ad936812d5e9dc7999a37c75b84b04ada}
 
 \begin{DoxyCompactList}\small\item\em Reset internal variables. \end{DoxyCompactList}\item 
-const std\-::vector$<$ size\-\_\-t $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a317c107f710fc965cd7e062ac933d3df}{get\-\_\-primary\-\_\-indexes} () const 
-\begin{DoxyCompactList}\small\item\em Returns the number of neutrino candidates from pandora, regardless of whether the passed. \end{DoxyCompactList}\item 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a317c107f710fc965cd7e062ac933d3df}{const std\-::vector$<$ size\-\_\-t $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a317c107f710fc965cd7e062ac933d3df}{get\-\_\-primary\-\_\-indexes} () const }\label{classlee_1_1ElectronEventSelectionAlg_a317c107f710fc965cd7e062ac933d3df}
+
+\begin{DoxyCompactList}\small\item\em Return a list of the selected pfparticle top level neutrino candidate indexes. \end{DoxyCompactList}\item 
 \hypertarget{classlee_1_1ElectronEventSelectionAlg_a6259851e755db48eb0dd831708212e27}{const size\-\_\-t \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a6259851e755db48eb0dd831708212e27}{get\-\_\-n\-\_\-neutrino\-\_\-candidates} () const }\label{classlee_1_1ElectronEventSelectionAlg_a6259851e755db48eb0dd831708212e27}
 
 \begin{DoxyCompactList}\small\item\em Return the number of neutrino candidates. \end{DoxyCompactList}\item 
 const std\-::map$<$ size\-\_\-t, bool $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_ab34dc2b97e0065b07a5233e3b46b83a4}{get\-\_\-neutrino\-\_\-candidate\-\_\-passed} () const 
-\begin{DoxyCompactList}\small\item\em Informs whether a particular candidate passed or failed the algorithm. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_affda5b411008752c1355a9dd3a1d9c1e}{get\-\_\-op\-\_\-flash\-\_\-indexes} () const 
+\begin{DoxyCompactList}\small\item\em Inform whether a particular candidate passed or failed the algorithm. \end{DoxyCompactList}\item 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_affda5b411008752c1355a9dd3a1d9c1e}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_affda5b411008752c1355a9dd3a1d9c1e}{get\-\_\-op\-\_\-flash\-\_\-indexes} () const }\label{classlee_1_1ElectronEventSelectionAlg_affda5b411008752c1355a9dd3a1d9c1e}
+
 \begin{DoxyCompactList}\small\item\em Return the index of the flash matched with the pfparticle. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, \\*
-T\-Vector3 $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_ac098d39d04f407c9bfc574da4b82fee6}{get\-\_\-neutrino\-\_\-vertex} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_ac098d39d04f407c9bfc574da4b82fee6}{const std\-::map$<$ size\-\_\-t, \\*
+T\-Vector3 $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_ac098d39d04f407c9bfc574da4b82fee6}{get\-\_\-neutrino\-\_\-vertex} () const }\label{classlee_1_1ElectronEventSelectionAlg_ac098d39d04f407c9bfc574da4b82fee6}
+
 \begin{DoxyCompactList}\small\item\em Return the pandora calculated vertex indexed by pfparticle id number. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a43afa7fb8c10333f89774c6d4ea714dc}{get\-\_\-n\-\_\-showers} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a43afa7fb8c10333f89774c6d4ea714dc}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a43afa7fb8c10333f89774c6d4ea714dc}{get\-\_\-n\-\_\-showers} () const }\label{classlee_1_1ElectronEventSelectionAlg_a43afa7fb8c10333f89774c6d4ea714dc}
+
 \begin{DoxyCompactList}\small\item\em Return number of showers for this pfparticle. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_ad24d64eca5e56d0550572b24d5e213f7}{get\-\_\-n\-\_\-tracks} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_ad24d64eca5e56d0550572b24d5e213f7}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_ad24d64eca5e56d0550572b24d5e213f7}{get\-\_\-n\-\_\-tracks} () const }\label{classlee_1_1ElectronEventSelectionAlg_ad24d64eca5e56d0550572b24d5e213f7}
+
 \begin{DoxyCompactList}\small\item\em Return number of tracks for pfparticle index. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, \\*
-std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a7ea645ce175506b368ceb116bbb77889}{get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a7ea645ce175506b368ceb116bbb77889}{const std\-::map$<$ size\-\_\-t, \\*
+std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a7ea645ce175506b368ceb116bbb77889}{get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary} () const }\label{classlee_1_1ElectronEventSelectionAlg_a7ea645ce175506b368ceb116bbb77889}
+
 \begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
-const std\-::map$<$ size\-\_\-t, \\*
-std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a00266c70e046a9ee27e979be75925a09}{get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a00266c70e046a9ee27e979be75925a09}{const std\-::map$<$ size\-\_\-t, \\*
+std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a00266c70e046a9ee27e979be75925a09}{get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary} () const }\label{classlee_1_1ElectronEventSelectionAlg_a00266c70e046a9ee27e979be75925a09}
+
 \begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
-const std\-::vector$<$ double $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a306e62904f73e727c6f938d2a197f68e}{get\-\_\-flash\-\_\-\-P\-E} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a306e62904f73e727c6f938d2a197f68e}{const std\-::vector$<$ double $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a306e62904f73e727c6f938d2a197f68e}{get\-\_\-flash\-\_\-\-P\-E} () const }\label{classlee_1_1ElectronEventSelectionAlg_a306e62904f73e727c6f938d2a197f68e}
+
 \begin{DoxyCompactList}\small\item\em Return the list of total P\-E of the flashes. \end{DoxyCompactList}\item 
-const std\-::vector$<$ double $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a9990f4a980662e786fc8e38146ce4456}{get\-\_\-flash\-\_\-time} () const 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a9990f4a980662e786fc8e38146ce4456}{const std\-::vector$<$ double $>$ \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a9990f4a980662e786fc8e38146ce4456}{get\-\_\-flash\-\_\-time} () const }\label{classlee_1_1ElectronEventSelectionAlg_a9990f4a980662e786fc8e38146ce4456}
+
 \begin{DoxyCompactList}\small\item\em Return the list of times of the flashes. \end{DoxyCompactList}\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a69b697a2eec43de221621bd4aca906e2}{const double \& {\bfseries get\-\_\-flash\-\_\-x} () const }\label{classlee_1_1ElectronEventSelectionAlg_a69b697a2eec43de221621bd4aca906e2}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a69b697a2eec43de221621bd4aca906e2}{const double \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a69b697a2eec43de221621bd4aca906e2}{get\-\_\-flash\-\_\-x} () const }\label{classlee_1_1ElectronEventSelectionAlg_a69b697a2eec43de221621bd4aca906e2}
 
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a2c653a5d3225c3e3aa5dc84738ffa086}{const double \& {\bfseries get\-\_\-\-T\-P\-C\-\_\-x} () const }\label{classlee_1_1ElectronEventSelectionAlg_a2c653a5d3225c3e3aa5dc84738ffa086}
+\begin{DoxyCompactList}\small\item\em Return the position in x of the flash. \end{DoxyCompactList}\item 
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a2c653a5d3225c3e3aa5dc84738ffa086}{const double \& \hyperlink{classlee_1_1ElectronEventSelectionAlg_a2c653a5d3225c3e3aa5dc84738ffa086}{get\-\_\-\-T\-P\-C\-\_\-x} () const }\label{classlee_1_1ElectronEventSelectionAlg_a2c653a5d3225c3e3aa5dc84738ffa086}
 
-\end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ab595a7373a091aab62b8f199248f320d}{size\-\_\-t {\bfseries \-\_\-n\-\_\-neutrino\-\_\-candidates}}\label{classlee_1_1ElectronEventSelectionAlg_ab595a7373a091aab62b8f199248f320d}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a90143a319f9dd71c5ba32b658f30ceb7}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries \-\_\-primary\-\_\-indexes}}\label{classlee_1_1ElectronEventSelectionAlg_a90143a319f9dd71c5ba32b658f30ceb7}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ad074e6a2ccd754a2c15efa834932ffb9}{std\-::map$<$ size\-\_\-t, bool $>$ {\bfseries \-\_\-neutrino\-\_\-candidate\-\_\-passed}}\label{classlee_1_1ElectronEventSelectionAlg_ad074e6a2ccd754a2c15efa834932ffb9}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a2eb55a71628710eb97f89b2e6d78d236}{std\-::map$<$ size\-\_\-t, int $>$ {\bfseries \-\_\-op\-\_\-flash\-\_\-indexes}}\label{classlee_1_1ElectronEventSelectionAlg_a2eb55a71628710eb97f89b2e6d78d236}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a25adf65208b5fcbb82b5f2bf69bc132c}{std\-::map$<$ size\-\_\-t, T\-Vector3 $>$ {\bfseries \-\_\-neutrino\-\_\-vertex}}\label{classlee_1_1ElectronEventSelectionAlg_a25adf65208b5fcbb82b5f2bf69bc132c}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a76fb1477a75421ece942e311f9cac1d7}{std\-::map$<$ size\-\_\-t, int $>$ {\bfseries \-\_\-n\-\_\-showers}}\label{classlee_1_1ElectronEventSelectionAlg_a76fb1477a75421ece942e311f9cac1d7}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a6d6863ea6968da00aedb35cdcc11e857}{std\-::map$<$ size\-\_\-t, std\-::vector\\*
-$<$ size\-\_\-t $>$ $>$ {\bfseries \-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary}}\label{classlee_1_1ElectronEventSelectionAlg_a6d6863ea6968da00aedb35cdcc11e857}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_aed017ee63fe451fd266d9b16c9cf8d3c}{std\-::map$<$ size\-\_\-t, int $>$ {\bfseries \-\_\-n\-\_\-tracks}}\label{classlee_1_1ElectronEventSelectionAlg_aed017ee63fe451fd266d9b16c9cf8d3c}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a5f8d5c0400bf9f2a5963a70615a04f7f}{std\-::map$<$ size\-\_\-t, std\-::vector\\*
-$<$ size\-\_\-t $>$ $>$ {\bfseries \-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary}}\label{classlee_1_1ElectronEventSelectionAlg_a5f8d5c0400bf9f2a5963a70615a04f7f}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ace044c6f4da66c667ce2106cb82b9851}{std\-::vector$<$ double $>$ {\bfseries \-\_\-flash\-\_\-\-P\-E}}\label{classlee_1_1ElectronEventSelectionAlg_ace044c6f4da66c667ce2106cb82b9851}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a3b833533a073320eb3142149ce708e58}{std\-::vector$<$ double $>$ {\bfseries \-\_\-flash\-\_\-time}}\label{classlee_1_1ElectronEventSelectionAlg_a3b833533a073320eb3142149ce708e58}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a8a52193b5a38db1f71b010b47f745b21}{double {\bfseries \-\_\-\-T\-P\-C\-\_\-x}}\label{classlee_1_1ElectronEventSelectionAlg_a8a52193b5a38db1f71b010b47f745b21}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a323a6efba151edcc16bf3a13d575315e}{double {\bfseries \-\_\-flash\-\_\-x}}\label{classlee_1_1ElectronEventSelectionAlg_a323a6efba151edcc16bf3a13d575315e}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a7037dd08a637555158a8575ddca0219b}{int {\bfseries m\-\_\-n\-Tracks}}\label{classlee_1_1ElectronEventSelectionAlg_a7037dd08a637555158a8575ddca0219b}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a3efb31abe249ff0a0172df48454c4a01}{bool {\bfseries m\-\_\-print\-Debug}}\label{classlee_1_1ElectronEventSelectionAlg_a3efb31abe249ff0a0172df48454c4a01}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a2bc56efdd67fed68ea859f9c31e92689}{double {\bfseries m\-\_\-fidvol\-Xstart}}\label{classlee_1_1ElectronEventSelectionAlg_a2bc56efdd67fed68ea859f9c31e92689}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a96a39585eb1cc6296f39fe20c411487b}{double {\bfseries m\-\_\-fidvol\-Xend}}\label{classlee_1_1ElectronEventSelectionAlg_a96a39585eb1cc6296f39fe20c411487b}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a619e14aa36bea7cb4a1cda1af59e874c}{double {\bfseries m\-\_\-fidvol\-Ystart}}\label{classlee_1_1ElectronEventSelectionAlg_a619e14aa36bea7cb4a1cda1af59e874c}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_aa068d7654b2c313f37e6acca55d7cbde}{double {\bfseries m\-\_\-fidvol\-Yend}}\label{classlee_1_1ElectronEventSelectionAlg_aa068d7654b2c313f37e6acca55d7cbde}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a947ab1201c69fc7ffcfd3eb6720a7912}{double {\bfseries m\-\_\-fidvol\-Zstart}}\label{classlee_1_1ElectronEventSelectionAlg_a947ab1201c69fc7ffcfd3eb6720a7912}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a6971785950632dd5afc288142aee39f6}{double {\bfseries m\-\_\-fidvol\-Zend}}\label{classlee_1_1ElectronEventSelectionAlg_a6971785950632dd5afc288142aee39f6}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ac32ee2582a0e2b1e61e1877bd00da44a}{double {\bfseries m\-\_\-fractionsigmaflashwidth}}\label{classlee_1_1ElectronEventSelectionAlg_ac32ee2582a0e2b1e61e1877bd00da44a}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ae16d1fff36b6960e4098741e251af01c}{double {\bfseries m\-\_\-absoluteflashdist}}\label{classlee_1_1ElectronEventSelectionAlg_ae16d1fff36b6960e4098741e251af01c}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_aeeb5023e8512933602d4347d1e1b7359}{double {\bfseries m\-\_\-startbeamtime}}\label{classlee_1_1ElectronEventSelectionAlg_aeeb5023e8512933602d4347d1e1b7359}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a0a4427349f2c202218e71dc8119ad811}{double {\bfseries m\-\_\-endbeamtime}}\label{classlee_1_1ElectronEventSelectionAlg_a0a4427349f2c202218e71dc8119ad811}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a5125eb3abd5356cd0c33e9f47f2c6a3d}{double {\bfseries m\-\_\-\-P\-E\-\_\-threshold}}\label{classlee_1_1ElectronEventSelectionAlg_a5125eb3abd5356cd0c33e9f47f2c6a3d}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ac32c1e1db8ad6287912fb1447ae7e192}{double {\bfseries m\-\_\-cut\-\_\-zwidth}}\label{classlee_1_1ElectronEventSelectionAlg_ac32c1e1db8ad6287912fb1447ae7e192}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a1bd6b33330d8666d823f3698cfa83785}{double {\bfseries m\-\_\-cut\-\_\-sigzwidth}}\label{classlee_1_1ElectronEventSelectionAlg_a1bd6b33330d8666d823f3698cfa83785}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a2fca23cbb16ca60a2f593405f256f00e}{double {\bfseries m\-\_\-cut\-\_\-ywidth}}\label{classlee_1_1ElectronEventSelectionAlg_a2fca23cbb16ca60a2f593405f256f00e}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a67bbf323c59354b2029f668c58a8951a}{double {\bfseries m\-\_\-cut\-\_\-sigywidth}}\label{classlee_1_1ElectronEventSelectionAlg_a67bbf323c59354b2029f668c58a8951a}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_abaeb4528a700866fdc0e362f540a8dea}{double {\bfseries m\-\_\-charge\-\_\-light\-\_\-ratio}}\label{classlee_1_1ElectronEventSelectionAlg_abaeb4528a700866fdc0e362f540a8dea}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_aaa06afa8044a10a6497852854a811a00}{bool {\bfseries m\-\_\-flashmatching}}\label{classlee_1_1ElectronEventSelectionAlg_aaa06afa8044a10a6497852854a811a00}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_abd632e59d98a72d8040890f425d1a3f2}{bool {\bfseries m\-\_\-\-F\-M\-\_\-all}}\label{classlee_1_1ElectronEventSelectionAlg_abd632e59d98a72d8040890f425d1a3f2}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a2a8178edfca11d99f8ccbd86dbd1c3bd}{double {\bfseries m\-\_\-is\-Cosmic\-In\-Time}}\label{classlee_1_1ElectronEventSelectionAlg_a2a8178edfca11d99f8ccbd86dbd1c3bd}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_af3cb19dac93bb287a5747ad4400c65ef}{bool \hyperlink{classlee_1_1ElectronEventSelectionAlg_af3cb19dac93bb287a5747ad4400c65ef}{\-\_\-do\-\_\-opdet\-\_\-swap}}\label{classlee_1_1ElectronEventSelectionAlg_af3cb19dac93bb287a5747ad4400c65ef}
-
-\begin{DoxyCompactList}\small\item\em If true swaps reconstructed Op\-Dets according to \-\_\-opdet\-\_\-swap\-\_\-map. \end{DoxyCompactList}\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a3b8e7b46ec5b2db6008972662b2feb7f}{std\-::vector$<$ int $>$ \hyperlink{classlee_1_1ElectronEventSelectionAlg_a3b8e7b46ec5b2db6008972662b2feb7f}{\-\_\-opdet\-\_\-swap\-\_\-map}}\label{classlee_1_1ElectronEventSelectionAlg_a3b8e7b46ec5b2db6008972662b2feb7f}
-
-\begin{DoxyCompactList}\small\item\em The Op\-Det swap map for reco flashes. \end{DoxyCompactList}\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a22dc43acead400d57a885ef5f4eadfe0}{std\-::string {\bfseries m\-\_\-pfp\-\_\-producer}}\label{classlee_1_1ElectronEventSelectionAlg_a22dc43acead400d57a885ef5f4eadfe0}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_aab3778b534309c11083d606aad56191b}{std\-::string {\bfseries f\-Optical\-Flash\-Finder\-Label}}\label{classlee_1_1ElectronEventSelectionAlg_aab3778b534309c11083d606aad56191b}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a99a124186e74bce53dd84068083cc90d}{\hyperlink{classlee_1_1GeometryHelper}{Geometry\-Helper} {\bfseries geo\-Helper}}\label{classlee_1_1ElectronEventSelectionAlg_a99a124186e74bce53dd84068083cc90d}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ab6b3531c56323d02225e257a191d7a65}{\hyperlink{classlee_1_1PandoraInterfaceHelper}{Pandora\-Interface\-Helper} {\bfseries pandora\-Helper}}\label{classlee_1_1ElectronEventSelectionAlg_ab6b3531c56323d02225e257a191d7a65}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a49fb9654c5609485ae6745fdbb84335c}{flashana\-::\-Flash\-Match\-Manager {\bfseries m\-\_\-mgr}}\label{classlee_1_1ElectronEventSelectionAlg_a49fb9654c5609485ae6745fdbb84335c}
-
-\item 
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a6d19e99bac2aebf0710321e4b9d2d394}{art\-::\-Service\-Handle$<$ geo\-::\-Geometry $>$ {\bfseries m\-\_\-geo}}\label{classlee_1_1ElectronEventSelectionAlg_a6d19e99bac2aebf0710321e4b9d2d394}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return the position in x of the center of the collected charge. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a194dc0ef0d33314f77e45d134932ac3c}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!collect3\-D\-Hits@{collect3\-D\-Hits}}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a06a3e470d9b2ca729d25822fac19e455}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!collect3\-D\-Hits@{collect3\-D\-Hits}}
 \index{collect3\-D\-Hits@{collect3\-D\-Hits}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{collect3\-D\-Hits}]{\setlength{\rightskip}{0pt plus 5cm}const flashana\-::\-Q\-Cluster\-\_\-t lee\-::\-Electron\-Event\-Selection\-Alg\-::collect3\-D\-Hits (
+\subsubsection[{collect3\-D\-Hits}]{\setlength{\rightskip}{0pt plus 5cm}const flashana\-::\-Q\-Cluster\-\_\-t Electron\-Event\-Selection\-Alg\-::collect3\-D\-Hits (
 \begin{DoxyParamCaption}
 \item[{const art\-::\-Event \&}]{evt, }
 \item[{const std\-::vector$<$ size\-\_\-t $>$ \&}]{pfplist}
 \end{DoxyParamCaption}
-)}}\label{classlee_1_1ElectronEventSelectionAlg_a194dc0ef0d33314f77e45d134932ac3c}
+)}}\label{classlee_1_1ElectronEventSelectionAlg_a06a3e470d9b2ca729d25822fac19e455}
 
 
 Creates a photon cluster for a neutrino pfp hierarchy P\-F\-Particle. 
@@ -207,13 +85,13 @@ Creates a photon cluster for a neutrino pfp hierarchy P\-F\-Particle.
 \begin{DoxyReturn}{Returns}
 flashana\-::\-Q\-Cluster\-\_\-t object containing the photons 
 \end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ac6ee12d1ca7a56aba8b2af813b5a1012}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!event\-Selected@{event\-Selected}}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a59666f2bec60817a81fcdd467d9b9641}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!event\-Selected@{event\-Selected}}
 \index{event\-Selected@{event\-Selected}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{event\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}bool lee\-::\-Electron\-Event\-Selection\-Alg\-::event\-Selected (
+\subsubsection[{event\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}bool Electron\-Event\-Selection\-Alg\-::event\-Selected (
 \begin{DoxyParamCaption}
 \item[{const art\-::\-Event \&}]{evt}
 \end{DoxyParamCaption}
-)}}\label{classlee_1_1ElectronEventSelectionAlg_ac6ee12d1ca7a56aba8b2af813b5a1012}
+)}}\label{classlee_1_1ElectronEventSelectionAlg_a59666f2bec60817a81fcdd467d9b9641}
 
 
 Main Event Selection Function. 
@@ -228,15 +106,15 @@ Decides whether or not this event is an electron neutrino candidate
 \begin{DoxyReturn}{Returns}
 True or False. True == event passed cuts, false == event failed cuts 
 \end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a48bac681dab43fcd1d116cb39302fe4a}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!flash\-Based\-Selection@{flash\-Based\-Selection}}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a4d8d979b26116ec25d26884702d0f9c6}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!flash\-Based\-Selection@{flash\-Based\-Selection}}
 \index{flash\-Based\-Selection@{flash\-Based\-Selection}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{flash\-Based\-Selection}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$ size\-\_\-t, int $>$ lee\-::\-Electron\-Event\-Selection\-Alg\-::flash\-Based\-Selection (
+\subsubsection[{flash\-Based\-Selection}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$ size\-\_\-t, int $>$ Electron\-Event\-Selection\-Alg\-::flash\-Based\-Selection (
 \begin{DoxyParamCaption}
 \item[{const art\-::\-Event \&}]{evt, }
 \item[{const std\-::vector$<$ size\-\_\-t $>$ \&}]{pfplist, }
 \item[{const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$}]{pfparticle\-\_\-handle}
 \end{DoxyParamCaption}
-)}}\label{classlee_1_1ElectronEventSelectionAlg_a48bac681dab43fcd1d116cb39302fe4a}
+)}}\label{classlee_1_1ElectronEventSelectionAlg_a4d8d979b26116ec25d26884702d0f9c6}
 
 
 Checks if there is a flash within the flash\-\_\-window\-\_\-start -\/ flash\-\_\-window\-\_\-end window with enough P\-E. and compatible with the center of charge, the best one is selected using flashmatching. 
@@ -251,62 +129,6 @@ Checks if there is a flash within the flash\-\_\-window\-\_\-start -\/ flash\-\_
 \begin{DoxyReturn}{Returns}
 -\/1 if not passed, otherwise index of the flash is returned 
 \end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a306e62904f73e727c6f938d2a197f68e}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-flash\-\_\-\-P\-E@{get\-\_\-flash\-\_\-\-P\-E}}
-\index{get\-\_\-flash\-\_\-\-P\-E@{get\-\_\-flash\-\_\-\-P\-E}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-flash\-\_\-\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$double$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-flash\-\_\-\-P\-E (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_a306e62904f73e727c6f938d2a197f68e}
-
-
-Return the list of total P\-E of the flashes. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a9990f4a980662e786fc8e38146ce4456}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-flash\-\_\-time@{get\-\_\-flash\-\_\-time}}
-\index{get\-\_\-flash\-\_\-time@{get\-\_\-flash\-\_\-time}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-flash\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$double$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-flash\-\_\-time (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_a9990f4a980662e786fc8e38146ce4456}
-
-
-Return the list of times of the flashes. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a43afa7fb8c10333f89774c6d4ea714dc}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-n\-\_\-showers@{get\-\_\-n\-\_\-showers}}
-\index{get\-\_\-n\-\_\-showers@{get\-\_\-n\-\_\-showers}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-n\-\_\-showers}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, int$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-showers (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_a43afa7fb8c10333f89774c6d4ea714dc}
-
-
-Return number of showers for this pfparticle. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ad24d64eca5e56d0550572b24d5e213f7}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-n\-\_\-tracks@{get\-\_\-n\-\_\-tracks}}
-\index{get\-\_\-n\-\_\-tracks@{get\-\_\-n\-\_\-tracks}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-n\-\_\-tracks}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, int$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-tracks (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_ad24d64eca5e56d0550572b24d5e213f7}
-
-
-Return number of tracks for pfparticle index. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
 \hypertarget{classlee_1_1ElectronEventSelectionAlg_ab34dc2b97e0065b07a5233e3b46b83a4}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-neutrino\-\_\-candidate\-\_\-passed@{get\-\_\-neutrino\-\_\-candidate\-\_\-passed}}
 \index{get\-\_\-neutrino\-\_\-candidate\-\_\-passed@{get\-\_\-neutrino\-\_\-candidate\-\_\-passed}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
 \subsubsection[{get\-\_\-neutrino\-\_\-candidate\-\_\-passed}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, bool$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-neutrino\-\_\-candidate\-\_\-passed (
@@ -316,90 +138,20 @@ Return number of tracks for pfparticle index.
 ) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_ab34dc2b97e0065b07a5233e3b46b83a4}
 
 
-Informs whether a particular candidate passed or failed the algorithm. 
+Inform whether a particular candidate passed or failed the algorithm. 
 
 \begin{DoxyReturn}{Returns}
 Vector of bool, one-\/to-\/one with get\-\_\-primary\-\_\-indexes 
 \end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ac098d39d04f407c9bfc574da4b82fee6}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-neutrino\-\_\-vertex@{get\-\_\-neutrino\-\_\-vertex}}
-\index{get\-\_\-neutrino\-\_\-vertex@{get\-\_\-neutrino\-\_\-vertex}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-neutrino\-\_\-vertex}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, T\-Vector3$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-neutrino\-\_\-vertex (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_ac098d39d04f407c9bfc574da4b82fee6}
-
-
-Return the pandora calculated vertex indexed by pfparticle id number. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_affda5b411008752c1355a9dd3a1d9c1e}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-op\-\_\-flash\-\_\-indexes@{get\-\_\-op\-\_\-flash\-\_\-indexes}}
-\index{get\-\_\-op\-\_\-flash\-\_\-indexes@{get\-\_\-op\-\_\-flash\-\_\-indexes}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-op\-\_\-flash\-\_\-indexes}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, int $>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-op\-\_\-flash\-\_\-indexes (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_affda5b411008752c1355a9dd3a1d9c1e}
-
-
-Return the index of the flash matched with the pfparticle. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a7ea645ce175506b368ceb116bbb77889}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary@{get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary}}
-\index{get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary@{get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, std\-::vector$<$size\-\_\-t$>$ $>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_a7ea645ce175506b368ceb116bbb77889}
-
-
-Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a00266c70e046a9ee27e979be75925a09}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary@{get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary}}
-\index{get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary@{get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, std\-::vector$<$size\-\_\-t$>$ $>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_a00266c70e046a9ee27e979be75925a09}
-
-
-Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. 
-
-\mbox{[}long description\mbox{]} \begin{DoxyReturn}{Returns}
-\mbox{[}description\mbox{]} 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a317c107f710fc965cd7e062ac933d3df}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!get\-\_\-primary\-\_\-indexes@{get\-\_\-primary\-\_\-indexes}}
-\index{get\-\_\-primary\-\_\-indexes@{get\-\_\-primary\-\_\-indexes}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{get\-\_\-primary\-\_\-indexes}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::vector$<$size\-\_\-t$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-primary\-\_\-indexes (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classlee_1_1ElectronEventSelectionAlg_a317c107f710fc965cd7e062ac933d3df}
-
-
-Returns the number of neutrino candidates from pandora, regardless of whether the passed. 
-
-\begin{DoxyReturn}{Returns}
-Number of candidates Return a list of the selected pfparticle top level neutrino candidate indexes 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a468d5973165360075a4a9abece4f1867}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!opticalfilter@{opticalfilter}}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a1853e2053d74627cd4466cf670dc0c31}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!opticalfilter@{opticalfilter}}
 \index{opticalfilter@{opticalfilter}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{opticalfilter}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$ size\-\_\-t, int $>$ lee\-::\-Electron\-Event\-Selection\-Alg\-::opticalfilter (
+\subsubsection[{opticalfilter}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$ size\-\_\-t, int $>$ Electron\-Event\-Selection\-Alg\-::opticalfilter (
 \begin{DoxyParamCaption}
 \item[{const art\-::\-Event \&}]{evt, }
 \item[{const std\-::vector$<$ size\-\_\-t $>$ \&}]{pfplist, }
 \item[{const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$}]{pfparticle\-\_\-handle}
 \end{DoxyParamCaption}
-)}}\label{classlee_1_1ElectronEventSelectionAlg_a468d5973165360075a4a9abece4f1867}
+)}}\label{classlee_1_1ElectronEventSelectionAlg_a1853e2053d74627cd4466cf670dc0c31}
 
 
 Checks if there is a flash within the 3.\-2-\/4.\-8 ms window and compatible with the center of charge. 
@@ -414,13 +166,13 @@ Checks if there is a flash within the 3.\-2-\/4.\-8 ms window and compatible wit
 \begin{DoxyReturn}{Returns}
 -\/1 if not passed, otherwise index of the flash 
 \end{DoxyReturn}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_ac5d09c1db1da5f32408233ba8db10a1f}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!reconfigure@{reconfigure}}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_a8f1378ec08aba381d438816c8bc31951}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!reconfigure@{reconfigure}}
 \index{reconfigure@{reconfigure}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{reconfigure}]{\setlength{\rightskip}{0pt plus 5cm}void lee\-::\-Electron\-Event\-Selection\-Alg\-::reconfigure (
+\subsubsection[{reconfigure}]{\setlength{\rightskip}{0pt plus 5cm}void Electron\-Event\-Selection\-Alg\-::reconfigure (
 \begin{DoxyParamCaption}
 \item[{fhicl\-::\-Parameter\-Set const \&}]{p}
 \end{DoxyParamCaption}
-)}}\label{classlee_1_1ElectronEventSelectionAlg_ac5d09c1db1da5f32408233ba8db10a1f}
+)}}\label{classlee_1_1ElectronEventSelectionAlg_a8f1378ec08aba381d438816c8bc31951}
 
 
 Configure all of the parameters of this class. 
@@ -430,13 +182,13 @@ Configure all of the parameters of this class.
 {\em p} & fcl parameter set \\
 \hline
 \end{DoxyParams}
-\hypertarget{classlee_1_1ElectronEventSelectionAlg_a38772f4cd346a40fd3f30eba3bc505a9}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!space\-Charge\-True\-To\-Reco@{space\-Charge\-True\-To\-Reco}}
+\hypertarget{classlee_1_1ElectronEventSelectionAlg_afb99143e1546158d3f030724694e6a51}{\index{lee\-::\-Electron\-Event\-Selection\-Alg@{lee\-::\-Electron\-Event\-Selection\-Alg}!space\-Charge\-True\-To\-Reco@{space\-Charge\-True\-To\-Reco}}
 \index{space\-Charge\-True\-To\-Reco@{space\-Charge\-True\-To\-Reco}!lee::ElectronEventSelectionAlg@{lee\-::\-Electron\-Event\-Selection\-Alg}}
-\subsubsection[{space\-Charge\-True\-To\-Reco}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector3 lee\-::\-Electron\-Event\-Selection\-Alg\-::space\-Charge\-True\-To\-Reco (
+\subsubsection[{space\-Charge\-True\-To\-Reco}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector3 Electron\-Event\-Selection\-Alg\-::space\-Charge\-True\-To\-Reco (
 \begin{DoxyParamCaption}
 \item[{const T\-Vector3 \&}]{xyz}
 \end{DoxyParamCaption}
-)}}\label{classlee_1_1ElectronEventSelectionAlg_a38772f4cd346a40fd3f30eba3bc505a9}
+)}}\label{classlee_1_1ElectronEventSelectionAlg_afb99143e1546158d3f030724694e6a51}
 
 
 Return the true coordinates corrected by the space-\/charge effect. 

@@ -102,9 +102,9 @@ Inheritance diagram for lee::PandoraLEEAnalyzer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad44c43aa463d3ec0185357e593808a99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44c43aa463d3ec0185357e593808a99"></a>
+<tr class="memitem:a3783391baff0585de9261a559a8d28ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3783391baff0585de9261a559a8d28ef"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PandoraLEEAnalyzer</b> (fhicl::ParameterSet const &amp;pset)</td></tr>
-<tr class="separator:ad44c43aa463d3ec0185357e593808a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a3783391baff0585de9261a559a8d28ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f8e3ecdc7892d554c68080645af88c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50f8e3ecdc7892d554c68080645af88c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PandoraLEEAnalyzer</b> (<a class="el" href="classlee_1_1PandoraLEEAnalyzer.html">PandoraLEEAnalyzer</a> const &amp;)=delete</td></tr>
 <tr class="separator:a50f8e3ecdc7892d554c68080645af88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,16 +117,266 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a79984f454c76dbb927254731d85e40c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79984f454c76dbb927254731d85e40c4"></a>
 <a class="el" href="classlee_1_1PandoraLEEAnalyzer.html">PandoraLEEAnalyzer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classlee_1_1PandoraLEEAnalyzer.html">PandoraLEEAnalyzer</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a79984f454c76dbb927254731d85e40c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0fd03bb0abb068d025680dc62384dea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0fd03bb0abb068d025680dc62384dea"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>analyze</b> (art::Event const &amp;e) override</td></tr>
-<tr class="separator:ac0fd03bb0abb068d025680dc62384dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a129028bbbe1b6ff01446c65dcdbe60e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a129028bbbe1b6ff01446c65dcdbe60e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>endSubRun</b> (const art::SubRun &amp;sr)</td></tr>
-<tr class="separator:a129028bbbe1b6ff01446c65dcdbe60e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fff1d77f940b9327b2e047266afffb4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fff1d77f940b9327b2e047266afffb4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhicl::ParameterSet const &amp;pset) override</td></tr>
-<tr class="separator:a0fff1d77f940b9327b2e047266afffb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6142fdaa2037d01df2304cbb17d59b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#ab6142fdaa2037d01df2304cbb17d59b0">analyze</a> (art::Event const &amp;e) override</td></tr>
+<tr class="memdesc:ab6142fdaa2037d01df2304cbb17d59b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main analyzer method, runs for every event in the file.  <a href="#ab6142fdaa2037d01df2304cbb17d59b0">More...</a><br/></td></tr>
+<tr class="separator:ab6142fdaa2037d01df2304cbb17d59b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aede981b7ff7b78309f2457c40581ba71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#aede981b7ff7b78309f2457c40581ba71">endSubRun</a> (const art::SubRun &amp;sr)</td></tr>
+<tr class="memdesc:aede981b7ff7b78309f2457c40581ba71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method called at the end of each subrun, it stores the number of POT.  <a href="#aede981b7ff7b78309f2457c40581ba71">More...</a><br/></td></tr>
+<tr class="separator:aede981b7ff7b78309f2457c40581ba71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4696139a07194b86735e93fe0d9df45e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#a4696139a07194b86735e93fe0d9df45e">reconfigure</a> (fhicl::ParameterSet const &amp;pset) override</td></tr>
+<tr class="memdesc:a4696139a07194b86735e93fe0d9df45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the values of the FHICL file.  <a href="#a4696139a07194b86735e93fe0d9df45e">More...</a><br/></td></tr>
+<tr class="separator:a4696139a07194b86735e93fe0d9df45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8072bae8c7e78701c093070d17c992"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d8072bae8c7e78701c093070d17c992"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#a9d8072bae8c7e78701c093070d17c992">clear</a> ()</td></tr>
+<tr class="memdesc:a9d8072bae8c7e78701c093070d17c992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears filled variables. <br/></td></tr>
+<tr class="separator:a9d8072bae8c7e78701c093070d17c992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2598c705e4307eed73e1989613028ced"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#a2598c705e4307eed73e1989613028ced">choose_candidate</a> (std::vector&lt; size_t &gt; &amp;candidates, const art::Event &amp;evt)</td></tr>
+<tr class="memdesc:a2598c705e4307eed73e1989613028ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the longest reconstructed track.  <a href="#a2598c705e4307eed73e1989613028ced">More...</a><br/></td></tr>
+<tr class="separator:a2598c705e4307eed73e1989613028ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76ba045ee298f69ff19ab86be51a69e"><td class="memItemLeft" align="right" valign="top">art::Ptr&lt; recob::Track &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#ae76ba045ee298f69ff19ab86be51a69e">get_longest_track</a> (std::vector&lt; art::Ptr&lt; recob::Track &gt;&gt; &amp;tracks)</td></tr>
+<tr class="memdesc:ae76ba045ee298f69ff19ab86be51a69e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the longest reconstructed track.  <a href="#ae76ba045ee298f69ff19ab86be51a69e">More...</a><br/></td></tr>
+<tr class="separator:ae76ba045ee298f69ff19ab86be51a69e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6eb7dd67f871231011dbfae2dcf6cfc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6eb7dd67f871231011dbfae2dcf6cfc"></a>
+art::Ptr&lt; recob::Shower &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_most_energetic_shower</b> (std::vector&lt; art::Ptr&lt; recob::Shower &gt;&gt; &amp;showers)</td></tr>
+<tr class="separator:af6eb7dd67f871231011dbfae2dcf6cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e0369a28fcbca90d62624f59d44aaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1PandoraLEEAnalyzer.html#ae0e0369a28fcbca90d62624f59d44aaa">categorizePFParticles</a> (art::Event const &amp;evt, std::vector&lt; int &gt; &amp;neutrino_pdg, std::vector&lt; std::string &gt; &amp;neutrino_process, std::vector&lt; double &gt; &amp;neutrino_energy, std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;neutrino_pf, std::vector&lt; int &gt; &amp;cosmic_pdg, std::vector&lt; std::string &gt; &amp;cosmic_process, std::vector&lt; double &gt; &amp;cosmic_energy, std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;cosmic_pf)</td></tr>
+<tr class="memdesc:ae0e0369a28fcbca90d62624f59d44aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a PFParticle is matched with a MCParticle coming from a neutrino interaction or a cosmic ray.  <a href="#ae0e0369a28fcbca90d62624f59d44aaa">More...</a><br/></td></tr>
+<tr class="separator:ae0e0369a28fcbca90d62624f59d44aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab6142fdaa2037d01df2304cbb17d59b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PandoraLEEAnalyzer::analyze </td>
+          <td>(</td>
+          <td class="paramtype">art::Event const &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Main analyzer method, runs for every event in the file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">evt</td><td>current art::Event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae0e0369a28fcbca90d62624f59d44aaa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PandoraLEEAnalyzer::categorizePFParticles </td>
+          <td>(</td>
+          <td class="paramtype">art::Event const &amp;&#160;</td>
+          <td class="paramname"><em>evt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>neutrino_pdg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>neutrino_process</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>neutrino_energy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>neutrino_pf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cosmic_pdg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cosmic_process</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>cosmic_energy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>cosmic_pf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determines if a PFParticle is matched with a MCParticle coming from a neutrino interaction or a cosmic ray. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">evt</td><td>current art Event </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">neutrino_pdg</td><td>vector of PDG codes for neutrino-matched PFParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">neutrino_process</td><td>vector of interaction processes for neutrino-matched PFParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">neutrino_energy</td><td>vector of true energy of neutrino-matched MCParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">neutrino_pf</td><td>vector of neutrino-matched PFParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cosmic_pdg</td><td>vector of PDG codes for cosmic-matched PFParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cosmic_process</td><td>vector of interaction processes for cosmic-matched PFParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cosmic_energy</td><td>vector of true energy of cosmic-matched MCParticles </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cosmic_pf</td><td>vector of cosmic-matched PFParticles </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2598c705e4307eed73e1989613028ced"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t PandoraLEEAnalyzer::choose_candidate </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>candidates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const art::Event &amp;&#160;</td>
+          <td class="paramname"><em>evt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the longest reconstructed track. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">candidates</td><td>vector of neutrino candidates indexes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">evt</td><td>current art::Event</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>index of the chosen neutrino candidate </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aede981b7ff7b78309f2457c40581ba71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PandoraLEEAnalyzer::endSubRun </td>
+          <td>(</td>
+          <td class="paramtype">const art::SubRun &amp;&#160;</td>
+          <td class="paramname"><em>sr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method called at the end of each subrun, it stores the number of POT. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sr</td><td>current art::SubRun </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae76ba045ee298f69ff19ab86be51a69e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">art::Ptr&lt; recob::Track &gt; PandoraLEEAnalyzer::get_longest_track </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; art::Ptr&lt; recob::Track &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>tracks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the longest reconstructed track. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tracks</td><td>vector of reconstructed tracks</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>longest reconstructed track object </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4696139a07194b86735e93fe0d9df45e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PandoraLEEAnalyzer::reconfigure </td>
+          <td>(</td>
+          <td class="paramtype">fhicl::ParameterSet const &amp;&#160;</td>
+          <td class="paramname"><em>pset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns the values of the FHICL file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pset</td><td>set of FHICL parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/<a class="el" href="PandoraLEEAnalyzer_8h_source.html">PandoraLEEAnalyzer.h</a></li>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer_module.cc</li>
