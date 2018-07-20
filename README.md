@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/soleti/ElectronNeutrinoSelection.svg?branch=master)](https://travis-ci.org/soleti/ElectronNeutrinoSelection)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/16286/badge.svg)](https://scan.coverity.com/projects/soleti-electronneutrinoselection)
 
 # Pandora &nu;<sub>e</sub> selection
 This module is a [LArSoft](http://www.larsoft.org) analyzer that builds a ROOT `TTree` with information from &nu;<sub>e</sub> candidates, reconstructed with the [Pandora framework](https://github.com/PandoraPFA).
@@ -11,3 +12,7 @@ There are three FCL files, two for data (`run_PandoraOnly_data_bnb.fcl`, `run_Pa
 - `ParticleID` package, follow instructions on [DocDB 16299](https://microboone-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=16299&filename=particle-users-guide%20%282%29.pdf&version=2)
 - Checkout `uboonecode` feature `feature/alister1_EventWeightTreeUtility`
 - Checkout `uboonecode` feature `wvdp_lightcharge_v6_26`
+
+# License
+
+See the [LICENSE](LICENSE) file for license rights and limitations (MIT).
