@@ -18,6 +18,8 @@
  * Created on: Fri Jul  20 11:20:39 2018
  *
  */
+/** \addtogroup lee
+@{*/
 
 #ifndef PANDORAINTERFACEHELPER_H
 #define PANDORAINTERFACEHELPER_H

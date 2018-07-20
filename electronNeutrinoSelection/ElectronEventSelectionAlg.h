@@ -16,6 +16,8 @@
  * Created on: Fri Jul  20 11:20:39 2018
  *
  */
+/** \addtogroup lee
+@{*/
 
 #ifndef ELECTRON_EVENT_SELECTION_ALG_H
 #define ELECTRON_EVENT_SELECTION_ALG_H

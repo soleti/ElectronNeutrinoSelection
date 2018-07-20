@@ -366,7 +366,6 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
         double q = hit->Integral() * _gain[_cl->Plane().Plane];
         dqdxs.push_back(q / fabs(pitch));
         dqdx_hits.push_back(q / fabs(pitch));
-        pitches.push_back(pitch);
       }
     }
 
@@ -375,6 +374,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
     {
       std::nth_element(dqdxs.begin(), dqdxs.begin() + dqdxs.size() / 2, dqdxs.end());
       dqdx[_cl->Plane().Plane] = dqdxs[dqdxs.size() / 2];
+      pitches[_cl->Plane().Plane] = pitch;
     }
   }
 }

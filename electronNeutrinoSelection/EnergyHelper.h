@@ -17,6 +17,8 @@
  * Created on: Fri Jul  20 11:20:39 2018
  *
  */
+/** \addtogroup lee
+@{*/
 
 #ifndef ENERGYHELPER_H
 #define ENERGYHELPER_H
