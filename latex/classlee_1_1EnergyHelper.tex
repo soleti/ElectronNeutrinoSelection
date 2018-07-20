@@ -10,9 +10,8 @@ Inheritance diagram for lee\-:\-:Energy\-Helper\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classlee_1_1EnergyHelper_a4523185d78d6b7aa94dbf26475750282}{void {\bfseries reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)}\label{classlee_1_1EnergyHelper_a4523185d78d6b7aa94dbf26475750282}
-
-\item 
+void \hyperlink{classlee_1_1EnergyHelper_a4523185d78d6b7aa94dbf26475750282}{reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)
+\begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
 void \hyperlink{classlee_1_1EnergyHelper_a3ab3ce039f7c08ce5fbb1126a861c36c}{d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)
 \begin{DoxyCompactList}\small\item\em Measure the d\-Qdx of a shower. \end{DoxyCompactList}\item 
 double \hyperlink{classlee_1_1EnergyHelper_a493326200e39f3aaa22999c55c22b6f5}{P\-I\-D} (const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$pids, int track\-I\-D, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, int pdg\-Code)
@@ -228,6 +227,22 @@ Return the value of a specific Particle\-I\-D algorithm for a single track.
 \begin{DoxyReturn}{Returns}
 Value of Variable\-Type for the Particle\-I\-D Alg\-Name algorithm, given its hypothetical P\-D\-G code 
 \end{DoxyReturn}
+\hypertarget{classlee_1_1EnergyHelper_a4523185d78d6b7aa94dbf26475750282}{\index{lee\-::\-Energy\-Helper@{lee\-::\-Energy\-Helper}!reconfigure@{reconfigure}}
+\index{reconfigure@{reconfigure}!lee::EnergyHelper@{lee\-::\-Energy\-Helper}}
+\subsubsection[{reconfigure}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::reconfigure (
+\begin{DoxyParamCaption}
+\item[{fhicl\-::\-Parameter\-Set const \&}]{pset}
+\end{DoxyParamCaption}
+)}}\label{classlee_1_1EnergyHelper_a4523185d78d6b7aa94dbf26475750282}
+
+
+Configure all of the parameters of this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & fcl parameter set \\
+\hline
+\end{DoxyParams}
 \hypertarget{classlee_1_1EnergyHelper_a27cd9ba04f447b9922c56bbb320bce08}{\index{lee\-::\-Energy\-Helper@{lee\-::\-Energy\-Helper}!track\-\_\-d\-Qdx@{track\-\_\-d\-Qdx}}
 \index{track\-\_\-d\-Qdx@{track\-\_\-d\-Qdx}!lee::EnergyHelper@{lee\-::\-Energy\-Helper}}
 \subsubsection[{track\-\_\-d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::track\-\_\-d\-Qdx (
