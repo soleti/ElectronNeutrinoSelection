@@ -19,6 +19,9 @@
  *
  */
 
+/** \addtogroup lee
+@{*/
+
 #ifndef PANDORA_LEE_H
 #define PANDORA_LEE_H
 
