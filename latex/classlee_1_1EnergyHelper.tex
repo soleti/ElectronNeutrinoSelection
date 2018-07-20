@@ -1,0 +1,48 @@
+\hypertarget{classlee_1_1EnergyHelper}{\section{lee\-:\-:Energy\-Helper Class Reference}
+\label{classlee_1_1EnergyHelper}\index{lee\-::\-Energy\-Helper@{lee\-::\-Energy\-Helper}}
+}
+Inheritance diagram for lee\-:\-:Energy\-Helper\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classlee_1_1EnergyHelper}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classlee_1_1EnergyHelper_aa551642488e1a71f7b3d16965789a9f7}{void {\bfseries reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)}\label{classlee_1_1EnergyHelper_aa551642488e1a71f7b3d16965789a9f7}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a4a3122ca6339e77bb3524fd1762a1f69}{void {\bfseries d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)}\label{classlee_1_1EnergyHelper_a4a3122ca6339e77bb3524fd1762a1f69}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a7731238e9b8545a22c3aa456025470bd}{double {\bfseries P\-I\-D} (const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$pids, int track\-I\-D, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, int pdg\-Code)}\label{classlee_1_1EnergyHelper_a7731238e9b8545a22c3aa456025470bd}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a54bc53c792be860c9b9eac24b6cc6729}{void {\bfseries d\-Edx\-\_\-from\-\_\-d\-Qdx} (std\-::vector$<$ double $>$ \&dedx, std\-::vector$<$ double $>$ dqdx)}\label{classlee_1_1EnergyHelper_a54bc53c792be860c9b9eac24b6cc6729}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a75cf4cee4e6db93d52022be00eb86302}{void {\bfseries P\-C\-A} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&pca\-\_\-planes)}\label{classlee_1_1EnergyHelper_a75cf4cee4e6db93d52022be00eb86302}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a188cdbff934accbcf32bb658abea2412}{void {\bfseries get\-\_\-cali} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ $\ast$spcpnts, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-spcpnts, std\-::vector$<$ double $>$ \&cali\-\_\-corr)}\label{classlee_1_1EnergyHelper_a188cdbff934accbcf32bb658abea2412}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a682a97a35bf38e4ef2e4b38732719dcd}{void {\bfseries energy\-\_\-from\-\_\-hits} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ int $>$ \&n\-Hits, std\-::vector$<$ double $>$ \&pfenergy)}\label{classlee_1_1EnergyHelper_a682a97a35bf38e4ef2e4b38732719dcd}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_ae55ba831390287b749641b84b1be7e0d}{void {\bfseries cluster\-\_\-residuals} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, double \&mean\-\_\-v, double \&std\-\_\-v)}\label{classlee_1_1EnergyHelper_ae55ba831390287b749641b84b1be7e0d}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_a5698af14612035f672a852041d067f9d}{void {\bfseries track\-\_\-d\-Qdx} (std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Calorimetry $>$$>$ $\ast$calos, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dedx)}\label{classlee_1_1EnergyHelper_a5698af14612035f672a852041d067f9d}
+
+\item 
+\hypertarget{classlee_1_1EnergyHelper_ad730a5ca3f5d4df30ee4aebb8f877e2f}{void {\bfseries d\-Qdx\-\_\-cali} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ double $>$ \&dqdx\-\_\-cali)}\label{classlee_1_1EnergyHelper_ad730a5ca3f5d4df30ee4aebb8f877e2f}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/travis/build/soleti/\-Electron\-Neutrino\-Selection/electron\-Neutrino\-Selection/Energy\-Helper.\-h\item 
+/home/travis/build/soleti/\-Electron\-Neutrino\-Selection/electron\-Neutrino\-Selection/Energy\-Helper.\-cxx\end{DoxyCompactItemize}
