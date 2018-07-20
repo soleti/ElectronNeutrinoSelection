@@ -1,7 +1,7 @@
 /**
  * \class GeometryHelper
  *
- * \ingroup ElectronNeutrinoSelection
+ * \ingroup lee
  *
  * \brief Helper class with geometric methods (distance, point in a plane, etc. )
  *

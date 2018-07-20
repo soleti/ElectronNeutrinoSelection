@@ -1,7 +1,7 @@
 /**
  * \class ElectronEventSelectionAlg
  *
- * \ingroup ElectronNeutrinoSelection
+ * \ingroup lee
  *
  * \brief Class that performs the selection algorithms, requiring a certain
  * topology and a flash matched with the neutrino candidate

@@ -1,7 +1,7 @@
 /**
  * \class PandoraLEEAnalyzer
  *
- * \ingroup ElectronNeutrinoSelection
+ * \ingroup leeå
  *
  * \brief Main analyzer class filling a ROOT TTree with information from the selected
  * electron neutrino candidate

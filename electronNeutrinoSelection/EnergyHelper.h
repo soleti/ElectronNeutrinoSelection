@@ -1,7 +1,7 @@
 /**
  * \class EnergyHelper
  *
- * \ingroup ElectronNeutrinoSelection
+ * \ingroup lee
  *
  * \brief Helper class with methods accessing calorimetric information
  * (energy and dE/dx)

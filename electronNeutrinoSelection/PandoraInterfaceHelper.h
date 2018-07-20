@@ -1,7 +1,7 @@
 /**
  * \class PandoraInterfaceHelper
  *
- * \ingroup ElectronNeutrinoSelection
+ * \ingroup lee
  *
  * \brief Helper class with methods useful to interface with
  * Pandora information. It contains the methods use to perform
