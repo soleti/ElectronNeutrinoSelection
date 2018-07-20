@@ -30,6 +30,52 @@ void \hyperlink{group__lee_ga27cd9ba04f447b9922c56bbb320bce08}{track\-\_\-d\-Qdx
 \begin{DoxyCompactList}\small\item\em Measure the d\-Q/dx and d\-E/dx of a track using the anab\-::\-Calorimetry information. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga4926738bfba2d91bc187ad8a7db6e997}{d\-Qdx\-\_\-cali} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ double $>$ \&dqdx\-\_\-cali)
 \begin{DoxyCompactList}\small\item\em Calibration value for the d\-Q/dx of a reconstructed shower. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lee_gab80c71d066234aa8f0b483c34a068d55}{std\-::vector$<$ double $>$ {\bfseries \-\_\-data\-\_\-gain} = \{236.\-41, 228.\-83, 242.\-72\}}\label{group__lee_gab80c71d066234aa8f0b483c34a068d55}
+
+\item 
+\hypertarget{group__lee_ga5c5abe13d6a7820e1658a802790f7e80}{std\-::vector$<$ double $>$ {\bfseries \-\_\-mc\-\_\-gain} = \{193.\-05, 196.\-85, 196.\-85\}}\label{group__lee_ga5c5abe13d6a7820e1658a802790f7e80}
+
+\item 
+\hypertarget{group__lee_ga9f16c348e247cda52785e968cfad1b91}{std\-::vector$<$ double $>$ {\bfseries \-\_\-gain}}\label{group__lee_ga9f16c348e247cda52785e968cfad1b91}
+
+\item 
+\hypertarget{group__lee_ga4cc0815f3fccf5f704c44fc0a5ed0717}{const \\*
+lariov\-::\-T\-P\-C\-Energy\-Calib\-Provider \& {\bfseries \-\_\-energy\-\_\-calib\-\_\-provider} = art\-::\-Service\-Handle$<$lariov\-::\-T\-P\-C\-Energy\-Calib\-Service$>$()-\/$>$Get\-Provider()}\label{group__lee_ga4cc0815f3fccf5f704c44fc0a5ed0717}
+
+\item 
+\hypertarget{group__lee_ga5dc96ef9f0d974147c51ca27e46351fa}{const detinfo\-::\-Detector\-Properties $\ast$ {\bfseries \-\_\-detprop} = lar\-::provider\-From$<$detinfo\-::\-Detector\-Properties\-Service$>$()}\label{group__lee_ga5dc96ef9f0d974147c51ca27e46351fa}
+
+\item 
+\hypertarget{group__lee_ga5ee65f3a1c672b4f089c05ba6b4ab132}{double {\bfseries \-\_\-drift} = \-\_\-detprop-\/$>$Drift\-Velocity() $\ast$ 1e-\/3}\label{group__lee_ga5ee65f3a1c672b4f089c05ba6b4ab132}
+
+\item 
+\hypertarget{group__lee_ga12d5d0f2b40a3971d57e37b1d176e45d}{double {\bfseries \-\_\-from\-\_\-tick\-\_\-to\-\_\-ns} = \-\_\-readout\-\_\-window / \-\_\-detprop-\/$>$Read\-Out\-Window\-Size() $\ast$ 1e6}\label{group__lee_ga12d5d0f2b40a3971d57e37b1d176e45d}
+
+\item 
+\hypertarget{group__lee_ga412905c2b45aa8103823f84f7bd7ea2a}{double {\bfseries \-\_\-wire\-\_\-spacing} = 0.\-3}\label{group__lee_ga412905c2b45aa8103823f84f7bd7ea2a}
+
+\item 
+\hypertarget{group__lee_gafed9eac818bc9ab7f0c0cd3c808feeea}{double {\bfseries \-\_\-work\-\_\-function} = 23 / 1e6}\label{group__lee_gafed9eac818bc9ab7f0c0cd3c808feeea}
+
+\item 
+\hypertarget{group__lee_gad704feff08cf9f09aa46f306e126bbbb}{double {\bfseries \-\_\-readout\-\_\-window}}\label{group__lee_gad704feff08cf9f09aa46f306e126bbbb}
+
+\item 
+\hypertarget{group__lee_gafbe2338334b0bb800473d29350d866d1}{double {\bfseries \-\_\-recombination\-\_\-factor}}\label{group__lee_gafbe2338334b0bb800473d29350d866d1}
+
+\item 
+\hypertarget{group__lee_gaffce1a06abee9651a41c454aa5f9032f}{double {\bfseries \-\_\-d\-Qdx\-\_\-rectangle\-\_\-length}}\label{group__lee_gaffce1a06abee9651a41c454aa5f9032f}
+
+\item 
+\hypertarget{group__lee_ga227149dafb056c355057c753ac768b13}{double {\bfseries \-\_\-d\-Qdx\-\_\-rectangle\-\_\-width}}\label{group__lee_ga227149dafb056c355057c753ac768b13}
+
+\item 
+\hypertarget{group__lee_ga613fe58326a28695ad83ddd7bdf8ff57}{\hyperlink{classlee_1_1GeometryHelper}{Geometry\-Helper} {\bfseries geo\-\_\-helper}}\label{group__lee_ga613fe58326a28695ad83ddd7bdf8ff57}
+
+\end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

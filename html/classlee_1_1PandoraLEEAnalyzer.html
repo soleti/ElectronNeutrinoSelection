@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classlee_1_1PandoraLEEAnalyzer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lee::PandoraLEEAnalyzer Class Reference<div class="ingroups"><a class="el" href="group__lee.html">Lee</a></div></div>  </div>
@@ -143,6 +144,545 @@ art::Ptr&lt; recob::Shower &gt;&#160;</td><td class="memItemRight" valign="botto
 <tr class="memitem:gae0e0369a28fcbca90d62624f59d44aaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gae0e0369a28fcbca90d62624f59d44aaa">categorizePFParticles</a> (art::Event const &amp;evt, std::vector&lt; int &gt; &amp;neutrino_pdg, std::vector&lt; std::string &gt; &amp;neutrino_process, std::vector&lt; double &gt; &amp;neutrino_energy, std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;neutrino_pf, std::vector&lt; int &gt; &amp;cosmic_pdg, std::vector&lt; std::string &gt; &amp;cosmic_process, std::vector&lt; double &gt; &amp;cosmic_energy, std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;cosmic_pf)</td></tr>
 <tr class="memdesc:gae0e0369a28fcbca90d62624f59d44aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a PFParticle is matched with a MCParticle coming from a neutrino interaction or a cosmic ray.  <a href="group__lee.html#gae0e0369a28fcbca90d62624f59d44aaa">More...</a><br/></td></tr>
 <tr class="separator:gae0e0369a28fcbca90d62624f59d44aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:gaf8a8c564772112b2c47945afcf674484"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf8a8c564772112b2c47945afcf674484"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_hitfinderLabel</b></td></tr>
+<tr class="separator:gaf8a8c564772112b2c47945afcf674484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf68d4bc3b81df418e7925567e36e5996"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf68d4bc3b81df418e7925567e36e5996"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_geantModuleLabel</b> = &quot;largeant&quot;</td></tr>
+<tr class="separator:gaf68d4bc3b81df418e7925567e36e5996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d931b0979f37341d7097520d6cb103d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4d931b0979f37341d7097520d6cb103d"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_pfp_producer</b></td></tr>
+<tr class="separator:ga4d931b0979f37341d7097520d6cb103d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5fa9ebd50776233ccfbf82f5886411f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac5fa9ebd50776233ccfbf82f5886411f"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_pid_producer</b></td></tr>
+<tr class="separator:gac5fa9ebd50776233ccfbf82f5886411f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11a0a8879de1549d48e9fdfab8fc9365"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga11a0a8879de1549d48e9fdfab8fc9365"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_calorimetry_producer</b></td></tr>
+<tr class="separator:ga11a0a8879de1549d48e9fdfab8fc9365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a5ae683e3f2b04f71812b689cd08b76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7a5ae683e3f2b04f71812b689cd08b76"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_spacepointLabel</b></td></tr>
+<tr class="separator:ga7a5ae683e3f2b04f71812b689cd08b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga462f214c8a7ede15d53754c120f54d45"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga462f214c8a7ede15d53754c120f54d45"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_mctruthLabel</b> = &quot;generator&quot;</td></tr>
+<tr class="separator:ga462f214c8a7ede15d53754c120f54d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafeca3ce0e272568cc6a1dbec12e87736"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafeca3ce0e272568cc6a1dbec12e87736"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_hitmatching_producer</b></td></tr>
+<tr class="separator:gafeca3ce0e272568cc6a1dbec12e87736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc3e2092fa2fa08dce6f6eb6778519ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabc3e2092fa2fa08dce6f6eb6778519ce"></a>
+<a class="el" href="classlee_1_1ElectronEventSelectionAlg.html">lee::ElectronEventSelectionAlg</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fElectronEventSelectionAlg</b></td></tr>
+<tr class="separator:gabc3e2092fa2fa08dce6f6eb6778519ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15efa0b525385a8f0ac4547690d44194"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga15efa0b525385a8f0ac4547690d44194"></a>
+<a class="el" href="classlee_1_1EnergyHelper.html">EnergyHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>energyHelper</b></td></tr>
+<tr class="separator:ga15efa0b525385a8f0ac4547690d44194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa53a7fef751a9f2aa891b067875eb19b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa53a7fef751a9f2aa891b067875eb19b"></a>
+<a class="el" href="classlee_1_1GeometryHelper.html">GeometryHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>geoHelper</b></td></tr>
+<tr class="separator:gaa53a7fef751a9f2aa891b067875eb19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00fc07207cfb81cd3cbbe5a8785d3c23"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga00fc07207cfb81cd3cbbe5a8785d3c23"></a>
+<a class="el" href="classlee_1_1PandoraInterfaceHelper.html">PandoraInterfaceHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pandoraHelper</b></td></tr>
+<tr class="separator:ga00fc07207cfb81cd3cbbe5a8785d3c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8493a6adc146f58425a9808bde7de2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf8493a6adc146f58425a9808bde7de2f"></a>
+uboone::EWTreeUtil&#160;</td><td class="memItemRight" valign="bottom"><b>ewutil</b></td></tr>
+<tr class="separator:gaf8493a6adc146f58425a9808bde7de2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a86ec4686558f03c8a2be30a6bbcc2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8a86ec4686558f03c8a2be30a6bbcc2a"></a>
+TFile *&#160;</td><td class="memItemRight" valign="bottom"><b>myTFile</b></td></tr>
+<tr class="separator:ga8a86ec4686558f03c8a2be30a6bbcc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20daae4b8c56ed5c2c2fd6b7b2a490dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga20daae4b8c56ed5c2c2fd6b7b2a490dc"></a>
+TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myTTree</b></td></tr>
+<tr class="separator:ga20daae4b8c56ed5c2c2fd6b7b2a490dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c10053a4ef8cb336589fb86a5b6f587"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3c10053a4ef8cb336589fb86a5b6f587"></a>
+TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myPOTTTree</b></td></tr>
+<tr class="separator:ga3c10053a4ef8cb336589fb86a5b6f587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd61fa715317d7a54f36339589736b1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafd61fa715317d7a54f36339589736b1e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_interaction_type</b></td></tr>
+<tr class="separator:gafd61fa715317d7a54f36339589736b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56d3f395f76ae35174ea4714598debb2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga56d3f395f76ae35174ea4714598debb2"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolXstart</b></td></tr>
+<tr class="separator:ga56d3f395f76ae35174ea4714598debb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac263324598456c587395ce39f9a86b4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac263324598456c587395ce39f9a86b4a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolXend</b></td></tr>
+<tr class="separator:gac263324598456c587395ce39f9a86b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga678aca01684db5a8a9abcb6903a7eee5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga678aca01684db5a8a9abcb6903a7eee5"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolYstart</b></td></tr>
+<tr class="separator:ga678aca01684db5a8a9abcb6903a7eee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8b5a3fbf63831101e06bf3f7c831a03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad8b5a3fbf63831101e06bf3f7c831a03"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolYend</b></td></tr>
+<tr class="separator:gad8b5a3fbf63831101e06bf3f7c831a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ecd11cab7811730100be8a133cb686f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2ecd11cab7811730100be8a133cb686f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolZstart</b></td></tr>
+<tr class="separator:ga2ecd11cab7811730100be8a133cb686f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2b230f2c1c2991564e8078fa7ce52e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab2b230f2c1c2991564e8078fa7ce52e9"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolZend</b></td></tr>
+<tr class="separator:gab2b230f2c1c2991564e8078fa7ce52e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0418238c0019b7fe0bad6117348ff4f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0418238c0019b7fe0bad6117348ff4f3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_useParticleID</b></td></tr>
+<tr class="separator:ga0418238c0019b7fe0bad6117348ff4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6dde30dd232da74cc8e5735babb021c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6dde30dd232da74cc8e5735babb021c8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isData</b></td></tr>
+<tr class="separator:ga6dde30dd232da74cc8e5735babb021c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10e86bba3e7853bdf00765cb996830fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga10e86bba3e7853bdf00765cb996830fb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isCosmicInTime</b></td></tr>
+<tr class="separator:ga10e86bba3e7853bdf00765cb996830fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga355302cac15228cf63650efc20765ab8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga355302cac15228cf63650efc20765ab8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_printDebug</b></td></tr>
+<tr class="separator:ga355302cac15228cf63650efc20765ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8c9bf05e68b489be6944d9b6ad9075f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf8c9bf05e68b489be6944d9b6ad9075f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isOverlaidSample</b></td></tr>
+<tr class="separator:gaf8c9bf05e68b489be6944d9b6ad9075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f323d5b266d64aa73a45e50ac3e1fe6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9f323d5b266d64aa73a45e50ac3e1fe6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_save_flux_info</b></td></tr>
+<tr class="separator:ga9f323d5b266d64aa73a45e50ac3e1fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga048d617faeb0aadea21f43c805dadb1f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga048d617faeb0aadea21f43c805dadb1f"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_cosmic</b> = 1</td></tr>
+<tr class="separator:ga048d617faeb0aadea21f43c805dadb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d7e6f745c8e67c74f49b904cbfa5d61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9d7e6f745c8e67c74f49b904cbfa5d61"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_nu_e</b> = 2</td></tr>
+<tr class="separator:ga9d7e6f745c8e67c74f49b904cbfa5d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeeae8fe7055f10e2f6a30892926fd510"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeeae8fe7055f10e2f6a30892926fd510"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_nu_mu</b> = 3</td></tr>
+<tr class="separator:gaeeae8fe7055f10e2f6a30892926fd510"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27261a8cfcfebab466011b2952a8969b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga27261a8cfcfebab466011b2952a8969b"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_nc</b> = 4</td></tr>
+<tr class="separator:ga27261a8cfcfebab466011b2952a8969b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafa596ee5d7a68568ce5371f17c38ee96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafa596ee5d7a68568ce5371f17c38ee96"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_dirt</b> = 5</td></tr>
+<tr class="separator:gafa596ee5d7a68568ce5371f17c38ee96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00720d429d223c6bfd351b500b287517"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga00720d429d223c6bfd351b500b287517"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_data</b> = 6</td></tr>
+<tr class="separator:ga00720d429d223c6bfd351b500b287517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga397f9459c5ff25721ca99fa9b9df4880"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga397f9459c5ff25721ca99fa9b9df4880"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_other</b> = 0</td></tr>
+<tr class="separator:ga397f9459c5ff25721ca99fa9b9df4880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75e327e4124da9ee9a1a95a4126be377"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga75e327e4124da9ee9a1a95a4126be377"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>k_mixed</b> = 7</td></tr>
+<tr class="separator:ga75e327e4124da9ee9a1a95a4126be377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf64e85c1a6351ba43d787ae01d82f34e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf64e85c1a6351ba43d787ae01d82f34e"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_energy</b></td></tr>
+<tr class="separator:gaf64e85c1a6351ba43d787ae01d82f34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fb26f882cca04dd6e9d6162808365c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0fb26f882cca04dd6e9d6162808365c8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_true_nu_is_fiducial</b></td></tr>
+<tr class="separator:ga0fb26f882cca04dd6e9d6162808365c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23ee0dccbe8495fa418cb6c0020c1643"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga23ee0dccbe8495fa418cb6c0020c1643"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_energy</b></td></tr>
+<tr class="separator:ga23ee0dccbe8495fa418cb6c0020c1643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga023bb8e8a12ac261583b6d71fd1c12e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga023bb8e8a12ac261583b6d71fd1c12e2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_tracks</b></td></tr>
+<tr class="separator:ga023bb8e8a12ac261583b6d71fd1c12e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18da3a91fd8778add6fbd0c4e2244f89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga18da3a91fd8778add6fbd0c4e2244f89"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_showers</b></td></tr>
+<tr class="separator:ga18da3a91fd8778add6fbd0c4e2244f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga440e3b5b58670672f25f42dd09d0aa21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga440e3b5b58670672f25f42dd09d0aa21"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_vx</b></td></tr>
+<tr class="separator:ga440e3b5b58670672f25f42dd09d0aa21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabbf5b67c1538e2771ba997ddd41c9341"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabbf5b67c1538e2771ba997ddd41c9341"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_vy</b></td></tr>
+<tr class="separator:gabbf5b67c1538e2771ba997ddd41c9341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga640cb654c98033c9294cb1fda9f86b89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga640cb654c98033c9294cb1fda9f86b89"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_vz</b></td></tr>
+<tr class="separator:ga640cb654c98033c9294cb1fda9f86b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga537783c86380bbaf3357e3633f07ed7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga537783c86380bbaf3357e3633f07ed7f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_true_vx</b></td></tr>
+<tr class="separator:ga537783c86380bbaf3357e3633f07ed7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8bd6c7a1c52045790f54232855c1073"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac8bd6c7a1c52045790f54232855c1073"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_true_vy</b></td></tr>
+<tr class="separator:gac8bd6c7a1c52045790f54232855c1073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2c80253d7af767bc7435a95b714d546"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab2c80253d7af767bc7435a95b714d546"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_true_vz</b></td></tr>
+<tr class="separator:gab2c80253d7af767bc7435a95b714d546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a638838ed9a1cde42fd00a198c3521b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8a638838ed9a1cde42fd00a198c3521b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_true_vx_sce</b></td></tr>
+<tr class="separator:ga8a638838ed9a1cde42fd00a198c3521b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ea9a05e0b69aca1c22072cae8482b81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1ea9a05e0b69aca1c22072cae8482b81"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_true_vy_sce</b></td></tr>
+<tr class="separator:ga1ea9a05e0b69aca1c22072cae8482b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ac99bc027e85044950f2f502d3fffb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5ac99bc027e85044950f2f502d3fffb0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_true_vz_sce</b></td></tr>
+<tr class="separator:ga5ac99bc027e85044950f2f502d3fffb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a4c4d805d124adaddb51a03be0af692"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5a4c4d805d124adaddb51a03be0af692"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_shower_x_sce</b></td></tr>
+<tr class="separator:ga5a4c4d805d124adaddb51a03be0af692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2509960b89cf002d160e0c298575eafd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2509960b89cf002d160e0c298575eafd"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_shower_y_sce</b></td></tr>
+<tr class="separator:ga2509960b89cf002d160e0c298575eafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb0f3d491c4acf888d0a787624627b57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacb0f3d491c4acf888d0a787624627b57"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_shower_z_sce</b></td></tr>
+<tr class="separator:gacb0f3d491c4acf888d0a787624627b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1f312260669f165f847286e4512224d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac1f312260669f165f847286e4512224d"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_shower_pdg</b></td></tr>
+<tr class="separator:gac1f312260669f165f847286e4512224d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f376ec3a74610d2b6e5ea3be722182c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4f376ec3a74610d2b6e5ea3be722182c"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_shower_depE</b></td></tr>
+<tr class="separator:ga4f376ec3a74610d2b6e5ea3be722182c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2fc3e074f12a2847d68b4e3192c1151"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae2fc3e074f12a2847d68b4e3192c1151"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_matched_tracks</b></td></tr>
+<tr class="separator:gae2fc3e074f12a2847d68b4e3192c1151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab254eacbf12abc1ac43236dfd2f7da16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab254eacbf12abc1ac43236dfd2f7da16"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_matched_showers</b></td></tr>
+<tr class="separator:gab254eacbf12abc1ac43236dfd2f7da16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5459aca7400b6346a489d293ffea411"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf5459aca7400b6346a489d293ffea411"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_pdg</b></td></tr>
+<tr class="separator:gaf5459aca7400b6346a489d293ffea411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae937bb4d388fd91a62a76e251c56c93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaae937bb4d388fd91a62a76e251c56c93"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_ccnc</b></td></tr>
+<tr class="separator:gaae937bb4d388fd91a62a76e251c56c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac54ac47f84c33553e01edb0419d78570"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac54ac47f84c33553e01edb0419d78570"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_category</b></td></tr>
+<tr class="separator:gac54ac47f84c33553e01edb0419d78570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7afce927e448af59dc3f03f6e2fcb911"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7afce927e448af59dc3f03f6e2fcb911"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_run</b></td></tr>
+<tr class="separator:ga7afce927e448af59dc3f03f6e2fcb911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga566cffa1b58c7fc0566e696c6c8b8268"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga566cffa1b58c7fc0566e696c6c8b8268"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_subrun</b></td></tr>
+<tr class="separator:ga566cffa1b58c7fc0566e696c6c8b8268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac635405f52f430a32515f06447b98ade"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac635405f52f430a32515f06447b98ade"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_event</b></td></tr>
+<tr class="separator:gac635405f52f430a32515f06447b98ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3b7dc079f30897ba737c933e4905b76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab3b7dc079f30897ba737c933e4905b76"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_candidates</b></td></tr>
+<tr class="separator:gab3b7dc079f30897ba737c933e4905b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c4794a897538d3307008962f0b96315"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4c4794a897538d3307008962f0b96315"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_true_nu</b></td></tr>
+<tr class="separator:ga4c4794a897538d3307008962f0b96315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9a94b51ad7618349eee1115c170679d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae9a94b51ad7618349eee1115c170679d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_run_sr</b></td></tr>
+<tr class="separator:gae9a94b51ad7618349eee1115c170679d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba4424e8079da9de241fdd61d648a7f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaba4424e8079da9de241fdd61d648a7f5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_subrun_sr</b></td></tr>
+<tr class="separator:gaba4424e8079da9de241fdd61d648a7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49bf84147aebe0125c041e58ad39ea63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga49bf84147aebe0125c041e58ad39ea63"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_matched</b></td></tr>
+<tr class="separator:ga49bf84147aebe0125c041e58ad39ea63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab9e2d69bbb1796181bfb0b73b3571327"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab9e2d69bbb1796181bfb0b73b3571327"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_pot</b></td></tr>
+<tr class="separator:gab9e2d69bbb1796181bfb0b73b3571327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2220a696ef93026eca209bb981ffbdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae2220a696ef93026eca209bb981ffbdd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_event_passed</b></td></tr>
+<tr class="separator:gae2220a696ef93026eca209bb981ffbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5358fd908f314be50f85ea97523fbca4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5358fd908f314be50f85ea97523fbca4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_numu_passed</b></td></tr>
+<tr class="separator:ga5358fd908f314be50f85ea97523fbca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50ca292dbf6464fa2845f4aed51f79b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga50ca292dbf6464fa2845f4aed51f79b7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_numu_cuts</b></td></tr>
+<tr class="separator:ga50ca292dbf6464fa2845f4aed51f79b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67ddd5bec66667568bc59b0dfa13839a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga67ddd5bec66667568bc59b0dfa13839a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_distance</b></td></tr>
+<tr class="separator:ga67ddd5bec66667568bc59b0dfa13839a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d3deef73e6dd40b958cb4709ddea35c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9d3deef73e6dd40b958cb4709ddea35c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_cosmic_fraction</b></td></tr>
+<tr class="separator:ga9d3deef73e6dd40b958cb4709ddea35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39d4c9760193a606cfdeb7af7195486c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga39d4c9760193a606cfdeb7af7195486c"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_passed</b></td></tr>
+<tr class="separator:ga39d4c9760193a606cfdeb7af7195486c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga222f64bba75838505ac948638260ed6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga222f64bba75838505ac948638260ed6b"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_passed</b></td></tr>
+<tr class="separator:ga222f64bba75838505ac948638260ed6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga677892512d8f61dd3783e04b2522925f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga677892512d8f61dd3783e04b2522925f"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_passed</b></td></tr>
+<tr class="separator:ga677892512d8f61dd3783e04b2522925f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3020305a22a83591e103b8124140cea6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3020305a22a83591e103b8124140cea6"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_primary_indexes</b></td></tr>
+<tr class="separator:ga3020305a22a83591e103b8124140cea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga413d54bca989124f2aaec5837c930a22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga413d54bca989124f2aaec5837c930a22"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_number_tracks</b></td></tr>
+<tr class="separator:ga413d54bca989124f2aaec5837c930a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga636e7f5eece11bbd0d0188ea073c1ee5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga636e7f5eece11bbd0d0188ea073c1ee5"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_number_showers</b></td></tr>
+<tr class="separator:ga636e7f5eece11bbd0d0188ea073c1ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51ecdfb466b876fde01072e95408bedb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga51ecdfb466b876fde01072e95408bedb"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_matched_showers</b></td></tr>
+<tr class="separator:ga51ecdfb466b876fde01072e95408bedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31e3e0db2ea3526c148ab1d98cd3b35c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga31e3e0db2ea3526c148ab1d98cd3b35c"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_matched_tracks</b></td></tr>
+<tr class="separator:ga31e3e0db2ea3526c148ab1d98cd3b35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf01f5331ecedef37034b5e8a12aac314"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf01f5331ecedef37034b5e8a12aac314"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_matched_tracks_process</b></td></tr>
+<tr class="separator:gaf01f5331ecedef37034b5e8a12aac314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3cd167b0e0e259df8c58bed1190edd85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3cd167b0e0e259df8c58bed1190edd85"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_matched_tracks_energy</b></td></tr>
+<tr class="separator:ga3cd167b0e0e259df8c58bed1190edd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68fdfb9878716c7d99651a98e294818d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga68fdfb9878716c7d99651a98e294818d"></a>
+std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_matched_showers_process</b></td></tr>
+<tr class="separator:ga68fdfb9878716c7d99651a98e294818d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c616d054941206de6a91e7859ac4209"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c616d054941206de6a91e7859ac4209"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_matched_showers_energy</b></td></tr>
+<tr class="separator:ga8c616d054941206de6a91e7859ac4209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9cb9605f2fe0af2464f936651659ad91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9cb9605f2fe0af2464f936651659ad91"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_primaries</b></td></tr>
+<tr class="separator:ga9cb9605f2fe0af2464f936651659ad91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga258cdf1c3fb847abc6f3aad95f8471d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga258cdf1c3fb847abc6f3aad95f8471d0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_chosen_candidate</b></td></tr>
+<tr class="separator:ga258cdf1c3fb847abc6f3aad95f8471d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9450f1c2fbd4efa3927094f9953c5041"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9450f1c2fbd4efa3927094f9953c5041"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_bnbweight</b></td></tr>
+<tr class="separator:ga9450f1c2fbd4efa3927094f9953c5041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6b9f1a06dcc4c9b5e7ad66b2a5f3995"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa6b9f1a06dcc4c9b5e7ad66b2a5f3995"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dQdx_hits</b></td></tr>
+<tr class="separator:gaa6b9f1a06dcc4c9b5e7ad66b2a5f3995"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8dc5bf5791d750d7481aa6a4051433d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8dc5bf5791d750d7481aa6a4051433d3"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dEdx_hits</b></td></tr>
+<tr class="separator:ga8dc5bf5791d750d7481aa6a4051433d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec600c2d05138143cbef4f23c44d92cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaec600c2d05138143cbef4f23c44d92cf"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dQdx</b></td></tr>
+<tr class="separator:gaec600c2d05138143cbef4f23c44d92cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab709b5ce1a5b80131bd14a57c2e82bf5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab709b5ce1a5b80131bd14a57c2e82bf5"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dEdx</b></td></tr>
+<tr class="separator:gab709b5ce1a5b80131bd14a57c2e82bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf81a95a1829c0041e9770be3d09f240"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaaf81a95a1829c0041e9770be3d09f240"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dQdx_cali</b></td></tr>
+<tr class="separator:gaaf81a95a1829c0041e9770be3d09f240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac413e11bfcca3b51ee4ab36ad94e68ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac413e11bfcca3b51ee4ab36ad94e68ba"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dEdx_cali</b></td></tr>
+<tr class="separator:gac413e11bfcca3b51ee4ab36ad94e68ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf56713e8dd07060973767857b7f8508f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf56713e8dd07060973767857b7f8508f"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_pitches</b></td></tr>
+<tr class="separator:gaf56713e8dd07060973767857b7f8508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aa643d1912fe002773cb2bd1268f0f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4aa643d1912fe002773cb2bd1268f0f8"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dQdx_hits</b></td></tr>
+<tr class="separator:ga4aa643d1912fe002773cb2bd1268f0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ad01e55fc294c33fcff222f0efa2a1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3ad01e55fc294c33fcff222f0efa2a1a"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dEdx_hits</b></td></tr>
+<tr class="separator:ga3ad01e55fc294c33fcff222f0efa2a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab54b1be84b3a383b57e5b1c76b480d6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab54b1be84b3a383b57e5b1c76b480d6b"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dQdx</b></td></tr>
+<tr class="separator:gab54b1be84b3a383b57e5b1c76b480d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadcd255a2c652d64e4694c6b650839f43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadcd255a2c652d64e4694c6b650839f43"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dQdx_cali</b></td></tr>
+<tr class="separator:gadcd255a2c652d64e4694c6b650839f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81034997677b254a8fa7fb9c090fa756"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga81034997677b254a8fa7fb9c090fa756"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dEdx</b></td></tr>
+<tr class="separator:ga81034997677b254a8fa7fb9c090fa756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5253913419cf4211211558082106bd62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5253913419cf4211211558082106bd62"></a>
+std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_track_ids</b></td></tr>
+<tr class="separator:ga5253913419cf4211211558082106bd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga063d4fec5b4b40b812147b1b77be79a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga063d4fec5b4b40b812147b1b77be79a3"></a>
+std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_shower_ids</b></td></tr>
+<tr class="separator:ga063d4fec5b4b40b812147b1b77be79a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb2657deb7fca8bcf8c97952d7a012cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacb2657deb7fca8bcf8c97952d7a012cf"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_track_daughters</b></td></tr>
+<tr class="separator:gacb2657deb7fca8bcf8c97952d7a012cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d78972623fa65077421a091e226f61f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4d78972623fa65077421a091e226f61f"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_shower_daughters</b></td></tr>
+<tr class="separator:ga4d78972623fa65077421a091e226f61f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e637e1f18334830d94136b89c4d0138"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9e637e1f18334830d94136b89c4d0138"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_open_angle</b></td></tr>
+<tr class="separator:ga9e637e1f18334830d94136b89c4d0138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga88255d9d3a3a401c834d624076c30d5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga88255d9d3a3a401c834d624076c30d5b"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_length</b></td></tr>
+<tr class="separator:ga88255d9d3a3a401c834d624076c30d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac6afc45d77fbbfb38addc97038e1893"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaac6afc45d77fbbfb38addc97038e1893"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dir_x</b></td></tr>
+<tr class="separator:gaac6afc45d77fbbfb38addc97038e1893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa08672578dd6c1729649fa54a1725401"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa08672578dd6c1729649fa54a1725401"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dir_y</b></td></tr>
+<tr class="separator:gaa08672578dd6c1729649fa54a1725401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee2bf39916f97db6bee077df4020662f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaee2bf39916f97db6bee077df4020662f"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_dir_z</b></td></tr>
+<tr class="separator:gaee2bf39916f97db6bee077df4020662f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d3d2b24d81dc924d1f972bf3748dd76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8d3d2b24d81dc924d1f972bf3748dd76"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_start_x</b></td></tr>
+<tr class="separator:ga8d3d2b24d81dc924d1f972bf3748dd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae12d2a6c7e2d78fc9d7e6f30ce959fa7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae12d2a6c7e2d78fc9d7e6f30ce959fa7"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_start_y</b></td></tr>
+<tr class="separator:gae12d2a6c7e2d78fc9d7e6f30ce959fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafef1c0810411173778fa2ea099cbb03f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafef1c0810411173778fa2ea099cbb03f"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_start_z</b></td></tr>
+<tr class="separator:gafef1c0810411173778fa2ea099cbb03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ad8af27c4c242410ffe4c1e1407e3c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3ad8af27c4c242410ffe4c1e1407e3c0"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_theta</b></td></tr>
+<tr class="separator:ga3ad8af27c4c242410ffe4c1e1407e3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97c2d25dc1e253d867353b1c4562967c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga97c2d25dc1e253d867353b1c4562967c"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_phi</b></td></tr>
+<tr class="separator:ga97c2d25dc1e253d867353b1c4562967c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1fab9490fef935944f24feb7450f76c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf1fab9490fef935944f24feb7450f76c"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_energy</b></td></tr>
+<tr class="separator:gaf1fab9490fef935944f24feb7450f76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5a201dfcee71af90a4076c07a959ebf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac5a201dfcee71af90a4076c07a959ebf"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_energy_cali</b></td></tr>
+<tr class="separator:gac5a201dfcee71af90a4076c07a959ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc42592a0839c13f76a4eb677328cfb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabc42592a0839c13f76a4eb677328cfb3"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_energy_cali</b></td></tr>
+<tr class="separator:gabc42592a0839c13f76a4eb677328cfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a992d49401db441d8c6e890ce1c1bce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8a992d49401db441d8c6e890ce1c1bce"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dir_x</b></td></tr>
+<tr class="separator:ga8a992d49401db441d8c6e890ce1c1bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28bd177e5a7cacbd35fb5aec0865cd57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga28bd177e5a7cacbd35fb5aec0865cd57"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dir_y</b></td></tr>
+<tr class="separator:ga28bd177e5a7cacbd35fb5aec0865cd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2349ca54f697314697ff75504bbf042e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2349ca54f697314697ff75504bbf042e"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_dir_z</b></td></tr>
+<tr class="separator:ga2349ca54f697314697ff75504bbf042e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c6ecffb2e944bd9842a1bbc1f6a05f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0c6ecffb2e944bd9842a1bbc1f6a05f1"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_is_fiducial</b></td></tr>
+<tr class="separator:ga0c6ecffb2e944bd9842a1bbc1f6a05f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97495f8c6c496aefe56f07f06a5a55ce"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga97495f8c6c496aefe56f07f06a5a55ce"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_is_fiducial</b></td></tr>
+<tr class="separator:ga97495f8c6c496aefe56f07f06a5a55ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8415acd9fe624379b1af65fe523a613"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac8415acd9fe624379b1af65fe523a613"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_res_mean</b></td></tr>
+<tr class="separator:gac8415acd9fe624379b1af65fe523a613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb00c39c2b71bd7fac4a3c7c6733d514"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacb00c39c2b71bd7fac4a3c7c6733d514"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_res_std</b></td></tr>
+<tr class="separator:gacb00c39c2b71bd7fac4a3c7c6733d514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9992152dfa9af10448ef0751007d0c3a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9992152dfa9af10448ef0751007d0c3a"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_res_mean</b></td></tr>
+<tr class="separator:ga9992152dfa9af10448ef0751007d0c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a0c057fc83d09918ac2aa805d5bf3c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3a0c057fc83d09918ac2aa805d5bf3c7"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_res_std</b></td></tr>
+<tr class="separator:ga3a0c057fc83d09918ac2aa805d5bf3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a0667bd934f598a41bb776e028270f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1a0667bd934f598a41bb776e028270f4"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_start_x</b></td></tr>
+<tr class="separator:ga1a0667bd934f598a41bb776e028270f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55a26b4d446ea4597e44b2fc22de4cc6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga55a26b4d446ea4597e44b2fc22de4cc6"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_start_y</b></td></tr>
+<tr class="separator:ga55a26b4d446ea4597e44b2fc22de4cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71d7b5e5347441a36d0a33710d6c4483"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga71d7b5e5347441a36d0a33710d6c4483"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_start_z</b></td></tr>
+<tr class="separator:ga71d7b5e5347441a36d0a33710d6c4483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78cb36dded5326c08cae77d5af6f3cd2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga78cb36dded5326c08cae77d5af6f3cd2"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_end_x</b></td></tr>
+<tr class="separator:ga78cb36dded5326c08cae77d5af6f3cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55174718268fd53d080c224f60f96488"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga55174718268fd53d080c224f60f96488"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_end_y</b></td></tr>
+<tr class="separator:ga55174718268fd53d080c224f60f96488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga147c8d113ee9fc316a7addd39e392d71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga147c8d113ee9fc316a7addd39e392d71"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_end_z</b></td></tr>
+<tr class="separator:ga147c8d113ee9fc316a7addd39e392d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga320eaa4a60f4628c6320c5c721f2899c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga320eaa4a60f4628c6320c5c721f2899c"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_theta</b></td></tr>
+<tr class="separator:ga320eaa4a60f4628c6320c5c721f2899c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae045ae6a478b38e3d165ced855b610e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae045ae6a478b38e3d165ced855b610e4"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_phi</b></td></tr>
+<tr class="separator:gae045ae6a478b38e3d165ced855b610e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga801ed095fb9dfb752f424ea91107cffc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga801ed095fb9dfb752f424ea91107cffc"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_length</b></td></tr>
+<tr class="separator:ga801ed095fb9dfb752f424ea91107cffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13a633d3b83e96b70adae044df973ec7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga13a633d3b83e96b70adae044df973ec7"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_id</b></td></tr>
+<tr class="separator:ga13a633d3b83e96b70adae044df973ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4297d696c8a18a62866df4ae2af0115f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4297d696c8a18a62866df4ae2af0115f"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_bragg_p</b></td></tr>
+<tr class="separator:ga4297d696c8a18a62866df4ae2af0115f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26c2928e27efaef45a0bd73265732f61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga26c2928e27efaef45a0bd73265732f61"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_bragg_mu</b></td></tr>
+<tr class="separator:ga26c2928e27efaef45a0bd73265732f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga54899eb2a96c6b30e3aa350877ee396f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga54899eb2a96c6b30e3aa350877ee396f"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_bragg_mip</b></td></tr>
+<tr class="separator:ga54899eb2a96c6b30e3aa350877ee396f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad41a5c8f9908d57ca71dafdd1acffa77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad41a5c8f9908d57ca71dafdd1acffa77"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pidchi</b></td></tr>
+<tr class="separator:gad41a5c8f9908d57ca71dafdd1acffa77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecf90a4b535a1eea4a2e46efaed73aee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaecf90a4b535a1eea4a2e46efaed73aee"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pidchipr</b></td></tr>
+<tr class="separator:gaecf90a4b535a1eea4a2e46efaed73aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd3a6086b23d0242a02a1aaafaa22f21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacd3a6086b23d0242a02a1aaafaa22f21"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pidchika</b></td></tr>
+<tr class="separator:gacd3a6086b23d0242a02a1aaafaa22f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecc3128a6d2e1ce777b2a47cf8d8592e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaecc3128a6d2e1ce777b2a47cf8d8592e"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pidchipi</b></td></tr>
+<tr class="separator:gaecc3128a6d2e1ce777b2a47cf8d8592e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92b6e7aa446dda4b3fb5ef6a523417d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga92b6e7aa446dda4b3fb5ef6a523417d3"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pidchimu</b></td></tr>
+<tr class="separator:ga92b6e7aa446dda4b3fb5ef6a523417d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51862c538bdadd1819aa4cc47f37daab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga51862c538bdadd1819aa4cc47f37daab"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pida</b></td></tr>
+<tr class="separator:ga51862c538bdadd1819aa4cc47f37daab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga548f84dc28b54f42d917780967237fbb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga548f84dc28b54f42d917780967237fbb"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_energy_dedx</b></td></tr>
+<tr class="separator:ga548f84dc28b54f42d917780967237fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78b31424830aa3c041dbff599185c3bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga78b31424830aa3c041dbff599185c3bb"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_energy_hits</b></td></tr>
+<tr class="separator:ga78b31424830aa3c041dbff599185c3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaacddd2332477a23f786ee4c854d3e61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaaacddd2332477a23f786ee4c854d3e61"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_pdg</b></td></tr>
+<tr class="separator:gaaacddd2332477a23f786ee4c854d3e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1d71f8ed82068b3a02d9a37905bf195"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac1d71f8ed82068b3a02d9a37905bf195"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_E</b></td></tr>
+<tr class="separator:gac1d71f8ed82068b3a02d9a37905bf195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa834071311edb5ffa50db6132496fb95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa834071311edb5ffa50db6132496fb95"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_px</b></td></tr>
+<tr class="separator:gaa834071311edb5ffa50db6132496fb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e2b79305694205bc16527e7d086058a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3e2b79305694205bc16527e7d086058a"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_py</b></td></tr>
+<tr class="separator:ga3e2b79305694205bc16527e7d086058a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga838abd41f7c806c0242d1d612e1a3c80"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga838abd41f7c806c0242d1d612e1a3c80"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_pz</b></td></tr>
+<tr class="separator:ga838abd41f7c806c0242d1d612e1a3c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35e3d0f602ee460d83440447698baef1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga35e3d0f602ee460d83440447698baef1"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_vx</b></td></tr>
+<tr class="separator:ga35e3d0f602ee460d83440447698baef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa564f473e072ce7fc9702781805907bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa564f473e072ce7fc9702781805907bd"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_vy</b></td></tr>
+<tr class="separator:gaa564f473e072ce7fc9702781805907bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadda9ce5e644a8f78ef769f443990ab20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadda9ce5e644a8f78ef769f443990ab20"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_vz</b></td></tr>
+<tr class="separator:gadda9ce5e644a8f78ef769f443990ab20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c05930087430260a4ba4f26beb8355b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2c05930087430260a4ba4f26beb8355b"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_endx</b></td></tr>
+<tr class="separator:ga2c05930087430260a4ba4f26beb8355b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafdefa43fde43f949f6b6af3e908cb1e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafdefa43fde43f949f6b6af3e908cb1e2"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_endy</b></td></tr>
+<tr class="separator:gafdefa43fde43f949f6b6af3e908cb1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c2eb616df5aa07c601d0bc72399c636"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0c2eb616df5aa07c601d0bc72399c636"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_endz</b></td></tr>
+<tr class="separator:ga0c2eb616df5aa07c601d0bc72399c636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9320e2f0e9a7e201a978a21a2eb74a39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9320e2f0e9a7e201a978a21a2eb74a39"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_PE</b></td></tr>
+<tr class="separator:ga9320e2f0e9a7e201a978a21a2eb74a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecdf711df932ed4823d2c9b222a3e8f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaecdf711df932ed4823d2c9b222a3e8f4"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_time</b></td></tr>
+<tr class="separator:gaecdf711df932ed4823d2c9b222a3e8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9792d3b416a42f2f2a9323318fe3288e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9792d3b416a42f2f2a9323318fe3288e"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_x</b></td></tr>
+<tr class="separator:ga9792d3b416a42f2f2a9323318fe3288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e5b48ceffc6507a180a4c4bd9c0e6f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9e5b48ceffc6507a180a4c4bd9c0e6f3"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_y</b></td></tr>
+<tr class="separator:ga9e5b48ceffc6507a180a4c4bd9c0e6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad646e6376b43c3ed568725ae55e6b788"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad646e6376b43c3ed568725ae55e6b788"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_z</b></td></tr>
+<tr class="separator:gad646e6376b43c3ed568725ae55e6b788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84b0714b78e775a1ed838971a1f71a49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga84b0714b78e775a1ed838971a1f71a49"></a>
+std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_int</b></td></tr>
+<tr class="separator:ga84b0714b78e775a1ed838971a1f71a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c55bb8de6e184c1adbc191f3d6f12d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c55bb8de6e184c1adbc191f3d6f12d5"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_TPC_x</b></td></tr>
+<tr class="separator:ga8c55bb8de6e184c1adbc191f3d6f12d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d01876afb52464a4e5f508f58f1f2cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5d01876afb52464a4e5f508f58f1f2cc"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_x</b></td></tr>
+<tr class="separator:ga5d01876afb52464a4e5f508f58f1f2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ed991b6864eb5cfbfb10298ec9cfc64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5ed991b6864eb5cfbfb10298ec9cfc64"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_pca</b></td></tr>
+<tr class="separator:ga5ed991b6864eb5cfbfb10298ec9cfc64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9959360c0dd79addecff84a12dba3d49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9959360c0dd79addecff84a12dba3d49"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_pca</b></td></tr>
+<tr class="separator:ga9959360c0dd79addecff84a12dba3d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabf1f57f8aef33cad913d8597e68ae52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaabf1f57f8aef33cad913d8597e68ae52"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_nhits</b></td></tr>
+<tr class="separator:gaabf1f57f8aef33cad913d8597e68ae52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dc8bfc10c4854c7bb093bdee63291e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4dc8bfc10c4854c7bb093bdee63291e9"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_track_nhits</b></td></tr>
+<tr class="separator:ga4dc8bfc10c4854c7bb093bdee63291e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/<a class="el" href="PandoraLEEAnalyzer_8h_source.html">PandoraLEEAnalyzer.h</a></li>

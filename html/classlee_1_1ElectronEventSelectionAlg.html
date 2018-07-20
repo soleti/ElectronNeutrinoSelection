@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classlee_1_1ElectronEventSelectionAlg-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lee::ElectronEventSelectionAlg Class Reference<div class="ingroups"><a class="el" href="group__lee.html">Lee</a></div></div>  </div>
@@ -171,6 +172,139 @@ const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2c653a5d3225c3e3aa5dc84738ffa086">get_TPC_x</a> () const </td></tr>
 <tr class="memdesc:ga2c653a5d3225c3e3aa5dc84738ffa086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the center of the collected charge. <br/></td></tr>
 <tr class="separator:ga2c653a5d3225c3e3aa5dc84738ffa086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:gab595a7373a091aab62b8f199248f320d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab595a7373a091aab62b8f199248f320d"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>_n_neutrino_candidates</b></td></tr>
+<tr class="separator:gab595a7373a091aab62b8f199248f320d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90143a319f9dd71c5ba32b658f30ceb7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga90143a319f9dd71c5ba32b658f30ceb7"></a>
+std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_primary_indexes</b></td></tr>
+<tr class="separator:ga90143a319f9dd71c5ba32b658f30ceb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad074e6a2ccd754a2c15efa834932ffb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad074e6a2ccd754a2c15efa834932ffb9"></a>
+std::map&lt; size_t, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_neutrino_candidate_passed</b></td></tr>
+<tr class="separator:gad074e6a2ccd754a2c15efa834932ffb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2eb55a71628710eb97f89b2e6d78d236"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2eb55a71628710eb97f89b2e6d78d236"></a>
+std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_op_flash_indexes</b></td></tr>
+<tr class="separator:ga2eb55a71628710eb97f89b2e6d78d236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25adf65208b5fcbb82b5f2bf69bc132c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga25adf65208b5fcbb82b5f2bf69bc132c"></a>
+std::map&lt; size_t, TVector3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_neutrino_vertex</b></td></tr>
+<tr class="separator:ga25adf65208b5fcbb82b5f2bf69bc132c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76fb1477a75421ece942e311f9cac1d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga76fb1477a75421ece942e311f9cac1d7"></a>
+std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_n_showers</b></td></tr>
+<tr class="separator:ga76fb1477a75421ece942e311f9cac1d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d6863ea6968da00aedb35cdcc11e857"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6d6863ea6968da00aedb35cdcc11e857"></a>
+std::map&lt; size_t, std::vector<br class="typebreak"/>
+&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_pfp_id_showers_from_primary</b></td></tr>
+<tr class="separator:ga6d6863ea6968da00aedb35cdcc11e857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed017ee63fe451fd266d9b16c9cf8d3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaed017ee63fe451fd266d9b16c9cf8d3c"></a>
+std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_n_tracks</b></td></tr>
+<tr class="separator:gaed017ee63fe451fd266d9b16c9cf8d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5f8d5c0400bf9f2a5963a70615a04f7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5f8d5c0400bf9f2a5963a70615a04f7f"></a>
+std::map&lt; size_t, std::vector<br class="typebreak"/>
+&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_pfp_id_tracks_from_primary</b></td></tr>
+<tr class="separator:ga5f8d5c0400bf9f2a5963a70615a04f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace044c6f4da66c667ce2106cb82b9851"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gace044c6f4da66c667ce2106cb82b9851"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_PE</b></td></tr>
+<tr class="separator:gace044c6f4da66c667ce2106cb82b9851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b833533a073320eb3142149ce708e58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3b833533a073320eb3142149ce708e58"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_time</b></td></tr>
+<tr class="separator:ga3b833533a073320eb3142149ce708e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a52193b5a38db1f71b010b47f745b21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8a52193b5a38db1f71b010b47f745b21"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_TPC_x</b></td></tr>
+<tr class="separator:ga8a52193b5a38db1f71b010b47f745b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga323a6efba151edcc16bf3a13d575315e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga323a6efba151edcc16bf3a13d575315e"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_x</b></td></tr>
+<tr class="separator:ga323a6efba151edcc16bf3a13d575315e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7037dd08a637555158a8575ddca0219b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7037dd08a637555158a8575ddca0219b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>m_nTracks</b></td></tr>
+<tr class="separator:ga7037dd08a637555158a8575ddca0219b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3efb31abe249ff0a0172df48454c4a01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3efb31abe249ff0a0172df48454c4a01"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_printDebug</b></td></tr>
+<tr class="separator:ga3efb31abe249ff0a0172df48454c4a01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bc56efdd67fed68ea859f9c31e92689"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2bc56efdd67fed68ea859f9c31e92689"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolXstart</b></td></tr>
+<tr class="separator:ga2bc56efdd67fed68ea859f9c31e92689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96a39585eb1cc6296f39fe20c411487b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga96a39585eb1cc6296f39fe20c411487b"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolXend</b></td></tr>
+<tr class="separator:ga96a39585eb1cc6296f39fe20c411487b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga619e14aa36bea7cb4a1cda1af59e874c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga619e14aa36bea7cb4a1cda1af59e874c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolYstart</b></td></tr>
+<tr class="separator:ga619e14aa36bea7cb4a1cda1af59e874c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa068d7654b2c313f37e6acca55d7cbde"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa068d7654b2c313f37e6acca55d7cbde"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolYend</b></td></tr>
+<tr class="separator:gaa068d7654b2c313f37e6acca55d7cbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga947ab1201c69fc7ffcfd3eb6720a7912"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga947ab1201c69fc7ffcfd3eb6720a7912"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolZstart</b></td></tr>
+<tr class="separator:ga947ab1201c69fc7ffcfd3eb6720a7912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6971785950632dd5afc288142aee39f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6971785950632dd5afc288142aee39f6"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fidvolZend</b></td></tr>
+<tr class="separator:ga6971785950632dd5afc288142aee39f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac32ee2582a0e2b1e61e1877bd00da44a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac32ee2582a0e2b1e61e1877bd00da44a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_fractionsigmaflashwidth</b></td></tr>
+<tr class="separator:gac32ee2582a0e2b1e61e1877bd00da44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae16d1fff36b6960e4098741e251af01c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae16d1fff36b6960e4098741e251af01c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_absoluteflashdist</b></td></tr>
+<tr class="separator:gae16d1fff36b6960e4098741e251af01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeeb5023e8512933602d4347d1e1b7359"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeeb5023e8512933602d4347d1e1b7359"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_startbeamtime</b></td></tr>
+<tr class="separator:gaeeb5023e8512933602d4347d1e1b7359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a4427349f2c202218e71dc8119ad811"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0a4427349f2c202218e71dc8119ad811"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_endbeamtime</b></td></tr>
+<tr class="separator:ga0a4427349f2c202218e71dc8119ad811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5125eb3abd5356cd0c33e9f47f2c6a3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5125eb3abd5356cd0c33e9f47f2c6a3d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_PE_threshold</b></td></tr>
+<tr class="separator:ga5125eb3abd5356cd0c33e9f47f2c6a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac32c1e1db8ad6287912fb1447ae7e192"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac32c1e1db8ad6287912fb1447ae7e192"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_zwidth</b></td></tr>
+<tr class="separator:gac32c1e1db8ad6287912fb1447ae7e192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd6b33330d8666d823f3698cfa83785"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1bd6b33330d8666d823f3698cfa83785"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_sigzwidth</b></td></tr>
+<tr class="separator:ga1bd6b33330d8666d823f3698cfa83785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fca23cbb16ca60a2f593405f256f00e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2fca23cbb16ca60a2f593405f256f00e"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_ywidth</b></td></tr>
+<tr class="separator:ga2fca23cbb16ca60a2f593405f256f00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67bbf323c59354b2029f668c58a8951a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga67bbf323c59354b2029f668c58a8951a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_cut_sigywidth</b></td></tr>
+<tr class="separator:ga67bbf323c59354b2029f668c58a8951a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabaeb4528a700866fdc0e362f540a8dea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabaeb4528a700866fdc0e362f540a8dea"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_charge_light_ratio</b></td></tr>
+<tr class="separator:gabaeb4528a700866fdc0e362f540a8dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa06afa8044a10a6497852854a811a00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaaa06afa8044a10a6497852854a811a00"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_flashmatching</b></td></tr>
+<tr class="separator:gaaa06afa8044a10a6497852854a811a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd632e59d98a72d8040890f425d1a3f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gabd632e59d98a72d8040890f425d1a3f2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_FM_all</b></td></tr>
+<tr class="separator:gabd632e59d98a72d8040890f425d1a3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a8178edfca11d99f8ccbd86dbd1c3bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2a8178edfca11d99f8ccbd86dbd1c3bd"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>m_isCosmicInTime</b></td></tr>
+<tr class="separator:ga2a8178edfca11d99f8ccbd86dbd1c3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3cb19dac93bb287a5747ad4400c65ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf3cb19dac93bb287a5747ad4400c65ef"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gaf3cb19dac93bb287a5747ad4400c65ef">_do_opdet_swap</a></td></tr>
+<tr class="memdesc:gaf3cb19dac93bb287a5747ad4400c65ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true swaps reconstructed OpDets according to _opdet_swap_map. <br/></td></tr>
+<tr class="separator:gaf3cb19dac93bb287a5747ad4400c65ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b8e7b46ec5b2db6008972662b2feb7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3b8e7b46ec5b2db6008972662b2feb7f"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga3b8e7b46ec5b2db6008972662b2feb7f">_opdet_swap_map</a></td></tr>
+<tr class="memdesc:ga3b8e7b46ec5b2db6008972662b2feb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The OpDet swap map for reco flashes. <br/></td></tr>
+<tr class="separator:ga3b8e7b46ec5b2db6008972662b2feb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22dc43acead400d57a885ef5f4eadfe0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga22dc43acead400d57a885ef5f4eadfe0"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_pfp_producer</b></td></tr>
+<tr class="separator:ga22dc43acead400d57a885ef5f4eadfe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab3778b534309c11083d606aad56191b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaab3778b534309c11083d606aad56191b"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>fOpticalFlashFinderLabel</b></td></tr>
+<tr class="separator:gaab3778b534309c11083d606aad56191b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99a124186e74bce53dd84068083cc90d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga99a124186e74bce53dd84068083cc90d"></a>
+<a class="el" href="classlee_1_1GeometryHelper.html">GeometryHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>geoHelper</b></td></tr>
+<tr class="separator:ga99a124186e74bce53dd84068083cc90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6b3531c56323d02225e257a191d7a65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab6b3531c56323d02225e257a191d7a65"></a>
+<a class="el" href="classlee_1_1PandoraInterfaceHelper.html">PandoraInterfaceHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pandoraHelper</b></td></tr>
+<tr class="separator:gab6b3531c56323d02225e257a191d7a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49fb9654c5609485ae6745fdbb84335c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga49fb9654c5609485ae6745fdbb84335c"></a>
+flashana::FlashMatchManager&#160;</td><td class="memItemRight" valign="bottom"><b>m_mgr</b></td></tr>
+<tr class="separator:ga49fb9654c5609485ae6745fdbb84335c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d19e99bac2aebf0710321e4b9d2d394"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6d19e99bac2aebf0710321e4b9d2d394"></a>
+art::ServiceHandle&lt; geo::Geometry &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_geo</b></td></tr>
+<tr class="separator:ga6d19e99bac2aebf0710321e4b9d2d394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/<a class="el" href="ElectronEventSelectionAlg_8h_source.html">ElectronEventSelectionAlg.h</a></li>

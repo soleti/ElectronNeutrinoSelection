@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classlee_1_1EnergyHelper-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lee::EnergyHelper Class Reference<div class="ingroups"><a class="el" href="group__lee.html">Lee</a></div></div>  </div>
@@ -138,6 +139,52 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1HelperBase.html#ad80955b099f76d5e298e6f5e37cd17aa">setDebug</a> (bool b)</td></tr>
 <tr class="memdesc:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug parameter.  <a href="#ad80955b099f76d5e298e6f5e37cd17aa">More...</a><br/></td></tr>
 <tr class="separator:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:gab80c71d066234aa8f0b483c34a068d55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab80c71d066234aa8f0b483c34a068d55"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_data_gain</b> = {236.41, 228.83, 242.72}</td></tr>
+<tr class="separator:gab80c71d066234aa8f0b483c34a068d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5c5abe13d6a7820e1658a802790f7e80"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5c5abe13d6a7820e1658a802790f7e80"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_mc_gain</b> = {193.05, 196.85, 196.85}</td></tr>
+<tr class="separator:ga5c5abe13d6a7820e1658a802790f7e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f16c348e247cda52785e968cfad1b91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9f16c348e247cda52785e968cfad1b91"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_gain</b></td></tr>
+<tr class="separator:ga9f16c348e247cda52785e968cfad1b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4cc0815f3fccf5f704c44fc0a5ed0717"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4cc0815f3fccf5f704c44fc0a5ed0717"></a>
+const <br class="typebreak"/>
+lariov::TPCEnergyCalibProvider &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_energy_calib_provider</b> = art::ServiceHandle&lt;lariov::TPCEnergyCalibService&gt;()-&gt;GetProvider()</td></tr>
+<tr class="separator:ga4cc0815f3fccf5f704c44fc0a5ed0717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5dc96ef9f0d974147c51ca27e46351fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5dc96ef9f0d974147c51ca27e46351fa"></a>
+const detinfo::DetectorProperties *&#160;</td><td class="memItemRight" valign="bottom"><b>_detprop</b> = lar::providerFrom&lt;detinfo::DetectorPropertiesService&gt;()</td></tr>
+<tr class="separator:ga5dc96ef9f0d974147c51ca27e46351fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ee65f3a1c672b4f089c05ba6b4ab132"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5ee65f3a1c672b4f089c05ba6b4ab132"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_drift</b> = _detprop-&gt;DriftVelocity() * 1e-3</td></tr>
+<tr class="separator:ga5ee65f3a1c672b4f089c05ba6b4ab132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12d5d0f2b40a3971d57e37b1d176e45d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga12d5d0f2b40a3971d57e37b1d176e45d"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_from_tick_to_ns</b> = _readout_window / _detprop-&gt;ReadOutWindowSize() * 1e6</td></tr>
+<tr class="separator:ga12d5d0f2b40a3971d57e37b1d176e45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga412905c2b45aa8103823f84f7bd7ea2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga412905c2b45aa8103823f84f7bd7ea2a"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_wire_spacing</b> = 0.3</td></tr>
+<tr class="separator:ga412905c2b45aa8103823f84f7bd7ea2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafed9eac818bc9ab7f0c0cd3c808feeea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafed9eac818bc9ab7f0c0cd3c808feeea"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_work_function</b> = 23 / 1e6</td></tr>
+<tr class="separator:gafed9eac818bc9ab7f0c0cd3c808feeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad704feff08cf9f09aa46f306e126bbbb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad704feff08cf9f09aa46f306e126bbbb"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_readout_window</b></td></tr>
+<tr class="separator:gad704feff08cf9f09aa46f306e126bbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbe2338334b0bb800473d29350d866d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafbe2338334b0bb800473d29350d866d1"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_recombination_factor</b></td></tr>
+<tr class="separator:gafbe2338334b0bb800473d29350d866d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffce1a06abee9651a41c454aa5f9032f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaffce1a06abee9651a41c454aa5f9032f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_dQdx_rectangle_length</b></td></tr>
+<tr class="separator:gaffce1a06abee9651a41c454aa5f9032f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga227149dafb056c355057c753ac768b13"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga227149dafb056c355057c753ac768b13"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_dQdx_rectangle_width</b></td></tr>
+<tr class="separator:ga227149dafb056c355057c753ac768b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga613fe58326a28695ad83ddd7bdf8ff57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga613fe58326a28695ad83ddd7bdf8ff57"></a>
+<a class="el" href="classlee_1_1GeometryHelper.html">GeometryHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>geo_helper</b></td></tr>
+<tr class="separator:ga613fe58326a28695ad83ddd7bdf8ff57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/<a class="el" href="EnergyHelper_8h_source.html">EnergyHelper.h</a></li>
