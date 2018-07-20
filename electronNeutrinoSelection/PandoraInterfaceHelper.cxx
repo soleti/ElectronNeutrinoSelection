@@ -246,7 +246,8 @@ void PandoraInterfaceHelper::get_daughter_showers(
       {
         const art::Ptr<simb::MCParticle> trueParticle = mIter->first;
 
-        std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] \t >>> Match found with MCParticle with PDG " << trueParticle->PdgCode() << std::endl;
+        if (_debug)
+          std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] \t >>> Match found with MCParticle with PDG " << trueParticle->PdgCode() << std::endl;
 
         // Emplace into the output map
         matchedParticles[recoParticle] = trueParticle;

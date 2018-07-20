@@ -104,9 +104,11 @@ void GeometryHelper::setFiducialVolumeCuts(
   this->m_fidvolYend = m_fidvolYend;
   this->m_fidvolZstart = m_fidvolZstart;
   this->m_fidvolZend = m_fidvolZend;
-  std::cout << "Fidvol x start-end " << m_fidvolXstart << " " << m_fidvolXend << std::endl;
-  std::cout << "Fidvol y start-end " << m_fidvolYstart << " " << m_fidvolYend << std::endl;
-  std::cout << "Fidvol z start-end " << m_fidvolZstart << " " << m_fidvolZend << std::endl;
+
+
+  // std::cout << "Fidvol x start-end " << m_fidvolXstart << " " << m_fidvolXend << std::endl;
+  // std::cout << "Fidvol y start-end " << m_fidvolYstart << " " << m_fidvolYend << std::endl;
+  // std::cout << "Fidvol z start-end " << m_fidvolZstart << " " << m_fidvolZend << std::endl;
 
 }
 
