@@ -48,7 +48,11 @@ public:
   explicit EnergyHelper();
   ~EnergyHelper() = default;
 
-
+  /**
+    * @brief Configure all of the parameters of this class
+    *
+    * @param p fcl parameter set
+    */
   void reconfigure(fhicl::ParameterSet const &pset);
 
   /**
