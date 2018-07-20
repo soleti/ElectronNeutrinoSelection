@@ -9,7 +9,9 @@ To avoid this warning please remove this line from your configuration file or up
 Warning: doxygen no longer ships with the FreeSans font.
 You may want to clear or change DOT_FONTNAME.
 Otherwise you run the risk that the wrong font is being used for dot generated graphs.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:81: warning: Compound lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:411: warning: end of file while inside a group
+
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:84: warning: Compound lee::PandoraLEEAnalyzer is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:38: warning: Compound lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/HelperBase.h:17: warning: Compound lee::HelperBase is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:54: warning: Compound lee::PandoraInterfaceHelper is not documented.
@@ -82,7 +84,16 @@ Determining which enums are documented
 Computing member relations...
 Building full member lists recursively...
 Adding members to member groups.
-Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:94: warning: argument 'std' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
+Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:86: warning: Member PandoraLEEAnalyzer(fhicl::ParameterSet const &pset) (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:92: warning: Member PandoraLEEAnalyzer(PandoraLEEAnalyzer const &)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:93: warning: Member PandoraLEEAnalyzer(PandoraLEEAnalyzer &&)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:94: warning: Member operator=(PandoraLEEAnalyzer const &)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:95: warning: Member operator=(PandoraLEEAnalyzer &&)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:152: warning: Member get_most_energetic_shower(std::vector< art::Ptr< recob::Shower >> &showers) (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:98: warning: argument 'evt' of command @param is not found in the argument list of lee::PandoraLEEAnalyzer::analyze(art::Event const &e)
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:98: warning: The following parameters of lee::PandoraLEEAnalyzer::analyze(art::Event const &e) are not documented:
+  parameter 'e'
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:94: warning: argument 'std' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:94: warning: argument 'vector' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:94: warning: argument 'size_t' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:94: warning: The following parameters of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle) are not documented:
@@ -113,15 +124,12 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:105: warning: argument '_geant_producer' of command @param is not found in the argument list of lee::PandoraInterfaceHelper::GetRecoToTrueMatches(lar_pandora::PFParticlesToMCParticles &matchedParticles)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:60: warning: The following parameters of lee::PandoraInterfaceHelper::traversePFParticleTree(const art::ValidHandle< std::vector< recob::PFParticle >> pfparticles, size_t top_index, std::vector< size_t > &unordered_daugthers, std::string _pfp_producer) are not documented:
   parameter '_pfp_producer'
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:83: warning: Member PandoraLEEAnalyzer(fhicl::ParameterSet const &pset) (function) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:89: warning: Member PandoraLEEAnalyzer(PandoraLEEAnalyzer const &)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:90: warning: Member PandoraLEEAnalyzer(PandoraLEEAnalyzer &&)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:91: warning: Member operator=(PandoraLEEAnalyzer const &)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:92: warning: Member operator=(PandoraLEEAnalyzer &&)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:149: warning: Member get_most_energetic_shower(std::vector< art::Ptr< recob::Shower >> &showers) (function) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:95: warning: argument 'evt' of command @param is not found in the argument list of lee::PandoraLEEAnalyzer::analyze(art::Event const &e)
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:95: warning: The following parameters of lee::PandoraLEEAnalyzer::analyze(art::Event const &e) are not documented:
-  parameter 'e'
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:86: warning: Member PandoraLEEAnalyzer(fhicl::ParameterSet const &pset) (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:92: warning: Member PandoraLEEAnalyzer(PandoraLEEAnalyzer const &)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:93: warning: Member PandoraLEEAnalyzer(PandoraLEEAnalyzer &&)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:94: warning: Member operator=(PandoraLEEAnalyzer const &)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:95: warning: Member operator=(PandoraLEEAnalyzer &&)=delete (function) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:152: warning: Member get_most_energetic_shower(std::vector< art::Ptr< recob::Shower >> &showers) (function) of class lee::PandoraLEEAnalyzer is not documented.
 references...
 Inheriting documentation...
 Generating disk names...
@@ -177,5 +185,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 335/65536 hits=1082 misses=351
+lookup cache used 336/65536 hits=1092 misses=352
 finished...

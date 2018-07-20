@@ -4,7 +4,7 @@ var searchData=
   ['get_5fflash_5fpe',['get_flash_PE',['../classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fflash_5ftime',['get_flash_time',['../classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fflash_5fx',['get_flash_x',['../classlee_1_1ElectronEventSelectionAlg.html#a69b697a2eec43de221621bd4aca906e2',1,'lee::ElectronEventSelectionAlg']]],
-  ['get_5flongest_5ftrack',['get_longest_track',['../classlee_1_1PandoraLEEAnalyzer.html#ae76ba045ee298f69ff19ab86be51a69e',1,'lee::PandoraLEEAnalyzer']]],
+  ['get_5flongest_5ftrack',['get_longest_track',['../group__lee.html#gae76ba045ee298f69ff19ab86be51a69e',1,'lee::PandoraLEEAnalyzer']]],
   ['get_5fn_5fneutrino_5fcandidates',['get_n_neutrino_candidates',['../classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fn_5fshowers',['get_n_showers',['../classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fn_5ftracks',['get_n_tracks',['../classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7',1,'lee::ElectronEventSelectionAlg']]],
