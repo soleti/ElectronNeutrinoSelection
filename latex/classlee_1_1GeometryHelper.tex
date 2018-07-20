@@ -10,294 +10,30 @@ Inheritance diagram for lee\-:\-:Geometry\-Helper\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \hyperlink{classlee_1_1GeometryHelper_a4d4f0303130ac496452b30f60f43f5f1}{is\-Inside} (std\-::vector$<$ double $>$ P, std\-::vector$<$ std\-::vector$<$ double $>$ $>$ V)
+bool \hyperlink{group__lee_ga4d4f0303130ac496452b30f60f43f5f1}{is\-Inside} (std\-::vector$<$ double $>$ P, std\-::vector$<$ std\-::vector$<$ double $>$ $>$ V)
 \begin{DoxyCompactList}\small\item\em Determine if a point is within a rectangle (in 2\-D) \end{DoxyCompactList}\item 
-bool \hyperlink{classlee_1_1GeometryHelper_a6d02792fc6869b86d850077460536b2a}{is\-Fiducial} (const std\-::vector$<$ double $>$ \&x) const 
+bool \hyperlink{group__lee_ga6d02792fc6869b86d850077460536b2a}{is\-Fiducial} (const std\-::vector$<$ double $>$ \&x) const 
 \begin{DoxyCompactList}\small\item\em Determine if the specified point is in the fiducial volume. \end{DoxyCompactList}\item 
-bool \hyperlink{classlee_1_1GeometryHelper_a5383a8e03c66e9506a75d9afc41f5ff0}{is\-Fiducial} (const T\-Vector3 \&x) const 
+bool \hyperlink{group__lee_ga5383a8e03c66e9506a75d9afc41f5ff0}{is\-Fiducial} (const T\-Vector3 \&x) const 
 \begin{DoxyCompactList}\small\item\em Determine if the specified point is in the fiducial volume. \end{DoxyCompactList}\item 
-bool \hyperlink{classlee_1_1GeometryHelper_ae10d0ef387b7573c6cc12565d5bfd0e1}{is\-Fiducial} (const double x\mbox{[}3\mbox{]}) const 
+bool \hyperlink{group__lee_gae10d0ef387b7573c6cc12565d5bfd0e1}{is\-Fiducial} (const double x\mbox{[}3\mbox{]}) const 
 \begin{DoxyCompactList}\small\item\em Determine if the specified point is in the fiducial volume Not recommended, no array size checking is done. \end{DoxyCompactList}\item 
-bool \hyperlink{classlee_1_1GeometryHelper_aaa423d79bbb62bdd3337f1d965023baa}{is\-Active} (const std\-::vector$<$ double $>$ \&x) const 
+bool \hyperlink{group__lee_gaaa423d79bbb62bdd3337f1d965023baa}{is\-Active} (const std\-::vector$<$ double $>$ \&x) const 
 \begin{DoxyCompactList}\small\item\em Determine if the specified point is in the active volume. \end{DoxyCompactList}\item 
-bool \hyperlink{classlee_1_1GeometryHelper_ab5c3e840d748f5c5340315b6c096e7c8}{is\-Active} (const double x\mbox{[}3\mbox{]}) const 
+bool \hyperlink{group__lee_gab5c3e840d748f5c5340315b6c096e7c8}{is\-Active} (const double x\mbox{[}3\mbox{]}) const 
 \begin{DoxyCompactList}\small\item\em Determine if the specified point is in the active volume Not recommended, no array size checking is done. \end{DoxyCompactList}\item 
-double \hyperlink{classlee_1_1GeometryHelper_a15984c2f8c26a4bb9578835bedd19537}{distance} (const std\-::vector$<$ double $>$ \&a, const std\-::vector$<$ double $>$ \&b) const 
+double \hyperlink{group__lee_ga15984c2f8c26a4bb9578835bedd19537}{distance} (const std\-::vector$<$ double $>$ \&a, const std\-::vector$<$ double $>$ \&b) const 
 \begin{DoxyCompactList}\small\item\em Compute the 3\-D distance between two points. \end{DoxyCompactList}\item 
-double \hyperlink{classlee_1_1GeometryHelper_a481ad8eed3b9842a114cce96c73fb02e}{distance} (const T\-Vector3 \&a, const T\-Vector3 \&b) const 
+double \hyperlink{group__lee_ga481ad8eed3b9842a114cce96c73fb02e}{distance} (const T\-Vector3 \&a, const T\-Vector3 \&b) const 
 \begin{DoxyCompactList}\small\item\em Compute the 3\-D distance between two points. \end{DoxyCompactList}\item 
-double \hyperlink{classlee_1_1GeometryHelper_a02f688ef51442c37a5440d45cfad799f}{get\-Pitch} (const T\-Vector3 \&direction, const int \&pl) const 
+double \hyperlink{group__lee_ga02f688ef51442c37a5440d45cfad799f}{get\-Pitch} (const T\-Vector3 \&direction, const int \&pl) const 
 \begin{DoxyCompactList}\small\item\em Returns the 3\-D effective pitch give a direction and a plane. \end{DoxyCompactList}\item 
-void \hyperlink{classlee_1_1GeometryHelper_a5b67d6d907f9fca0e16ccd9dba85eb54}{set\-Fiducial\-Volume\-Cuts} (float m\-\_\-fidvol\-Xstart, float m\-\_\-fidvol\-Xend, float m\-\_\-fidvol\-Ystart, float m\-\_\-fidvol\-Yend, float m\-\_\-fidvol\-Zstart, float m\-\_\-fidvol\-Zend)
+void \hyperlink{group__lee_ga5b67d6d907f9fca0e16ccd9dba85eb54}{set\-Fiducial\-Volume\-Cuts} (float m\-\_\-fidvol\-Xstart, float m\-\_\-fidvol\-Xend, float m\-\_\-fidvol\-Ystart, float m\-\_\-fidvol\-Yend, float m\-\_\-fidvol\-Zstart, float m\-\_\-fidvol\-Zend)
 \begin{DoxyCompactList}\small\item\em Sets the fiducial volume cuts. \end{DoxyCompactList}\item 
-T\-Vector3 \hyperlink{classlee_1_1GeometryHelper_a1a7546e5a4c1693a9366126ac6c63ba9}{get\-Average\-Position} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ \&spcpnts)
+T\-Vector3 \hyperlink{group__lee_ga1a7546e5a4c1693a9366126ac6c63ba9}{get\-Average\-Position} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ \&spcpnts)
 \begin{DoxyCompactList}\small\item\em Return the average position of a set of space points. \end{DoxyCompactList}\item 
-void \hyperlink{classlee_1_1GeometryHelper_a403b726646563c7fa8bce4c316226e15}{build\-Rectangle} (double length, double width, std\-::vector$<$ double $>$ \&start, std\-::vector$<$ double $>$ \&axis, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&points)
+void \hyperlink{group__lee_ga403b726646563c7fa8bce4c316226e15}{build\-Rectangle} (double length, double width, std\-::vector$<$ double $>$ \&start, std\-::vector$<$ double $>$ \&axis, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&points)
 \begin{DoxyCompactList}\small\item\em Builds a rectangle. \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\subsection{Member Function Documentation}
-\hypertarget{classlee_1_1GeometryHelper_a403b726646563c7fa8bce4c316226e15}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!build\-Rectangle@{build\-Rectangle}}
-\index{build\-Rectangle@{build\-Rectangle}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{build\-Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}void Geometry\-Helper\-::build\-Rectangle (
-\begin{DoxyParamCaption}
-\item[{double}]{length, }
-\item[{double}]{width, }
-\item[{std\-::vector$<$ double $>$ \&}]{start, }
-\item[{std\-::vector$<$ double $>$ \&}]{axis, }
-\item[{std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&}]{points}
-\end{DoxyParamCaption}
-)}}\label{classlee_1_1GeometryHelper_a403b726646563c7fa8bce4c316226e15}
-
-
-Builds a rectangle. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em length} & The length \\
-\hline
-\mbox{\tt in}  & {\em width} & The width \\
-\hline
- & {\em start} & The start \\
-\hline
- & {\em axis} & The axis \\
-\hline
- & {\em points} & The points \\
-\hline
-\end{DoxyParams}
-\hypertarget{classlee_1_1GeometryHelper_a15984c2f8c26a4bb9578835bedd19537}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!distance@{distance}}
-\index{distance@{distance}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}double Geometry\-Helper\-::distance (
-\begin{DoxyParamCaption}
-\item[{const std\-::vector$<$ double $>$ \&}]{a, }
-\item[{const std\-::vector$<$ double $>$ \&}]{b}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_a15984c2f8c26a4bb9578835bedd19537}
-
-
-Compute the 3\-D distance between two points. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em a} & First Point \\
-\hline
-{\em b} & Second Point \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + (a.\-z -\/ b.\-z)$^\wedge$2 ) 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a481ad8eed3b9842a114cce96c73fb02e}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!distance@{distance}}
-\index{distance@{distance}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}double Geometry\-Helper\-::distance (
-\begin{DoxyParamCaption}
-\item[{const T\-Vector3 \&}]{a, }
-\item[{const T\-Vector3 \&}]{b}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_a481ad8eed3b9842a114cce96c73fb02e}
-
-
-Compute the 3\-D distance between two points. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em a} & First Point \\
-\hline
-{\em b} & Second Point \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + (a.\-z -\/ b.\-z)$^\wedge$2 ) 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a1a7546e5a4c1693a9366126ac6c63ba9}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!get\-Average\-Position@{get\-Average\-Position}}
-\index{get\-Average\-Position@{get\-Average\-Position}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{get\-Average\-Position}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector3 Geometry\-Helper\-::get\-Average\-Position (
-\begin{DoxyParamCaption}
-\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ \&}]{spcpnts}
-\end{DoxyParamCaption}
-)}}\label{classlee_1_1GeometryHelper_a1a7546e5a4c1693a9366126ac6c63ba9}
-
-
-Return the average position of a set of space points. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em spcpnts} & The spcpnts\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-3\-D Vector 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a02f688ef51442c37a5440d45cfad799f}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!get\-Pitch@{get\-Pitch}}
-\index{get\-Pitch@{get\-Pitch}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{get\-Pitch}]{\setlength{\rightskip}{0pt plus 5cm}double Geometry\-Helper\-::get\-Pitch (
-\begin{DoxyParamCaption}
-\item[{const T\-Vector3 \&}]{direction, }
-\item[{const int \&}]{pl}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_a02f688ef51442c37a5440d45cfad799f}
-
-
-Returns the 3\-D effective pitch give a direction and a plane. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em direction} & The direction \\
-\hline
-\mbox{\tt in}  & {\em pl} & Plane of interest (0, 1, 2)\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The pitch. 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_aaa423d79bbb62bdd3337f1d965023baa}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!is\-Active@{is\-Active}}
-\index{is\-Active@{is\-Active}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{is\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Active (
-\begin{DoxyParamCaption}
-\item[{const std\-::vector$<$ double $>$ \&}]{x}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_aaa423d79bbb62bdd3337f1d965023baa}
-
-
-Determine if the specified point is in the active volume. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & array of 3\-D location \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True or false 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_ab5c3e840d748f5c5340315b6c096e7c8}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!is\-Active@{is\-Active}}
-\index{is\-Active@{is\-Active}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{is\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Active (
-\begin{DoxyParamCaption}
-\item[{const double}]{x\mbox{[}3\mbox{]}}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_ab5c3e840d748f5c5340315b6c096e7c8}
-
-
-Determine if the specified point is in the active volume Not recommended, no array size checking is done. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & array of 3\-D location \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True or false 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a6d02792fc6869b86d850077460536b2a}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!is\-Fiducial@{is\-Fiducial}}
-\index{is\-Fiducial@{is\-Fiducial}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{is\-Fiducial}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Fiducial (
-\begin{DoxyParamCaption}
-\item[{const std\-::vector$<$ double $>$ \&}]{x}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_a6d02792fc6869b86d850077460536b2a}
-
-
-Determine if the specified point is in the fiducial volume. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & vector of length 3 \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True or false 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a5383a8e03c66e9506a75d9afc41f5ff0}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!is\-Fiducial@{is\-Fiducial}}
-\index{is\-Fiducial@{is\-Fiducial}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{is\-Fiducial}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Fiducial (
-\begin{DoxyParamCaption}
-\item[{const T\-Vector3 \&}]{x}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_a5383a8e03c66e9506a75d9afc41f5ff0}
-
-
-Determine if the specified point is in the fiducial volume. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & T\-Vector3 of 3\-D location \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True or false 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_ae10d0ef387b7573c6cc12565d5bfd0e1}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!is\-Fiducial@{is\-Fiducial}}
-\index{is\-Fiducial@{is\-Fiducial}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{is\-Fiducial}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Fiducial (
-\begin{DoxyParamCaption}
-\item[{const double}]{x\mbox{[}3\mbox{]}}
-\end{DoxyParamCaption}
-) const}}\label{classlee_1_1GeometryHelper_ae10d0ef387b7573c6cc12565d5bfd0e1}
-
-
-Determine if the specified point is in the fiducial volume Not recommended, no array size checking is done. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & array of 3\-D location \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True or false 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a4d4f0303130ac496452b30f60f43f5f1}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!is\-Inside@{is\-Inside}}
-\index{is\-Inside@{is\-Inside}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{is\-Inside}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Inside (
-\begin{DoxyParamCaption}
-\item[{std\-::vector$<$ double $>$}]{P, }
-\item[{std\-::vector$<$ std\-::vector$<$ double $>$ $>$}]{V}
-\end{DoxyParamCaption}
-)}}\label{classlee_1_1GeometryHelper_a4d4f0303130ac496452b30f60f43f5f1}
-
-
-Determine if a point is within a rectangle (in 2\-D) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em P} & vector containing the point's coordinates \\
-\hline
-{\em V} & vector of vectors containing rectangle's vertices\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True if the points is inside, False otherwise 
-\end{DoxyReturn}
-\hypertarget{classlee_1_1GeometryHelper_a5b67d6d907f9fca0e16ccd9dba85eb54}{\index{lee\-::\-Geometry\-Helper@{lee\-::\-Geometry\-Helper}!set\-Fiducial\-Volume\-Cuts@{set\-Fiducial\-Volume\-Cuts}}
-\index{set\-Fiducial\-Volume\-Cuts@{set\-Fiducial\-Volume\-Cuts}!lee::GeometryHelper@{lee\-::\-Geometry\-Helper}}
-\subsubsection[{set\-Fiducial\-Volume\-Cuts}]{\setlength{\rightskip}{0pt plus 5cm}void Geometry\-Helper\-::set\-Fiducial\-Volume\-Cuts (
-\begin{DoxyParamCaption}
-\item[{float}]{m\-\_\-fidvol\-Xstart, }
-\item[{float}]{m\-\_\-fidvol\-Xend, }
-\item[{float}]{m\-\_\-fidvol\-Ystart, }
-\item[{float}]{m\-\_\-fidvol\-Yend, }
-\item[{float}]{m\-\_\-fidvol\-Zstart, }
-\item[{float}]{m\-\_\-fidvol\-Zend}
-\end{DoxyParamCaption}
-)}}\label{classlee_1_1GeometryHelper_a5b67d6d907f9fca0e16ccd9dba85eb54}
-
-
-Sets the fiducial volume cuts. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em m\-\_\-fidvol\-Xstart} & The x start \\
-\hline
-\mbox{\tt in}  & {\em m\-\_\-fidvol\-Xend} & The x end \\
-\hline
-\mbox{\tt in}  & {\em m\-\_\-fidvol\-Ystart} & The y start \\
-\hline
-\mbox{\tt in}  & {\em m\-\_\-fidvol\-Yend} & The y end \\
-\hline
-\mbox{\tt in}  & {\em m\-\_\-fidvol\-Zstart} & The z start \\
-\hline
-\mbox{\tt in}  & {\em m\-\_\-fidvol\-Zend} & The z end \\
-\hline
-\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

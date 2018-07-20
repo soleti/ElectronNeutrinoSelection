@@ -4,18 +4,162 @@
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \hyperlink{classlee_1_1PandoraLEEAnalyzer}{lee\-::\-Pandora\-L\-E\-E\-Analyzer}
+class \hyperlink{classlee_1_1ElectronEventSelectionAlg}{lee\-::\-Electron\-Event\-Selection\-Alg}
 \item 
-class \hyperlink{classElectronEventSelectionAlg}{Electron\-Event\-Selection\-Alg}
-\begin{DoxyCompactList}\small\item\em Class that performs the selection algorithms, requiring a certain topology and a flash matched with the neutrino candidate. \end{DoxyCompactList}\item 
-class \hyperlink{classEnergyHelper}{Energy\-Helper}
-\begin{DoxyCompactList}\small\item\em Helper class with methods accessing calorimetric information (energy and d\-E/dx) \end{DoxyCompactList}\item 
-class \hyperlink{classGeometryHelper}{Geometry\-Helper}
-\begin{DoxyCompactList}\small\item\em Helper class with geometric methods (distance, point in a plane, etc. ) \end{DoxyCompactList}\item 
-class \hyperlink{classPandoraInterfaceHelper}{Pandora\-Interface\-Helper}
-\begin{DoxyCompactList}\small\item\em Helper class with methods useful to interface with Pandora information. It contains the methods use to perform reco/true matching. \end{DoxyCompactList}\end{DoxyCompactItemize}
+class \hyperlink{classlee_1_1EnergyHelper}{lee\-::\-Energy\-Helper}
+\item 
+class \hyperlink{classlee_1_1GeometryHelper}{lee\-::\-Geometry\-Helper}
+\item 
+class \hyperlink{classlee_1_1PandoraInterfaceHelper}{lee\-::\-Pandora\-Interface\-Helper}
+\item 
+class \hyperlink{classlee_1_1PandoraLEEAnalyzer}{lee\-::\-Pandora\-L\-E\-E\-Analyzer}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lee_ga70b6dfa1b2176c8ecbee29c567946890}{typedef std\-::map$<$ art\-::\-Ptr\\*
+$<$ recob\-::\-P\-F\-Particle $>$\\*
+, art\-::\-Ptr$<$ simb\-::\-M\-C\-Particle $>$ $>$ {\bfseries lar\-\_\-pandora\-::\-P\-F\-Particles\-To\-M\-C\-Particles}}\label{group__lee_ga70b6dfa1b2176c8ecbee29c567946890}
+
+\item 
+\hypertarget{group__lee_ga1e4126ea41de810a723eb4c1023fb418}{typedef std\-::map$<$ art\-::\-Ptr\\*
+$<$ recob\-::\-P\-F\-Particle $>$\\*
+, unsigned int $>$ {\bfseries lee\-::\-Reco\-Particle\-To\-N\-Matched\-Hits}}\label{group__lee_ga1e4126ea41de810a723eb4c1023fb418}
+
+\item 
+\hypertarget{group__lee_gad68c1843c146182933b27bf7be0455a4}{typedef std\-::map$<$ art\-::\-Ptr\\*
+$<$ simb\-::\-M\-C\-Particle $>$\\*
+, Reco\-Particle\-To\-N\-Matched\-Hits $>$ {\bfseries lee\-::\-Particle\-Matching\-Map}}\label{group__lee_gad68c1843c146182933b27bf7be0455a4}
+
+\item 
+\hypertarget{group__lee_ga084ff379386cea31dbc631216b56b9eb}{typedef std\-::set$<$ art\-::\-Ptr\\*
+$<$ recob\-::\-P\-F\-Particle $>$ $>$ {\bfseries lee\-::\-P\-F\-Particle\-Set}}\label{group__lee_ga084ff379386cea31dbc631216b56b9eb}
+
+\item 
+\hypertarget{group__lee_gab1ec016bd8fc6df09c6f95dba3962bba}{typedef std\-::set$<$ art\-::\-Ptr\\*
+$<$ simb\-::\-M\-C\-Particle $>$ $>$ {\bfseries lee\-::\-M\-C\-Particle\-Set}}\label{group__lee_gab1ec016bd8fc6df09c6f95dba3962bba}
+
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__lee_ga59666f2bec60817a81fcdd467d9b9641}{lee\-::\-Electron\-Event\-Selection\-Alg\-::event\-Selected} (const art\-::\-Event \&evt)
+\begin{DoxyCompactList}\small\item\em Main Event Selection Function. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga8f1378ec08aba381d438816c8bc31951}{lee\-::\-Electron\-Event\-Selection\-Alg\-::reconfigure} (fhicl\-::\-Parameter\-Set const \&p)
+\begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
+const std\-::map$<$ size\-\_\-t, int $>$ \hyperlink{group__lee_ga1853e2053d74627cd4466cf670dc0c31}{lee\-::\-Electron\-Event\-Selection\-Alg\-::opticalfilter} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticle\-\_\-handle)
+\begin{DoxyCompactList}\small\item\em Checks if there is a flash within the 3.\-2-\/4.\-8 ms window and compatible with the center of charge. \end{DoxyCompactList}\item 
+const std\-::map$<$ size\-\_\-t, int $>$ \hyperlink{group__lee_ga4d8d979b26116ec25d26884702d0f9c6}{lee\-::\-Electron\-Event\-Selection\-Alg\-::flash\-Based\-Selection} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticle\-\_\-handle)
+\begin{DoxyCompactList}\small\item\em Checks if there is a flash within the flash\-\_\-window\-\_\-start -\/ flash\-\_\-window\-\_\-end window with enough P\-E. and compatible with the center of charge, the best one is selected using flashmatching. \end{DoxyCompactList}\item 
+const flashana\-::\-Q\-Cluster\-\_\-t \hyperlink{group__lee_ga06a3e470d9b2ca729d25822fac19e455}{lee\-::\-Electron\-Event\-Selection\-Alg\-::collect3\-D\-Hits} (const art\-::\-Event \&evt, const std\-::vector$<$ size\-\_\-t $>$ \&pfplist)
+\begin{DoxyCompactList}\small\item\em Creates a photon cluster for a neutrino pfp hierarchy P\-F\-Particle. \end{DoxyCompactList}\item 
+T\-Vector3 \hyperlink{group__lee_gafb99143e1546158d3f030724694e6a51}{lee\-::\-Electron\-Event\-Selection\-Alg\-::space\-Charge\-True\-To\-Reco} (const T\-Vector3 \&xyz)
+\begin{DoxyCompactList}\small\item\em Return the true coordinates corrected by the space-\/charge effect. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gad936812d5e9dc7999a37c75b84b04ada}{void \hyperlink{group__lee_gad936812d5e9dc7999a37c75b84b04ada}{lee\-::\-Electron\-Event\-Selection\-Alg\-::clear} ()}\label{group__lee_gad936812d5e9dc7999a37c75b84b04ada}
+
+\begin{DoxyCompactList}\small\item\em Reset internal variables. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga317c107f710fc965cd7e062ac933d3df}{const std\-::vector$<$ size\-\_\-t $>$ \& \hyperlink{group__lee_ga317c107f710fc965cd7e062ac933d3df}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-primary\-\_\-indexes} () const }\label{group__lee_ga317c107f710fc965cd7e062ac933d3df}
+
+\begin{DoxyCompactList}\small\item\em Return a list of the selected pfparticle top level neutrino candidate indexes. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga6259851e755db48eb0dd831708212e27}{const size\-\_\-t \& \hyperlink{group__lee_ga6259851e755db48eb0dd831708212e27}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-neutrino\-\_\-candidates} () const }\label{group__lee_ga6259851e755db48eb0dd831708212e27}
+
+\begin{DoxyCompactList}\small\item\em Return the number of neutrino candidates. \end{DoxyCompactList}\item 
+const std\-::map$<$ size\-\_\-t, bool $>$ \& \hyperlink{group__lee_gab34dc2b97e0065b07a5233e3b46b83a4}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-neutrino\-\_\-candidate\-\_\-passed} () const 
+\begin{DoxyCompactList}\small\item\em Inform whether a particular candidate passed or failed the algorithm. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gaffda5b411008752c1355a9dd3a1d9c1e}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{group__lee_gaffda5b411008752c1355a9dd3a1d9c1e}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-op\-\_\-flash\-\_\-indexes} () const }\label{group__lee_gaffda5b411008752c1355a9dd3a1d9c1e}
+
+\begin{DoxyCompactList}\small\item\em Return the index of the flash matched with the pfparticle. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gac098d39d04f407c9bfc574da4b82fee6}{const std\-::map$<$ size\-\_\-t, \\*
+T\-Vector3 $>$ \& \hyperlink{group__lee_gac098d39d04f407c9bfc574da4b82fee6}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-neutrino\-\_\-vertex} () const }\label{group__lee_gac098d39d04f407c9bfc574da4b82fee6}
+
+\begin{DoxyCompactList}\small\item\em Return the pandora calculated vertex indexed by pfparticle id number. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga43afa7fb8c10333f89774c6d4ea714dc}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{group__lee_ga43afa7fb8c10333f89774c6d4ea714dc}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-showers} () const }\label{group__lee_ga43afa7fb8c10333f89774c6d4ea714dc}
+
+\begin{DoxyCompactList}\small\item\em Return number of showers for this pfparticle. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gad24d64eca5e56d0550572b24d5e213f7}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{group__lee_gad24d64eca5e56d0550572b24d5e213f7}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-tracks} () const }\label{group__lee_gad24d64eca5e56d0550572b24d5e213f7}
+
+\begin{DoxyCompactList}\small\item\em Return number of tracks for pfparticle index. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga7ea645ce175506b368ceb116bbb77889}{const std\-::map$<$ size\-\_\-t, \\*
+std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_ga7ea645ce175506b368ceb116bbb77889}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-from\-\_\-primary} () const }\label{group__lee_ga7ea645ce175506b368ceb116bbb77889}
+
+\begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga00266c70e046a9ee27e979be75925a09}{const std\-::map$<$ size\-\_\-t, \\*
+std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_ga00266c70e046a9ee27e979be75925a09}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary} () const }\label{group__lee_ga00266c70e046a9ee27e979be75925a09}
+
+\begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga306e62904f73e727c6f938d2a197f68e}{const std\-::vector$<$ double $>$ \& \hyperlink{group__lee_ga306e62904f73e727c6f938d2a197f68e}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-flash\-\_\-\-P\-E} () const }\label{group__lee_ga306e62904f73e727c6f938d2a197f68e}
+
+\begin{DoxyCompactList}\small\item\em Return the list of total P\-E of the flashes. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga9990f4a980662e786fc8e38146ce4456}{const std\-::vector$<$ double $>$ \& \hyperlink{group__lee_ga9990f4a980662e786fc8e38146ce4456}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-flash\-\_\-time} () const }\label{group__lee_ga9990f4a980662e786fc8e38146ce4456}
+
+\begin{DoxyCompactList}\small\item\em Return the list of times of the flashes. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga69b697a2eec43de221621bd4aca906e2}{const double \& \hyperlink{group__lee_ga69b697a2eec43de221621bd4aca906e2}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-flash\-\_\-x} () const }\label{group__lee_ga69b697a2eec43de221621bd4aca906e2}
+
+\begin{DoxyCompactList}\small\item\em Return the position in x of the flash. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga2c653a5d3225c3e3aa5dc84738ffa086}{const double \& \hyperlink{group__lee_ga2c653a5d3225c3e3aa5dc84738ffa086}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-\-T\-P\-C\-\_\-x} () const }\label{group__lee_ga2c653a5d3225c3e3aa5dc84738ffa086}
+
+\begin{DoxyCompactList}\small\item\em Return the position in x of the center of the collected charge. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga4523185d78d6b7aa94dbf26475750282}{lee\-::\-Energy\-Helper\-::reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)
+\begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga3ab3ce039f7c08ce5fbb1126a861c36c}{lee\-::\-Energy\-Helper\-::d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)
+\begin{DoxyCompactList}\small\item\em Measure the d\-Qdx of a shower. \end{DoxyCompactList}\item 
+double \hyperlink{group__lee_ga493326200e39f3aaa22999c55c22b6f5}{lee\-::\-Energy\-Helper\-::\-P\-I\-D} (const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$pids, int track\-I\-D, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, int pdg\-Code)
+\begin{DoxyCompactList}\small\item\em Return the value of a specific Particle\-I\-D algorithm for a single track. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga2844c7f27f79fbe5e16d9c674ca4afa1}{lee\-::\-Energy\-Helper\-::d\-Edx\-\_\-from\-\_\-d\-Qdx} (std\-::vector$<$ double $>$ \&dedx, std\-::vector$<$ double $>$ dqdx)
+\begin{DoxyCompactList}\small\item\em Convert d\-Q/dx vector into d\-E/dx vector (in Me\-V) \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_gac5f41d2b1bee9a0f761179f3059f8a49}{lee\-::\-Energy\-Helper\-::\-P\-C\-A} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&pca\-\_\-planes)
+\begin{DoxyCompactList}\small\item\em Principal Component Analysis of reconstructed clusters. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_gaf141846d9be1716bcfcf351633bdf8e7}{lee\-::\-Energy\-Helper\-::get\-\_\-cali} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ $\ast$spcpnts, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-spcpnts, std\-::vector$<$ double $>$ \&cali\-\_\-corr)
+\begin{DoxyCompactList}\small\item\em Calibration value for the energy of a reconstructed object. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_gaabbb21a3db419c9580aec4976c5137a9}{lee\-::\-Energy\-Helper\-::energy\-\_\-from\-\_\-hits} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ int $>$ \&n\-Hits, std\-::vector$<$ double $>$ \&pfenergy)
+\begin{DoxyCompactList}\small\item\em Measure calorimetric energy for a reconstructed object. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga01205d4a5d2f8d5ad0d4d5462e0b7563}{lee\-::\-Energy\-Helper\-::cluster\-\_\-residuals} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, double \&mean\-\_\-v, double \&std\-\_\-v)
+\begin{DoxyCompactList}\small\item\em Measure the spatial residuals of the hits in a reconstructed cluster along its direction. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga27cd9ba04f447b9922c56bbb320bce08}{lee\-::\-Energy\-Helper\-::track\-\_\-d\-Qdx} (std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Calorimetry $>$$>$ $\ast$calos, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dedx)
+\begin{DoxyCompactList}\small\item\em Measure the d\-Q/dx and d\-E/dx of a track using the anab\-::\-Calorimetry information. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga4926738bfba2d91bc187ad8a7db6e997}{lee\-::\-Energy\-Helper\-::d\-Qdx\-\_\-cali} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ double $>$ \&dqdx\-\_\-cali)
+\begin{DoxyCompactList}\small\item\em Calibration value for the d\-Q/dx of a reconstructed shower. \end{DoxyCompactList}\item 
+bool \hyperlink{group__lee_ga4d4f0303130ac496452b30f60f43f5f1}{lee\-::\-Geometry\-Helper\-::is\-Inside} (std\-::vector$<$ double $>$ P, std\-::vector$<$ std\-::vector$<$ double $>$ $>$ V)
+\begin{DoxyCompactList}\small\item\em Determine if a point is within a rectangle (in 2\-D) \end{DoxyCompactList}\item 
+bool \hyperlink{group__lee_ga6d02792fc6869b86d850077460536b2a}{lee\-::\-Geometry\-Helper\-::is\-Fiducial} (const std\-::vector$<$ double $>$ \&x) const 
+\begin{DoxyCompactList}\small\item\em Determine if the specified point is in the fiducial volume. \end{DoxyCompactList}\item 
+bool \hyperlink{group__lee_ga5383a8e03c66e9506a75d9afc41f5ff0}{lee\-::\-Geometry\-Helper\-::is\-Fiducial} (const T\-Vector3 \&x) const 
+\begin{DoxyCompactList}\small\item\em Determine if the specified point is in the fiducial volume. \end{DoxyCompactList}\item 
+bool \hyperlink{group__lee_gae10d0ef387b7573c6cc12565d5bfd0e1}{lee\-::\-Geometry\-Helper\-::is\-Fiducial} (const double x\mbox{[}3\mbox{]}) const 
+\begin{DoxyCompactList}\small\item\em Determine if the specified point is in the fiducial volume Not recommended, no array size checking is done. \end{DoxyCompactList}\item 
+bool \hyperlink{group__lee_gaaa423d79bbb62bdd3337f1d965023baa}{lee\-::\-Geometry\-Helper\-::is\-Active} (const std\-::vector$<$ double $>$ \&x) const 
+\begin{DoxyCompactList}\small\item\em Determine if the specified point is in the active volume. \end{DoxyCompactList}\item 
+bool \hyperlink{group__lee_gab5c3e840d748f5c5340315b6c096e7c8}{lee\-::\-Geometry\-Helper\-::is\-Active} (const double x\mbox{[}3\mbox{]}) const 
+\begin{DoxyCompactList}\small\item\em Determine if the specified point is in the active volume Not recommended, no array size checking is done. \end{DoxyCompactList}\item 
+double \hyperlink{group__lee_ga15984c2f8c26a4bb9578835bedd19537}{lee\-::\-Geometry\-Helper\-::distance} (const std\-::vector$<$ double $>$ \&a, const std\-::vector$<$ double $>$ \&b) const 
+\begin{DoxyCompactList}\small\item\em Compute the 3\-D distance between two points. \end{DoxyCompactList}\item 
+double \hyperlink{group__lee_ga481ad8eed3b9842a114cce96c73fb02e}{lee\-::\-Geometry\-Helper\-::distance} (const T\-Vector3 \&a, const T\-Vector3 \&b) const 
+\begin{DoxyCompactList}\small\item\em Compute the 3\-D distance between two points. \end{DoxyCompactList}\item 
+double \hyperlink{group__lee_ga02f688ef51442c37a5440d45cfad799f}{lee\-::\-Geometry\-Helper\-::get\-Pitch} (const T\-Vector3 \&direction, const int \&pl) const 
+\begin{DoxyCompactList}\small\item\em Returns the 3\-D effective pitch give a direction and a plane. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga5b67d6d907f9fca0e16ccd9dba85eb54}{lee\-::\-Geometry\-Helper\-::set\-Fiducial\-Volume\-Cuts} (float m\-\_\-fidvol\-Xstart, float m\-\_\-fidvol\-Xend, float m\-\_\-fidvol\-Ystart, float m\-\_\-fidvol\-Yend, float m\-\_\-fidvol\-Zstart, float m\-\_\-fidvol\-Zend)
+\begin{DoxyCompactList}\small\item\em Sets the fiducial volume cuts. \end{DoxyCompactList}\item 
+T\-Vector3 \hyperlink{group__lee_ga1a7546e5a4c1693a9366126ac6c63ba9}{lee\-::\-Geometry\-Helper\-::get\-Average\-Position} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ \&spcpnts)
+\begin{DoxyCompactList}\small\item\em Return the average position of a set of space points. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga403b726646563c7fa8bce4c316226e15}{lee\-::\-Geometry\-Helper\-::build\-Rectangle} (double length, double width, std\-::vector$<$ double $>$ \&start, std\-::vector$<$ double $>$ \&axis, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&points)
+\begin{DoxyCompactList}\small\item\em Builds a rectangle. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga5f3e6eecea4f75ea9eea31e520b4f0bc}{lee\-::\-Pandora\-Interface\-Helper\-::traverse\-P\-F\-Particle\-Tree} (const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticles, size\-\_\-t top\-\_\-index, std\-::vector$<$ size\-\_\-t $>$ \&unordered\-\_\-daugthers, std\-::string \-\_\-pfp\-\_\-producer)
+\begin{DoxyCompactList}\small\item\em Travers the tree of the daughters of a P\-F\-Particle. \end{DoxyCompactList}\item 
+std\-::vector$<$ double $>$ \hyperlink{group__lee_ga367b3ad86924343d3ab54fa8c84091af}{lee\-::\-Pandora\-Interface\-Helper\-::calculate\-Charge\-Center} (size\-\_\-t ipf, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticles, const art\-::\-Event \&evt, std\-::string \-\_\-pfp\-\_\-producer)
+\begin{DoxyCompactList}\small\item\em Measures the three-\/dimensional center of the deposited charge for a P\-F\-Particle. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga30273cdf4f136187b522c237e61b864e}{void {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::get\-\_\-daughter\-\_\-tracks} (std\-::vector$<$ size\-\_\-t $>$ pf\-\_\-ids, const art\-::\-Event \&evt, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Track $>$$>$ \&tracks, std\-::string \-\_\-pfp\-\_\-producer)}\label{group__lee_ga30273cdf4f136187b522c237e61b864e}
+
+\item 
+\hypertarget{group__lee_ga2219037e4e0677d9aeb55e9615b19131}{void {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::get\-\_\-daughter\-\_\-showers} (std\-::vector$<$ size\-\_\-t $>$ pf\-\_\-ids, const art\-::\-Event \&evt, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Shower $>$$>$ \&showers, std\-::string \-\_\-pfp\-\_\-producer)}\label{group__lee_ga2219037e4e0677d9aeb55e9615b19131}
+
+\item 
+void \hyperlink{group__lee_gaedec8759b64e578d4d27e4dd57bc2111}{lee\-::\-Pandora\-Interface\-Helper\-::\-Get\-Reco\-To\-True\-Matches} (lar\-\_\-pandora\-::\-P\-F\-Particles\-To\-M\-C\-Particles \&matched\-Particles)
+\begin{DoxyCompactList}\small\item\em Configure function parameters. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gacea920f6926b69221a6a04d17e38cbf9}{void {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::\-Configure} (art\-::\-Event const \&e, std\-::string \-\_\-pfp\-\_\-producer, std\-::string \-\_\-spacepoint\-\_\-producer, std\-::string \-\_\-hitfinder\-\_\-producer, std\-::string \-\_\-geant\-\_\-producer, std\-::string \-\_\-hit\-\_\-mcp\-\_\-producer)}\label{group__lee_gacea920f6926b69221a6a04d17e38cbf9}
+
+\item 
+\hypertarget{group__lee_gaab1841058478f2ef51067eeb588d1711}{art\-::\-Ptr$<$ simb\-::\-M\-C\-Truth $>$ {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::\-Track\-I\-D\-To\-M\-C\-Truth} (art\-::\-Event const \&e, std\-::string \-\_\-geant\-\_\-producer, int geant\-\_\-track\-\_\-id)}\label{group__lee_gaab1841058478f2ef51067eeb588d1711}
+
 \item 
 \hypertarget{group__lee_ga3783391baff0585de9261a559a8d28ef}{{\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-Pandora\-L\-E\-E\-Analyzer} (fhicl\-::\-Parameter\-Set const \&pset)}\label{group__lee_ga3783391baff0585de9261a559a8d28ef}
 
@@ -50,6 +194,15 @@ art\-::\-Ptr$<$ recob\-::\-Track $>$ \hyperlink{group__lee_gae76ba045ee298f69ff1
 \item 
 void \hyperlink{group__lee_gae0e0369a28fcbca90d62624f59d44aaa}{lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::categorize\-P\-F\-Particles} (art\-::\-Event const \&evt, std\-::vector$<$ int $>$ \&neutrino\-\_\-pdg, std\-::vector$<$ std\-::string $>$ \&neutrino\-\_\-process, std\-::vector$<$ double $>$ \&neutrino\-\_\-energy, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-P\-F\-Particle $>$$>$ \&neutrino\-\_\-pf, std\-::vector$<$ int $>$ \&cosmic\-\_\-pdg, std\-::vector$<$ std\-::string $>$ \&cosmic\-\_\-process, std\-::vector$<$ double $>$ \&cosmic\-\_\-energy, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-P\-F\-Particle $>$$>$ \&cosmic\-\_\-pf)
 \begin{DoxyCompactList}\small\item\em Determines if a P\-F\-Particle is matched with a M\-C\-Particle coming from a neutrino interaction or a cosmic ray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__lee_gadd430a976fa40632e14eb1688cdd785b}{lar\-\_\-pandora\-::\-Hits\-To\-M\-C\-Particles \hyperlink{group__lee_gadd430a976fa40632e14eb1688cdd785b}{lee\-::\-Pandora\-Interface\-Helper\-::\-\_\-hit\-\_\-to\-\_\-mcps\-\_\-map}}\label{group__lee_gadd430a976fa40632e14eb1688cdd785b}
+
+\begin{DoxyCompactList}\small\item\em A map from recon hits to M\-C\-Particles. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gae19df94cb2c29dc2735bf7436c5ccf63}{lar\-\_\-pandora\-::\-P\-F\-Particles\-To\-Hits \hyperlink{group__lee_gae19df94cb2c29dc2735bf7436c5ccf63}{lee\-::\-Pandora\-Interface\-Helper\-::\-\_\-pfp\-\_\-to\-\_\-hits\-\_\-map}}\label{group__lee_gae19df94cb2c29dc2735bf7436c5ccf63}
+
+\begin{DoxyCompactList}\small\item\em A map from P\-F\-Particles to recon hits. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -72,6 +225,60 @@ Main analyzer method, runs for every event in the file.
 \mbox{\tt in}  & {\em evt} & current art\-::\-Event \\
 \hline
 \end{DoxyParams}
+\hypertarget{group__lee_ga403b726646563c7fa8bce4c316226e15}{\index{Lee@{Lee}!build\-Rectangle@{build\-Rectangle}}
+\index{build\-Rectangle@{build\-Rectangle}!Lee@{Lee}}
+\subsubsection[{build\-Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}void Geometry\-Helper\-::build\-Rectangle (
+\begin{DoxyParamCaption}
+\item[{double}]{length, }
+\item[{double}]{width, }
+\item[{std\-::vector$<$ double $>$ \&}]{start, }
+\item[{std\-::vector$<$ double $>$ \&}]{axis, }
+\item[{std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&}]{points}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga403b726646563c7fa8bce4c316226e15}
+
+
+Builds a rectangle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em length} & The length \\
+\hline
+\mbox{\tt in}  & {\em width} & The width \\
+\hline
+ & {\em start} & The start \\
+\hline
+ & {\em axis} & The axis \\
+\hline
+ & {\em points} & The points \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga367b3ad86924343d3ab54fa8c84091af}{\index{Lee@{Lee}!calculate\-Charge\-Center@{calculate\-Charge\-Center}}
+\index{calculate\-Charge\-Center@{calculate\-Charge\-Center}!Lee@{Lee}}
+\subsubsection[{calculate\-Charge\-Center}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ double $>$ Pandora\-Interface\-Helper\-::calculate\-Charge\-Center (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{ipf, }
+\item[{const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$}]{pfparticles, }
+\item[{const art\-::\-Event \&}]{evt, }
+\item[{std\-::string}]{\-\_\-pfp\-\_\-producer}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga367b3ad86924343d3ab54fa8c84091af}
+
+
+Measures the three-\/dimensional center of the deposited charge for a P\-F\-Particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipf} & Index of the P\-F\-Particle \\
+\hline
+{\em pfparticles} & P\-F\-Particles handle \\
+\hline
+{\em evt} & art Event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector with\-: lowest x\-\_\-sps, center in y, z, and total deposited charge on the collection plane. 
+\end{DoxyReturn}
 \hypertarget{group__lee_gae0e0369a28fcbca90d62624f59d44aaa}{\index{Lee@{Lee}!categorize\-P\-F\-Particles@{categorize\-P\-F\-Particles}}
 \index{categorize\-P\-F\-Particles@{categorize\-P\-F\-Particles}!Lee@{Lee}}
 \subsubsection[{categorize\-P\-F\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-L\-E\-E\-Analyzer\-::categorize\-P\-F\-Particles (
@@ -134,6 +341,166 @@ Return the longest reconstructed track.
 \begin{DoxyReturn}{Returns}
 index of the chosen neutrino candidate 
 \end{DoxyReturn}
+\hypertarget{group__lee_ga01205d4a5d2f8d5ad0d4d5462e0b7563}{\index{Lee@{Lee}!cluster\-\_\-residuals@{cluster\-\_\-residuals}}
+\index{cluster\-\_\-residuals@{cluster\-\_\-residuals}!Lee@{Lee}}
+\subsubsection[{cluster\-\_\-residuals}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::cluster\-\_\-residuals (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$}]{clusters, }
+\item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
+\item[{double \&}]{mean\-\_\-v, }
+\item[{double \&}]{std\-\_\-v}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga01205d4a5d2f8d5ad0d4d5462e0b7563}
+
+
+Measure the spatial residuals of the hits in a reconstructed cluster along its direction. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em clusters} & Pointer to the vector of reconstructed clusters \\
+\hline
+\mbox{\tt in}  & {\em hits\-\_\-per\-\_\-cluster} & Pointer to the hits-\/cluster association \\
+\hline
+\mbox{\tt out}  & {\em mean\-\_\-v} & Address of the mean value \\
+\hline
+\mbox{\tt out}  & {\em std\-\_\-v} & Address of the standard deviation value \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga06a3e470d9b2ca729d25822fac19e455}{\index{Lee@{Lee}!collect3\-D\-Hits@{collect3\-D\-Hits}}
+\index{collect3\-D\-Hits@{collect3\-D\-Hits}!Lee@{Lee}}
+\subsubsection[{collect3\-D\-Hits}]{\setlength{\rightskip}{0pt plus 5cm}const flashana\-::\-Q\-Cluster\-\_\-t Electron\-Event\-Selection\-Alg\-::collect3\-D\-Hits (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Event \&}]{evt, }
+\item[{const std\-::vector$<$ size\-\_\-t $>$ \&}]{pfplist}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga06a3e470d9b2ca729d25822fac19e455}
+
+
+Creates a photon cluster for a neutrino pfp hierarchy P\-F\-Particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & art Event \\
+\hline
+{\em pfplist} & list of pfp indices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flashana\-::\-Q\-Cluster\-\_\-t object containing the photons 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga2844c7f27f79fbe5e16d9c674ca4afa1}{\index{Lee@{Lee}!d\-Edx\-\_\-from\-\_\-d\-Qdx@{d\-Edx\-\_\-from\-\_\-d\-Qdx}}
+\index{d\-Edx\-\_\-from\-\_\-d\-Qdx@{d\-Edx\-\_\-from\-\_\-d\-Qdx}!Lee@{Lee}}
+\subsubsection[{d\-Edx\-\_\-from\-\_\-d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::d\-Edx\-\_\-from\-\_\-d\-Qdx (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$ \&}]{dedx, }
+\item[{std\-::vector$<$ double $>$}]{dqdx}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga2844c7f27f79fbe5e16d9c674ca4afa1}
+
+
+Convert d\-Q/dx vector into d\-E/dx vector (in Me\-V) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em dedx} & Address of the d\-E/dx vector \\
+\hline
+\mbox{\tt in}  & {\em dqdx} & d\-Q/dx vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga15984c2f8c26a4bb9578835bedd19537}{\index{Lee@{Lee}!distance@{distance}}
+\index{distance@{distance}!Lee@{Lee}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}double Geometry\-Helper\-::distance (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ double $>$ \&}]{a, }
+\item[{const std\-::vector$<$ double $>$ \&}]{b}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_ga15984c2f8c26a4bb9578835bedd19537}
+
+
+Compute the 3\-D distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First Point \\
+\hline
+{\em b} & Second Point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + (a.\-z -\/ b.\-z)$^\wedge$2 ) 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga481ad8eed3b9842a114cce96c73fb02e}{\index{Lee@{Lee}!distance@{distance}}
+\index{distance@{distance}!Lee@{Lee}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}double Geometry\-Helper\-::distance (
+\begin{DoxyParamCaption}
+\item[{const T\-Vector3 \&}]{a, }
+\item[{const T\-Vector3 \&}]{b}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_ga481ad8eed3b9842a114cce96c73fb02e}
+
+
+Compute the 3\-D distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & First Point \\
+\hline
+{\em b} & Second Point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + (a.\-z -\/ b.\-z)$^\wedge$2 ) 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga3ab3ce039f7c08ce5fbb1126a861c36c}{\index{Lee@{Lee}!d\-Qdx@{d\-Qdx}}
+\index{d\-Qdx@{d\-Qdx}!Lee@{Lee}}
+\subsubsection[{d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::d\-Qdx (
+\begin{DoxyParamCaption}
+\item[{const recob\-::\-Shower $\ast$}]{shower\-\_\-obj, }
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$}]{clusters, }
+\item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
+\item[{std\-::vector$<$ double $>$ \&}]{dqdx, }
+\item[{std\-::vector$<$ double $>$ \&}]{dqdx\-\_\-hits, }
+\item[{std\-::vector$<$ double $>$ \&}]{pitches}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga3ab3ce039f7c08ce5fbb1126a861c36c}
+
+
+Measure the d\-Qdx of a shower. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em shower\-\_\-obj} & Pointer to the shower object \\
+\hline
+\mbox{\tt in}  & {\em clusters} & Pointer to the cluster associated tot the shower \\
+\hline
+\mbox{\tt in}  & {\em hits\-\_\-per\-\_\-cluster} & Pointer to the hits-\/cluster association \\
+\hline
+\mbox{\tt out}  & {\em dqdx} & Vector of the d\-Q/dx median values per plane \\
+\hline
+\mbox{\tt out}  & {\em dqdx\-\_\-hits} & Vector of the d\-Q/dx hits values per plane \\
+\hline
+\mbox{\tt out}  & {\em pitches} & Vector of the pitches per plane \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga4926738bfba2d91bc187ad8a7db6e997}{\index{Lee@{Lee}!d\-Qdx\-\_\-cali@{d\-Qdx\-\_\-cali}}
+\index{d\-Qdx\-\_\-cali@{d\-Qdx\-\_\-cali}!Lee@{Lee}}
+\subsubsection[{d\-Qdx\-\_\-cali}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::d\-Qdx\-\_\-cali (
+\begin{DoxyParamCaption}
+\item[{const recob\-::\-Shower $\ast$}]{shower\-\_\-obj, }
+\item[{std\-::vector$<$ double $>$ \&}]{dqdx\-\_\-cali}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga4926738bfba2d91bc187ad8a7db6e997}
+
+
+Calibration value for the d\-Q/dx of a reconstructed shower. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em shower\-\_\-obj} & Pointer to the reconstructed shower \\
+\hline
+\mbox{\tt out}  & {\em dqdx\-\_\-cali} & Address of the vector of with the d\-Q/dx calibration values \\
+\hline
+\end{DoxyParams}
 \hypertarget{group__lee_gaede981b7ff7b78309f2457c40581ba71}{\index{Lee@{Lee}!end\-Sub\-Run@{end\-Sub\-Run}}
 \index{end\-Sub\-Run@{end\-Sub\-Run}!Lee@{Lee}}
 \subsubsection[{end\-Sub\-Run}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-L\-E\-E\-Analyzer\-::end\-Sub\-Run (
@@ -148,6 +515,97 @@ Method called at the end of each subrun, it stores the number of P\-O\-T.
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em sr} & current art\-::\-Sub\-Run \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_gaabbb21a3db419c9580aec4976c5137a9}{\index{Lee@{Lee}!energy\-\_\-from\-\_\-hits@{energy\-\_\-from\-\_\-hits}}
+\index{energy\-\_\-from\-\_\-hits@{energy\-\_\-from\-\_\-hits}!Lee@{Lee}}
+\subsubsection[{energy\-\_\-from\-\_\-hits}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::energy\-\_\-from\-\_\-hits (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$}]{clusters, }
+\item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
+\item[{std\-::vector$<$ int $>$ \&}]{n\-Hits, }
+\item[{std\-::vector$<$ double $>$ \&}]{pfenergy}
+\end{DoxyParamCaption}
+)}}\label{group__lee_gaabbb21a3db419c9580aec4976c5137a9}
+
+
+Measure calorimetric energy for a reconstructed object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em clusters} & Pointer to the vector of reconstructed clusters \\
+\hline
+\mbox{\tt in}  & {\em hits\-\_\-per\-\_\-cluster} & Pointer to the hits-\/cluster association \\
+\hline
+\mbox{\tt out}  & {\em n\-Hits} & Address of the vector of the number of hits per plane \\
+\hline
+\mbox{\tt out}  & {\em pfenergy} & Address of the vector of reconstructed energy per plane \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga59666f2bec60817a81fcdd467d9b9641}{\index{Lee@{Lee}!event\-Selected@{event\-Selected}}
+\index{event\-Selected@{event\-Selected}!Lee@{Lee}}
+\subsubsection[{event\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}bool Electron\-Event\-Selection\-Alg\-::event\-Selected (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Event \&}]{evt}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga59666f2bec60817a81fcdd467d9b9641}
+
+
+Main Event Selection Function. 
+
+Decides whether or not this event is an electron neutrino candidate
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & art\-::\-Event containing the information for this event. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False. True == event passed cuts, false == event failed cuts 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga4d8d979b26116ec25d26884702d0f9c6}{\index{Lee@{Lee}!flash\-Based\-Selection@{flash\-Based\-Selection}}
+\index{flash\-Based\-Selection@{flash\-Based\-Selection}!Lee@{Lee}}
+\subsubsection[{flash\-Based\-Selection}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$ size\-\_\-t, int $>$ Electron\-Event\-Selection\-Alg\-::flash\-Based\-Selection (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Event \&}]{evt, }
+\item[{const std\-::vector$<$ size\-\_\-t $>$ \&}]{pfplist, }
+\item[{const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$}]{pfparticle\-\_\-handle}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga4d8d979b26116ec25d26884702d0f9c6}
+
+
+Checks if there is a flash within the flash\-\_\-window\-\_\-start -\/ flash\-\_\-window\-\_\-end window with enough P\-E. and compatible with the center of charge, the best one is selected using flashmatching. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\-::vector$<$size\-\_\-t$>$} & pfplist \-: list of primary neutrino candidates that need to be tested \\
+\hline
+{\em evt} & art Event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if not passed, otherwise index of the flash is returned 
+\end{DoxyReturn}
+\hypertarget{group__lee_gaf141846d9be1716bcfcf351633bdf8e7}{\index{Lee@{Lee}!get\-\_\-cali@{get\-\_\-cali}}
+\index{get\-\_\-cali@{get\-\_\-cali}!Lee@{Lee}}
+\subsubsection[{get\-\_\-cali}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::get\-\_\-cali (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ $\ast$}]{spcpnts, }
+\item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-spcpnts, }
+\item[{std\-::vector$<$ double $>$ \&}]{cali\-\_\-corr}
+\end{DoxyParamCaption}
+)}}\label{group__lee_gaf141846d9be1716bcfcf351633bdf8e7}
+
+
+Calibration value for the energy of a reconstructed object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em spcpnts} & Pointer to the vector of reconstructed space-\/points \\
+\hline
+\mbox{\tt in}  & {\em hits\-\_\-per\-\_\-spcpnts} & Pointer to the hits-\/spacepoints association \\
+\hline
+\mbox{\tt out}  & {\em cali\-\_\-corr} & Address of the two-\/dimensional vector storing calibration values \\
 \hline
 \end{DoxyParams}
 \hypertarget{group__lee_gae76ba045ee298f69ff19ab86be51a69e}{\index{Lee@{Lee}!get\-\_\-longest\-\_\-track@{get\-\_\-longest\-\_\-track}}
@@ -169,6 +627,314 @@ Return the longest reconstructed track.
 \begin{DoxyReturn}{Returns}
 longest reconstructed track object 
 \end{DoxyReturn}
+\hypertarget{group__lee_gab34dc2b97e0065b07a5233e3b46b83a4}{\index{Lee@{Lee}!get\-\_\-neutrino\-\_\-candidate\-\_\-passed@{get\-\_\-neutrino\-\_\-candidate\-\_\-passed}}
+\index{get\-\_\-neutrino\-\_\-candidate\-\_\-passed@{get\-\_\-neutrino\-\_\-candidate\-\_\-passed}!Lee@{Lee}}
+\subsubsection[{get\-\_\-neutrino\-\_\-candidate\-\_\-passed}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$size\-\_\-t, bool$>$\& lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-neutrino\-\_\-candidate\-\_\-passed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{group__lee_gab34dc2b97e0065b07a5233e3b46b83a4}
+
+
+Inform whether a particular candidate passed or failed the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+Vector of bool, one-\/to-\/one with get\-\_\-primary\-\_\-indexes 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga1a7546e5a4c1693a9366126ac6c63ba9}{\index{Lee@{Lee}!get\-Average\-Position@{get\-Average\-Position}}
+\index{get\-Average\-Position@{get\-Average\-Position}!Lee@{Lee}}
+\subsubsection[{get\-Average\-Position}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector3 Geometry\-Helper\-::get\-Average\-Position (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ \&}]{spcpnts}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga1a7546e5a4c1693a9366126ac6c63ba9}
+
+
+Return the average position of a set of space points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spcpnts} & The spcpnts\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+3\-D Vector 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga02f688ef51442c37a5440d45cfad799f}{\index{Lee@{Lee}!get\-Pitch@{get\-Pitch}}
+\index{get\-Pitch@{get\-Pitch}!Lee@{Lee}}
+\subsubsection[{get\-Pitch}]{\setlength{\rightskip}{0pt plus 5cm}double Geometry\-Helper\-::get\-Pitch (
+\begin{DoxyParamCaption}
+\item[{const T\-Vector3 \&}]{direction, }
+\item[{const int \&}]{pl}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_ga02f688ef51442c37a5440d45cfad799f}
+
+
+Returns the 3\-D effective pitch give a direction and a plane. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em direction} & The direction \\
+\hline
+\mbox{\tt in}  & {\em pl} & Plane of interest (0, 1, 2)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pitch. 
+\end{DoxyReturn}
+\hypertarget{group__lee_gaedec8759b64e578d4d27e4dd57bc2111}{\index{Lee@{Lee}!Get\-Reco\-To\-True\-Matches@{Get\-Reco\-To\-True\-Matches}}
+\index{Get\-Reco\-To\-True\-Matches@{Get\-Reco\-To\-True\-Matches}!Lee@{Lee}}
+\subsubsection[{Get\-Reco\-To\-True\-Matches}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-Interface\-Helper\-::\-Get\-Reco\-To\-True\-Matches (
+\begin{DoxyParamCaption}
+\item[{lar\-\_\-pandora\-::\-P\-F\-Particles\-To\-M\-C\-Particles \&}]{matched\-Particles}
+\end{DoxyParamCaption}
+)}}\label{group__lee_gaedec8759b64e578d4d27e4dd57bc2111}
+
+
+Configure function parameters. 
+
+Configure function parameters (call this function first)
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & the art\-::\-Event \\
+\hline
+{\em \-\_\-pfp\-\_\-producer} & the P\-F\-Particle producer label \\
+\hline
+{\em \-\_\-spacepoint\-\_\-producer} & the Space\-Point producer label \\
+\hline
+{\em \-\_\-hitfinder\-\_\-producer} & the Hit producer label \\
+\hline
+{\em \-\_\-geant\-\_\-producer} & The Geant4 producer label Returns matching between true and reconstructed particles\\
+\hline
+{\em matched\-Particles} & the output matches between reconstructed and true particles \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_gaaa423d79bbb62bdd3337f1d965023baa}{\index{Lee@{Lee}!is\-Active@{is\-Active}}
+\index{is\-Active@{is\-Active}!Lee@{Lee}}
+\subsubsection[{is\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Active (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ double $>$ \&}]{x}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_gaaa423d79bbb62bdd3337f1d965023baa}
+
+
+Determine if the specified point is in the active volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & array of 3\-D location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\hypertarget{group__lee_gab5c3e840d748f5c5340315b6c096e7c8}{\index{Lee@{Lee}!is\-Active@{is\-Active}}
+\index{is\-Active@{is\-Active}!Lee@{Lee}}
+\subsubsection[{is\-Active}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Active (
+\begin{DoxyParamCaption}
+\item[{const double}]{x\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_gab5c3e840d748f5c5340315b6c096e7c8}
+
+
+Determine if the specified point is in the active volume Not recommended, no array size checking is done. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & array of 3\-D location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga6d02792fc6869b86d850077460536b2a}{\index{Lee@{Lee}!is\-Fiducial@{is\-Fiducial}}
+\index{is\-Fiducial@{is\-Fiducial}!Lee@{Lee}}
+\subsubsection[{is\-Fiducial}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Fiducial (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ double $>$ \&}]{x}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_ga6d02792fc6869b86d850077460536b2a}
+
+
+Determine if the specified point is in the fiducial volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & vector of length 3 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga5383a8e03c66e9506a75d9afc41f5ff0}{\index{Lee@{Lee}!is\-Fiducial@{is\-Fiducial}}
+\index{is\-Fiducial@{is\-Fiducial}!Lee@{Lee}}
+\subsubsection[{is\-Fiducial}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Fiducial (
+\begin{DoxyParamCaption}
+\item[{const T\-Vector3 \&}]{x}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_ga5383a8e03c66e9506a75d9afc41f5ff0}
+
+
+Determine if the specified point is in the fiducial volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & T\-Vector3 of 3\-D location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\hypertarget{group__lee_gae10d0ef387b7573c6cc12565d5bfd0e1}{\index{Lee@{Lee}!is\-Fiducial@{is\-Fiducial}}
+\index{is\-Fiducial@{is\-Fiducial}!Lee@{Lee}}
+\subsubsection[{is\-Fiducial}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Fiducial (
+\begin{DoxyParamCaption}
+\item[{const double}]{x\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+) const}}\label{group__lee_gae10d0ef387b7573c6cc12565d5bfd0e1}
+
+
+Determine if the specified point is in the fiducial volume Not recommended, no array size checking is done. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & array of 3\-D location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga4d4f0303130ac496452b30f60f43f5f1}{\index{Lee@{Lee}!is\-Inside@{is\-Inside}}
+\index{is\-Inside@{is\-Inside}!Lee@{Lee}}
+\subsubsection[{is\-Inside}]{\setlength{\rightskip}{0pt plus 5cm}bool Geometry\-Helper\-::is\-Inside (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{P, }
+\item[{std\-::vector$<$ std\-::vector$<$ double $>$ $>$}]{V}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga4d4f0303130ac496452b30f60f43f5f1}
+
+
+Determine if a point is within a rectangle (in 2\-D) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & vector containing the point's coordinates \\
+\hline
+{\em V} & vector of vectors containing rectangle's vertices\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the points is inside, False otherwise 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga1853e2053d74627cd4466cf670dc0c31}{\index{Lee@{Lee}!opticalfilter@{opticalfilter}}
+\index{opticalfilter@{opticalfilter}!Lee@{Lee}}
+\subsubsection[{opticalfilter}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::map$<$ size\-\_\-t, int $>$ Electron\-Event\-Selection\-Alg\-::opticalfilter (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Event \&}]{evt, }
+\item[{const std\-::vector$<$ size\-\_\-t $>$ \&}]{pfplist, }
+\item[{const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$}]{pfparticle\-\_\-handle}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga1853e2053d74627cd4466cf670dc0c31}
+
+
+Checks if there is a flash within the 3.\-2-\/4.\-8 ms window and compatible with the center of charge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\-::vector$<$size\-\_\-t$>$} & pfplist \-: list of primary neutrino candidates that need to be tested \\
+\hline
+{\em evt} & art Event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if not passed, otherwise index of the flash 
+\end{DoxyReturn}
+\hypertarget{group__lee_gac5f41d2b1bee9a0f761179f3059f8a49}{\index{Lee@{Lee}!P\-C\-A@{P\-C\-A}}
+\index{P\-C\-A@{P\-C\-A}!Lee@{Lee}}
+\subsubsection[{P\-C\-A}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::\-P\-C\-A (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$}]{clusters, }
+\item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
+\item[{std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&}]{pca\-\_\-planes}
+\end{DoxyParamCaption}
+)}}\label{group__lee_gac5f41d2b1bee9a0f761179f3059f8a49}
+
+
+Principal Component Analysis of reconstructed clusters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em clusters} & Pointer to the vector of reconstructed clusters \\
+\hline
+\mbox{\tt in}  & {\em hits\-\_\-pre\-\_\-cluster} & Pointer to the hits-\/cluster association \\
+\hline
+\mbox{\tt out}  & {\em pca\-\_\-planes} & Address of the two-\/dimensional vector storing the P\-C\-A eigenvalues per plane \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga493326200e39f3aaa22999c55c22b6f5}{\index{Lee@{Lee}!P\-I\-D@{P\-I\-D}}
+\index{P\-I\-D@{P\-I\-D}!Lee@{Lee}}
+\subsubsection[{P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}double Energy\-Helper\-::\-P\-I\-D (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$}]{pids, }
+\item[{int}]{track\-I\-D, }
+\item[{std\-::string}]{Alg\-Name, }
+\item[{anab\-::k\-Variable\-Type}]{Variable\-Type, }
+\item[{int}]{pdg\-Code}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga493326200e39f3aaa22999c55c22b6f5}
+
+
+Return the value of a specific Particle\-I\-D algorithm for a single track. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pids} & Pointer to the vector of Particle\-I\-D objects \\
+\hline
+\mbox{\tt in}  & {\em track\-I\-D} & Track\-I\-D value \\
+\hline
+\mbox{\tt in}  & {\em Alg\-Name} & Name of the algorithm (e.\-g. Bragg peak, P\-I\-D\-A, etc.) \\
+\hline
+\mbox{\tt in}  & {\em Variable\-Type} & Type of variable (e.\-g. likelihood) \\
+\hline
+\mbox{\tt in}  & {\em pdg\-Code} & Assumed P\-D\-G code of the track\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of Variable\-Type for the Particle\-I\-D Alg\-Name algorithm, given its hypothetical P\-D\-G code 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga4523185d78d6b7aa94dbf26475750282}{\index{Lee@{Lee}!reconfigure@{reconfigure}}
+\index{reconfigure@{reconfigure}!Lee@{Lee}}
+\subsubsection[{reconfigure}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::reconfigure (
+\begin{DoxyParamCaption}
+\item[{fhicl\-::\-Parameter\-Set const \&}]{pset}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga4523185d78d6b7aa94dbf26475750282}
+
+
+Configure all of the parameters of this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & fcl parameter set \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga8f1378ec08aba381d438816c8bc31951}{\index{Lee@{Lee}!reconfigure@{reconfigure}}
+\index{reconfigure@{reconfigure}!Lee@{Lee}}
+\subsubsection[{reconfigure}]{\setlength{\rightskip}{0pt plus 5cm}void Electron\-Event\-Selection\-Alg\-::reconfigure (
+\begin{DoxyParamCaption}
+\item[{fhicl\-::\-Parameter\-Set const \&}]{p}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga8f1378ec08aba381d438816c8bc31951}
+
+
+Configure all of the parameters of this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & fcl parameter set \\
+\hline
+\end{DoxyParams}
 \hypertarget{group__lee_ga4696139a07194b86735e93fe0d9df45e}{\index{Lee@{Lee}!reconfigure@{reconfigure}}
 \index{reconfigure@{reconfigure}!Lee@{Lee}}
 \subsubsection[{reconfigure}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-L\-E\-E\-Analyzer\-::reconfigure (
@@ -183,5 +949,100 @@ Assigns the values of the F\-H\-I\-C\-L file.
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em pset} & set of F\-H\-I\-C\-L parameters \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga5b67d6d907f9fca0e16ccd9dba85eb54}{\index{Lee@{Lee}!set\-Fiducial\-Volume\-Cuts@{set\-Fiducial\-Volume\-Cuts}}
+\index{set\-Fiducial\-Volume\-Cuts@{set\-Fiducial\-Volume\-Cuts}!Lee@{Lee}}
+\subsubsection[{set\-Fiducial\-Volume\-Cuts}]{\setlength{\rightskip}{0pt plus 5cm}void Geometry\-Helper\-::set\-Fiducial\-Volume\-Cuts (
+\begin{DoxyParamCaption}
+\item[{float}]{m\-\_\-fidvol\-Xstart, }
+\item[{float}]{m\-\_\-fidvol\-Xend, }
+\item[{float}]{m\-\_\-fidvol\-Ystart, }
+\item[{float}]{m\-\_\-fidvol\-Yend, }
+\item[{float}]{m\-\_\-fidvol\-Zstart, }
+\item[{float}]{m\-\_\-fidvol\-Zend}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga5b67d6d907f9fca0e16ccd9dba85eb54}
+
+
+Sets the fiducial volume cuts. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em m\-\_\-fidvol\-Xstart} & The x start \\
+\hline
+\mbox{\tt in}  & {\em m\-\_\-fidvol\-Xend} & The x end \\
+\hline
+\mbox{\tt in}  & {\em m\-\_\-fidvol\-Ystart} & The y start \\
+\hline
+\mbox{\tt in}  & {\em m\-\_\-fidvol\-Yend} & The y end \\
+\hline
+\mbox{\tt in}  & {\em m\-\_\-fidvol\-Zstart} & The z start \\
+\hline
+\mbox{\tt in}  & {\em m\-\_\-fidvol\-Zend} & The z end \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_gafb99143e1546158d3f030724694e6a51}{\index{Lee@{Lee}!space\-Charge\-True\-To\-Reco@{space\-Charge\-True\-To\-Reco}}
+\index{space\-Charge\-True\-To\-Reco@{space\-Charge\-True\-To\-Reco}!Lee@{Lee}}
+\subsubsection[{space\-Charge\-True\-To\-Reco}]{\setlength{\rightskip}{0pt plus 5cm}T\-Vector3 Electron\-Event\-Selection\-Alg\-::space\-Charge\-True\-To\-Reco (
+\begin{DoxyParamCaption}
+\item[{const T\-Vector3 \&}]{xyz}
+\end{DoxyParamCaption}
+)}}\label{group__lee_gafb99143e1546158d3f030724694e6a51}
+
+
+Return the true coordinates corrected by the space-\/charge effect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xyz} & T\-Vector3 of the true position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-Vector3 of the space-\/charge corrected position 
+\end{DoxyReturn}
+\hypertarget{group__lee_ga27cd9ba04f447b9922c56bbb320bce08}{\index{Lee@{Lee}!track\-\_\-d\-Qdx@{track\-\_\-d\-Qdx}}
+\index{track\-\_\-d\-Qdx@{track\-\_\-d\-Qdx}!Lee@{Lee}}
+\subsubsection[{track\-\_\-d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::track\-\_\-d\-Qdx (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Calorimetry $>$$>$ $\ast$}]{calos, }
+\item[{std\-::vector$<$ double $>$ \&}]{dqdx, }
+\item[{std\-::vector$<$ double $>$ \&}]{dedx}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga27cd9ba04f447b9922c56bbb320bce08}
+
+
+Measure the d\-Q/dx and d\-E/dx of a track using the anab\-::\-Calorimetry information. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em calos} & Pointer to the vector of the calorimetry objects \\
+\hline
+\mbox{\tt out}  & {\em dqdx} & Address of the vector of the d\-Q/dx values per plane \\
+\hline
+\mbox{\tt out}  & {\em dedx} & Address of the vector of the d\-E/dx values per plane \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga5f3e6eecea4f75ea9eea31e520b4f0bc}{\index{Lee@{Lee}!traverse\-P\-F\-Particle\-Tree@{traverse\-P\-F\-Particle\-Tree}}
+\index{traverse\-P\-F\-Particle\-Tree@{traverse\-P\-F\-Particle\-Tree}!Lee@{Lee}}
+\subsubsection[{traverse\-P\-F\-Particle\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-Interface\-Helper\-::traverse\-P\-F\-Particle\-Tree (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$}]{pfparticles, }
+\item[{size\-\_\-t}]{top\-\_\-index, }
+\item[{std\-::vector$<$ size\-\_\-t $>$ \&}]{unordered\-\_\-daugthers, }
+\item[{std\-::string}]{\-\_\-pfp\-\_\-producer}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga5f3e6eecea4f75ea9eea31e520b4f0bc}
+
+
+Travers the tree of the daughters of a P\-F\-Particle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pfparticles} & P\-F\-Particles handle \\
+\hline
+{\em top\-\_\-index} & Index of the parent \\
+\hline
+{\em unordered\-\_\-daugthers} & Vector of P\-F\-Particles daughters \\
 \hline
 \end{DoxyParams}

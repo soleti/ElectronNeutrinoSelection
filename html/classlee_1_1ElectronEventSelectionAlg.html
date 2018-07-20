@@ -89,311 +89,89 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlee_1_1ElectronEventSelectionAlg-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lee::ElectronEventSelectionAlg Class Reference</div>  </div>
+<div class="title">lee::ElectronEventSelectionAlg Class Reference<div class="ingroups"><a class="el" href="group__lee.html">Lee</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a59666f2bec60817a81fcdd467d9b9641"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a59666f2bec60817a81fcdd467d9b9641">eventSelected</a> (const art::Event &amp;evt)</td></tr>
-<tr class="memdesc:a59666f2bec60817a81fcdd467d9b9641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main Event Selection Function.  <a href="#a59666f2bec60817a81fcdd467d9b9641">More...</a><br/></td></tr>
-<tr class="separator:a59666f2bec60817a81fcdd467d9b9641"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f1378ec08aba381d438816c8bc31951"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a8f1378ec08aba381d438816c8bc31951">reconfigure</a> (fhicl::ParameterSet const &amp;p)</td></tr>
-<tr class="memdesc:a8f1378ec08aba381d438816c8bc31951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure all of the parameters of this class.  <a href="#a8f1378ec08aba381d438816c8bc31951">More...</a><br/></td></tr>
-<tr class="separator:a8f1378ec08aba381d438816c8bc31951"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1853e2053d74627cd4466cf670dc0c31"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a1853e2053d74627cd4466cf670dc0c31">opticalfilter</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
-<tr class="memdesc:a1853e2053d74627cd4466cf670dc0c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge.  <a href="#a1853e2053d74627cd4466cf670dc0c31">More...</a><br/></td></tr>
-<tr class="separator:a1853e2053d74627cd4466cf670dc0c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d8d979b26116ec25d26884702d0f9c6"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a4d8d979b26116ec25d26884702d0f9c6">flashBasedSelection</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
-<tr class="memdesc:a4d8d979b26116ec25d26884702d0f9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE. and compatible with the center of charge, the best one is selected using flashmatching.  <a href="#a4d8d979b26116ec25d26884702d0f9c6">More...</a><br/></td></tr>
-<tr class="separator:a4d8d979b26116ec25d26884702d0f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06a3e470d9b2ca729d25822fac19e455"><td class="memItemLeft" align="right" valign="top">const flashana::QCluster_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a06a3e470d9b2ca729d25822fac19e455">collect3DHits</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist)</td></tr>
-<tr class="memdesc:a06a3e470d9b2ca729d25822fac19e455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a photon cluster for a neutrino pfp hierarchy PFParticle.  <a href="#a06a3e470d9b2ca729d25822fac19e455">More...</a><br/></td></tr>
-<tr class="separator:a06a3e470d9b2ca729d25822fac19e455"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb99143e1546158d3f030724694e6a51"><td class="memItemLeft" align="right" valign="top">TVector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#afb99143e1546158d3f030724694e6a51">spaceChargeTrueToReco</a> (const TVector3 &amp;xyz)</td></tr>
-<tr class="memdesc:afb99143e1546158d3f030724694e6a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the true coordinates corrected by the space-charge effect.  <a href="#afb99143e1546158d3f030724694e6a51">More...</a><br/></td></tr>
-<tr class="separator:afb99143e1546158d3f030724694e6a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad936812d5e9dc7999a37c75b84b04ada"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad936812d5e9dc7999a37c75b84b04ada"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ad936812d5e9dc7999a37c75b84b04ada">clear</a> ()</td></tr>
-<tr class="memdesc:ad936812d5e9dc7999a37c75b84b04ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset internal variables. <br/></td></tr>
-<tr class="separator:ad936812d5e9dc7999a37c75b84b04ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a317c107f710fc965cd7e062ac933d3df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a317c107f710fc965cd7e062ac933d3df"></a>
-const std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a317c107f710fc965cd7e062ac933d3df">get_primary_indexes</a> () const </td></tr>
-<tr class="memdesc:a317c107f710fc965cd7e062ac933d3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of the selected pfparticle top level neutrino candidate indexes. <br/></td></tr>
-<tr class="separator:a317c107f710fc965cd7e062ac933d3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6259851e755db48eb0dd831708212e27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6259851e755db48eb0dd831708212e27"></a>
-const size_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a6259851e755db48eb0dd831708212e27">get_n_neutrino_candidates</a> () const </td></tr>
-<tr class="memdesc:a6259851e755db48eb0dd831708212e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of neutrino candidates. <br/></td></tr>
-<tr class="separator:a6259851e755db48eb0dd831708212e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, bool &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ab34dc2b97e0065b07a5233e3b46b83a4">get_neutrino_candidate_passed</a> () const </td></tr>
-<tr class="memdesc:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform whether a particular candidate passed or failed the algorithm.  <a href="#ab34dc2b97e0065b07a5233e3b46b83a4">More...</a><br/></td></tr>
-<tr class="separator:ab34dc2b97e0065b07a5233e3b46b83a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affda5b411008752c1355a9dd3a1d9c1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affda5b411008752c1355a9dd3a1d9c1e"></a>
-const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#affda5b411008752c1355a9dd3a1d9c1e">get_op_flash_indexes</a> () const </td></tr>
-<tr class="memdesc:affda5b411008752c1355a9dd3a1d9c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index of the flash matched with the pfparticle. <br/></td></tr>
-<tr class="separator:affda5b411008752c1355a9dd3a1d9c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac098d39d04f407c9bfc574da4b82fee6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac098d39d04f407c9bfc574da4b82fee6"></a>
+<tr class="memitem:ga59666f2bec60817a81fcdd467d9b9641"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga59666f2bec60817a81fcdd467d9b9641">eventSelected</a> (const art::Event &amp;evt)</td></tr>
+<tr class="memdesc:ga59666f2bec60817a81fcdd467d9b9641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main Event Selection Function.  <a href="group__lee.html#ga59666f2bec60817a81fcdd467d9b9641">More...</a><br/></td></tr>
+<tr class="separator:ga59666f2bec60817a81fcdd467d9b9641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f1378ec08aba381d438816c8bc31951"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga8f1378ec08aba381d438816c8bc31951">reconfigure</a> (fhicl::ParameterSet const &amp;p)</td></tr>
+<tr class="memdesc:ga8f1378ec08aba381d438816c8bc31951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure all of the parameters of this class.  <a href="group__lee.html#ga8f1378ec08aba381d438816c8bc31951">More...</a><br/></td></tr>
+<tr class="separator:ga8f1378ec08aba381d438816c8bc31951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1853e2053d74627cd4466cf670dc0c31"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga1853e2053d74627cd4466cf670dc0c31">opticalfilter</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
+<tr class="memdesc:ga1853e2053d74627cd4466cf670dc0c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge.  <a href="group__lee.html#ga1853e2053d74627cd4466cf670dc0c31">More...</a><br/></td></tr>
+<tr class="separator:ga1853e2053d74627cd4466cf670dc0c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d8d979b26116ec25d26884702d0f9c6"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga4d8d979b26116ec25d26884702d0f9c6">flashBasedSelection</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist, const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticle_handle)</td></tr>
+<tr class="memdesc:ga4d8d979b26116ec25d26884702d0f9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE. and compatible with the center of charge, the best one is selected using flashmatching.  <a href="group__lee.html#ga4d8d979b26116ec25d26884702d0f9c6">More...</a><br/></td></tr>
+<tr class="separator:ga4d8d979b26116ec25d26884702d0f9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06a3e470d9b2ca729d25822fac19e455"><td class="memItemLeft" align="right" valign="top">const flashana::QCluster_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga06a3e470d9b2ca729d25822fac19e455">collect3DHits</a> (const art::Event &amp;evt, const std::vector&lt; size_t &gt; &amp;pfplist)</td></tr>
+<tr class="memdesc:ga06a3e470d9b2ca729d25822fac19e455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a photon cluster for a neutrino pfp hierarchy PFParticle.  <a href="group__lee.html#ga06a3e470d9b2ca729d25822fac19e455">More...</a><br/></td></tr>
+<tr class="separator:ga06a3e470d9b2ca729d25822fac19e455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb99143e1546158d3f030724694e6a51"><td class="memItemLeft" align="right" valign="top">TVector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gafb99143e1546158d3f030724694e6a51">spaceChargeTrueToReco</a> (const TVector3 &amp;xyz)</td></tr>
+<tr class="memdesc:gafb99143e1546158d3f030724694e6a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the true coordinates corrected by the space-charge effect.  <a href="group__lee.html#gafb99143e1546158d3f030724694e6a51">More...</a><br/></td></tr>
+<tr class="separator:gafb99143e1546158d3f030724694e6a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad936812d5e9dc7999a37c75b84b04ada"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad936812d5e9dc7999a37c75b84b04ada"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gad936812d5e9dc7999a37c75b84b04ada">clear</a> ()</td></tr>
+<tr class="memdesc:gad936812d5e9dc7999a37c75b84b04ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset internal variables. <br/></td></tr>
+<tr class="separator:gad936812d5e9dc7999a37c75b84b04ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga317c107f710fc965cd7e062ac933d3df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga317c107f710fc965cd7e062ac933d3df"></a>
+const std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga317c107f710fc965cd7e062ac933d3df">get_primary_indexes</a> () const </td></tr>
+<tr class="memdesc:ga317c107f710fc965cd7e062ac933d3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list of the selected pfparticle top level neutrino candidate indexes. <br/></td></tr>
+<tr class="separator:ga317c107f710fc965cd7e062ac933d3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6259851e755db48eb0dd831708212e27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6259851e755db48eb0dd831708212e27"></a>
+const size_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga6259851e755db48eb0dd831708212e27">get_n_neutrino_candidates</a> () const </td></tr>
+<tr class="memdesc:ga6259851e755db48eb0dd831708212e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of neutrino candidates. <br/></td></tr>
+<tr class="separator:ga6259851e755db48eb0dd831708212e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab34dc2b97e0065b07a5233e3b46b83a4"><td class="memItemLeft" align="right" valign="top">const std::map&lt; size_t, bool &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gab34dc2b97e0065b07a5233e3b46b83a4">get_neutrino_candidate_passed</a> () const </td></tr>
+<tr class="memdesc:gab34dc2b97e0065b07a5233e3b46b83a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform whether a particular candidate passed or failed the algorithm.  <a href="group__lee.html#gab34dc2b97e0065b07a5233e3b46b83a4">More...</a><br/></td></tr>
+<tr class="separator:gab34dc2b97e0065b07a5233e3b46b83a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffda5b411008752c1355a9dd3a1d9c1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaffda5b411008752c1355a9dd3a1d9c1e"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gaffda5b411008752c1355a9dd3a1d9c1e">get_op_flash_indexes</a> () const </td></tr>
+<tr class="memdesc:gaffda5b411008752c1355a9dd3a1d9c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the index of the flash matched with the pfparticle. <br/></td></tr>
+<tr class="separator:gaffda5b411008752c1355a9dd3a1d9c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac098d39d04f407c9bfc574da4b82fee6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac098d39d04f407c9bfc574da4b82fee6"></a>
 const std::map&lt; size_t, <br class="typebreak"/>
-TVector3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ac098d39d04f407c9bfc574da4b82fee6">get_neutrino_vertex</a> () const </td></tr>
-<tr class="memdesc:ac098d39d04f407c9bfc574da4b82fee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pandora calculated vertex indexed by pfparticle id number. <br/></td></tr>
-<tr class="separator:ac098d39d04f407c9bfc574da4b82fee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43afa7fb8c10333f89774c6d4ea714dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43afa7fb8c10333f89774c6d4ea714dc"></a>
-const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a> () const </td></tr>
-<tr class="memdesc:a43afa7fb8c10333f89774c6d4ea714dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of showers for this pfparticle. <br/></td></tr>
-<tr class="separator:a43afa7fb8c10333f89774c6d4ea714dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24d64eca5e56d0550572b24d5e213f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad24d64eca5e56d0550572b24d5e213f7"></a>
-const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#ad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a> () const </td></tr>
-<tr class="memdesc:ad24d64eca5e56d0550572b24d5e213f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of tracks for pfparticle index. <br/></td></tr>
-<tr class="separator:ad24d64eca5e56d0550572b24d5e213f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ea645ce175506b368ceb116bbb77889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ea645ce175506b368ceb116bbb77889"></a>
+TVector3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gac098d39d04f407c9bfc574da4b82fee6">get_neutrino_vertex</a> () const </td></tr>
+<tr class="memdesc:gac098d39d04f407c9bfc574da4b82fee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pandora calculated vertex indexed by pfparticle id number. <br/></td></tr>
+<tr class="separator:gac098d39d04f407c9bfc574da4b82fee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43afa7fb8c10333f89774c6d4ea714dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga43afa7fb8c10333f89774c6d4ea714dc"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a> () const </td></tr>
+<tr class="memdesc:ga43afa7fb8c10333f89774c6d4ea714dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of showers for this pfparticle. <br/></td></tr>
+<tr class="separator:ga43afa7fb8c10333f89774c6d4ea714dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad24d64eca5e56d0550572b24d5e213f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad24d64eca5e56d0550572b24d5e213f7"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a> () const </td></tr>
+<tr class="memdesc:gad24d64eca5e56d0550572b24d5e213f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of tracks for pfparticle index. <br/></td></tr>
+<tr class="separator:gad24d64eca5e56d0550572b24d5e213f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ea645ce175506b368ceb116bbb77889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga7ea645ce175506b368ceb116bbb77889"></a>
 const std::map&lt; size_t, <br class="typebreak"/>
-std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a7ea645ce175506b368ceb116bbb77889">get_pfp_id_showers_from_primary</a> () const </td></tr>
-<tr class="memdesc:a7ea645ce175506b368ceb116bbb77889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. <br/></td></tr>
-<tr class="separator:a7ea645ce175506b368ceb116bbb77889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00266c70e046a9ee27e979be75925a09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00266c70e046a9ee27e979be75925a09"></a>
+std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga7ea645ce175506b368ceb116bbb77889">get_pfp_id_showers_from_primary</a> () const </td></tr>
+<tr class="memdesc:ga7ea645ce175506b368ceb116bbb77889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. <br/></td></tr>
+<tr class="separator:ga7ea645ce175506b368ceb116bbb77889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00266c70e046a9ee27e979be75925a09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga00266c70e046a9ee27e979be75925a09"></a>
 const std::map&lt; size_t, <br class="typebreak"/>
-std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a00266c70e046a9ee27e979be75925a09">get_pfp_id_tracks_from_primary</a> () const </td></tr>
-<tr class="memdesc:a00266c70e046a9ee27e979be75925a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. <br/></td></tr>
-<tr class="separator:a00266c70e046a9ee27e979be75925a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a306e62904f73e727c6f938d2a197f68e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a306e62904f73e727c6f938d2a197f68e"></a>
-const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a306e62904f73e727c6f938d2a197f68e">get_flash_PE</a> () const </td></tr>
-<tr class="memdesc:a306e62904f73e727c6f938d2a197f68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of total PE of the flashes. <br/></td></tr>
-<tr class="separator:a306e62904f73e727c6f938d2a197f68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9990f4a980662e786fc8e38146ce4456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9990f4a980662e786fc8e38146ce4456"></a>
-const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a9990f4a980662e786fc8e38146ce4456">get_flash_time</a> () const </td></tr>
-<tr class="memdesc:a9990f4a980662e786fc8e38146ce4456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of times of the flashes. <br/></td></tr>
-<tr class="separator:a9990f4a980662e786fc8e38146ce4456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69b697a2eec43de221621bd4aca906e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69b697a2eec43de221621bd4aca906e2"></a>
-const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a69b697a2eec43de221621bd4aca906e2">get_flash_x</a> () const </td></tr>
-<tr class="memdesc:a69b697a2eec43de221621bd4aca906e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the flash. <br/></td></tr>
-<tr class="separator:a69b697a2eec43de221621bd4aca906e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c653a5d3225c3e3aa5dc84738ffa086"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c653a5d3225c3e3aa5dc84738ffa086"></a>
-const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1ElectronEventSelectionAlg.html#a2c653a5d3225c3e3aa5dc84738ffa086">get_TPC_x</a> () const </td></tr>
-<tr class="memdesc:a2c653a5d3225c3e3aa5dc84738ffa086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the center of the collected charge. <br/></td></tr>
-<tr class="separator:a2c653a5d3225c3e3aa5dc84738ffa086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga00266c70e046a9ee27e979be75925a09">get_pfp_id_tracks_from_primary</a> () const </td></tr>
+<tr class="memdesc:ga00266c70e046a9ee27e979be75925a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. <br/></td></tr>
+<tr class="separator:ga00266c70e046a9ee27e979be75925a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga306e62904f73e727c6f938d2a197f68e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga306e62904f73e727c6f938d2a197f68e"></a>
+const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga306e62904f73e727c6f938d2a197f68e">get_flash_PE</a> () const </td></tr>
+<tr class="memdesc:ga306e62904f73e727c6f938d2a197f68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of total PE of the flashes. <br/></td></tr>
+<tr class="separator:ga306e62904f73e727c6f938d2a197f68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9990f4a980662e786fc8e38146ce4456"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9990f4a980662e786fc8e38146ce4456"></a>
+const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga9990f4a980662e786fc8e38146ce4456">get_flash_time</a> () const </td></tr>
+<tr class="memdesc:ga9990f4a980662e786fc8e38146ce4456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of times of the flashes. <br/></td></tr>
+<tr class="separator:ga9990f4a980662e786fc8e38146ce4456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69b697a2eec43de221621bd4aca906e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga69b697a2eec43de221621bd4aca906e2"></a>
+const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga69b697a2eec43de221621bd4aca906e2">get_flash_x</a> () const </td></tr>
+<tr class="memdesc:ga69b697a2eec43de221621bd4aca906e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the flash. <br/></td></tr>
+<tr class="separator:ga69b697a2eec43de221621bd4aca906e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c653a5d3225c3e3aa5dc84738ffa086"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2c653a5d3225c3e3aa5dc84738ffa086"></a>
+const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2c653a5d3225c3e3aa5dc84738ffa086">get_TPC_x</a> () const </td></tr>
+<tr class="memdesc:ga2c653a5d3225c3e3aa5dc84738ffa086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the position in x of the center of the collected charge. <br/></td></tr>
+<tr class="separator:ga2c653a5d3225c3e3aa5dc84738ffa086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a06a3e470d9b2ca729d25822fac19e455"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const flashana::QCluster_t ElectronEventSelectionAlg::collect3DHits </td>
-          <td>(</td>
-          <td class="paramtype">const art::Event &amp;&#160;</td>
-          <td class="paramname"><em>evt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; size_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pfplist</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a photon cluster for a neutrino pfp hierarchy PFParticle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">evt</td><td>art Event </td></tr>
-    <tr><td class="paramname">pfplist</td><td>list of pfp indices </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>flashana::QCluster_t object containing the photons </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a59666f2bec60817a81fcdd467d9b9641"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ElectronEventSelectionAlg::eventSelected </td>
-          <td>(</td>
-          <td class="paramtype">const art::Event &amp;&#160;</td>
-          <td class="paramname"><em>evt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Main Event Selection Function. </p>
-<p>Decides whether or not this event is an electron neutrino candidate</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">evt</td><td>art::Event containing the information for this event. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True or False. True == event passed cuts, false == event failed cuts </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a4d8d979b26116ec25d26884702d0f9c6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt; size_t, int &gt; ElectronEventSelectionAlg::flashBasedSelection </td>
-          <td>(</td>
-          <td class="paramtype">const art::Event &amp;&#160;</td>
-          <td class="paramname"><em>evt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; size_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pfplist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt;&#160;</td>
-          <td class="paramname"><em>pfparticle_handle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE. and compatible with the center of charge, the best one is selected using flashmatching. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">std::vector&lt;size_t&gt;</td><td>pfplist : list of primary neutrino candidates that need to be tested </td></tr>
-    <tr><td class="paramname">evt</td><td>art Event </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>-1 if not passed, otherwise index of the flash is returned </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ab34dc2b97e0065b07a5233e3b46b83a4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;size_t, bool&gt;&amp; lee::ElectronEventSelectionAlg::get_neutrino_candidate_passed </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Inform whether a particular candidate passed or failed the algorithm. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vector of bool, one-to-one with get_primary_indexes </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a1853e2053d74627cd4466cf670dc0c31"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt; size_t, int &gt; ElectronEventSelectionAlg::opticalfilter </td>
-          <td>(</td>
-          <td class="paramtype">const art::Event &amp;&#160;</td>
-          <td class="paramname"><em>evt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; size_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pfplist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt;&#160;</td>
-          <td class="paramname"><em>pfparticle_handle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">std::vector&lt;size_t&gt;</td><td>pfplist : list of primary neutrino candidates that need to be tested </td></tr>
-    <tr><td class="paramname">evt</td><td>art Event </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>-1 if not passed, otherwise index of the flash </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a8f1378ec08aba381d438816c8bc31951"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ElectronEventSelectionAlg::reconfigure </td>
-          <td>(</td>
-          <td class="paramtype">fhicl::ParameterSet const &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Configure all of the parameters of this class. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p</td><td>fcl parameter set </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="afb99143e1546158d3f030724694e6a51"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TVector3 ElectronEventSelectionAlg::spaceChargeTrueToReco </td>
-          <td>(</td>
-          <td class="paramtype">const TVector3 &amp;&#160;</td>
-          <td class="paramname"><em>xyz</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the true coordinates corrected by the space-charge effect. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">xyz</td><td>TVector3 of the true position </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>TVector3 of the space-charge corrected position </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/<a class="el" href="ElectronEventSelectionAlg_8h_source.html">ElectronEventSelectionAlg.h</a></li>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.cxx</li>
