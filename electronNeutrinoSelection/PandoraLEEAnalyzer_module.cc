@@ -50,6 +50,11 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/i");
   myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/i");
 
+  myTTree->Branch("n_total_candidates", &_n_total_candidates, "n_total_candidates/i");
+  myTTree->Branch("candidate_vx", "std::vector< double >", &_candidate_vx);
+  myTTree->Branch("candidate_vy", "std::vector< double >", &_candidate_vy);
+  myTTree->Branch("candidate_vz", "std::vector< double >", &_candidate_vz);
+
   myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/i");
   myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/i");
   myTTree->Branch("distance", &_distance, "distance/d");
@@ -399,6 +404,10 @@ void lee::PandoraLEEAnalyzer::clear()
   _shower_dir_y.clear();
   _shower_dir_z.clear();
 
+  _n_total_candidates = std::numeric_limits<int>::lowest();
+  _candidate_vx.clear();
+  _candidate_vy.clear();
+  _candidate_vz.clear();
 
   _nu_track_ids.clear();
   _nu_shower_ids.clear();
@@ -761,7 +770,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         }
       }
     }
-    
+
     if (!there_is_a_neutrino)
       _category = k_cosmic;
 
@@ -881,6 +890,19 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     _n_matched = neutrino_pf.size();
   }
 
+  // save some information of all the neutrino n_candidates
+  _n_total_candidates = fElectronEventSelectionAlg.get_n_neutrino_candidates();
+  for (auto &inu : fElectronEventSelectionAlg.get_primary_indexes())
+  {
+    TVector3 _candidate_v = fElectronEventSelectionAlg.get_neutrino_vertex().at(inu);
+    _candidate_vx.push_back(_candidate_v.X());
+    _candidate_vy.push_back(_candidate_v.Y());
+    _candidate_vz.push_back(_candidate_v.Z());
+  }
+
+  fElectronEventSelectionAlg.get_neutrino_vertex();
+
+  // save some information of the passed candidates
   size_t ipf_candidate = std::numeric_limits<size_t>::lowest();
   if (_event_passed)
   {
@@ -969,7 +991,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         } else {
           std::cout << "[PandoraLEEAnalyzer] calos_per_track not valid" << std::endl;
         }
-        
+
         _track_dQdx.push_back(dqdx);
 
         std::vector<double> track_cali;
@@ -1071,7 +1093,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     for (auto &pf_id : _nu_shower_ids)
     {
       auto const &shower_obj = shower_per_pfpart.at(pf_id);
-      
+
       if (shower_obj.isNull()) {
         std::cout << "[PandoraLEEAnalyzer] Shower pointer " << pf_id << " is null, exiting" << std::endl;
         continue;
@@ -1081,7 +1103,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
       recob::PFParticle const &pfparticle = pfparticle_handle->at(pf_id);
       _nu_shower_daughters.push_back(pfparticle.Daughters());
-      
+
       double mean = std::numeric_limits<double>::lowest();
       double stdev = std::numeric_limits<double>::lowest();
       energyHelper.cluster_residuals(&clusters, &hits_per_cluster, mean, stdev);

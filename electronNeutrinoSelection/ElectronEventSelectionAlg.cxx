@@ -124,7 +124,7 @@ const std::map<size_t, int> ElectronEventSelectionAlg::flashBasedSelection(const
     _flash_PE.push_back(flash.TotalPE());
     _flash_time.push_back(flash.Time());
 
-    
+
     if ((flash.Time() < m_endbeamtime && flash.Time() > m_startbeamtime))
     {
       double thisPE = flash.TotalPE();
@@ -386,7 +386,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
   std::cout << "[ElectronEventSelectionAlg] Selection start" << std::endl;
 
   if (m_printDebug) {
-      std::cout << "[ElectronEventSelectionAlg] START BEAM TIME " << m_startbeamtime << std::endl; 
+      std::cout << "[ElectronEventSelectionAlg] START BEAM TIME " << m_startbeamtime << std::endl;
   }
 
   // Get the list of pfparticles:
@@ -432,7 +432,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
   for (auto &_i_primary : _primary_indexes)
   {
     unsigned int numDaughters = pfparticle_handle->at(_i_primary).NumDaughters();
-    
+
     if (m_printDebug) {
       std::cout << "[ElectronEventSelectionAlg] "
                 << "Primary PDG " << pfparticle_handle->at(_i_primary).PdgCode()
@@ -467,7 +467,11 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
       {
         _neutrino_candidate_passed[_i_primary] = false;
         std::cout << "[ElectronEventSelectionAlg] "
-                  << "Neutrino vertex not within fiducial volume" << std::endl;
+                  << "Neutrino vertex not within fiducial volume "
+                  << " vx: " << neutrino_vertex[0]
+                  << " vy: " << neutrino_vertex[1]
+                  << " vz: " << neutrino_vertex[2]
+                  << std::endl;
       }
     }
     catch (...)
@@ -487,7 +491,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
 
     for (auto const &pfdaughter : daughters_id)
     {
-      
+
       if (m_printDebug) {
         std::cout << "[ElectronEventSelectionAlg] "
                   << "Daughter ID: " << pfdaughter << " PDG "
@@ -499,7 +503,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
           art::FindOneP<recob::Shower> shower_per_pfpart(pfparticle_handle, evt,
                                                          m_pfp_producer);
           auto const &shower_obj = shower_per_pfpart.at(pfdaughter);
-          
+
           if (shower_obj.isNull())
             continue;
 
@@ -544,19 +548,19 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
     }
 
 
-    if (track_daughters < m_nTracks){  
-      // There are less direct daughter tracks than we want protons, FAIL   
-      std::cout << "[ElectronEventSelectionAlg] There are less direct daughter tracks than we want protons, FAIL" << std::endl;             
+    if (track_daughters < m_nTracks){
+      // There are less direct daughter tracks than we want protons, FAIL
+      std::cout << "[ElectronEventSelectionAlg] There are less direct daughter tracks than we want protons, FAIL" << std::endl;
       _neutrino_candidate_passed[_i_primary] = false;
     }
     if (showers==0){
       // There are no showers in the complete hierarchy, FAIL (this is probably where we lose LEE efficiency)
-      std::cout << "[ElectronEventSelectionAlg] There are no showers in the complete hierarchy, FAIL" << std::endl;             
+      std::cout << "[ElectronEventSelectionAlg] There are no showers in the complete hierarchy, FAIL" << std::endl;
 
       _neutrino_candidate_passed[_i_primary] = false;
     }
     if (shower_daughters==0 && showers==1 && track_daughters < (m_nTracks+1) ){
-        std::cout << "[ElectronEventSelectionAlg] There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL" << std::endl;             
+        std::cout << "[ElectronEventSelectionAlg] There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL" << std::endl;
 
       // There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL
       _neutrino_candidate_passed[_i_primary] = false;

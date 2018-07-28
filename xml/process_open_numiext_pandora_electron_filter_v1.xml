@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE project [
+<!ENTITY name "numi_analysis_dataext">
+<!ENTITY release "v06_26_01_17">
+<!ENTITY qualifier "e10:prof">
+<!ENTITY file_type "data">
+<!ENTITY run_type "physics">
+<!ENTITY project_version "1">
+<!ENTITY user "foppiani">
+<!ENTITY dataset "prod_numi_ext_data_run1_reco2_mcc8_v1_goodruns">
+<!ENTITY stage_name "dataext_numi">
+<!ENTITY tarball_location "/pnfs/uboone/resilient/users/foppiani/numi_tar/v1/numi.tar">
+<!ENTITY fcl_name "run_PandoraOnly_data_extnumi.fcl">
+<!ENTITY main_dir "/uboone/data/users/foppiani/">
+<!ENTITY temp_dir "/uboone/data/users/foppiani/temp/temp/">
+<!ENTITY book_dir "/uboone/data/users/foppiani/temp/book/">
+]>
+
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>uboone</group>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!--  Project size  -->
+  <numevents>1000000</numevents>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>&qualifier;</qual>
+    <local>&tarball_location;</local>
+    <fcldir>&fcl_directory;</fcldir>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="&stage_name;">
+    <fcl>&fcl_name;</fcl>
+    <inputdef>&dataset;</inputdef>
+
+    <outdir>&main_dir;&name;/v&project_version;/out/</outdir>
+    <logdir>&main_dir;&name;/v&project_version;/log/</logdir>
+    <workdir>&main_dir;&name;/v&project_version;/work/</workdir>
+    <bookdir>&book_dir;&name;/v&project_version;/</bookdir>
+
+    <numjobs>100</numjobs>
+    <disk>2GB</disk>
+    <memory>3096</memory>
+    <maxfilesperjob>20</maxfilesperjob>
+    <schema>root</schema>
+    <jobsub>  --expected-lifetime=12h -q --generate-email-summary </jobsub>
+  </stage>
+
+</project>

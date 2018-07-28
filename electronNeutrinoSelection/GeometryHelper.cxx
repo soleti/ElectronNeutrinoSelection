@@ -39,12 +39,27 @@ bool GeometryHelper::isFiducial(const double x[3]) const {
       0., 2. * geo->DetHalfWidth(), -geo->DetHalfHeight(), geo->DetHalfHeight(),
       0., geo->DetLength()};
 
-   bool is_x =
+  bool is_x =
       x[0] > (bnd[0] + m_fidvolXstart) && x[0] < (bnd[1] - m_fidvolXend);
   bool is_y =
       x[1] > (bnd[2] + m_fidvolYstart) && x[1] < (bnd[3] - m_fidvolYend);
   bool is_z =
       x[2] > (bnd[4] + m_fidvolZstart) && x[2] < (bnd[5] - m_fidvolZend);
+
+  // std::cout << "fiducial volume print " <<
+  //   m_fidvolXstart << " " <<
+  //   m_fidvolXend << " " <<
+  //   m_fidvolYstart << " " <<
+  //   m_fidvolYend << " " <<
+  //   m_fidvolZstart << " " <<
+  //   m_fidvolZend << " " <<
+  //   bnd[0] << " " <<
+  //   bnd[1] << " " <<
+  //   bnd[2] << " " <<
+  //   bnd[3] << " " <<
+  //   bnd[4] << " " <<
+  //   bnd[5] << " " <<
+  //   std::endl;
 
   return is_x && is_y && is_z;
 }

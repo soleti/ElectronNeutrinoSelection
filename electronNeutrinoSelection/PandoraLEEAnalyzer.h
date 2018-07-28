@@ -134,6 +134,11 @@ private:
   int _true_nu_is_fiducial;
   double _nu_energy;
 
+  int _n_total_candidates;
+  std::vector<double> _candidate_vx;
+  std::vector<double> _candidate_vy;
+  std::vector<double> _candidate_vz;
+
   int _n_tracks;
   int _n_showers;
   double _vx;
@@ -153,7 +158,7 @@ private:
   std::vector<double> _true_shower_z_sce;
   std::vector<int> _true_shower_pdg;
   std::vector<double> _true_shower_depE;
-  
+
   int _nu_matched_tracks;
   int _nu_matched_showers;
 
@@ -377,4 +382,3 @@ private:
 }
 
 #endif // PANDORA_LEE_H
-

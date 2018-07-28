@@ -10,8 +10,8 @@ energy_helper:
   Gains: [236.41, 228.83, 242.72]
 }
 
-start_window:  3.19
-end_window:    4.87
+start_window:  5
+end_window:    16
 
 lee_pandora_analyzer:
 {
@@ -20,22 +20,21 @@ lee_pandora_analyzer:
     EnergyHelper:               @local::energy_helper
     isData:                     true
     PrintDebug:                 false
-    HitFinderLabel:             "pandoraCosmicHitRemoval::DataPMTRemapRecoStage2"
-    PFParticleLabel:            "pandoraNu::DataPMTRemapRecoStage2"
-    SpacePointLabel:            "pandoraNu::DataPMTRemapRecoStage2"
+    HitFinderLabel:             "pandoraCosmicHitRemoval::DataRecoStage1and2"
+    PFParticleLabel:            "pandoraNu::DataRecoStage1and2"
+    SpacePointLabel:            "pandoraNu::DataRecoStage1and2"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "simcalibration::PandoraLEEAnalyzer"
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
-lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu::DataPMTRemapRecoStage2"
+lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu::DataRecoStage1and2"
 
 physics: {
 
   producers : {
      # ParameterSets for zero or more producer modules
-     decisiontreeid: @local::DecisionTreeID
      @table::ubxsec_data_reco
      @table::ubxsec_data_flashmatch
      simcalibration: @local::simulation_calibration
@@ -51,7 +50,7 @@ physics: {
   filters : {
      # ParameterSets for zero or more filter modules
   }
-  reco: [ @sequence::ubxsec_data_producers, simcalibration, pid ]
+  reco: [ ]#@sequence::ubxsec_mc_producers ]#, simcalibration, pid ]
 
   path0 : [  robertoana ]
 
@@ -68,8 +67,8 @@ physics: {
 cs_producerlabels_mcc8_calib_simcalib_data:
 {
   # producer label names
-  TrackLabel       : "pandoraNu::DataPMTRemapRecoStage2"
-  CalorimetryLabel : "pandoraNucali::DataPMTRemapRecoStage2"
+  TrackLabel       : "pandoraNu::DataRecoStage1and2"
+  CalorimetryLabel : "pandoraNucali::DataRecoStage1and2"
 }
 
 physics.producers.pid:                                         @local::particleidconfig
@@ -144,6 +143,6 @@ physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandor
 
 physics.producers.pid.ProducerLabels:
 {
-  TrackLabel : "pandoraNu::DataPMTRemapRecoStage2"
+  TrackLabel : "pandoraNu::DataRecoStage1and2"
   CalorimetryLabel : "simcalibration"
 }
