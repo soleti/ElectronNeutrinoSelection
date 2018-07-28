@@ -11,6 +11,7 @@
 <!ENTITY stage_name "mc_numi">
 <!ENTITY tarball_location "/pnfs/uboone/resilient/users/foppiani/numi_tar/v1/numi.tar">
 <!ENTITY fcl_name "run_PandoraOnly_mc_numi.fcl">
+<!ENTITY fcl_dir "/uboone/app/users/foppiani/Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/">
 <!ENTITY main_dir "/uboone/data/users/foppiani/">
 <!ENTITY temp_dir "/uboone/data/users/foppiani/temp/temp/">
 <!ENTITY book_dir "/uboone/data/users/foppiani/temp/book/">
@@ -36,7 +37,7 @@
     <tag>&release;</tag>
     <qual>&qualifier;</qual>
     <local>&tarball_location;</local>
-    <fcldir>&fcl_directory;</fcldir>
+    <fcldir>&fcl_dir;</fcldir>
   </larsoft>
 
   <!-- Project stages -->
