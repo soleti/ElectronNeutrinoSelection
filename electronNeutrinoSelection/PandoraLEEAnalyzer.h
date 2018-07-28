@@ -5,7 +5,7 @@
  *
  * \brief Main analyzer class filling a ROOT TTree with information from the selected
  * electron neutrino candidate
- * 
+ *
  *
  * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
  *
@@ -298,6 +298,7 @@ private:
   std::vector<std::vector<double>> _shower_dQdx_cali;
   std::vector<std::vector<double>> _shower_dEdx_cali;
   std::vector<std::vector<double>> _shower_pitches;
+  std::vector<std::vector<double>> _shower_dQdx_hits_in_the_box;
 
   std::vector<std::vector<double>> _track_dQdx_hits;
   std::vector<std::vector<double>> _track_dEdx_hits;
@@ -407,4 +408,3 @@ private:
 }
 
 #endif // PANDORA_LEE_H
-
