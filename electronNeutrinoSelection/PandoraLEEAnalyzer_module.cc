@@ -202,6 +202,9 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("shower_pitches", "std::vector< std::vector< double > >",
                   &_shower_pitches);
 
+  myTTree->Branch("shower_dQdx_hits_in_the_box", "std::vector< std::vector< double > >",
+                  &_shower_dQdx_hits_in_the_box);
+
   myTTree->Branch("shower_dEdx_hits", "std::vector< std::vector< double > >",
                   &_shower_dEdx_hits);
 
@@ -356,6 +359,7 @@ void lee::PandoraLEEAnalyzer::clear()
   _shower_res_std.clear();
 
   _shower_pitches.clear();
+  _shower_dQdx_hits_in_the_box.clear();
   _ccnc = std::numeric_limits<int>::lowest();
   _interaction_type = std::numeric_limits<int>::lowest();
   _track_bragg_p.clear();
@@ -1111,6 +1115,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_res_std.push_back(stdev);
 
       std::vector<double> pitches(3, std::numeric_limits<double>::lowest());
+      std::vector<double> dQdx_hits_in_the_box(3, std::numeric_limits<double>::lowest());
 
       std::vector<double> dqdx(3, std::numeric_limits<double>::lowest());
       std::vector<double> dedx(3, std::numeric_limits<double>::lowest());
@@ -1123,10 +1128,11 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
       _matched_showers_energy.push_back(std::numeric_limits<double>::lowest());
 
-      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster, dqdx, dqdx_hits_shower, pitches);
+      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster, dqdx, dqdx_hits_shower, pitches, dQdx_hits_in_the_box);
       energyHelper.dQdx_cali(&(*shower_obj), dqdx_cali);
 
       _shower_dQdx_hits.push_back(dqdx_hits_shower);
+      _shower_dQdx_hits_in_the_box.push_back(dQdx_hits_in_the_box);
       _shower_pitches.push_back(pitches);
 
       std::vector<double> dedx_hits_shower(dqdx_hits_shower.size(), std::numeric_limits<double>::lowest());
