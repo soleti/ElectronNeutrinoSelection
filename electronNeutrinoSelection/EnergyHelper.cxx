@@ -299,7 +299,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         std::vector<double> &dqdx,
                         std::vector<double> &dqdx_hits,
                         std::vector<double> &pitches,
-                        std::vector<double> &dqdx_hits_in_the_box)
+                        std::vector<int> &dqdx_hits_in_the_box)
 {
 
   double tolerance = 0.001;
