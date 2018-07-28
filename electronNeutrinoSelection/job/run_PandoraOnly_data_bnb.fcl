@@ -72,6 +72,11 @@ cs_producerlabels_mcc8_calib_simcalib_data:
   CalorimetryLabel : "pandoraNucali::DataPMTRemapRecoStage2"
 }
 
+### ONLY FOR v14 SAM DEFINITIONS ###
+physics.producers.pandoraCosmicFlashTag.DoOpDetSwap: false
+physics.producers.NeutrinoFlashMatch.DoOpDetSwap:    false
+physics.producers.UBXSec.DoOpDetSwap:                false
+
 physics.producers.pid:                                         @local::particleidconfig
 #physics.producers.pid.ProducerLabels: @local::producerlabels_mcc8_simcalib_data
 physics.producers.pid.BraggAlgo: @local::braggalgo_mcc8_data

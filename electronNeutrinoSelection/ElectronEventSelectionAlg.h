@@ -1,10 +1,23 @@
-////////////////////////////////////////////////////////////////////////
-// Class:       ElectronEventSelectionAlg
-// Module Type: filter
-// File:        ElectronEventSelectionAlg.h
-//
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * \class ElectronEventSelectionAlg
+ *
+ * \ingroup lee
+ *
+ * \brief Class that performs the selection algorithms, requiring a certain
+ * topology and a flash matched with the neutrino candidate
+ *
+ * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
+ *
+ *
+ * \date 20/07/2018
+ *
+ * Contact: stefano.soleti@physics.ox.ac.uk
+ *
+ * Created on: Fri Jul  20 11:20:39 2018
+ *
+ */
+/** \addtogroup lee
+@{*/
 
 #ifndef ELECTRON_EVENT_SELECTION_ALG_H
 #define ELECTRON_EVENT_SELECTION_ALG_H
@@ -45,15 +58,11 @@
 
 namespace lee {
 
-
-
   class ElectronEventSelectionAlg
   {
   public:
     // ElectronEventSelectionAlg(){}
     // ~ElectronEventSelectionAlg(){}
-
-
 
     /**
     * @brief Main Event Selection Function
@@ -71,8 +80,6 @@ namespace lee {
     * @param p fcl parameter set
     */
     void reconfigure(fhicl::ParameterSet const & p) ;
-
-
 
     /**
     * @brief Checks if there is a flash within the 3.2-4.8 ms window and compatible with the center of charge
@@ -98,16 +105,15 @@ namespace lee {
                                                      const art::ValidHandle<std::vector<recob::PFParticle>> pfparticle_handle);
 
     /**
-	* @brief Creates a photon cluster for a neutrino pfp hierarchy
-	* PFParticle
-	*
-	* @param evt art Event
-	* @param pfplist list of pfp indices
-	* @return flashana::QCluster_t object containing the photons
-	*/
-    const flashana::QCluster_t collect3DHits(
-		const art::Event &evt,
-		const std::vector<size_t> &pfplist);
+    * @brief Creates a photon cluster for a neutrino pfp hierarchy
+    * PFParticle
+    *
+    * @param evt art Event
+    * @param pfplist list of pfp indices
+    * @return flashana::QCluster_t object containing the photons
+    */
+    const flashana::QCluster_t collect3DHits(const art::Event &evt,
+	                                           const std::vector<size_t> &pfplist);
 
     /**
     * @brief Return the true coordinates corrected by the space-charge effect
@@ -122,17 +128,6 @@ namespace lee {
     */
     void clear();
 
-
-
-  public:
-
-    // Access functions for the saved data:
-
-    /**
-    * @brief Returns the number of neutrino candidates from pandora, regardless of whether the passed
-    * @return Number of candidates
-    */
-
     /**
     * @brief Return a list of the selected pfparticle top level neutrino candidate indexes
     */
@@ -144,43 +139,33 @@ namespace lee {
     const size_t & get_n_neutrino_candidates() const {return _n_neutrino_candidates;}
 
     /**
-    * @brief Informs whether a particular candidate passed or failed the algorithm
+    * @brief Inform whether a particular candidate passed or failed the algorithm
     * @return Vector of bool, one-to-one with get_primary_indexes
     */
     const std::map<size_t, bool> & get_neutrino_candidate_passed() const {return _neutrino_candidate_passed;}
 
     /**
     * @brief Return the index of the flash matched with the pfparticle
-    * @details [long description]
-    * @return [description]
     */
     const std::map<size_t, int > & get_op_flash_indexes() const {return _op_flash_indexes;}
 
     /**
     * @brief Return the pandora calculated vertex indexed by pfparticle id number
-    * @details [long description]
-    * @return [description]
     */
     const std::map<size_t, TVector3> & get_neutrino_vertex() const {return _neutrino_vertex;}
 
     /**
     * @brief Return number of showers for this pfparticle
-    * @details [long description]
-    * @return [description]
     */
     const std::map<size_t, int> & get_n_showers() const {return _n_showers;}
 
     /**
     * @brief Return number of tracks for pfparticle index
-    * @details [long description]
-    * @return [description]
     */
     const std::map<size_t, int> & get_n_tracks() const {return _n_tracks;}
 
     /**
     * @brief Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes
-    * @details [long description]
-    * @return [description]
     */
     const std::map<size_t,  std::vector<size_t> > &
     get_pfp_id_showers_from_primary() const {return _pfp_id_showers_from_primary;}
@@ -188,37 +173,34 @@ namespace lee {
 
     /**
     * @brief Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes
-    * @details [long description]
-    * @return [description]
     */
     const std::map<size_t,  std::vector<size_t> > &
     get_pfp_id_tracks_from_primary() const {return _pfp_id_tracks_from_primary;}
 
     /**
     * @brief Return the list of total PE of the flashes
-    * @details [long description]
-    * @return [description]
     */
     const std::vector<double> &
     get_flash_PE() const {return _flash_PE;}
 
     /**
     * @brief Return the list of times of the flashes
-    * @details [long description]
-    * @return [description]
     */
     const std::vector<double> &
     get_flash_time() const {return _flash_time;}
 
-
+    /**
+    * @brief Return the position in x of the flash
+    */
     const double & get_flash_x() const {return _flash_x;}
 
-
-
+    /**
+    * @brief Return the position in x of the center of the collected charge
+    */
     const double & get_TPC_x() const {return _TPC_x;}
 
 
-  protected:
+  private:
 
     // Variables that are used to determine the selection and might be worth passing
     // to an analyzer module:
@@ -239,9 +221,6 @@ namespace lee {
 
     double _TPC_x;
     double _flash_x;
-
-
-  protected:
 
     // Configurable variables from the fcl file:
     int m_nTracks;

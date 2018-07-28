@@ -1,9 +1,24 @@
-////////////////////////////////////////////////////////////////////////
-// Class:       EnergyHelper
-// Module Type: filter
-// File:        EnergyHelper.h
-//
-////////////////////////////////////////////////////////////////////////
+/**
+ * \class EnergyHelper
+ *
+ * \ingroup lee
+ *
+ * \brief Helper class with methods accessing calorimetric information
+ * (energy and dE/dx)
+ *
+ *
+ * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
+ *
+ *
+ * \date 20/07/2018
+ *
+ * Contact: stefano.soleti@physics.ox.ac.uk
+ *
+ * Created on: Fri Jul  20 11:20:39 2018
+ *
+ */
+/** \addtogroup lee
+@{*/
 
 #ifndef ENERGYHELPER_H
 #define ENERGYHELPER_H
@@ -35,10 +50,14 @@ public:
   explicit EnergyHelper();
   ~EnergyHelper() = default;
 
-
+  /**
+    * @brief Configure all of the parameters of this class
+    *
+    * @param p fcl parameter set
+    */
   void reconfigure(fhicl::ParameterSet const &pset);
 
-  /*
+  /**
    * @brief      Measure the dQdx of a shower
    *
    * @param[in]  shower_obj          Pointer to the shower object
@@ -55,7 +74,7 @@ public:
             std::vector<double> &dqdx_hits,
             std::vector<double> &pitches);
 
-  /*
+  /**
    * @brief      Return the value of a specific ParticleID algorithm for a single track
    *
    * @param[in]  pids          Pointer to the vector of ParticleID objects
@@ -73,7 +92,7 @@ public:
              anab::kVariableType VariableType,
              int pdgCode);
 
-  /*
+  /**
    * @brief      Convert dQ/dx vector into dE/dx vector (in MeV)
    *
    * @param[out] dedx          Address of the dE/dx vector 
@@ -82,7 +101,7 @@ public:
   void dEdx_from_dQdx(std::vector<double> &dedx,
                       std::vector<double> dqdx);
 
-  /*
+  /**
    * @brief      Principal Component Analysis of reconstructed clusters
    *
    * @param[in]  clusters          Pointer to the vector of reconstructed clusters
@@ -93,7 +112,7 @@ public:
            art::FindManyP<recob::Hit> *hits_per_cluster,
            std::vector<std::vector<double>> &pca_planes);
 
-  /*
+  /**
    * @brief      Calibration value for the energy of a reconstructed object
    *
    * @param[in]  spcpnts           Pointer to the vector of reconstructed space-points
@@ -104,7 +123,7 @@ public:
                 art::FindManyP<recob::Hit> *hits_per_spcpnts,
                 std::vector<double> &cali_corr);
 
-  /*
+  /**
    * @brief      Measure calorimetric energy for a reconstructed object
    *
    * @param[in]  clusters          Pointer to the vector of reconstructed clusters
@@ -117,7 +136,7 @@ public:
                                     std::vector<int>    &nHits,
                                     std::vector<double> &pfenergy);
 
-  /*
+  /**
    * @brief      Measure the spatial residuals of the hits in a reconstructed cluster along its direction
    *
    * @param[in]  clusters          Pointer to the vector of reconstructed clusters
@@ -130,7 +149,7 @@ public:
                          double &mean_v,
                          double &std_v);
 
-  /*
+  /**
    * @brief      Measure the dQ/dx and dE/dx of a track using the anab::Calorimetry information
    *
    * @param[in]  calos             Pointer to the vector of the calorimetry objects
@@ -141,7 +160,7 @@ public:
                   std::vector<double> &dqdx,
                   std::vector<double> &dedx);
 
-  /*
+  /**
    * @brief      Calibration value for the dQ/dx of a reconstructed shower
    *
    * @param[in]  shower_obj        Pointer to the reconstructed shower

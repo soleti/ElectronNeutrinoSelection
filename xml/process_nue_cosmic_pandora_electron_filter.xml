@@ -35,10 +35,10 @@
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/&version;/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
-        <numjobs>50</numjobs>
-        <disk>4GB</disk>
+        <numjobs>100</numjobs>
+        <disk>1.5GB</disk>
         <memory>8192</memory>
-        <maxfilesperjob>3</maxfilesperjob>
+        <maxfilesperjob>2</maxfilesperjob>
         <datatier>filtered</datatier>
         <resource>DEDICATED,OPPORTUNISTIC</resource>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>

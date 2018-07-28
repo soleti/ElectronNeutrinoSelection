@@ -1,9 +1,25 @@
-////////////////////////////////////////////////////////////////////////
-// Class:       PandoraInterfaceHelper
-// Module Type: filter
-// File:        PandoraInterfaceHelper.h
-//
-////////////////////////////////////////////////////////////////////////
+/**
+ * \class PandoraInterfaceHelper
+ *
+ * \ingroup lee
+ *
+ * \brief Helper class with methods useful to interface with
+ * Pandora information. It contains the methods use to perform
+ * reco/true matching
+ *
+ *
+ * \author Stefano Roberto Soleti <stefano.soleti@physics.ox.ac.uk>
+ *
+ *
+ * \date 20/07/2018
+ *
+ * Contact: stefano.soleti@physics.ox.ac.uk
+ *
+ * Created on: Fri Jul  20 11:20:39 2018
+ *
+ */
+/** \addtogroup lee
+@{*/
 
 #ifndef PANDORAINTERFACEHELPER_H
 #define PANDORAINTERFACEHELPER_H
