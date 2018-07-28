@@ -298,7 +298,7 @@ private:
   std::vector<std::vector<double>> _shower_dQdx_cali;
   std::vector<std::vector<double>> _shower_dEdx_cali;
   std::vector<std::vector<double>> _shower_pitches;
-  std::vector<std::vector<double>> _shower_dQdx_hits_in_the_box;
+  std::vector<std::vector<int>> _shower_dQdx_hits_in_the_box;
 
   std::vector<std::vector<double>> _track_dQdx_hits;
   std::vector<std::vector<double>> _track_dEdx_hits;
