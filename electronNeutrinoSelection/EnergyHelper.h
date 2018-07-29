@@ -72,7 +72,8 @@ public:
             art::FindManyP<recob::Hit> *hits_per_cluster,
             std::vector<double> &dqdx,
             std::vector<double> &dqdx_hits,
-            std::vector<double> &pitches);
+            std::vector<double> &pitches,
+            std::vector<int> &dqdx_hits_in_the_box);
 
   /**
    * @brief      Return the value of a specific ParticleID algorithm for a single track
@@ -82,7 +83,7 @@ public:
    * @param[in]  AlgName       Name of the algorithm (e.g. Bragg peak, PIDA, etc.)
    * @param[in]  VariableType  Type of variable (e.g. likelihood)
    * @param[in]  pdgCode       Assumed PDG code of the track
-   * 
+   *
    * @return  Value of VariableType for the ParticleID AlgName algorithm,
    *          given its hypothetical PDG code
    */
@@ -95,7 +96,7 @@ public:
   /**
    * @brief      Convert dQ/dx vector into dE/dx vector (in MeV)
    *
-   * @param[out] dedx          Address of the dE/dx vector 
+   * @param[out] dedx          Address of the dE/dx vector
    * @param[in]  dqdx          dQ/dx vector
    */
   void dEdx_from_dQdx(std::vector<double> &dedx,
