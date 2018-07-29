@@ -101,7 +101,7 @@ std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_ga00266c70e046a9ee
 \begin{DoxyCompactList}\small\item\em Return the position in x of the center of the collected charge. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga4523185d78d6b7aa94dbf26475750282}{lee\-::\-Energy\-Helper\-::reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)
 \begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
-void \hyperlink{group__lee_ga3ab3ce039f7c08ce5fbb1126a861c36c}{lee\-::\-Energy\-Helper\-::d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)
+void \hyperlink{group__lee_ga2da6cbede1c42495e837b3a8b733be48}{lee\-::\-Energy\-Helper\-::d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches, std\-::vector$<$ int $>$ \&dqdx\-\_\-hits\-\_\-in\-\_\-the\-\_\-box)
 \begin{DoxyCompactList}\small\item\em Measure the d\-Qdx of a shower. \end{DoxyCompactList}\item 
 double \hyperlink{group__lee_ga493326200e39f3aaa22999c55c22b6f5}{lee\-::\-Energy\-Helper\-::\-P\-I\-D} (const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$pids, int track\-I\-D, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, int pdg\-Code)
 \begin{DoxyCompactList}\small\item\em Return the value of a specific Particle\-I\-D algorithm for a single track. \end{DoxyCompactList}\item 
@@ -699,6 +699,9 @@ $<$ double $>$ $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-showe
 $<$ double $>$ $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-shower\-\_\-pitches}}\label{group__lee_gaf56713e8dd07060973767857b7f8508f}
 
 \item 
+\hypertarget{group__lee_ga99371e105e8aa387ee0f0b548f788b57}{std\-::vector$<$ std\-::vector$<$ int $>$ $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-shower\-\_\-d\-Qdx\-\_\-hits\-\_\-in\-\_\-the\-\_\-box}}\label{group__lee_ga99371e105e8aa387ee0f0b548f788b57}
+
+\item 
 \hypertarget{group__lee_ga4aa643d1912fe002773cb2bd1268f0f8}{std\-::vector$<$ std\-::vector\\*
 $<$ double $>$ $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-track\-\_\-d\-Qdx\-\_\-hits}}\label{group__lee_ga4aa643d1912fe002773cb2bd1268f0f8}
 
@@ -1185,7 +1188,7 @@ Compute the 3\-D distance between two points.
 \begin{DoxyReturn}{Returns}
 Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + (a.\-z -\/ b.\-z)$^\wedge$2 ) 
 \end{DoxyReturn}
-\hypertarget{group__lee_ga3ab3ce039f7c08ce5fbb1126a861c36c}{\index{Lee@{Lee}!d\-Qdx@{d\-Qdx}}
+\hypertarget{group__lee_ga2da6cbede1c42495e837b3a8b733be48}{\index{Lee@{Lee}!d\-Qdx@{d\-Qdx}}
 \index{d\-Qdx@{d\-Qdx}!Lee@{Lee}}
 \subsubsection[{d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::d\-Qdx (
 \begin{DoxyParamCaption}
@@ -1194,9 +1197,10 @@ Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + 
 \item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
 \item[{std\-::vector$<$ double $>$ \&}]{dqdx, }
 \item[{std\-::vector$<$ double $>$ \&}]{dqdx\-\_\-hits, }
-\item[{std\-::vector$<$ double $>$ \&}]{pitches}
+\item[{std\-::vector$<$ double $>$ \&}]{pitches, }
+\item[{std\-::vector$<$ int $>$ \&}]{dqdx\-\_\-hits\-\_\-in\-\_\-the\-\_\-box}
 \end{DoxyParamCaption}
-)}}\label{group__lee_ga3ab3ce039f7c08ce5fbb1126a861c36c}
+)}}\label{group__lee_ga2da6cbede1c42495e837b3a8b733be48}
 
 
 Measure the d\-Qdx of a shower. 

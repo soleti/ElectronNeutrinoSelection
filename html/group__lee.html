@@ -204,9 +204,9 @@ const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memitem:ga4523185d78d6b7aa94dbf26475750282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga4523185d78d6b7aa94dbf26475750282">lee::EnergyHelper::reconfigure</a> (fhicl::ParameterSet const &amp;pset)</td></tr>
 <tr class="memdesc:ga4523185d78d6b7aa94dbf26475750282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure all of the parameters of this class.  <a href="#ga4523185d78d6b7aa94dbf26475750282">More...</a><br/></td></tr>
 <tr class="separator:ga4523185d78d6b7aa94dbf26475750282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3ab3ce039f7c08ce5fbb1126a861c36c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga3ab3ce039f7c08ce5fbb1126a861c36c">lee::EnergyHelper::dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches)</td></tr>
-<tr class="memdesc:ga3ab3ce039f7c08ce5fbb1126a861c36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="#ga3ab3ce039f7c08ce5fbb1126a861c36c">More...</a><br/></td></tr>
-<tr class="separator:ga3ab3ce039f7c08ce5fbb1126a861c36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2da6cbede1c42495e837b3a8b733be48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2da6cbede1c42495e837b3a8b733be48">lee::EnergyHelper::dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches, std::vector&lt; int &gt; &amp;dqdx_hits_in_the_box)</td></tr>
+<tr class="memdesc:ga2da6cbede1c42495e837b3a8b733be48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="#ga2da6cbede1c42495e837b3a8b733be48">More...</a><br/></td></tr>
+<tr class="separator:ga2da6cbede1c42495e837b3a8b733be48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga493326200e39f3aaa22999c55c22b6f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga493326200e39f3aaa22999c55c22b6f5">lee::EnergyHelper::PID</a> (const std::vector&lt; art::Ptr&lt; anab::ParticleID &gt;&gt; *pids, int trackID, std::string AlgName, anab::kVariableType VariableType, int pdgCode)</td></tr>
 <tr class="memdesc:ga493326200e39f3aaa22999c55c22b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific ParticleID algorithm for a single track.  <a href="#ga493326200e39f3aaa22999c55c22b6f5">More...</a><br/></td></tr>
 <tr class="separator:ga493326200e39f3aaa22999c55c22b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -837,6 +837,9 @@ std::vector&lt; std::vector<br class="typebreak"/>
 std::vector&lt; std::vector<br class="typebreak"/>
 &lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraLEEAnalyzer::_shower_pitches</b></td></tr>
 <tr class="separator:gaf56713e8dd07060973767857b7f8508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99371e105e8aa387ee0f0b548f788b57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga99371e105e8aa387ee0f0b548f788b57"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraLEEAnalyzer::_shower_dQdx_hits_in_the_box</b></td></tr>
+<tr class="separator:ga99371e105e8aa387ee0f0b548f788b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4aa643d1912fe002773cb2bd1268f0f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4aa643d1912fe002773cb2bd1268f0f8"></a>
 std::vector&lt; std::vector<br class="typebreak"/>
 &lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraLEEAnalyzer::_track_dQdx_hits</b></td></tr>
@@ -1527,7 +1530,7 @@ std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight"
 
 </div>
 </div>
-<a class="anchor" id="ga3ab3ce039f7c08ce5fbb1126a861c36c"></a>
+<a class="anchor" id="ga2da6cbede1c42495e837b3a8b733be48"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -1565,7 +1568,13 @@ std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight"
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>pitches</em>&#160;</td>
+          <td class="paramname"><em>pitches</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dqdx_hits_in_the_box</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

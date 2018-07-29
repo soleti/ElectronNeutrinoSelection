@@ -11,7 +11,7 @@ You may want to clear or change DOT_FONTNAME.
 Otherwise you run the risk that the wrong font is being used for dot generated graphs.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:277: warning: end of file while inside a group
 
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:192: warning: end of file while inside a group
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:193: warning: end of file while inside a group
 
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:176: warning: end of file while inside a group
 
@@ -147,20 +147,20 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:173: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:174: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:175: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:176: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:183: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:186: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:174: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:175: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:176: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:186: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:188: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:166: warning: Member m_fidvolXstart (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:167: warning: Member m_fidvolXend (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:168: warning: Member m_fidvolYstart (variable) of class lee::GeometryHelper is not documented.
@@ -267,86 +267,89 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:298: warning: Member _shower_dQdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:299: warning: Member _shower_dEdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:300: warning: Member _shower_pitches (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:302: warning: Member _track_dQdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:303: warning: Member _track_dEdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:305: warning: Member _track_dQdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:306: warning: Member _track_dQdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:308: warning: Member _track_dEdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:310: warning: Member _nu_track_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:311: warning: Member _nu_shower_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:313: warning: Member _nu_track_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:314: warning: Member _nu_shower_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:316: warning: Member _shower_open_angle (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:317: warning: Member _shower_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:318: warning: Member _shower_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:319: warning: Member _shower_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:320: warning: Member _shower_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:322: warning: Member _shower_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:323: warning: Member _shower_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:324: warning: Member _shower_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:326: warning: Member _shower_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:327: warning: Member _shower_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:329: warning: Member _shower_energy (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:330: warning: Member _shower_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:331: warning: Member _track_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:333: warning: Member _track_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:334: warning: Member _track_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:335: warning: Member _track_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:336: warning: Member _track_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:337: warning: Member _shower_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:339: warning: Member _track_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:340: warning: Member _track_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:342: warning: Member _shower_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:343: warning: Member _shower_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:345: warning: Member _track_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:346: warning: Member _track_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:347: warning: Member _track_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:349: warning: Member _track_end_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:350: warning: Member _track_end_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:351: warning: Member _track_end_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:353: warning: Member _track_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:354: warning: Member _track_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:356: warning: Member _track_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:357: warning: Member _track_id (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:359: warning: Member _track_bragg_p (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:360: warning: Member _track_bragg_mu (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:361: warning: Member _track_bragg_mip (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:363: warning: Member _track_pidchi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:364: warning: Member _track_pidchipr (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:365: warning: Member _track_pidchika (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:366: warning: Member _track_pidchipi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:367: warning: Member _track_pidchimu (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:368: warning: Member _track_pida (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:370: warning: Member _track_energy_dedx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:371: warning: Member _track_energy_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:373: warning: Member _nu_daughters_pdg (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:374: warning: Member _nu_daughters_E (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:376: warning: Member _nu_daughters_px (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:377: warning: Member _nu_daughters_py (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:378: warning: Member _nu_daughters_pz (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:380: warning: Member _nu_daughters_vx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:381: warning: Member _nu_daughters_vy (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:382: warning: Member _nu_daughters_vz (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:384: warning: Member _nu_daughters_endx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:385: warning: Member _nu_daughters_endy (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:386: warning: Member _nu_daughters_endz (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:388: warning: Member _flash_PE (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:389: warning: Member _flash_time (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:391: warning: Member _shower_sp_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:392: warning: Member _shower_sp_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:393: warning: Member _shower_sp_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:394: warning: Member _shower_sp_int (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:396: warning: Member _TPC_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:397: warning: Member _flash_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:399: warning: Member _shower_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:400: warning: Member _track_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:402: warning: Member _shower_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:403: warning: Member _track_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:301: warning: Member _shower_dQdx_hits_in_the_box (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:303: warning: Member _track_dQdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:304: warning: Member _track_dEdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:306: warning: Member _track_dQdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:307: warning: Member _track_dQdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:309: warning: Member _track_dEdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:311: warning: Member _nu_track_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:312: warning: Member _nu_shower_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:314: warning: Member _nu_track_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:315: warning: Member _nu_shower_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:317: warning: Member _shower_open_angle (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:318: warning: Member _shower_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:319: warning: Member _shower_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:320: warning: Member _shower_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:321: warning: Member _shower_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:323: warning: Member _shower_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:324: warning: Member _shower_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:325: warning: Member _shower_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:327: warning: Member _shower_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:328: warning: Member _shower_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:330: warning: Member _shower_energy (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:331: warning: Member _shower_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:332: warning: Member _track_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:334: warning: Member _track_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:335: warning: Member _track_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:336: warning: Member _track_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:337: warning: Member _track_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:338: warning: Member _shower_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:340: warning: Member _track_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:341: warning: Member _track_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:343: warning: Member _shower_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:344: warning: Member _shower_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:346: warning: Member _track_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:347: warning: Member _track_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:348: warning: Member _track_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:350: warning: Member _track_end_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:351: warning: Member _track_end_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:352: warning: Member _track_end_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:354: warning: Member _track_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:355: warning: Member _track_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:357: warning: Member _track_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:358: warning: Member _track_id (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:360: warning: Member _track_bragg_p (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:361: warning: Member _track_bragg_mu (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:362: warning: Member _track_bragg_mip (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:364: warning: Member _track_pidchi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:365: warning: Member _track_pidchipr (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:366: warning: Member _track_pidchika (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:367: warning: Member _track_pidchipi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:368: warning: Member _track_pidchimu (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:369: warning: Member _track_pida (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:371: warning: Member _track_energy_dedx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:372: warning: Member _track_energy_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:374: warning: Member _nu_daughters_pdg (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:375: warning: Member _nu_daughters_E (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:377: warning: Member _nu_daughters_px (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:378: warning: Member _nu_daughters_py (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:379: warning: Member _nu_daughters_pz (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:381: warning: Member _nu_daughters_vx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:382: warning: Member _nu_daughters_vy (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:383: warning: Member _nu_daughters_vz (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:385: warning: Member _nu_daughters_endx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:386: warning: Member _nu_daughters_endy (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:387: warning: Member _nu_daughters_endz (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:389: warning: Member _flash_PE (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:390: warning: Member _flash_time (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:392: warning: Member _shower_sp_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:393: warning: Member _shower_sp_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:394: warning: Member _shower_sp_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:395: warning: Member _shower_sp_int (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:397: warning: Member _TPC_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:398: warning: Member _flash_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:400: warning: Member _shower_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:401: warning: Member _track_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:403: warning: Member _shower_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:404: warning: Member _track_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:98: warning: argument 'evt' of command @param is not found in the argument list of lee::PandoraLEEAnalyzer::analyze(art::Event const &e)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:98: warning: The following parameters of lee::PandoraLEEAnalyzer::analyze(art::Event const &e) are not documented:
   parameter 'e'
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:74: warning: The following parameters of lee::PandoraInterfaceHelper::calculateChargeCenter(size_t ipf, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticles, const art::Event &evt, std::string _pfp_producer) are not documented:
   parameter '_pfp_producer'
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:61: warning: The following parameters of lee::EnergyHelper::dQdx(const recob::Shower *shower_obj, std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< double > &dqdx, std::vector< double > &dqdx_hits, std::vector< double > &pitches, std::vector< int > &dqdx_hits_in_the_box) are not documented:
+  parameter 'dqdx_hits_in_the_box'
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:96: warning: argument 'std' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:96: warning: argument 'vector' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:96: warning: argument 'size_t' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
@@ -364,8 +367,8 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:85: warning: The following parameters of lee::ElectronEventSelectionAlg::opticalfilter(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle) are not documented:
   parameter 'pfplist'
   parameter 'pfparticle_handle'
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:105: warning: argument 'hits_pre_cluster' of command @param is not found in the argument list of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes)
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:105: warning: The following parameters of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes) are not documented:
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:106: warning: argument 'hits_pre_cluster' of command @param is not found in the argument list of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes)
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:106: warning: The following parameters of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes) are not documented:
   parameter 'hits_per_cluster'
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:54: warning: argument 'p' of command @param is not found in the argument list of lee::EnergyHelper::reconfigure(fhicl::ParameterSet const &pset)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:54: warning: The following parameters of lee::EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) are not documented:
@@ -412,20 +415,20 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:173: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:174: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:175: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:176: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:183: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:186: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:174: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:175: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:176: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:186: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:188: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:166: warning: Member m_fidvolXstart (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:167: warning: Member m_fidvolXend (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:168: warning: Member m_fidvolYstart (variable) of class lee::GeometryHelper is not documented.
@@ -543,81 +546,82 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:298: warning: Member _shower_dQdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:299: warning: Member _shower_dEdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:300: warning: Member _shower_pitches (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:302: warning: Member _track_dQdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:303: warning: Member _track_dEdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:305: warning: Member _track_dQdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:306: warning: Member _track_dQdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:308: warning: Member _track_dEdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:310: warning: Member _nu_track_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:311: warning: Member _nu_shower_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:313: warning: Member _nu_track_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:314: warning: Member _nu_shower_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:316: warning: Member _shower_open_angle (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:317: warning: Member _shower_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:318: warning: Member _shower_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:319: warning: Member _shower_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:320: warning: Member _shower_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:322: warning: Member _shower_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:323: warning: Member _shower_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:324: warning: Member _shower_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:326: warning: Member _shower_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:327: warning: Member _shower_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:329: warning: Member _shower_energy (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:330: warning: Member _shower_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:331: warning: Member _track_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:333: warning: Member _track_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:334: warning: Member _track_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:335: warning: Member _track_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:336: warning: Member _track_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:337: warning: Member _shower_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:339: warning: Member _track_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:340: warning: Member _track_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:342: warning: Member _shower_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:343: warning: Member _shower_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:345: warning: Member _track_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:346: warning: Member _track_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:347: warning: Member _track_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:349: warning: Member _track_end_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:350: warning: Member _track_end_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:351: warning: Member _track_end_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:353: warning: Member _track_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:354: warning: Member _track_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:356: warning: Member _track_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:357: warning: Member _track_id (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:359: warning: Member _track_bragg_p (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:360: warning: Member _track_bragg_mu (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:361: warning: Member _track_bragg_mip (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:363: warning: Member _track_pidchi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:364: warning: Member _track_pidchipr (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:365: warning: Member _track_pidchika (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:366: warning: Member _track_pidchipi (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:367: warning: Member _track_pidchimu (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:368: warning: Member _track_pida (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:370: warning: Member _track_energy_dedx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:371: warning: Member _track_energy_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:373: warning: Member _nu_daughters_pdg (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:374: warning: Member _nu_daughters_E (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:376: warning: Member _nu_daughters_px (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:377: warning: Member _nu_daughters_py (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:378: warning: Member _nu_daughters_pz (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:380: warning: Member _nu_daughters_vx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:381: warning: Member _nu_daughters_vy (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:382: warning: Member _nu_daughters_vz (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:384: warning: Member _nu_daughters_endx (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:385: warning: Member _nu_daughters_endy (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:386: warning: Member _nu_daughters_endz (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:388: warning: Member _flash_PE (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:389: warning: Member _flash_time (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:391: warning: Member _shower_sp_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:392: warning: Member _shower_sp_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:393: warning: Member _shower_sp_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:394: warning: Member _shower_sp_int (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:396: warning: Member _TPC_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:397: warning: Member _flash_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:399: warning: Member _shower_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:400: warning: Member _track_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:402: warning: Member _shower_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:403: warning: Member _track_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:301: warning: Member _shower_dQdx_hits_in_the_box (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:303: warning: Member _track_dQdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:304: warning: Member _track_dEdx_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:306: warning: Member _track_dQdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:307: warning: Member _track_dQdx_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:309: warning: Member _track_dEdx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:311: warning: Member _nu_track_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:312: warning: Member _nu_shower_ids (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:314: warning: Member _nu_track_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:315: warning: Member _nu_shower_daughters (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:317: warning: Member _shower_open_angle (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:318: warning: Member _shower_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:319: warning: Member _shower_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:320: warning: Member _shower_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:321: warning: Member _shower_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:323: warning: Member _shower_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:324: warning: Member _shower_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:325: warning: Member _shower_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:327: warning: Member _shower_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:328: warning: Member _shower_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:330: warning: Member _shower_energy (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:331: warning: Member _shower_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:332: warning: Member _track_energy_cali (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:334: warning: Member _track_dir_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:335: warning: Member _track_dir_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:336: warning: Member _track_dir_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:337: warning: Member _track_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:338: warning: Member _shower_is_fiducial (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:340: warning: Member _track_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:341: warning: Member _track_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:343: warning: Member _shower_res_mean (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:344: warning: Member _shower_res_std (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:346: warning: Member _track_start_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:347: warning: Member _track_start_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:348: warning: Member _track_start_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:350: warning: Member _track_end_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:351: warning: Member _track_end_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:352: warning: Member _track_end_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:354: warning: Member _track_theta (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:355: warning: Member _track_phi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:357: warning: Member _track_length (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:358: warning: Member _track_id (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:360: warning: Member _track_bragg_p (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:361: warning: Member _track_bragg_mu (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:362: warning: Member _track_bragg_mip (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:364: warning: Member _track_pidchi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:365: warning: Member _track_pidchipr (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:366: warning: Member _track_pidchika (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:367: warning: Member _track_pidchipi (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:368: warning: Member _track_pidchimu (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:369: warning: Member _track_pida (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:371: warning: Member _track_energy_dedx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:372: warning: Member _track_energy_hits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:374: warning: Member _nu_daughters_pdg (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:375: warning: Member _nu_daughters_E (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:377: warning: Member _nu_daughters_px (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:378: warning: Member _nu_daughters_py (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:379: warning: Member _nu_daughters_pz (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:381: warning: Member _nu_daughters_vx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:382: warning: Member _nu_daughters_vy (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:383: warning: Member _nu_daughters_vz (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:385: warning: Member _nu_daughters_endx (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:386: warning: Member _nu_daughters_endy (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:387: warning: Member _nu_daughters_endz (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:389: warning: Member _flash_PE (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:390: warning: Member _flash_time (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:392: warning: Member _shower_sp_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:393: warning: Member _shower_sp_y (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:394: warning: Member _shower_sp_z (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:395: warning: Member _shower_sp_int (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:397: warning: Member _TPC_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:398: warning: Member _flash_x (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:400: warning: Member _shower_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:401: warning: Member _track_pca (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:403: warning: Member _shower_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraLEEAnalyzer.h:404: warning: Member _track_nhits (variable) of class lee::PandoraLEEAnalyzer is not documented.
 references...
 Inheriting documentation...
 Generating disk names...
@@ -673,5 +677,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 349/65536 hits=1117 misses=365
+lookup cache used 350/65536 hits=1120 misses=366
 finished...
