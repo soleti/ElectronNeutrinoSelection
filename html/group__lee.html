@@ -207,9 +207,9 @@ const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memitem:ga2da6cbede1c42495e837b3a8b733be48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2da6cbede1c42495e837b3a8b733be48">lee::EnergyHelper::dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches, std::vector&lt; int &gt; &amp;dqdx_hits_in_the_box)</td></tr>
 <tr class="memdesc:ga2da6cbede1c42495e837b3a8b733be48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="#ga2da6cbede1c42495e837b3a8b733be48">More...</a><br/></td></tr>
 <tr class="separator:ga2da6cbede1c42495e837b3a8b733be48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga493326200e39f3aaa22999c55c22b6f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga493326200e39f3aaa22999c55c22b6f5">lee::EnergyHelper::PID</a> (const std::vector&lt; art::Ptr&lt; anab::ParticleID &gt;&gt; *pids, int trackID, std::string AlgName, anab::kVariableType VariableType, int pdgCode)</td></tr>
-<tr class="memdesc:ga493326200e39f3aaa22999c55c22b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific ParticleID algorithm for a single track.  <a href="#ga493326200e39f3aaa22999c55c22b6f5">More...</a><br/></td></tr>
-<tr class="separator:ga493326200e39f3aaa22999c55c22b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3e573f8d2d733f94b8ca862d7343864"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gab3e573f8d2d733f94b8ca862d7343864">lee::EnergyHelper::PID</a> (art::Ptr&lt; anab::ParticleID &gt; selected_pid, std::string AlgName, anab::kVariableType VariableType, anab::kTrackDir TrackDirection, int pdgCode)</td></tr>
+<tr class="memdesc:gab3e573f8d2d733f94b8ca862d7343864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific ParticleID algorithm for a single track.  <a href="#gab3e573f8d2d733f94b8ca862d7343864">More...</a><br/></td></tr>
+<tr class="separator:gab3e573f8d2d733f94b8ca862d7343864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2844c7f27f79fbe5e16d9c674ca4afa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2844c7f27f79fbe5e16d9c674ca4afa1">lee::EnergyHelper::dEdx_from_dQdx</a> (std::vector&lt; double &gt; &amp;dedx, std::vector&lt; double &gt; dqdx)</td></tr>
 <tr class="memdesc:ga2844c7f27f79fbe5e16d9c674ca4afa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert dQ/dx vector into dE/dx vector (in MeV)  <a href="#ga2844c7f27f79fbe5e16d9c674ca4afa1">More...</a><br/></td></tr>
 <tr class="separator:ga2844c7f27f79fbe5e16d9c674ca4afa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2204,21 +2204,15 @@ std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight"
 
 </div>
 </div>
-<a class="anchor" id="ga493326200e39f3aaa22999c55c22b6f5"></a>
+<a class="anchor" id="gab3e573f8d2d733f94b8ca862d7343864"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">double EnergyHelper::PID </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; art::Ptr&lt; anab::ParticleID &gt;&gt; *&#160;</td>
-          <td class="paramname"><em>pids</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>trackID</em>, </td>
+          <td class="paramtype">art::Ptr&lt; anab::ParticleID &gt;&#160;</td>
+          <td class="paramname"><em>selected_pid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2231,6 +2225,12 @@ std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight"
           <td></td>
           <td class="paramtype">anab::kVariableType&#160;</td>
           <td class="paramname"><em>VariableType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">anab::kTrackDir&#160;</td>
+          <td class="paramname"><em>TrackDirection</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2253,6 +2253,7 @@ std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight"
     <tr><td class="paramdir">[in]</td><td class="paramname">trackID</td><td>TrackID value </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">AlgName</td><td>Name of the algorithm (e.g. Bragg peak, PIDA, etc.) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">VariableType</td><td>Type of variable (e.g. likelihood) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">TrackDirection</td><td>Assumed direction of the track (anab::kBackward or anab::kForward) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pdgCode</td><td>Assumed PDG code of the track</td></tr>
   </table>
   </dd>

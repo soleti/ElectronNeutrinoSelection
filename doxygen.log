@@ -11,7 +11,7 @@ You may want to clear or change DOT_FONTNAME.
 Otherwise you run the risk that the wrong font is being used for dot generated graphs.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:277: warning: end of file while inside a group
 
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:193: warning: end of file while inside a group
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:196: warning: end of file while inside a group
 
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:176: warning: end of file while inside a group
 
@@ -23,7 +23,7 @@ Otherwise you run the risk that the wrong font is being used for dot generated g
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:40: warning: Compound lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/HelperBase.h:17: warning: Compound lee::HelperBase is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:56: warning: Compound lee::PandoraInterfaceHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:48: warning: Compound lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:50: warning: Compound lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:62: warning: Compound lee::ElectronEventSelectionAlg is not documented.
 Searching for include files...
 Searching for example files...
@@ -147,20 +147,20 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:174: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:175: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:176: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:186: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:188: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:183: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:188: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:189: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:190: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:191: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:166: warning: Member m_fidvolXstart (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:167: warning: Member m_fidvolXend (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:168: warning: Member m_fidvolYstart (variable) of class lee::GeometryHelper is not documented.
@@ -348,7 +348,7 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
   parameter 'e'
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:74: warning: The following parameters of lee::PandoraInterfaceHelper::calculateChargeCenter(size_t ipf, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticles, const art::Event &evt, std::string _pfp_producer) are not documented:
   parameter '_pfp_producer'
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:61: warning: The following parameters of lee::EnergyHelper::dQdx(const recob::Shower *shower_obj, std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< double > &dqdx, std::vector< double > &dqdx_hits, std::vector< double > &pitches, std::vector< int > &dqdx_hits_in_the_box) are not documented:
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:63: warning: The following parameters of lee::EnergyHelper::dQdx(const recob::Shower *shower_obj, std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< double > &dqdx, std::vector< double > &dqdx_hits, std::vector< double > &pitches, std::vector< int > &dqdx_hits_in_the_box) are not documented:
   parameter 'dqdx_hits_in_the_box'
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:96: warning: argument 'std' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:96: warning: argument 'vector' of command @param is not found in the argument list of lee::ElectronEventSelectionAlg::flashBasedSelection(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle)
@@ -367,11 +367,15 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:85: warning: The following parameters of lee::ElectronEventSelectionAlg::opticalfilter(const art::Event &evt, const std::vector< size_t > &pfplist, const art::ValidHandle< std::vector< recob::PFParticle >> pfparticle_handle) are not documented:
   parameter 'pfplist'
   parameter 'pfparticle_handle'
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:106: warning: argument 'hits_pre_cluster' of command @param is not found in the argument list of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes)
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:106: warning: The following parameters of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes) are not documented:
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:109: warning: argument 'hits_pre_cluster' of command @param is not found in the argument list of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes)
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:109: warning: The following parameters of lee::EnergyHelper::PCA(std::vector< art::Ptr< recob::Cluster >> *clusters, art::FindManyP< recob::Hit > *hits_per_cluster, std::vector< std::vector< double >> &pca_planes) are not documented:
   parameter 'hits_per_cluster'
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:54: warning: argument 'p' of command @param is not found in the argument list of lee::EnergyHelper::reconfigure(fhicl::ParameterSet const &pset)
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:54: warning: The following parameters of lee::EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) are not documented:
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:81: warning: argument 'pids' of command @param is not found in the argument list of lee::EnergyHelper::PID(art::Ptr< anab::ParticleID > selected_pid, std::string AlgName, anab::kVariableType VariableType, anab::kTrackDir TrackDirection, int pdgCode)
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:81: warning: argument 'trackID' of command @param is not found in the argument list of lee::EnergyHelper::PID(art::Ptr< anab::ParticleID > selected_pid, std::string AlgName, anab::kVariableType VariableType, anab::kTrackDir TrackDirection, int pdgCode)
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:81: warning: The following parameters of lee::EnergyHelper::PID(art::Ptr< anab::ParticleID > selected_pid, std::string AlgName, anab::kVariableType VariableType, anab::kTrackDir TrackDirection, int pdgCode) are not documented:
+  parameter 'selected_pid'
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:56: warning: argument 'p' of command @param is not found in the argument list of lee::EnergyHelper::reconfigure(fhicl::ParameterSet const &pset)
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:56: warning: The following parameters of lee::EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) are not documented:
   parameter 'pset'
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:62: warning: The following parameters of lee::PandoraInterfaceHelper::traversePFParticleTree(const art::ValidHandle< std::vector< recob::PFParticle >> pfparticles, size_t top_index, std::vector< size_t > &unordered_daugthers, std::string _pfp_producer) are not documented:
   parameter '_pfp_producer'
@@ -415,20 +419,20 @@ Computing member /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeu
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:174: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:175: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:176: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:186: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:188: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:177: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:179: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:180: warning: Member _energy_calib_provider (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:181: warning: Member _detprop (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _drift (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:183: warning: Member _from_tick_to_ns (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _wire_spacing (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:185: warning: Member _work_function (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:187: warning: Member _readout_window (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:188: warning: Member _recombination_factor (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:189: warning: Member _dQdx_rectangle_length (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:190: warning: Member _dQdx_rectangle_width (variable) of class lee::EnergyHelper is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:191: warning: Member geo_helper (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:166: warning: Member m_fidvolXstart (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:167: warning: Member m_fidvolXend (variable) of class lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:168: warning: Member m_fidvolYstart (variable) of class lee::GeometryHelper is not documented.

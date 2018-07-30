@@ -103,7 +103,7 @@ void \hyperlink{group__lee_ga4523185d78d6b7aa94dbf26475750282}{lee\-::\-Energy\-
 \begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga2da6cbede1c42495e837b3a8b733be48}{lee\-::\-Energy\-Helper\-::d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches, std\-::vector$<$ int $>$ \&dqdx\-\_\-hits\-\_\-in\-\_\-the\-\_\-box)
 \begin{DoxyCompactList}\small\item\em Measure the d\-Qdx of a shower. \end{DoxyCompactList}\item 
-double \hyperlink{group__lee_ga493326200e39f3aaa22999c55c22b6f5}{lee\-::\-Energy\-Helper\-::\-P\-I\-D} (const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$pids, int track\-I\-D, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, int pdg\-Code)
+double \hyperlink{group__lee_gab3e573f8d2d733f94b8ca862d7343864}{lee\-::\-Energy\-Helper\-::\-P\-I\-D} (art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$ selected\-\_\-pid, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, anab\-::k\-Track\-Dir Track\-Direction, int pdg\-Code)
 \begin{DoxyCompactList}\small\item\em Return the value of a specific Particle\-I\-D algorithm for a single track. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga2844c7f27f79fbe5e16d9c674ca4afa1}{lee\-::\-Energy\-Helper\-::d\-Edx\-\_\-from\-\_\-d\-Qdx} (std\-::vector$<$ double $>$ \&dedx, std\-::vector$<$ double $>$ dqdx)
 \begin{DoxyCompactList}\small\item\em Convert d\-Q/dx vector into d\-E/dx vector (in Me\-V) \end{DoxyCompactList}\item 
@@ -1610,17 +1610,17 @@ Principal Component Analysis of reconstructed clusters.
 \mbox{\tt out}  & {\em pca\-\_\-planes} & Address of the two-\/dimensional vector storing the P\-C\-A eigenvalues per plane \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__lee_ga493326200e39f3aaa22999c55c22b6f5}{\index{Lee@{Lee}!P\-I\-D@{P\-I\-D}}
+\hypertarget{group__lee_gab3e573f8d2d733f94b8ca862d7343864}{\index{Lee@{Lee}!P\-I\-D@{P\-I\-D}}
 \index{P\-I\-D@{P\-I\-D}!Lee@{Lee}}
 \subsubsection[{P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}double Energy\-Helper\-::\-P\-I\-D (
 \begin{DoxyParamCaption}
-\item[{const std\-::vector$<$ art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$$>$ $\ast$}]{pids, }
-\item[{int}]{track\-I\-D, }
+\item[{art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$}]{selected\-\_\-pid, }
 \item[{std\-::string}]{Alg\-Name, }
 \item[{anab\-::k\-Variable\-Type}]{Variable\-Type, }
+\item[{anab\-::k\-Track\-Dir}]{Track\-Direction, }
 \item[{int}]{pdg\-Code}
 \end{DoxyParamCaption}
-)}}\label{group__lee_ga493326200e39f3aaa22999c55c22b6f5}
+)}}\label{group__lee_gab3e573f8d2d733f94b8ca862d7343864}
 
 
 Return the value of a specific Particle\-I\-D algorithm for a single track. 
@@ -1634,6 +1634,8 @@ Return the value of a specific Particle\-I\-D algorithm for a single track.
 \mbox{\tt in}  & {\em Alg\-Name} & Name of the algorithm (e.\-g. Bragg peak, P\-I\-D\-A, etc.) \\
 \hline
 \mbox{\tt in}  & {\em Variable\-Type} & Type of variable (e.\-g. likelihood) \\
+\hline
+\mbox{\tt in}  & {\em Track\-Direction} & Assumed direction of the track (anab\-::k\-Backward or anab\-::k\-Forward) \\
 \hline
 \mbox{\tt in}  & {\em pdg\-Code} & Assumed P\-D\-G code of the track\\
 \hline
