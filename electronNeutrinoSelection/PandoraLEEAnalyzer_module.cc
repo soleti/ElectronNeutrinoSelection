@@ -900,18 +900,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
     auto const &pfparticle_handle = evt.getValidHandle<std::vector<recob::PFParticle>>(m_pfp_producer);
     auto const &track_handle = evt.getValidHandle<std::vector<recob::Track>>(m_pfp_producer);
-
-    std::vector<art::Ptr<anab::ParticleID>> pids;
-    try {
-        auto const &pid_handle = evt.getValidHandle<std::vector<anab::ParticleID>>(m_pid_producer);
-        if (pid_handle.isValid()) {
-          art::fill_ptr_vector(pids, pid_handle);
-        } else {
-          std::cout << "[PandoraLEEAnalyzer] ParticleID handle invalid" << std::endl;
-        }
-    } catch (cet::exception &e) {
-      std::cout << "[PandoraLEEAnalyzer] ParticleID handle not available" << std::endl;
-    }
     auto const &spcpnts_handle = evt.getValidHandle<std::vector<recob::SpacePoint>>(m_pfp_producer);
     auto const &cluster_handle = evt.getValidHandle<std::vector<recob::Cluster>>(m_pfp_producer);
 
@@ -920,7 +908,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     art::FindManyP<anab::Calorimetry> calos_per_track(track_handle, evt, m_calorimetry_producer);
     art::FindManyP<recob::Cluster> clusters_per_pfpart(pfparticle_handle, evt, m_pfp_producer);
     art::FindManyP<recob::Hit> hits_per_cluster(cluster_handle, evt, m_pfp_producer);
-
+    art::FindManyP<anab::ParticleID> pid_per_track(track_handle, evt, m_pid_producer);
     art::FindOneP<recob::Vertex> vertex_per_pfpart(pfparticle_handle, evt, m_pfp_producer);
 
     ipf_candidate = choose_candidate(nu_candidates, evt);
@@ -986,21 +974,24 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         _track_res_mean.push_back(mean);
         _track_res_std.push_back(stdev);
 
-        std::cout << "[ParticleID] Bragg " << track_obj->ID() << " " << energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_fwd, 2212) << std::endl;
+        if (m_useParticleID) {
+          art::Ptr<anab::ParticleID> selected_pid = pid_per_track.at(track_obj->ID())[0];
 
-        double bragg_p = std::max(energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_fwd, 2212),
-                                  energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 2212));
+          double bragg_p = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 2212),
+                                    energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 2212));
 
-        double bragg_mu = std::max(energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_fwd, 13),
-                                  energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 13));
+          double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
+                                    energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
 
-        double bragg_mip = std::max(energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_fwd, 0),
-                                  energyHelper.PID(&pids, track_obj->ID(), "BraggPeakLLH", anab::kLikelihood_bwd, 0));
+          double bragg_mip = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0),
+                                      energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 0));
 
-        _track_bragg_p.push_back(bragg_p);
-        _track_bragg_mu.push_back(bragg_mu);
-        _track_bragg_mip.push_back(bragg_mip);
 
+          std::cout << "Bragg p " << bragg_p << std::endl;
+          _track_bragg_p.push_back(bragg_p);
+          _track_bragg_mu.push_back(bragg_mu);
+          _track_bragg_mip.push_back(bragg_mip);
+        }
         _matched_tracks.push_back(std::numeric_limits<int>::lowest());
         _matched_tracks_process.push_back("");
         _matched_tracks_energy.push_back(std::numeric_limits<double>::lowest());

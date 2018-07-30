@@ -1,4 +1,4 @@
-#include "config_simulation_calibration.fcl"
+#include "config_dedx_calibration.fcl"
 #include "config_particle_identification.fcl"
 #include "particleid_microboone.fcl"
 #include "lee_selection_alg.fcl"
@@ -20,7 +20,7 @@ lee_pandora_analyzer:
     EnergyHelper:               @local::energy_helper
     PrintDebug:                 false
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
-    CalorimetryLabel:           "simcalibration::PandoraLEEAnalyzer"
+    CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
@@ -32,7 +32,7 @@ physics: {
      # ParameterSets for zero or more producer modules
      @table::ubxsec_mc_reco
      @table::ubxsec_mc_flashmatch
-     simcalibration: @local::simulation_calibration
+     dedxcalibration: @local::simulation_calibration
      pid: @local::particleidconfig
   }
 
@@ -46,7 +46,7 @@ physics: {
      # ParameterSets for zero or more filter modules
   }
 
-  reco: [ @sequence::ubxsec_mc_producers, simcalibration, pid ]
+  reco: [ @sequence::ubxsec_mc_producers, dedxcalibration, pid ]
 
   path0 : [ robertoana ]
 
@@ -56,15 +56,15 @@ physics: {
 
 }
 
-cs_producerlabels_mcc8_calib_simcalib:
+cs_producerlabels_mcc8_calib_dedxcalib:
 {  # producer label names
   TrackLabel       : "pandoraNu::McRecoStage2"
   CalorimetryLabel : "pandoraNucali::McRecoCali"
 }
 
 physics.producers.pid:                                         @local::particleidconfig
-physics.producers.pid.BraggAlgo:                               @local::braggalgo_mcc8_simcalib
-physics.producers.simcalibration.ProducerLabels:               @local::cs_producerlabels_mcc8_calib_simcalib
+physics.producers.pid.BraggAlgo:                               @local::braggalgo_mcc8_dedxcalib
+physics.producers.dedxcalibration.ProducerLabels:               @local::cs_producerlabels_mcc8_calib_dedxcalib
 
 physics.analyzers.robertoana.isData: false
 physics.analyzers.robertoana.saveFluxInfo: true
@@ -131,5 +131,5 @@ physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandor
 physics.producers.pid.ProducerLabels:
 {
   TrackLabel : "pandoraNu::McRecoStage2"
-  CalorimetryLabel : "simcalibration"
+  CalorimetryLabel : "dedxcalibration"
 }

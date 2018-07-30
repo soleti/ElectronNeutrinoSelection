@@ -1,7 +1,6 @@
-#include "config_simulation_calibration.fcl"
+#include "config_dedx_calibration.fcl"
 #include "config_particle_identification.fcl"
 #include "particleid_microboone.fcl"
-#include "decisiontreeid.fcl"
 #include "lee_selection_alg.fcl"
 #include "ubxsec_data_common.fcl"
 #include "pandora_lee_ana_common.fcl"
@@ -26,6 +25,7 @@ lee_pandora_analyzer:
     SpacePointLabel:            "pandoraNu"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "pandoraNucali::PandoraLEEAnalyzer"
+    UseParticleID:              false
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
@@ -36,10 +36,9 @@ physics: {
 
   producers : {
      # ParameterSets for zero or more producer modules
-     decisiontreeid: @local::DecisionTreeID
      @table::ubxsec_data_reco
      @table::ubxsec_data_flashmatch
-     simcalibration: @local::simulation_calibration
+     dedxcalibration: @local::data_newboxrecomb
      pid: @local::particleidconfig
   }
   analyzers: {
@@ -51,7 +50,7 @@ physics: {
   filters : {
      # ParameterSets for zero or more filter modules
   }
-  reco: [ decisiontreeid, @sequence::ubxsec_data_producers, simcalibration, pid  ]
+  reco: [ ] #@sequence::ubxsec_data_producers, dedxcalibration, pid  ]
 
   path0 : [ robertoana ]
 
@@ -65,7 +64,7 @@ physics: {
 
 }
 
-cs_producerlabels_mcc8_calib_simcalib_data:
+cs_producerlabels_mcc8_calib_dedxcalib_data:
 {
   # producer label names
   TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
@@ -73,10 +72,10 @@ cs_producerlabels_mcc8_calib_simcalib_data:
 }
 
 physics.producers.pid:                                         @local::particleidconfig
-physics.producers.pid.ProducerLabels: @local::producerlabels_mcc8_simcalib_data
+physics.producers.pid.ProducerLabels: @local::producerlabels_mcc8_dedxcalib_data
 physics.producers.pid.BraggAlgo: @local::braggalgo_mcc8_data
 
-physics.producers.simcalibration.ProducerLabels: @local::cs_producerlabels_mcc8_calib_simcalib_data
+physics.producers.dedxcalibration.ProducerLabels: @local::cs_producerlabels_mcc8_calib_dedxcalib_data
 
 source.inputCommands:        [ "keep *_*_*_*", "drop *_opfiltercommon__McRecoStage1" ]
 services.SpaceCharge.EnableSimSpatialSCE: true
@@ -140,5 +139,5 @@ physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandor
 physics.producers.pid.ProducerLabels:
 {
   TrackLabel : "pandoraNu::PandoraLEEAnalyzer"
-  CalorimetryLabel : "simcalibration"
+  CalorimetryLabel : "dedxcalibration"
 }

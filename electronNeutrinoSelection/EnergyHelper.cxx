@@ -188,33 +188,18 @@ void EnergyHelper::get_cali(
   }
 }
 
-
-double EnergyHelper::PID(const std::vector<art::Ptr<anab::ParticleID>> *pids,
-                         int trackID,
+double EnergyHelper::PID(art::Ptr<anab::ParticleID> selected_pid,
                          std::string AlgName,
                          anab::kVariableType VariableType,
+                         anab::kTrackDir TrackDirection,
                          int pdgCode)
 {
-    art::Ptr<anab::ParticleID> selected_pid;
-    bool there_is_pid = false;
 
-    for (auto& pid: *pids) {
-      if ((int)pid->PlaneID().Plane == trackID) {
-          selected_pid = pid;
-          there_is_pid = true;
-          break;
-      }
-    }
-
-    if (!there_is_pid) {
-        return std::numeric_limits<double>::lowest();
-    }
     std::vector<anab::sParticleIDAlgScores> AlgScoresVec = selected_pid->ParticleIDAlgScores();
     for (size_t i_algscore = 0; i_algscore < AlgScoresVec.size(); i_algscore++)
     {
       anab::sParticleIDAlgScores AlgScore = AlgScoresVec.at(i_algscore);
-      int planeid = AlgScore.fPlaneID.Plane;
-
+      int planeid = UBPID::uB_getSinglePlane(AlgScore.fPlaneID);
       if (planeid < 0 || planeid > 2)
       {
         std::cout << "[EnergyHelper::PID] No information for planeid " << planeid << std::endl;
@@ -223,7 +208,8 @@ double EnergyHelper::PID(const std::vector<art::Ptr<anab::ParticleID>> *pids,
 
       if (AlgScore.fAlgName == AlgName)
       {
-        if (anab::kVariableType(AlgScore.fVariableType) == VariableType)
+        if (anab::kVariableType(AlgScore.fVariableType) == VariableType
+            && anab::kTrackDir(AlgScore.fTrackDir) == TrackDirection)
         {
           if (AlgScore.fAssumedPdg == pdgCode) {
               double alg_value = AlgScore.fValue;
