@@ -21,13 +21,13 @@ void EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) {
 
 void EnergyHelper::track_dQdx(std::vector<art::Ptr<anab::Calorimetry>> *calos,
                               std::vector<double> &dqdx,
-                              std::vector<double> &dedx) 
+                              std::vector<double> &dedx)
 {
 
   int planenum = -1;
   for (auto c : *calos) {
     if (!c)
-      continue; 
+      continue;
 
     planenum = c->PlaneID().Plane;
     std::vector<double> dqdxs = c->dQdx();
@@ -36,7 +36,7 @@ void EnergyHelper::track_dQdx(std::vector<art::Ptr<anab::Calorimetry>> *calos,
     if (dqdxs.size() <= 1) {
       continue;
     }
-    
+
     size_t n = dqdxs.size() / 2;
     std::nth_element(dqdxs.begin(), dqdxs.begin() + n, dqdxs.end());
     dqdx[planenum] = dqdxs[n];
@@ -62,7 +62,7 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
     TVector3 start_cluster(_cl->StartWire() * _wire_spacing, _from_tick_to_ns * _drift * _cl->StartTick(), 0);
     TVector3 end_cluster(_cl->EndWire() * _wire_spacing, _from_tick_to_ns * _drift * _cl->EndTick(), 0);
     TVector3 line(start_cluster-end_cluster);
-    
+
     std::vector< art::Ptr<recob::Hit> > hits = hits_per_cluster->at(_cl.key());
 
     for (auto &hit : hits)
@@ -130,7 +130,7 @@ void EnergyHelper::PCA(std::vector<art::Ptr<recob::Cluster>> *clusters,
     std::vector<art::Ptr<recob::Hit>> hits = hits_per_cluster->at(_cl.key());
     for (auto &hit : hits)
     {
-      
+
       double data[2];
       double w = hit->WireID().Wire * _wire_spacing;
       double t = _from_tick_to_ns * _drift * hit->PeakTime();
@@ -222,7 +222,7 @@ double EnergyHelper::PID(art::Ptr<anab::ParticleID> selected_pid,
 }
 
 void EnergyHelper::dQdx_cali(const recob::Shower *shower_obj,
-                             std::vector<double> &dqdx_cali) 
+                             std::vector<double> &dqdx_cali)
 {
   TVector3 pfp_dir;
 
@@ -235,7 +235,7 @@ void EnergyHelper::dQdx_cali(const recob::Shower *shower_obj,
   pfp_dir.SetX(shower_obj->Direction().X());
   pfp_dir.SetY(shower_obj->Direction().Y());
   pfp_dir.SetZ(shower_obj->Direction().Z());
-  
+
   x_start = shower_obj->ShowerStart().X();
   y_start = shower_obj->ShowerStart().Y();
   z_start = shower_obj->ShowerStart().Z();
@@ -284,7 +284,8 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
                         std::vector<double> &dqdx,
                         std::vector<double> &dqdx_hits,
-                        std::vector<double> &pitches)
+                        std::vector<double> &pitches,
+                        std::vector<int> &dqdx_hits_in_the_box)
 {
 
   double tolerance = 0.001;
@@ -342,7 +343,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
     for (auto &hit : hits)
     {
       std::vector<double> hit_pos = {hit->WireID().Wire * _wire_spacing,
-                                     _detprop->ConvertTicksToX(hit->PeakTime(), 
+                                     _detprop->ConvertTicksToX(hit->PeakTime(),
                                      _cl->Plane())};
 
       bool is_within = geo_helper.isInside(hit_pos, points);
@@ -361,6 +362,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
       std::nth_element(dqdxs.begin(), dqdxs.begin() + dqdxs.size() / 2, dqdxs.end());
       dqdx[_cl->Plane().Plane] = dqdxs[dqdxs.size() / 2];
       pitches[_cl->Plane().Plane] = pitch;
+      dqdx_hits_in_the_box[_cl->Plane().Plane] = dqdxs.size();
     }
   }
 }
