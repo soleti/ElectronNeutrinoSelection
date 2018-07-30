@@ -15,7 +15,9 @@ void EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) {
   _recombination_factor = pset.get<double>("RecombinationFactor", 0.62);
   _dQdx_rectangle_length = pset.get<double>("dQdxRectangleLength", 4);
   _dQdx_rectangle_width = pset.get<double>("dQdxRectangleWidth", 1);
-  _gain =  pset.get<std::vector<double>>("Gains", _mc_gain);
+  _gain = pset.get<std::vector<double>>("Gains", _mc_gain);
+  _betap = pset.get<double>("RecombinationBeta", 0.212);
+  _alpha = pset.get<double>("RecombinationAlpha", 0.93);
 }
 
 
@@ -112,7 +114,8 @@ void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clust
       if (plane_nr > 2 || plane_nr < 0)
         continue;
 
-      pfenergy[plane_nr] += hit->Integral() * _gain[plane_nr] * _work_function / _recombination_factor / 1000; // convert MeV to GeV
+      // https://arxiv.org/pdf/1704.02927.pdf
+      pfenergy[plane_nr] += 1.01 * hit->Integral() * _gain[plane_nr] * _work_function / _recombination_factor / 1000; // convert MeV to GeV
       nHits[plane_nr]++;
     }
   }
@@ -283,9 +286,8 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         std::vector<art::Ptr<recob::Cluster>> *clusters,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
                         std::vector<double> &dqdx,
-                        std::vector<double> &dqdx_hits,
-                        std::vector<double> &pitches,
-                        std::vector<int> &dqdx_hits_in_the_box)
+                        std::vector<std::vector<double>> &dqdx_hits,
+                        std::vector<double> &pitches)
 {
 
   double tolerance = 0.001;
@@ -352,7 +354,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
       {
         double q = hit->Integral() * _gain[_cl->Plane().Plane];
         dqdxs.push_back(q / fabs(pitch));
-        dqdx_hits.push_back(q / fabs(pitch));
+        dqdx_hits[_cl->Plane().Plane].push_back(q / fabs(pitch));
       }
     }
 
@@ -362,7 +364,6 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
       std::nth_element(dqdxs.begin(), dqdxs.begin() + dqdxs.size() / 2, dqdxs.end());
       dqdx[_cl->Plane().Plane] = dqdxs[dqdxs.size() / 2];
       pitches[_cl->Plane().Plane] = pitch;
-      dqdx_hits_in_the_box[_cl->Plane().Plane] = dqdxs.size();
     }
   }
 }
@@ -370,10 +371,12 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 void EnergyHelper::dEdx_from_dQdx(std::vector<double> &dedx,
                                   std::vector<double> dqdx)
 {
+  double Rho = 1.4;
+  double Efield = 0.273;
+
   for (size_t i = 0; i < dqdx.size(); i++)
   {
-    if (dqdx[i] > 0)
-      dedx[i] = dqdx[i] * (_work_function) / _recombination_factor;
+    dedx.push_back((exp(dqdx[i]*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield)));
   }
 }
 

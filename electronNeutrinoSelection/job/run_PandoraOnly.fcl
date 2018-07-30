@@ -10,7 +10,7 @@ end_window:    4.84
 
 energy_helper:
 {
-  Gains: [193.05, 196.85, 196.85]
+  Gains: [193.05, 196.85, 196.98]
 }
 
 lee_pandora_analyzer:
@@ -21,6 +21,7 @@ lee_pandora_analyzer:
     PrintDebug:                 false
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
+    UseParticleID:              false
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
@@ -46,7 +47,7 @@ physics: {
      # ParameterSets for zero or more filter modules
   }
 
-  reco: [ @sequence::ubxsec_mc_producers, dedxcalibration, pid ]
+  reco: [ @sequence::ubxsec_mc_producers ]#, dedxcalibration, pid ]
 
   path0 : [ robertoana ]
 

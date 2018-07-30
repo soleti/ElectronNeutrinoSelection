@@ -73,9 +73,8 @@ public:
             std::vector<art::Ptr<recob::Cluster>> *clusters,
             art::FindManyP<recob::Hit> *hits_per_cluster,
             std::vector<double> &dqdx,
-            std::vector<double> &dqdx_hits,
-            std::vector<double> &pitches,
-            std::vector<int> &dqdx_hits_in_the_box);
+            std::vector<std::vector<double>> &dqdx_hits,
+            std::vector<double> &pitches);
 
   /**
    * @brief      Return the value of a specific ParticleID algorithm for a single track
@@ -183,7 +182,8 @@ public:
     double _from_tick_to_ns = _readout_window / _detprop->ReadOutWindowSize() * 1e6;
     double _wire_spacing = 0.3;
     double _work_function = 23 / 1e6;
-
+    double _betap;
+    double _alpha;
     double _readout_window;
     double _recombination_factor;
     double _dQdx_rectangle_length;

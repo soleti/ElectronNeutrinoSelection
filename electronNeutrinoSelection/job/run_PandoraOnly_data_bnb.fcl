@@ -7,7 +7,9 @@
 
 energy_helper:
 {
-  Gains: [236.41, 228.83, 242.72]
+  Gains: [236.41, 228.83, 242.77]
+  RecombinationBeta: 0.183592
+  RecombinationAlpha: 0.921969
 }
 
 start_window:  3.19

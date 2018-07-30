@@ -990,8 +990,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
           double bragg_mip = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0),
                                       energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 0));
 
-
-          std::cout << "Bragg p " << bragg_p << std::endl;
           _track_bragg_p.push_back(bragg_p);
           _track_bragg_mu.push_back(bragg_mu);
           _track_bragg_mip.push_back(bragg_mip);
@@ -1066,7 +1064,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     for (auto &pf_id : _nu_shower_ids)
     {
       auto const &shower_obj = shower_per_pfpart.at(pf_id);
-
       if (shower_obj.isNull()) {
         std::cout << "[PandoraLEEAnalyzer] Shower pointer " << pf_id << " is null, exiting" << std::endl;
         continue;
@@ -1084,11 +1081,10 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_res_std.push_back(stdev);
 
       std::vector<double> pitches(3, std::numeric_limits<double>::lowest());
-      std::vector<int> dQdx_hits_in_the_box(3, std::numeric_limits<int>::lowest());
 
       std::vector<double> dqdx(3, std::numeric_limits<double>::lowest());
       std::vector<double> dedx(3, std::numeric_limits<double>::lowest());
-      std::vector<double> dqdx_hits_shower;
+      std::vector<std::vector<double>> dqdx_hits_shower(3, std::vector<double>());
 
       std::vector<double> dqdx_cali(3, std::numeric_limits<double>::lowest());
 
@@ -1096,20 +1092,26 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _matched_showers_process.push_back("");
 
       _matched_showers_energy.push_back(std::numeric_limits<double>::lowest());
-
-      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster, dqdx, dqdx_hits_shower, pitches, dQdx_hits_in_the_box);
+      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster, dqdx, dqdx_hits_shower, pitches);
       energyHelper.dQdx_cali(&(*shower_obj), dqdx_cali);
 
-      _shower_dQdx_hits.push_back(dqdx_hits_shower);
-      _shower_dQdx_hits_in_the_box.push_back(dQdx_hits_in_the_box);
+      _shower_dQdx_hits.push_back(dqdx_hits_shower[2]);
       _shower_pitches.push_back(pitches);
 
-      std::vector<double> dedx_hits_shower(dqdx_hits_shower.size(), std::numeric_limits<double>::lowest());
+      std::vector<std::vector<double>> dedx_hits_shower(3, std::vector<double>());
 
-      energyHelper.dEdx_from_dQdx(dedx, dqdx);
-      energyHelper.dEdx_from_dQdx(dedx_hits_shower, dqdx_hits_shower);
+      energyHelper.dEdx_from_dQdx(dedx_hits_shower[0], dqdx_hits_shower[0]);
+      energyHelper.dEdx_from_dQdx(dedx_hits_shower[1], dqdx_hits_shower[1]);
+      energyHelper.dEdx_from_dQdx(dedx_hits_shower[2], dqdx_hits_shower[2]);
 
-      _shower_dEdx_hits.push_back(dedx_hits_shower);
+      _shower_dEdx_hits.push_back(dedx_hits_shower[2]);
+
+      for (size_t i_pl=0; i_pl < 3; i_pl++) {
+        if (dedx_hits_shower[i_pl].size()) {
+            std::nth_element(dedx_hits_shower[i_pl].begin(), dedx_hits_shower[i_pl].begin() + dedx_hits_shower[i_pl].size() / 2, dedx_hits_shower[i_pl].end());
+            dedx[i_pl] = dedx_hits_shower[i_pl][dedx_hits_shower.size() / 2];
+        }
+      }
 
       _shower_dQdx.push_back(dqdx);
       _shower_dEdx.push_back(dedx);
@@ -1351,6 +1353,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
     _n_primaries = _primary_indexes.size();
   }
+  std::cout << "dedx " << std::endl;
 
   myTTree->Fill();
   std::cout << "[PandoraLEE] "
