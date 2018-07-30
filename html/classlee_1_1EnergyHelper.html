@@ -108,9 +108,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga4523185d78d6b7aa94dbf26475750282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga4523185d78d6b7aa94dbf26475750282">reconfigure</a> (fhicl::ParameterSet const &amp;pset)</td></tr>
 <tr class="memdesc:ga4523185d78d6b7aa94dbf26475750282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure all of the parameters of this class.  <a href="group__lee.html#ga4523185d78d6b7aa94dbf26475750282">More...</a><br/></td></tr>
 <tr class="separator:ga4523185d78d6b7aa94dbf26475750282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2da6cbede1c42495e837b3a8b733be48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2da6cbede1c42495e837b3a8b733be48">dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; double &gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches, std::vector&lt; int &gt; &amp;dqdx_hits_in_the_box)</td></tr>
-<tr class="memdesc:ga2da6cbede1c42495e837b3a8b733be48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="group__lee.html#ga2da6cbede1c42495e837b3a8b733be48">More...</a><br/></td></tr>
-<tr class="separator:ga2da6cbede1c42495e837b3a8b733be48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83891d9231c431e99e7615d02d570047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga83891d9231c431e99e7615d02d570047">dQdx</a> (const recob::Shower *shower_obj, std::vector&lt; art::Ptr&lt; recob::Cluster &gt;&gt; *clusters, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster, std::vector&lt; double &gt; &amp;dqdx, std::vector&lt; std::vector&lt; double &gt;&gt; &amp;dqdx_hits, std::vector&lt; double &gt; &amp;pitches)</td></tr>
+<tr class="memdesc:ga83891d9231c431e99e7615d02d570047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the dQdx of a shower.  <a href="group__lee.html#ga83891d9231c431e99e7615d02d570047">More...</a><br/></td></tr>
+<tr class="separator:ga83891d9231c431e99e7615d02d570047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab3e573f8d2d733f94b8ca862d7343864"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gab3e573f8d2d733f94b8ca862d7343864">PID</a> (art::Ptr&lt; anab::ParticleID &gt; selected_pid, std::string AlgName, anab::kVariableType VariableType, anab::kTrackDir TrackDirection, int pdgCode)</td></tr>
 <tr class="memdesc:gab3e573f8d2d733f94b8ca862d7343864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value of a specific ParticleID algorithm for a single track.  <a href="group__lee.html#gab3e573f8d2d733f94b8ca862d7343864">More...</a><br/></td></tr>
 <tr class="separator:gab3e573f8d2d733f94b8ca862d7343864"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,6 +170,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>_wire_spacing</b> =
 <tr class="memitem:gafed9eac818bc9ab7f0c0cd3c808feeea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafed9eac818bc9ab7f0c0cd3c808feeea"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>_work_function</b> = 23 / 1e6</td></tr>
 <tr class="separator:gafed9eac818bc9ab7f0c0cd3c808feeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fa094a0561f3185ae9be3cd668a64fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6fa094a0561f3185ae9be3cd668a64fb"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_betap</b></td></tr>
+<tr class="separator:ga6fa094a0561f3185ae9be3cd668a64fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac748df10e62e8969fd39c85a6c4e1e95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac748df10e62e8969fd39c85a6c4e1e95"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_alpha</b></td></tr>
+<tr class="separator:gac748df10e62e8969fd39c85a6c4e1e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad704feff08cf9f09aa46f306e126bbbb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad704feff08cf9f09aa46f306e126bbbb"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>_readout_window</b></td></tr>
 <tr class="separator:gad704feff08cf9f09aa46f306e126bbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>

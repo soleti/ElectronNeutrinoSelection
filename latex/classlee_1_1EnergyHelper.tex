@@ -12,7 +12,7 @@ Inheritance diagram for lee\-:\-:Energy\-Helper\-:\begin{figure}[H]
 \item 
 void \hyperlink{group__lee_ga4523185d78d6b7aa94dbf26475750282}{reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)
 \begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
-void \hyperlink{group__lee_ga2da6cbede1c42495e837b3a8b733be48}{d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ double $>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches, std\-::vector$<$ int $>$ \&dqdx\-\_\-hits\-\_\-in\-\_\-the\-\_\-box)
+void \hyperlink{group__lee_ga83891d9231c431e99e7615d02d570047}{d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)
 \begin{DoxyCompactList}\small\item\em Measure the d\-Qdx of a shower. \end{DoxyCompactList}\item 
 double \hyperlink{group__lee_gab3e573f8d2d733f94b8ca862d7343864}{P\-I\-D} (art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$ selected\-\_\-pid, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, anab\-::k\-Track\-Dir Track\-Direction, int pdg\-Code)
 \begin{DoxyCompactList}\small\item\em Return the value of a specific Particle\-I\-D algorithm for a single track. \end{DoxyCompactList}\item 
@@ -59,6 +59,12 @@ lariov\-::\-T\-P\-C\-Energy\-Calib\-Provider \& {\bfseries \-\_\-energy\-\_\-cal
 
 \item 
 \hypertarget{group__lee_gafed9eac818bc9ab7f0c0cd3c808feeea}{double {\bfseries \-\_\-work\-\_\-function} = 23 / 1e6}\label{group__lee_gafed9eac818bc9ab7f0c0cd3c808feeea}
+
+\item 
+\hypertarget{group__lee_ga6fa094a0561f3185ae9be3cd668a64fb}{double {\bfseries \-\_\-betap}}\label{group__lee_ga6fa094a0561f3185ae9be3cd668a64fb}
+
+\item 
+\hypertarget{group__lee_gac748df10e62e8969fd39c85a6c4e1e95}{double {\bfseries \-\_\-alpha}}\label{group__lee_gac748df10e62e8969fd39c85a6c4e1e95}
 
 \item 
 \hypertarget{group__lee_gad704feff08cf9f09aa46f306e126bbbb}{double {\bfseries \-\_\-readout\-\_\-window}}\label{group__lee_gad704feff08cf9f09aa46f306e126bbbb}
