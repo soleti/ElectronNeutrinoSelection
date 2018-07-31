@@ -987,12 +987,22 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
           double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
                                     energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
 
-          double bragg_mip = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0),
-                                      energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 0));
+          double bragg_mip = energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0);
 
+          double pidchipr = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 2212);
+          double pidchimu = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 13);
+          double pidchipi = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 211);
+          double pidchika = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 321);
+
+          double pida_mean = energyHelper.PID(selected_pid, "PIDA_mean", anab::kPIDA, anab::kForward, 0);
+          std::cout << "PIDa mean " << pida_mean << std::endl;
           _track_bragg_p.push_back(bragg_p);
           _track_bragg_mu.push_back(bragg_mu);
           _track_bragg_mip.push_back(bragg_mip);
+          _track_pidchipr.push_back(pidchipr);
+          _track_pidchimu.push_back(pidchimu);
+          _track_pidchipi.push_back(pidchipi);
+          _track_pidchika.push_back(pidchika);
         }
         _matched_tracks.push_back(std::numeric_limits<int>::lowest());
         _matched_tracks_process.push_back("");
@@ -1109,7 +1119,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       for (size_t i_pl=0; i_pl < 3; i_pl++) {
         if (dedx_hits_shower[i_pl].size()) {
             std::nth_element(dedx_hits_shower[i_pl].begin(), dedx_hits_shower[i_pl].begin() + dedx_hits_shower[i_pl].size() / 2, dedx_hits_shower[i_pl].end());
-            dedx[i_pl] = dedx_hits_shower[i_pl][dedx_hits_shower.size() / 2];
+            dedx[i_pl] = dedx_hits_shower[i_pl][dedx_hits_shower[i_pl].size() / 2];
         }
       }
 
