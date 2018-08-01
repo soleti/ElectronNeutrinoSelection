@@ -995,10 +995,11 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
           double pidchika = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 321);
 
           double pida_mean = energyHelper.PID(selected_pid, "PIDA_mean", anab::kPIDA, anab::kForward, 0);
-          std::cout << "PIDa mean " << pida_mean << std::endl;
+
           _track_bragg_p.push_back(bragg_p);
           _track_bragg_mu.push_back(bragg_mu);
           _track_bragg_mip.push_back(bragg_mip);
+          _track_pida.push_back(pida_mean);
           _track_pidchipr.push_back(pidchipr);
           _track_pidchimu.push_back(pidchimu);
           _track_pidchipi.push_back(pidchipi);
@@ -1363,7 +1364,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
     _n_primaries = _primary_indexes.size();
   }
-  std::cout << "dedx " << std::endl;
 
   myTTree->Fill();
   std::cout << "[PandoraLEE] "
