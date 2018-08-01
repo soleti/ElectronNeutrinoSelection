@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['geometryhelper',['GeometryHelper',['../classGeometryHelper.html',1,'']]],
   ['geometryhelper',['GeometryHelper',['../classlee_1_1GeometryHelper.html',1,'lee']]],
+  ['geometryhelper',['GeometryHelper',['../classGeometryHelper.html',1,'']]],
   ['get_5fcali',['get_cali',['../group__lee.html#gaf141846d9be1716bcfcf351633bdf8e7',1,'lee::EnergyHelper']]],
   ['get_5fflash_5fpe',['get_flash_PE',['../group__lee.html#ga306e62904f73e727c6f938d2a197f68e',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fflash_5ftime',['get_flash_time',['../group__lee.html#ga9990f4a980662e786fc8e38146ce4456',1,'lee::ElectronEventSelectionAlg']]],
