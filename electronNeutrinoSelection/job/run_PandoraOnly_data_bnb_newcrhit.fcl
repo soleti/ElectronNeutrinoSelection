@@ -9,7 +9,7 @@ start_window:  3.19
 end_window:    4.87
 
 nueFilter:
-{ 
+{
     module_type:                "ElectronNeutrinoFilter"
     ElectronSelectionAlg:       @local::lee_electron_alg
 }
@@ -37,7 +37,7 @@ lee_pandora_analyzer:
     SpacePointLabel:            "pandoraNu"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
-    UseParticleID:              true
+    UseParticleID:              false
     SelectEvents:               [ prod ]
 }
 
@@ -78,11 +78,12 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ nueFilter, @sequence::ubxsec_data_producers, dedxcalibration, pid  ]
+  prod: [ @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid ]
   ana : [ robertoana ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]
+
   end_paths: [ ana ]
 
 }

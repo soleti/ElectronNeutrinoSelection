@@ -5,13 +5,18 @@
 #include "ubxsec_mc_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
-start_window:  3.16
-end_window:    4.84
+start_window:  3.19
+end_window:    4.87
 
-energy_helper:
+nueFilter:
 {
-  Gains: [193.05, 196.85, 196.98]
+    module_type:                "ElectronNeutrinoFilter"
+    ElectronSelectionAlg:       @local::lee_electron_alg
 }
+
+nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
+nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
+nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 lee_pandora_analyzer:
 {
@@ -21,7 +26,7 @@ lee_pandora_analyzer:
     PrintDebug:                 false
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
-    UseParticleID:              false
+    UseParticleID:              true
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
@@ -47,15 +52,33 @@ physics: {
      # ParameterSets for zero or more filter modules
   }
 
-  reco: [ @sequence::ubxsec_mc_producers ]#, dedxcalibration, pid ]
+  filters : {
+     # ParameterSets for zero or more filter modules
+     nueFilter: @local::nueFilter
+  }
 
-  path0 : [ robertoana ]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ]
+  ana : [ robertoana ]
+  stream: [ out1 ]
 
-  trigger_paths: [ reco ]
+  trigger_paths: [ prod ]
 
-  end_paths: [ path0 ]
+  end_paths: [ ana ]
 
 }
+
+outputs:
+{
+ out1:
+ {
+   module_type: RootOutput
+   fileName:    "%ifb_%tc_lee.root"
+   dataTier:    "reconstructed"
+   compressionLevel: 1
+   SelectEvents: [ prod ]
+   }
+}
+
 
 cs_producerlabels_mcc8_calib_dedxcalib:
 {  # producer label names
