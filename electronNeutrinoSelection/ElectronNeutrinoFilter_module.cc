@@ -42,9 +42,11 @@ public:
 
   // Selected optional functions.
   void reconfigure(fhicl::ParameterSet const & p) override;
+  bool endSubRun(art::SubRun &sr) override;
 
 private:
   lee::ElectronEventSelectionAlg fElectronEventSelectionAlg;
+  std::ofstream _run_subrun_list_file;
 
 };
 
@@ -53,7 +55,16 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
 // Initialize member data here.
 {
   // Call appropriate produces<>() functions here.
+
+  _run_subrun_list_file.open("run_subrun_list_filter.txt", std::ofstream::out | std::ofstream::trunc);
+
   this->reconfigure(p);
+}
+
+bool lee::ElectronNeutrinoFilter::endSubRun(art::SubRun &sr)
+{
+  _run_subrun_list_file << sr.run() << " " << sr.subRun() << std::endl;
+  return true;
 }
 
 bool lee::ElectronNeutrinoFilter::filter(art::Event & e)
@@ -61,6 +72,7 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event & e)
   std::cout << "[ElectronNeutrinoFilter] "
             << "RUN " << e.run() << " SUBRUN " << e.subRun() << " EVENT " << e.id().event()
             << std::endl;
+
   bool passed = fElectronEventSelectionAlg.eventSelected(e);
   std::cout << "[ElectronNeutrinoFilter] Passing filter? " << passed << std::endl;
   return passed;

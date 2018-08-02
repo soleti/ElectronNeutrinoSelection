@@ -49,7 +49,7 @@ physics: {
      robertoana:  @local::lee_pandora_analyzer
      # @table::ubxsec_data_ana
   }
-  
+
   filters : {
      # ParameterSets for zero or more filter modules
   }

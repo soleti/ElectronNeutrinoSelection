@@ -159,6 +159,12 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("track_bragg_p", "std::vector< double >", &_track_bragg_p);
   myTTree->Branch("track_bragg_mu", "std::vector< double >", &_track_bragg_mu);
   myTTree->Branch("track_bragg_mip", "std::vector< double >", &_track_bragg_mip);
+  myTTree->Branch("track_pida", "std::vector< double >", &_track_pida);
+  myTTree->Branch("track_pid_chipr", "std::vector< double >", &_track_pidchipr);
+  myTTree->Branch("track_pid_chipi", "std::vector< double >", &_track_pidchipi);
+  myTTree->Branch("track_pid_chika", "std::vector< double >", &_track_pidchika);
+  myTTree->Branch("track_pid_chimu", "std::vector< double >", &_track_pidchimu);
+
   myTTree->Branch("track_res_mean", "std::vector< double >", &_track_res_mean);
   myTTree->Branch("track_res_std", "std::vector< double >", &_track_res_std);
   myTTree->Branch("shower_res_mean", "std::vector< double >", &_shower_res_mean);
@@ -180,7 +186,6 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
 
   myTTree->Branch("track_dQdx", "std::vector< std::vector< double > >",
                   &_track_dQdx);
-
 
   myTTree->Branch("track_dEdx", "std::vector< std::vector< double > >",
                   &_track_dEdx);
@@ -974,7 +979,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         double mean = std::numeric_limits<double>::lowest();
         double stdev = std::numeric_limits<double>::lowest();
         energyHelper.cluster_residuals(&clusters, &hits_per_cluster, mean, stdev);
-
         _track_res_mean.push_back(mean);
         _track_res_std.push_back(stdev);
 
@@ -985,7 +989,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                                     energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 2212));
 
           double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
-                                    energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
+                                     energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
 
           double bragg_mip = energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0);
 

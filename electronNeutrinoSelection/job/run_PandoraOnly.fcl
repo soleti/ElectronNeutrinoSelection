@@ -5,8 +5,8 @@
 #include "ubxsec_mc_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
-start_window:  3.19
-end_window:    4.87
+start_window:  3.16
+end_window:    4.84
 
 nueFilter:
 {
@@ -18,6 +18,11 @@ nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
 nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
 nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
+energy_helper:
+{
+  Gains: [193.05, 196.85, 196.98]
+}
+
 lee_pandora_analyzer:
 {
     module_type:                "PandoraLEEAnalyzer"
@@ -26,7 +31,8 @@ lee_pandora_analyzer:
     PrintDebug:                 false
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
-    UseParticleID:              true
+    UseParticleID:              false
+    SelectEvents:               [ prod ]
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
@@ -57,7 +63,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter ] #, dedxcalibration, pid ]
   ana : [ robertoana ]
   stream: [ out1 ]
 
