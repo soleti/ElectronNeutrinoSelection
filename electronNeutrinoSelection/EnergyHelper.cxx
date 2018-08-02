@@ -11,7 +11,6 @@ EnergyHelper::EnergyHelper() {
 }
 
 void EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) {
-  _readout_window = pset.get<double>("ReadoutWindow", 4.8);
   _recombination_factor = pset.get<double>("RecombinationFactor", 0.62);
   _dQdx_rectangle_length = pset.get<double>("dQdxRectangleLength", 4);
   _dQdx_rectangle_width = pset.get<double>("dQdxRectangleWidth", 1);
@@ -75,7 +74,7 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
       TVector3 num(line.Cross(start_cluster - hit_v));
       double side = (hit_v[0] - start_cluster[0])*(end_cluster[1] - start_cluster[1]) - (hit_v[1] - start_cluster[1])*(end_cluster[0] - start_cluster[0]);
       int sign_side = (side > 0) - (side < 0);
-      distances.push_back(sign_side * num.Mag()/line.Mag());
+      distances.push_back(sign_side * num.Mag() / line.Mag());
     }
 
   }
@@ -87,6 +86,8 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
   std::transform(distances.begin(), distances.end(), diff.begin(), [mean](double x) { return x - mean; });
 
   double sq_sum = std::inner_product(diff.begin(), diff.end(), diff.begin(), 0.0);
+  std::cout << "sq_sum " << sq_sum << std::endl;
+
   double stdv = std::sqrt(sq_sum / distances.size());
 
   if (!isnan(mean) && !isnan(stdv)) {

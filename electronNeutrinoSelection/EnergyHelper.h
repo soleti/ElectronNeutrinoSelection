@@ -179,12 +179,12 @@ public:
     const lariov::TPCEnergyCalibProvider &_energy_calib_provider = art::ServiceHandle<lariov::TPCEnergyCalibService>()->GetProvider();
     const detinfo::DetectorProperties *_detprop = lar::providerFrom<detinfo::DetectorPropertiesService>();
     double _drift = _detprop->DriftVelocity() * 1e-3;
+    double _readout_window = 4.8;
     double _from_tick_to_ns = _readout_window / _detprop->ReadOutWindowSize() * 1e6;
     double _wire_spacing = 0.3;
     double _work_function = 23 / 1e6;
     double _betap;
     double _alpha;
-    double _readout_window;
     double _recombination_factor;
     double _dQdx_rectangle_length;
     double _dQdx_rectangle_width;
