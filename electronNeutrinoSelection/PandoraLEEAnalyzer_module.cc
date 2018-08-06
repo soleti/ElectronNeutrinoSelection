@@ -172,7 +172,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("track_res_std", "std::vector< double >", &_track_res_std);
   myTTree->Branch("shower_res_mean", "std::vector< double >", &_shower_res_mean);
   myTTree->Branch("shower_res_std", "std::vector< double >", &_shower_res_std);
-  myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/i");
+  myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
 
   myPOTTTree->Branch("run", &_run_sr, "run/i");
   myPOTTTree->Branch("subrun", &_subrun_sr, "subrun/i");
