@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "bnb_filter_data_ubxsec_v4s">
-<!ENTITY dataset "prod_reco_optfilter_bnb_v12_unblind_mcc8_gooodruns_v4s">
-<!ENTITY larsoft_version "v06_26_01_13">
-<!ENTITY version "v06_26_01_18">
-<!ENTITY qualifier "e10:prof">
-<!ENTITY user "srsoleti">
+    <!ENTITY name "bnb_filter_data_v4s">
+    <!ENTITY dataset "prod_reco_optfilter_bnb_v12_unblind_mcc8_gooodruns_v4s">
+    <!ENTITY larsoft_version "v06_26_01_13">
+    <!ENTITY version "v06_26_01_18">
+    <!ENTITY qualifier "e10:prof">
+    <!ENTITY user "srsoleti">
 ]>
 
 <project name="&name;">
@@ -33,10 +33,10 @@
         <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <inputdef>&dataset;</inputdef>
-        <numjobs>20</numjobs>
-        <disk>1.5GB</disk>
+        <numjobs>209</numjobs>
+        <disk>2GB</disk>
         <memory>4096</memory>
-        <maxfilesperjob>20</maxfilesperjob>
+        <maxfilesperjob>15</maxfilesperjob>
         <datatier>filtered</datatier>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
         <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>

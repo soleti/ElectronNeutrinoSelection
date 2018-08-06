@@ -37,7 +37,7 @@ lee_pandora_analyzer:
     SpacePointLabel:            "pandoraNu"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
-    UseParticleID:              false
+    UseParticleID:              true
     SelectEvents:               [ prod ]
 }
 
@@ -78,7 +78,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_data_producers, nueFilter ] #, dedxcalibration, pid ]
+  prod: [ @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid ]
   ana : [ robertoana ]
   stream: [ out1 ]
 

@@ -19,6 +19,9 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
 
   myPOTTTree = tfs->make<TTree>("pot", "POT Tree");
 
+  myTTree->Branch("weights", "std::map< std::string, std::vector< double > >", &_weights);
+  myTTree->Branch("flux_weights", "std::map< std::string, std::vector< double > >", &_flux_weights);
+
   myTTree->Branch("category", &_category, "category/i");
   myTTree->Branch("reconstructed_energy", "std::vector< double >", &_energy);
 
@@ -357,6 +360,8 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_res_std.clear();
   _shower_res_mean.clear();
   _shower_res_std.clear();
+  _weights.clear();
+  _flux_weights.clear();
 
   _shower_pitches.clear();
   _shower_dQdx_hits_in_the_box.clear();
@@ -715,6 +720,41 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       } else {
         _bnbweight = 1;
       }
+    }
+
+    try {
+      art::InputTag genie_eventweight_tag("genieeventweightmultisim");
+      auto const &genie_eventweights_handle = evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(genie_eventweight_tag);
+      if (!genie_eventweights_handle.isValid())
+      {
+        std::cout << "[PandoraLEEAnalyzer] GENIE MCEventWeight handle not valid" << std::endl;
+      }
+      else
+      {
+        auto const &genie_eventweights(*genie_eventweights_handle);
+        _weights = genie_eventweights.at(0).fWeight;
+      }
+    } catch (...) {
+      std::cout << "[PandoraLEEAnalyzer] No GENIE MCEventWeight data product" << std::endl;
+    }
+
+    try
+    {
+      art::InputTag flux_eventweight_tag("fluxeventweightmultisim");
+      auto const &flux_eventweights_handle = evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(flux_eventweight_tag);
+      if (!flux_eventweights_handle.isValid())
+      {
+        std::cout << "[PandoraLEEAnalyzer] Flux MCEventWeight handle not valid" << std::endl;
+      }
+      else
+      {
+        auto const &flux_eventweights(*flux_eventweights_handle);
+        _flux_weights = flux_eventweights.at(0).fWeight;
+      }
+    }
+    catch (...)
+    {
+      std::cout << "[PandoraLEEAnalyzer] No Flux MCEventWeight data product" << std::endl;
     }
 
     auto const &generator_handle = evt.getValidHandle<std::vector<simb::MCTruth>>(_mctruthLabel);

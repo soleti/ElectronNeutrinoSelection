@@ -1,3 +1,5 @@
+#include "genie_eventweight_microboone.fcl"
+#include "eventweight_microboone.fcl"
 #include "config_dedx_calibration.fcl"
 #include "config_particle_identification.fcl"
 #include "particleid_microboone.fcl"
@@ -43,47 +45,6 @@ lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
 lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
-outputs:
-{
-  out1:
-  {
-    module_type: RootOutput
-    fileName: "%ifb_%tc_test.root"
-    dataTier: "pid"
-  }
-}
-
-
-physics: {
-
-  producers : {
-     # ParameterSets for zero or more producer modules
-     @table::ubxsec_mc_reco
-     @table::ubxsec_mc_flashmatch
-     dedxcalibration: @local::simulation_calibration
-     pid: @local::particleidconfig
-  }
-
-  analyzers: {
-     # ParameterSets for zero or more analyzer modules
-     robertoana:  @local::lee_pandora_analyzer
-     # @table::ubxsec_mc_ana
-  }
-  
-  filters : {
-     # ParameterSets for zero or more filter modules
-     nueFilter: @local::nueFilter
-  }
-
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ]
-  ana : [ robertoana ]
-  stream: [ out1 ]
-
-  trigger_paths: [ prod ]
-
-  end_paths: [ ana ]
-
-}
 
 outputs:
 {
@@ -97,11 +58,49 @@ outputs:
    }
 }
 
+
+physics: {
+
+  producers : {
+     # ParameterSets for zero or more producer modules
+     @table::ubxsec_mc_reco
+     @table::ubxsec_mc_flashmatch
+     dedxcalibration: @local::simulation_calibration
+     pid: @local::particleidconfig
+     genieeventweightmultisim:       @local::genie_microboone_eventweight
+     fluxeventweightmultisim:        @local::microboone_eventweight
+
+  }
+
+  analyzers: {
+     # ParameterSets for zero or more analyzer modules
+     robertoana:  @local::lee_pandora_analyzer
+     # @table::ubxsec_mc_ana
+  }
+  
+  filters : {
+     # ParameterSets for zero or more filter modules
+     nueFilter: @local::nueFilter
+  }
+
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, fluxeventweightmultisim, dedxcalibration, pid ]
+  ana : [ robertoana ]
+  stream: [ out1 ]
+
+  trigger_paths: [ prod ]
+
+  end_paths: [ ana ]
+
+}
+
+
 cs_producerlabels_mcc8_calib_dedxcalib:
 {  # producer label names
   TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
   CalorimetryLabel : "pandoraNucali::PandoraLEEAnalyzer"
 }
+
+physics.producers.genieeventweightmultisim.weight_functions: [ genie_all ]
 
 physics.analyzers.robertoana.isData: false
 physics.analyzers.robertoana.saveFluxInfo: true

@@ -86,8 +86,6 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
   std::transform(distances.begin(), distances.end(), diff.begin(), [mean](double x) { return x - mean; });
 
   double sq_sum = std::inner_product(diff.begin(), diff.end(), diff.begin(), 0.0);
-  std::cout << "sq_sum " << sq_sum << std::endl;
-
   double stdv = std::sqrt(sq_sum / distances.size());
 
   if (!isnan(mean) && !isnan(stdv)) {
