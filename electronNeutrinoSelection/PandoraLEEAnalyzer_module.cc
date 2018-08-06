@@ -54,7 +54,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/i");
 
   myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/i");
-  myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/i");
+  myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/I");
   myTTree->Branch("distance", &_distance, "distance/d");
   myTTree->Branch("true_nu_is_fiducial", &_true_nu_is_fiducial,
                   "true_nu_is_fiducial/i");
@@ -808,6 +808,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         {
           _category = k_dirt;
         }
+        break; // In case of events with more than one neutrino (2% of the total) we take for the moment only the first one
       }
     }
 
