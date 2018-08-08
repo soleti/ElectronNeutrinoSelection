@@ -11,7 +11,9 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
     : EDAnalyzer(pset) // ,
 // More initializers here.
 {
-
+  for (int i = 0; i < _h_lee_scaling->GetNbinsX(); i++) {
+    _h_lee_scaling->SetBinContent(i+1, _lee_scaling[i]);
+  }
   // create output tree
   art::ServiceHandle<art::TFileService> tfs;
   // myTFile = new TFile("PandoraLEEAnalyzerOutput.root", "RECREATE");
@@ -22,12 +24,12 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("weights", "std::map< std::string, std::vector< double > >", &_weights);
   myTTree->Branch("flux_weights", "std::map< std::string, std::vector< double > >", &_flux_weights);
 
-  myTTree->Branch("category", &_category, "category/i");
+  myTTree->Branch("category", &_category, "category/I");
   myTTree->Branch("reconstructed_energy", "std::vector< double >", &_energy);
 
-  myTTree->Branch("n_tracks", &_n_tracks, "n_tracks/i");
-  myTTree->Branch("n_showers", &_n_showers, "n_showers/i");
-  myTTree->Branch("ccnc", &_ccnc, "ccnc/i");
+  myTTree->Branch("n_tracks", &_n_tracks, "n_tracks/I");
+  myTTree->Branch("n_showers", &_n_showers, "n_showers/I");
+  myTTree->Branch("ccnc", &_ccnc, "ccnc/I");
   myTTree->Branch("cosmic_fraction", &_cosmic_fraction, "cosmic_fraction/d");
 
   myTTree->Branch("vx", &_vx, "vx/d");
@@ -49,21 +51,21 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("true_vz_sce", &_true_vz_sce, "true_vz_sce/d");
 
   myTTree->Branch("nu_E", &_nu_energy, "nu_E/d");
-  myTTree->Branch("passed", &_event_passed, "passed/i");
-  myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/i");
-  myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/i");
+  myTTree->Branch("passed", &_event_passed, "passed/I");
+  myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/I");
+  myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/I");
 
-  myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/i");
+  myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/I");
   myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/I");
   myTTree->Branch("distance", &_distance, "distance/d");
   myTTree->Branch("true_nu_is_fiducial", &_true_nu_is_fiducial,
-                  "true_nu_is_fiducial/i");
+                  "true_nu_is_fiducial/I");
 
-  myTTree->Branch("n_matched", &_n_matched, "n_matched/i");
+  myTTree->Branch("n_matched", &_n_matched, "n_matched/I");
   myTTree->Branch("nu_matched_tracks", &_nu_matched_tracks,
-                  "nu_matched_tracks/i");
+                  "nu_matched_tracks/I");
   myTTree->Branch("nu_matched_showers", &_nu_matched_showers,
-                  "nu_matched_showers/i");
+                  "nu_matched_showers/I");
 
   myTTree->Branch("nu_daughters_pdg", "std::vector< int >", &_nu_daughters_pdg);
   myTTree->Branch("nu_daughters_E", "std::vector< double >", &_nu_daughters_E);
@@ -99,14 +101,15 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("nu_track_daughters", "std::vector< std::vector< size_t > >",
                   &_nu_track_daughters);
 
-  myTTree->Branch("event", &_event, "event/i");
-  myTTree->Branch("run", &_run, "run/i");
-  myTTree->Branch("subrun", &_subrun, "subrun/i");
+  myTTree->Branch("event", &_event, "event/I");
+  myTTree->Branch("run", &_run, "run/I");
+  myTTree->Branch("subrun", &_subrun, "subrun/I");
+  myTTree->Branch("leeweight", &_leeweight, "leeweight/f");
 
   myTTree->Branch("bnbweight", &_bnbweight, "bnbweight/d");
 
-  myTTree->Branch("chosen_candidate", &_chosen_candidate, "chosen_candidate/i");
-  myTTree->Branch("n_primaries", &_n_primaries, "n_primaries/i");
+  myTTree->Branch("chosen_candidate", &_chosen_candidate, "chosen_candidate/I");
+  myTTree->Branch("n_primaries", &_n_primaries, "n_primaries/I");
 
   myTTree->Branch("primary_indexes", "std::vector< int >", &_primary_indexes);
   myTTree->Branch("number_tracks", "std::vector< int >", &_number_tracks);
@@ -174,11 +177,11 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("shower_res_std", "std::vector< double >", &_shower_res_std);
   myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
 
-  myPOTTTree->Branch("run", &_run_sr, "run/i");
-  myPOTTTree->Branch("subrun", &_subrun_sr, "subrun/i");
+  myPOTTTree->Branch("run", &_run_sr, "run/I");
+  myPOTTTree->Branch("subrun", &_subrun_sr, "subrun/I");
   myPOTTTree->Branch("pot", &_pot, "pot/d");
 
-  myTTree->Branch("interaction_type", &_interaction_type, "interaction_type/i");
+  myTTree->Branch("interaction_type", &_interaction_type, "interaction_type/I");
 
   myTTree->Branch("shower_dQdx", "std::vector< std::vector< double > >",
                   &_shower_dQdx);
@@ -242,10 +245,6 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("track_nhits", "std::vector< std::vector<int> >",
                   &_track_nhits);
 
-  myTTree->Branch("shower_sp_x", "std::vector< float >", &_shower_sp_x);
-  myTTree->Branch("shower_sp_y", "std::vector< float >", &_shower_sp_y);
-  myTTree->Branch("shower_sp_z", "std::vector< float >", &_shower_sp_z);
-  myTTree->Branch("shower_sp_int", "std::vector< float >", &_shower_sp_int);
   myTTree->Branch("shower_energy_cali", "std::vector< std::vector< double > >", &_shower_energy_cali);
   myTTree->Branch("track_energy_cali", "std::vector< std::vector< double > >", &_track_energy_cali);
 
@@ -402,10 +401,6 @@ void lee::PandoraLEEAnalyzer::clear()
 
   _track_dEdx.clear();
 
-  _shower_sp_x.clear();
-  _shower_sp_y.clear();
-  _shower_sp_z.clear();
-  _shower_sp_int.clear();
 
   _shower_open_angle.clear();
   _shower_length.clear();
@@ -529,7 +524,7 @@ void lee::PandoraLEEAnalyzer::clear()
   _nu_daughters_endx.clear();
   _nu_daughters_endy.clear();
   _nu_daughters_endz.clear();
-
+  _leeweight = std::numeric_limits<int>::lowest();
   _bnbweight = std::numeric_limits<int>::lowest();
 }
 
@@ -771,6 +766,13 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         there_is_a_neutrino = true;
         _nu_pdg = gen.GetNeutrino().Nu().PdgCode();
         _nu_energy = gen.GetNeutrino().Nu().E();
+
+        if (abs(_nu_pdg) == 12) {
+            int n_bin = _h_lee_scaling->FindBin(_nu_energy*1000);
+            _leeweight = _lee_scaling[n_bin];
+            std::cout << "LEE WEIGHT " << _nu_energy << " " << _leeweight << std::endl;
+        }
+
         _ccnc = gen.GetNeutrino().CCNC();
 
         if (_ccnc == simb::kNC)
@@ -1184,13 +1186,14 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
       std::vector<double> start_point;
       std::vector<double> end_point;
+
       start_point.resize(3);
       end_point.resize(3);
       for (int ix = 0; ix < 3; ix++)
       {
         start_point[ix] = shower_obj->ShowerStart()[ix];
         end_point[ix] =
-            shower_obj->ShowerStart()[ix] + shower_length;
+            shower_obj->ShowerStart()[ix] + shower_obj->Direction()(ix) * shower_length;
       }
 
       _shower_is_fiducial.push_back((int)(geoHelper.isFiducial(start_point) &&
