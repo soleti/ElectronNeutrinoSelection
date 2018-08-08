@@ -186,6 +186,15 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_hitmatching_
 <tr class="memitem:gaf8493a6adc146f58425a9808bde7de2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf8493a6adc146f58425a9808bde7de2f"></a>
 uboone::EWTreeUtil&#160;</td><td class="memItemRight" valign="bottom"><b>ewutil</b></td></tr>
 <tr class="separator:gaf8493a6adc146f58425a9808bde7de2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga228a9ca7bca5fedf7187f5db8358fd00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga228a9ca7bca5fedf7187f5db8358fd00"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_lee_bins</b> [12] = {200, 300, 375, 475, 550, 675, 800, 950, 1100, 1300, 1500, 3000}</td></tr>
+<tr class="separator:ga228a9ca7bca5fedf7187f5db8358fd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga917c3c0cff016b2757b303818dc9b138"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga917c3c0cff016b2757b303818dc9b138"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_lee_scaling</b> [13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0}</td></tr>
+<tr class="separator:ga917c3c0cff016b2757b303818dc9b138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23a7d7c06b601ec3488237c7a70a79f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga23a7d7c06b601ec3488237c7a70a79f0"></a>
+TH1F *&#160;</td><td class="memItemRight" valign="bottom"><b>_h_lee_scaling</b> = new TH1F(&quot;h_lee_scaling&quot;, &quot;&quot;, 11, _lee_bins)</td></tr>
+<tr class="separator:ga23a7d7c06b601ec3488237c7a70a79f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8a86ec4686558f03c8a2be30a6bbcc2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8a86ec4686558f03c8a2be30a6bbcc2a"></a>
 TFile *&#160;</td><td class="memItemRight" valign="bottom"><b>myTFile</b></td></tr>
 <tr class="separator:ga8a86ec4686558f03c8a2be30a6bbcc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -422,6 +431,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_primaries</b></td><
 <tr class="memitem:ga258cdf1c3fb847abc6f3aad95f8471d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga258cdf1c3fb847abc6f3aad95f8471d0"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_chosen_candidate</b></td></tr>
 <tr class="separator:ga258cdf1c3fb847abc6f3aad95f8471d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeba6b9ecae9a1616394a17189dfe4808"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaeba6b9ecae9a1616394a17189dfe4808"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_leeweight</b></td></tr>
+<tr class="separator:gaeba6b9ecae9a1616394a17189dfe4808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9450f1c2fbd4efa3927094f9953c5041"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9450f1c2fbd4efa3927094f9953c5041"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>_bnbweight</b></td></tr>
 <tr class="separator:ga9450f1c2fbd4efa3927094f9953c5041"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -662,18 +674,6 @@ std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><
 <tr class="memitem:gaecdf711df932ed4823d2c9b222a3e8f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaecdf711df932ed4823d2c9b222a3e8f4"></a>
 std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_time</b></td></tr>
 <tr class="separator:gaecdf711df932ed4823d2c9b222a3e8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9792d3b416a42f2f2a9323318fe3288e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9792d3b416a42f2f2a9323318fe3288e"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_x</b></td></tr>
-<tr class="separator:ga9792d3b416a42f2f2a9323318fe3288e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e5b48ceffc6507a180a4c4bd9c0e6f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9e5b48ceffc6507a180a4c4bd9c0e6f3"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_y</b></td></tr>
-<tr class="separator:ga9e5b48ceffc6507a180a4c4bd9c0e6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad646e6376b43c3ed568725ae55e6b788"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad646e6376b43c3ed568725ae55e6b788"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_z</b></td></tr>
-<tr class="separator:gad646e6376b43c3ed568725ae55e6b788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga84b0714b78e775a1ed838971a1f71a49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga84b0714b78e775a1ed838971a1f71a49"></a>
-std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_shower_sp_int</b></td></tr>
-<tr class="separator:ga84b0714b78e775a1ed838971a1f71a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c55bb8de6e184c1adbc191f3d6f12d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c55bb8de6e184c1adbc191f3d6f12d5"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>_TPC_x</b></td></tr>
 <tr class="separator:ga8c55bb8de6e184c1adbc191f3d6f12d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
