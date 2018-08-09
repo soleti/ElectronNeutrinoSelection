@@ -43,6 +43,8 @@
 #include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibService.h"
 #include "lardataobj/AnalysisBase/ParticleID.h"
 
+#include "uboone/ParticleID/Algorithms/uB_PlaneIDBitsetHelperFunctions.h"
+
 namespace lee {
 
 class EnergyHelper : public HelperBase {
@@ -71,36 +73,36 @@ public:
             std::vector<art::Ptr<recob::Cluster>> *clusters,
             art::FindManyP<recob::Hit> *hits_per_cluster,
             std::vector<double> &dqdx,
-            std::vector<double> &dqdx_hits,
-            std::vector<double> &pitches,
-            std::vector<int> &dqdx_hits_in_the_box);
+            std::vector<std::vector<double>> &dqdx_hits,
+            std::vector<double> &pitches);
 
   /**
    * @brief      Return the value of a specific ParticleID algorithm for a single track
    *
-   * @param[in]  pids          Pointer to the vector of ParticleID objects
-   * @param[in]  trackID       TrackID value
-   * @param[in]  AlgName       Name of the algorithm (e.g. Bragg peak, PIDA, etc.)
-   * @param[in]  VariableType  Type of variable (e.g. likelihood)
-   * @param[in]  pdgCode       Assumed PDG code of the track
-   *
+   * @param[in]  pids            Pointer to the vector of ParticleID objects
+   * @param[in]  trackID         TrackID value
+   * @param[in]  AlgName         Name of the algorithm (e.g. Bragg peak, PIDA, etc.)
+   * @param[in]  VariableType    Type of variable (e.g. likelihood)
+   * @param[in]  TrackDirection  Assumed direction of the track (anab::kBackward or anab::kForward)
+   * @param[in]  pdgCode         Assumed PDG code of the track
+   * 
    * @return  Value of VariableType for the ParticleID AlgName algorithm,
    *          given its hypothetical PDG code
    */
-  double PID(const std::vector<art::Ptr<anab::ParticleID>> *pids,
-             int trackID,
-             std::string AlgName,
-             anab::kVariableType VariableType,
-             int pdgCode);
+  double PID(art::Ptr<anab::ParticleID> selected_pid,
+                           std::string AlgName,
+                           anab::kVariableType VariableType,
+                           anab::kTrackDir TrackDirection,
+                           int pdgCode);
 
-  /**
+      /**
    * @brief      Convert dQ/dx vector into dE/dx vector (in MeV)
    *
    * @param[out] dedx          Address of the dE/dx vector
    * @param[in]  dqdx          dQ/dx vector
    */
-  void dEdx_from_dQdx(std::vector<double> &dedx,
-                      std::vector<double> dqdx);
+      void dEdx_from_dQdx(std::vector<double> &dedx,
+                          std::vector<double> dqdx);
 
   /**
    * @brief      Principal Component Analysis of reconstructed clusters
@@ -177,11 +179,12 @@ public:
     const lariov::TPCEnergyCalibProvider &_energy_calib_provider = art::ServiceHandle<lariov::TPCEnergyCalibService>()->GetProvider();
     const detinfo::DetectorProperties *_detprop = lar::providerFrom<detinfo::DetectorPropertiesService>();
     double _drift = _detprop->DriftVelocity() * 1e-3;
+    double _readout_window = 4.8;
     double _from_tick_to_ns = _readout_window / _detprop->ReadOutWindowSize() * 1e6;
     double _wire_spacing = 0.3;
     double _work_function = 23 / 1e6;
-
-    double _readout_window;
+    double _betap;
+    double _alpha;
     double _recombination_factor;
     double _dQdx_rectangle_length;
     double _dQdx_rectangle_width;

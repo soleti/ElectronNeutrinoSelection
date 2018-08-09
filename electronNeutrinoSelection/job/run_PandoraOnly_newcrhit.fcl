@@ -1,14 +1,24 @@
-#include "config_simulation_calibration.fcl"
+#include "genie_eventweight_microboone.fcl"
+#include "eventweight_microboone.fcl"
+#include "config_dedx_calibration.fcl"
 #include "config_particle_identification.fcl"
 #include "particleid_microboone.fcl"
-#include "decisiontreeid.fcl"
 #include "lee_selection_alg.fcl"
 #include "ubxsec_mc_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
-
 start_window:  3.16
 end_window:    4.84
+
+nueFilter:
+{
+    module_type:                "ElectronNeutrinoFilter"
+    ElectronSelectionAlg:       @local::lee_electron_alg
+}
+
+nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
+nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
+nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 energy_helper:
 {
@@ -25,22 +35,27 @@ lee_pandora_analyzer:
     PFParticleLabel:            "pandoraNu::PandoraLEEAnalyzer"
     SpacePointLabel:            "pandoraNu::PandoraLEEAnalyzer"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
-    CalorimetryLabel:           "simcalibration::PandoraLEEAnalyzer"
+    CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     HitMatchingLabel:           "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
+    UseParticleID:              true
+    SelectEvents:               [ prod ]
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
 lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
+
 outputs:
 {
-  out1:
-  {
-    module_type: RootOutput
-    fileName: "%ifb_%tc_test.root"
-    dataTier: "pid"
-  }
+ out1:
+ {
+   module_type: RootOutput
+   fileName:    "%ifb_%tc_lee.root"
+   dataTier:    "reconstructed"
+   compressionLevel: 1
+   SelectEvents: [ prod ]
+   }
 }
 
 
@@ -48,11 +63,13 @@ physics: {
 
   producers : {
      # ParameterSets for zero or more producer modules
-     decisiontreeid: @local::DecisionTreeID
      @table::ubxsec_mc_reco
      @table::ubxsec_mc_flashmatch
-     simcalibration: @local::simulation_calibration
+     dedxcalibration: @local::simulation_calibration
      pid: @local::particleidconfig
+     genieeventweightmultisim:       @local::genie_microboone_eventweight
+     fluxeventweightmultisim:        @local::microboone_eventweight
+
   }
 
   analyzers: {
@@ -63,25 +80,27 @@ physics: {
   
   filters : {
      # ParameterSets for zero or more filter modules
+     nueFilter: @local::nueFilter
   }
 
-  stream1: [ out1 ]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, fluxeventweightmultisim, dedxcalibration, pid ]
+  ana : [ robertoana ]
+  stream: [ out1 ]
 
-  reco: [ decisiontreeid, @sequence::ubxsec_mc_producers,  simcalibration, pid ]
+  trigger_paths: [ prod ]
 
-  path0 : [ robertoana ]
-
-  trigger_paths: [ reco ]
-
-  end_paths: [ path0 ]
+  end_paths: [ ana ]
 
 }
 
-cs_producerlabels_mcc8_calib_simcalib:
+
+cs_producerlabels_mcc8_calib_dedxcalib:
 {  # producer label names
   TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
   CalorimetryLabel : "pandoraNucali::PandoraLEEAnalyzer"
 }
+
+physics.producers.genieeventweightmultisim.weight_functions: [ genie_all ]
 
 physics.analyzers.robertoana.isData: false
 physics.analyzers.robertoana.saveFluxInfo: true
@@ -104,10 +123,10 @@ physics.producers.UBXSec.SpacePointProducer:                   "pandoraNu::Pando
 physics.producers.UBXSec.ParticleIDProducer:                   "pandoraNupid::PandoraLEEAnalyzer"
 
 physics.producers.pid:                                         @local::particleidconfig
-#physics.producers.pid.ProducerLabels:                          @local::producerlabels_mcc8_simcalib
-physics.producers.pid.BraggAlgo:                               @local::braggalgo_mcc8_simcalib
+#physics.producers.pid.ProducerLabels:                          @local::producerlabels_mcc8_dedxcalib
+physics.producers.pid.BraggAlgo:                               @local::braggalgo_mcc8_dedxcalib
 
-physics.producers.simcalibration.ProducerLabels:               @local::cs_producerlabels_mcc8_calib_simcalib
+physics.producers.dedxcalibration.ProducerLabels:               @local::cs_producerlabels_mcc8_calib_dedxcalib
 physics.producers.pandoraCosmicHitRemoval.CosmicProducerLabels:     ["pandoraCosmicTrackPFPart::PandoraLEEAnalyzer", "pandoraCosmicFlashTag::PandoraLEEAnalyzer", "pandoraCosmicACPTTagger::PandoraLEEAnalyzer", "pandoraCosmicStoppingMu::PandoraLEEAnalyzer" ]
 
 physics.producers.pandoraNu.HitFinderModuleLabel:                   "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
@@ -152,5 +171,5 @@ physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandor
 physics.producers.pid.ProducerLabels:
 {
   TrackLabel : "pandoraNu::PandoraLEEAnalyzer"
-  CalorimetryLabel : "simcalibration"
+  CalorimetryLabel : "dedxcalibration"
 }

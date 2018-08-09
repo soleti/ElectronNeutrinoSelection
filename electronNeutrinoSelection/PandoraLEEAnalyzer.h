@@ -42,6 +42,7 @@
 // uncomment the lines below as you use these objects
 
 #include "TFile.h"
+#include "TH1F.h"
 #include "TTree.h"
 #include "TVector3.h"
 #include "TLorentzVector.h"
@@ -196,6 +197,11 @@ private:
   PandoraInterfaceHelper pandoraHelper;
   uboone::EWTreeUtil ewutil;
 
+  float _lee_bins[12] = {200, 300, 375, 475, 550, 675, 800, 950, 1100, 1300, 1500, 3000};
+  float _lee_scaling[13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0};
+
+  TH1F *_h_lee_scaling = new TH1F("h_lee_scaling", "", 11, _lee_bins);
+
   TFile *myTFile;
   TTree *myTTree;
   TTree *myPOTTTree;
@@ -246,6 +252,8 @@ private:
   double _true_vx_sce;
   double _true_vy_sce;
   double _true_vz_sce;
+  std::map<std::string, std::vector<double>> _weights;
+  std::map<std::string, std::vector<double>> _flux_weights;
 
   std::vector<double> _true_shower_x_sce;
   std::vector<double> _true_shower_y_sce;
@@ -293,6 +301,7 @@ private:
   int _n_primaries;
   int _chosen_candidate;
 
+  float _leeweight;
   double _bnbweight;
 
   std::vector<std::vector<double>> _shower_dQdx_hits;
@@ -393,11 +402,6 @@ private:
 
   std::vector<double> _flash_PE;
   std::vector<double> _flash_time;
-
-  std::vector<float> _shower_sp_x;
-  std::vector<float> _shower_sp_y;
-  std::vector<float> _shower_sp_z;
-  std::vector<float> _shower_sp_int;
 
   double _TPC_x;
   double _flash_x;

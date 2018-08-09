@@ -11,11 +11,12 @@ EnergyHelper::EnergyHelper() {
 }
 
 void EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) {
-  _readout_window = pset.get<double>("ReadoutWindow", 4.8);
   _recombination_factor = pset.get<double>("RecombinationFactor", 0.62);
   _dQdx_rectangle_length = pset.get<double>("dQdxRectangleLength", 4);
   _dQdx_rectangle_width = pset.get<double>("dQdxRectangleWidth", 1);
-  _gain =  pset.get<std::vector<double>>("Gains", _mc_gain);
+  _gain = pset.get<std::vector<double>>("Gains", _mc_gain);
+  _betap = pset.get<double>("RecombinationBeta", 0.212);
+  _alpha = pset.get<double>("RecombinationAlpha", 0.93);
 }
 
 
@@ -73,7 +74,7 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
       TVector3 num(line.Cross(start_cluster - hit_v));
       double side = (hit_v[0] - start_cluster[0])*(end_cluster[1] - start_cluster[1]) - (hit_v[1] - start_cluster[1])*(end_cluster[0] - start_cluster[0]);
       int sign_side = (side > 0) - (side < 0);
-      distances.push_back(sign_side * num.Mag()/line.Mag());
+      distances.push_back(sign_side * num.Mag() / line.Mag());
     }
 
   }
@@ -112,7 +113,8 @@ void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clust
       if (plane_nr > 2 || plane_nr < 0)
         continue;
 
-      pfenergy[plane_nr] += hit->Integral() * _gain[plane_nr] * _work_function / _recombination_factor / 1000; // convert MeV to GeV
+      // https://arxiv.org/pdf/1704.02927.pdf
+      pfenergy[plane_nr] += 1.01 * hit->Integral() * _gain[plane_nr] * _work_function / _recombination_factor / 1000; // convert MeV to GeV
       nHits[plane_nr]++;
     }
   }
@@ -188,33 +190,18 @@ void EnergyHelper::get_cali(
   }
 }
 
-
-double EnergyHelper::PID(const std::vector<art::Ptr<anab::ParticleID>> *pids,
-                         int trackID,
+double EnergyHelper::PID(art::Ptr<anab::ParticleID> selected_pid,
                          std::string AlgName,
                          anab::kVariableType VariableType,
+                         anab::kTrackDir TrackDirection,
                          int pdgCode)
 {
-    art::Ptr<anab::ParticleID> selected_pid;
-    bool there_is_pid = false;
 
-    for (auto& pid: *pids) {
-      if ((int)pid->PlaneID().Plane == trackID) {
-          selected_pid = pid;
-          there_is_pid = true;
-          break;
-      }
-    }
-
-    if (!there_is_pid) {
-        return std::numeric_limits<double>::lowest();
-    }
     std::vector<anab::sParticleIDAlgScores> AlgScoresVec = selected_pid->ParticleIDAlgScores();
     for (size_t i_algscore = 0; i_algscore < AlgScoresVec.size(); i_algscore++)
     {
       anab::sParticleIDAlgScores AlgScore = AlgScoresVec.at(i_algscore);
-      int planeid = AlgScore.fPlaneID.Plane;
-
+      int planeid = UBPID::uB_getSinglePlane(AlgScore.fPlaneID);
       if (planeid < 0 || planeid > 2)
       {
         std::cout << "[EnergyHelper::PID] No information for planeid " << planeid << std::endl;
@@ -223,7 +210,8 @@ double EnergyHelper::PID(const std::vector<art::Ptr<anab::ParticleID>> *pids,
 
       if (AlgScore.fAlgName == AlgName)
       {
-        if (anab::kVariableType(AlgScore.fVariableType) == VariableType)
+        if (anab::kVariableType(AlgScore.fVariableType) == VariableType
+            && anab::kTrackDir(AlgScore.fTrackDir) == TrackDirection)
         {
           if (AlgScore.fAssumedPdg == pdgCode) {
               double alg_value = AlgScore.fValue;
@@ -297,9 +285,8 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         std::vector<art::Ptr<recob::Cluster>> *clusters,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
                         std::vector<double> &dqdx,
-                        std::vector<double> &dqdx_hits,
-                        std::vector<double> &pitches,
-                        std::vector<int> &dqdx_hits_in_the_box)
+                        std::vector<std::vector<double>> &dqdx_hits,
+                        std::vector<double> &pitches)
 {
 
   double tolerance = 0.001;
@@ -366,7 +353,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
       {
         double q = hit->Integral() * _gain[_cl->Plane().Plane];
         dqdxs.push_back(q / fabs(pitch));
-        dqdx_hits.push_back(q / fabs(pitch));
+        dqdx_hits[_cl->Plane().Plane].push_back(q / fabs(pitch));
       }
     }
 
@@ -376,7 +363,6 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
       std::nth_element(dqdxs.begin(), dqdxs.begin() + dqdxs.size() / 2, dqdxs.end());
       dqdx[_cl->Plane().Plane] = dqdxs[dqdxs.size() / 2];
       pitches[_cl->Plane().Plane] = pitch;
-      dqdx_hits_in_the_box[_cl->Plane().Plane] = dqdxs.size();
     }
   }
 }
@@ -384,10 +370,12 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 void EnergyHelper::dEdx_from_dQdx(std::vector<double> &dedx,
                                   std::vector<double> dqdx)
 {
+  double Rho = 1.4;
+  double Efield = 0.273;
+
   for (size_t i = 0; i < dqdx.size(); i++)
   {
-    if (dqdx[i] > 0)
-      dedx[i] = dqdx[i] * (_work_function) / _recombination_factor;
+    dedx.push_back((exp(dqdx[i]*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield)));
   }
 }
 

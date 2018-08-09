@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "bnb_nu_cosmic_pandora_electron_filter_ubxsec_0">
-<!ENTITY version "v06_26_01_17">
-<!ENTITY larsoft_version "v06_26_01_13">
-<!ENTITY qualifier "e10:prof">
-<!ENTITY dataset "ahack379_mcc7_mcbnbcos_snapshot_14981403_oneFourth_0">
-<!ENTITY user "srsoleti">
+    <!ENTITY name "bnb_nu_cosmic_pandora_electron_filter_0">
+    <!ENTITY dataset "ahack379_mcc7_mcbnbcos_snapshot_14981403_oneFourth_0">
+    <!ENTITY larsoft_version "v06_26_01_13">
+    <!ENTITY version "v06_26_01_18">
+    <!ENTITY qualifier "e10:prof">
+    <!ENTITY user "srsoleti">
 ]>
 
 <project name="&name;">
@@ -18,28 +18,26 @@
     <!--  Batch resources  -->
     <resource>DEDICATED,OPPORTUNISTIC</resource>
 
-
     <!--  Larsoft information  -->
     <larsoft>
         <tag>&larsoft_version;</tag>
         <qual>&qualifier;</qual>
-        <fcldir>/uboone/app/users/&user;/&version;/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
+        <fcldir>/uboone/app/users/&user;/&version;_2/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
         <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local> 
     </larsoft>
 
     <!--  Project stages  -->
     <stage name="selection">
-        <fcl>run_PandoraOnly.fcl</fcl>
+        <fcl>run_PandoraOnly_newcrhit.fcl</fcl>
         <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
         <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
-
         <inputdef>&dataset;</inputdef>
-        <numjobs>500</numjobs>
+        <numjobs>719</numjobs>
         <disk>2GB</disk>
-        <memory>8192</memory>
-        <maxfilesperjob>2</maxfilesperjob>
+        <memory>4096</memory>
+        <maxfilesperjob>15</maxfilesperjob>
         <datatier>reconstructed</datatier>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
         <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>        
