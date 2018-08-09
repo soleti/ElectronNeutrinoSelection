@@ -5,11 +5,11 @@
 <!ENTITY qualifier "e10:prof">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY project_version "1">
+<!ENTITY project_version "2">
 <!ENTITY user "foppiani">
 <!ENTITY dataset "prod_numi_ext_data_run1_reco2_mcc8_v1_goodruns">
 <!ENTITY stage_name "dataext_numi">
-<!ENTITY tarball_location "/pnfs/uboone/resilient/users/foppiani/numi_tar/v1/numi.tar">
+<!ENTITY tarball_location "/pnfs/uboone/resilient/users/foppiani/numi_tar/v2/numi.tar">
 <!ENTITY fcl_name "run_PandoraOnly_data_extnumi.fcl">
 <!ENTITY fcl_dir "/uboone/app/users/foppiani/Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/">
 <!ENTITY main_dir "/uboone/data/users/foppiani/">

@@ -49,7 +49,7 @@ physics: {
   filters : {
      # ParameterSets for zero or more filter modules
   }
-  reco: [ ]#@sequence::ubxsec_mc_producers ]#, simcalibration, pid ]
+  reco: [ @sequence::ubxsec_data_producers ]#, simcalibration, pid ]
 
   path0 : [ robertoana ]
 
