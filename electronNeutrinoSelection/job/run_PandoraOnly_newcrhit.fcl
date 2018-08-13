@@ -77,7 +77,7 @@ physics: {
      robertoana:  @local::lee_pandora_analyzer
      # @table::ubxsec_mc_ana
   }
-  
+
   filters : {
      # ParameterSets for zero or more filter modules
      nueFilter: @local::nueFilter

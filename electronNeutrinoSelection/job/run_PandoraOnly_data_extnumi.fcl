@@ -5,8 +5,8 @@
 #include "ubxsec_data_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
-start_window:  5.343
-end_window:    16.343
+start_window:  6.009
+end_window:    15.649
 
 nueFilter:
 {
@@ -33,9 +33,9 @@ lee_pandora_analyzer:
     EnergyHelper:               @local::energy_helper
     isData:                     true
     PrintDebug:                 false
-    HitFinderLabel:             "pandoraCosmicHitRemoval::DataRecoStage1and2"
-    PFParticleLabel:            "pandoraNu::DataRecoStage1and2"
-    SpacePointLabel:            "pandoraNu::DataRecoStage1and2"
+    HitFinderLabel:             "pandoraCosmicHitRemoval"
+    PFParticleLabel:            "pandoraNu"
+    SpacePointLabel:            "pandoraNu"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     UseParticleID:              true
@@ -44,7 +44,7 @@ lee_pandora_analyzer:
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
-lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu::DataRecoStage1and2"
+lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 outputs:
 {
@@ -80,7 +80,7 @@ physics: {
   }
 
   prod: [ @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid  ]
-  ana : [ robertoana ]
+  ana : [ robertoana, @sequence::ubxsec_data_analyzers ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]
@@ -92,8 +92,8 @@ physics: {
 cs_producerlabels_mcc8_calib_dedxcalib_data:
 {
   # producer label names
-  TrackLabel       : "pandoraNu::DataRecoStage1and2"
-  CalorimetryLabel : "pandoraNucali::DataRecoStage1and2"
+  TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
+  CalorimetryLabel : "pandoraNucali::PandoraLEEAnalyzer"
 }
 
 ### ONLY FOR v14 SAM DEFINITIONS ###
@@ -169,6 +169,6 @@ physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandor
 
 physics.producers.pid.ProducerLabels:
 {
-  TrackLabel : "pandoraNu::DataRecoStage1and2"
+  TrackLabel : "pandoraNu::PandoraLEEAnalyzer"
   CalorimetryLabel : "dedxcalibration"
 }

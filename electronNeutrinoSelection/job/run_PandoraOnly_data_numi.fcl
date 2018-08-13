@@ -5,8 +5,8 @@
 #include "ubxsec_data_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
-start_window:  5
-end_window:    16
+start_window:  5.65
+end_window:    15.29
 
 nueFilter:
 {
@@ -32,9 +32,9 @@ lee_pandora_analyzer:
     EnergyHelper:               @local::energy_helper
     isData:                     true
     PrintDebug:                 false
-    HitFinderLabel:             "pandoraCosmicHitRemoval::DataRecoStage1and2"
-    PFParticleLabel:            "pandoraNu::DataRecoStage1and2"
-    SpacePointLabel:            "pandoraNu::DataRecoStage1and2"
+    HitFinderLabel:             "pandoraCosmicHitRemoval"
+    PFParticleLabel:            "pandoraNu"
+    SpacePointLabel:            "pandoraNu"
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     UseParticleID:              true
@@ -43,7 +43,7 @@ lee_pandora_analyzer:
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
-lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu::DataRecoStage1and2"
+lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 outputs:
 {
@@ -70,7 +70,7 @@ physics: {
   analyzers: {
      # ParameterSets for zero or more analyzer modules
      robertoana:  @local::lee_pandora_analyzer
-     # @table::ubxsec_data_ana
+     @table::ubxsec_data_ana
   }
 
   filters : {
@@ -79,7 +79,7 @@ physics: {
   }
 
   prod: [ @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid ]
-  ana : [ robertoana ]
+  ana : [ robertoana, @sequence::ubxsec_data_analyzers ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]
@@ -137,7 +137,6 @@ physics.producers.pandoraNucali.TrackModuleLabel:                   "pandoraNu::
 physics.producers.pandoraNucali.CalorimetryModuleLabel:             "pandoraNucalo::PandoraLEEAnalyzer"
 physics.producers.pandoraNucalipid.CalorimetryModuleLabel:          "pandoraNucali::PandoraLEEAnalyzer"
 physics.producers.pandoraNucalipid.TrackModuleLabel:                "pandoraNu::PandoraLEEAnalyzer"
-
 physics.producers.pandoraNuMCSMu.inputs.inputLabel:                 "pandoraNu::PandoraLEEAnalyzer"
 
 physics.producers.pandoraNuMCSPi.inputs.inputLabel:                 "pandoraNu::PandoraLEEAnalyzer"
@@ -169,6 +168,6 @@ physics.producers.pandoraCosmicStoppingMu.PFParticleProducer:            "pandor
 
 physics.producers.pid.ProducerLabels:
 {
-  TrackLabel : "pandoraNu::DataRecoStage1and2"
+  TrackLabel : "pandoraNu::PandoraLEEAnalyzer"
   CalorimetryLabel : "dedxcalibration"
 }
