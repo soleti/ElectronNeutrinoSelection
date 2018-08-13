@@ -25,7 +25,6 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("flux_weights", "std::map< std::string, std::vector< double > >", &_flux_weights);
 
   myTTree->Branch("category", &_category, "category/I");
-  myTTree->Branch("reconstructed_energy", "std::vector< double >", &_energy);
 
   myTTree->Branch("n_tracks", &_n_tracks, "n_tracks/I");
   myTTree->Branch("n_showers", &_n_showers, "n_showers/I");
