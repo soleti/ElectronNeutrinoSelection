@@ -152,3 +152,4 @@ physics.producers.pid.ProducerLabels:
 {
   TrackLabel : "pandoraNu::DataRecoStage2"
   CalorimetryLabel : "dedxcalibration"
+}
