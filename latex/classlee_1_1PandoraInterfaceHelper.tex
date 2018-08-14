@@ -10,6 +10,9 @@ Inheritance diagram for lee\-:\-:Pandora\-Interface\-Helper\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{group__lee_ga8d66370ea594fcdbe6aec9fae1fbf6ef}{void {\bfseries reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)}\label{group__lee_ga8d66370ea594fcdbe6aec9fae1fbf6ef}
+
+\item 
 void \hyperlink{group__lee_ga5f3e6eecea4f75ea9eea31e520b4f0bc}{traverse\-P\-F\-Particle\-Tree} (const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticles, size\-\_\-t top\-\_\-index, std\-::vector$<$ size\-\_\-t $>$ \&unordered\-\_\-daugthers, std\-::string \-\_\-pfp\-\_\-producer)
 \begin{DoxyCompactList}\small\item\em Travers the tree of the daughters of a P\-F\-Particle. \end{DoxyCompactList}\item 
 std\-::vector$<$ double $>$ \hyperlink{group__lee_ga367b3ad86924343d3ab54fa8c84091af}{calculate\-Charge\-Center} (size\-\_\-t ipf, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticles, const art\-::\-Event \&evt, std\-::string \-\_\-pfp\-\_\-producer)
@@ -27,7 +30,11 @@ void \hyperlink{group__lee_gaedec8759b64e578d4d27e4dd57bc2111}{Get\-Reco\-To\-Tr
 \item 
 \hypertarget{group__lee_gaab1841058478f2ef51067eeb588d1711}{art\-::\-Ptr$<$ simb\-::\-M\-C\-Truth $>$ {\bfseries Track\-I\-D\-To\-M\-C\-Truth} (art\-::\-Event const \&e, std\-::string \-\_\-geant\-\_\-producer, int geant\-\_\-track\-\_\-id)}\label{group__lee_gaab1841058478f2ef51067eeb588d1711}
 
-\end{DoxyCompactItemize}
+\item 
+void \hyperlink{group__lee_ga3a9ecae08d8a56e37cc9ef723eca6907}{Collect\-M\-C\-Particles} (const art\-::\-Event \&evt, const std\-::string \&label, lar\-\_\-pandora\-::\-M\-C\-Particle\-Vector \&particle\-Vector)
+\begin{DoxyCompactList}\small\item\em Collect a vector of M\-C\-Particle objects from the A\-R\-T event record. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga2c7126fa2d3a506830f25ccad4fa0b3c}{Collect\-M\-C\-Particles} (const art\-::\-Event \&evt, const std\-::string \&label, lar\-\_\-pandora\-::\-M\-C\-Truth\-To\-M\-C\-Particles \&truth\-To\-Particles, lar\-\_\-pandora\-::\-M\-C\-Particles\-To\-M\-C\-Truth \&particles\-To\-Truth)
+\begin{DoxyCompactList}\small\item\em Collect truth information from the A\-R\-T event record. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,6 +48,9 @@ void \hyperlink{group__lee_gaedec8759b64e578d4d27e4dd57bc2111}{Get\-Reco\-To\-Tr
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{group__lee_ga2adc9100d7afd42201e3b158c537231c}{bool {\bfseries \-\_\-configured} = false}\label{group__lee_ga2adc9100d7afd42201e3b158c537231c}
+
+\item 
+\hypertarget{group__lee_ga406cf8f7ace556f0b1dcfb9e4722efb8}{bool {\bfseries m\-\_\-is\-Overlaid\-Sample} = false}\label{group__lee_ga406cf8f7ace556f0b1dcfb9e4722efb8}
 
 \item 
 \hypertarget{group__lee_gab8e095d1281cac84da211ba143991440}{bool {\bfseries \-\_\-debug} = false}\label{group__lee_gab8e095d1281cac84da211ba143991440}

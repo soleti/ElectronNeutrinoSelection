@@ -143,6 +143,9 @@ T\-Vector3 \hyperlink{group__lee_ga1a7546e5a4c1693a9366126ac6c63ba9}{lee\-::\-Ge
 \begin{DoxyCompactList}\small\item\em Return the average position of a set of space points. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga403b726646563c7fa8bce4c316226e15}{lee\-::\-Geometry\-Helper\-::build\-Rectangle} (double length, double width, std\-::vector$<$ double $>$ \&start, std\-::vector$<$ double $>$ \&axis, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&points)
 \begin{DoxyCompactList}\small\item\em Builds a rectangle. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga8d66370ea594fcdbe6aec9fae1fbf6ef}{void {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)}\label{group__lee_ga8d66370ea594fcdbe6aec9fae1fbf6ef}
+
+\item 
 void \hyperlink{group__lee_ga5f3e6eecea4f75ea9eea31e520b4f0bc}{lee\-::\-Pandora\-Interface\-Helper\-::traverse\-P\-F\-Particle\-Tree} (const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticles, size\-\_\-t top\-\_\-index, std\-::vector$<$ size\-\_\-t $>$ \&unordered\-\_\-daugthers, std\-::string \-\_\-pfp\-\_\-producer)
 \begin{DoxyCompactList}\small\item\em Travers the tree of the daughters of a P\-F\-Particle. \end{DoxyCompactList}\item 
 std\-::vector$<$ double $>$ \hyperlink{group__lee_ga367b3ad86924343d3ab54fa8c84091af}{lee\-::\-Pandora\-Interface\-Helper\-::calculate\-Charge\-Center} (size\-\_\-t ipf, const art\-::\-Valid\-Handle$<$ std\-::vector$<$ recob\-::\-P\-F\-Particle $>$$>$ pfparticles, const art\-::\-Event \&evt, std\-::string \-\_\-pfp\-\_\-producer)
@@ -161,6 +164,10 @@ void \hyperlink{group__lee_gaedec8759b64e578d4d27e4dd57bc2111}{lee\-::\-Pandora\
 \hypertarget{group__lee_gaab1841058478f2ef51067eeb588d1711}{art\-::\-Ptr$<$ simb\-::\-M\-C\-Truth $>$ {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::\-Track\-I\-D\-To\-M\-C\-Truth} (art\-::\-Event const \&e, std\-::string \-\_\-geant\-\_\-producer, int geant\-\_\-track\-\_\-id)}\label{group__lee_gaab1841058478f2ef51067eeb588d1711}
 
 \item 
+void \hyperlink{group__lee_ga3a9ecae08d8a56e37cc9ef723eca6907}{lee\-::\-Pandora\-Interface\-Helper\-::\-Collect\-M\-C\-Particles} (const art\-::\-Event \&evt, const std\-::string \&label, lar\-\_\-pandora\-::\-M\-C\-Particle\-Vector \&particle\-Vector)
+\begin{DoxyCompactList}\small\item\em Collect a vector of M\-C\-Particle objects from the A\-R\-T event record. \end{DoxyCompactList}\item 
+void \hyperlink{group__lee_ga2c7126fa2d3a506830f25ccad4fa0b3c}{lee\-::\-Pandora\-Interface\-Helper\-::\-Collect\-M\-C\-Particles} (const art\-::\-Event \&evt, const std\-::string \&label, lar\-\_\-pandora\-::\-M\-C\-Truth\-To\-M\-C\-Particles \&truth\-To\-Particles, lar\-\_\-pandora\-::\-M\-C\-Particles\-To\-M\-C\-Truth \&particles\-To\-Truth)
+\begin{DoxyCompactList}\small\item\em Collect truth information from the A\-R\-T event record. \end{DoxyCompactList}\item 
 \hypertarget{group__lee_ga3783391baff0585de9261a559a8d28ef}{{\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-Pandora\-L\-E\-E\-Analyzer} (fhicl\-::\-Parameter\-Set const \&pset)}\label{group__lee_ga3783391baff0585de9261a559a8d28ef}
 
 \item 
@@ -399,6 +406,9 @@ lariov\-::\-T\-P\-C\-Energy\-Calib\-Provider \& {\bfseries lee\-::\-Energy\-Help
 
 \begin{DoxyCompactList}\small\item\em A map from P\-F\-Particles to recon hits. \end{DoxyCompactList}\item 
 \hypertarget{group__lee_ga2adc9100d7afd42201e3b158c537231c}{bool {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::\-\_\-configured} = false}\label{group__lee_ga2adc9100d7afd42201e3b158c537231c}
+
+\item 
+\hypertarget{group__lee_ga406cf8f7ace556f0b1dcfb9e4722efb8}{bool {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::m\-\_\-is\-Overlaid\-Sample} = false}\label{group__lee_ga406cf8f7ace556f0b1dcfb9e4722efb8}
 
 \item 
 \hypertarget{group__lee_gab8e095d1281cac84da211ba143991440}{bool {\bfseries lee\-::\-Pandora\-Interface\-Helper\-::\-\_\-debug} = false}\label{group__lee_gab8e095d1281cac84da211ba143991440}
@@ -1139,6 +1149,53 @@ Creates a photon cluster for a neutrino pfp hierarchy P\-F\-Particle.
 \begin{DoxyReturn}{Returns}
 flashana\-::\-Q\-Cluster\-\_\-t object containing the photons 
 \end{DoxyReturn}
+\hypertarget{group__lee_ga3a9ecae08d8a56e37cc9ef723eca6907}{\index{Lee@{Lee}!Collect\-M\-C\-Particles@{Collect\-M\-C\-Particles}}
+\index{Collect\-M\-C\-Particles@{Collect\-M\-C\-Particles}!Lee@{Lee}}
+\subsubsection[{Collect\-M\-C\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-Interface\-Helper\-::\-Collect\-M\-C\-Particles (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Event \&}]{evt, }
+\item[{const std\-::string \&}]{label, }
+\item[{lar\-\_\-pandora\-::\-M\-C\-Particle\-Vector \&}]{particle\-Vector}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga3a9ecae08d8a56e37cc9ef723eca6907}
+
+
+Collect a vector of M\-C\-Particle objects from the A\-R\-T event record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & the A\-R\-T event record \\
+\hline
+{\em label} & the label for the truth information in the event \\
+\hline
+{\em particle\-Vector} & the output vector of M\-C\-Particle objects \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__lee_ga2c7126fa2d3a506830f25ccad4fa0b3c}{\index{Lee@{Lee}!Collect\-M\-C\-Particles@{Collect\-M\-C\-Particles}}
+\index{Collect\-M\-C\-Particles@{Collect\-M\-C\-Particles}!Lee@{Lee}}
+\subsubsection[{Collect\-M\-C\-Particles}]{\setlength{\rightskip}{0pt plus 5cm}void Pandora\-Interface\-Helper\-::\-Collect\-M\-C\-Particles (
+\begin{DoxyParamCaption}
+\item[{const art\-::\-Event \&}]{evt, }
+\item[{const std\-::string \&}]{label, }
+\item[{lar\-\_\-pandora\-::\-M\-C\-Truth\-To\-M\-C\-Particles \&}]{truth\-To\-Particles, }
+\item[{lar\-\_\-pandora\-::\-M\-C\-Particles\-To\-M\-C\-Truth \&}]{particles\-To\-Truth}
+\end{DoxyParamCaption}
+)}}\label{group__lee_ga2c7126fa2d3a506830f25ccad4fa0b3c}
+
+
+Collect truth information from the A\-R\-T event record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em evt} & the A\-R\-T event record \\
+\hline
+{\em label} & the label for the truth information in the event \\
+\hline
+{\em truth\-To\-Particles} & output map from M\-C\-Truth to M\-C\-Particle objects \\
+\hline
+{\em particles\-To\-Truth} & output map from M\-C\-Particle to M\-C\-Truth objects \\
+\hline
+\end{DoxyParams}
 \hypertarget{group__lee_ga2844c7f27f79fbe5e16d9c674ca4afa1}{\index{Lee@{Lee}!d\-Edx\-\_\-from\-\_\-d\-Qdx@{d\-Edx\-\_\-from\-\_\-d\-Qdx}}
 \index{d\-Edx\-\_\-from\-\_\-d\-Qdx@{d\-Edx\-\_\-from\-\_\-d\-Qdx}!Lee@{Lee}}
 \subsubsection[{d\-Edx\-\_\-from\-\_\-d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::d\-Edx\-\_\-from\-\_\-d\-Qdx (

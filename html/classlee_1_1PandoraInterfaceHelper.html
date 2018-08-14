@@ -106,6 +106,9 @@ Inheritance diagram for lee::PandoraInterfaceHelper:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ga8d66370ea594fcdbe6aec9fae1fbf6ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8d66370ea594fcdbe6aec9fae1fbf6ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhicl::ParameterSet const &amp;pset)</td></tr>
+<tr class="separator:ga8d66370ea594fcdbe6aec9fae1fbf6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5f3e6eecea4f75ea9eea31e520b4f0bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga5f3e6eecea4f75ea9eea31e520b4f0bc">traversePFParticleTree</a> (const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticles, size_t top_index, std::vector&lt; size_t &gt; &amp;unordered_daugthers, std::string _pfp_producer)</td></tr>
 <tr class="memdesc:ga5f3e6eecea4f75ea9eea31e520b4f0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Travers the tree of the daughters of a PFParticle.  <a href="group__lee.html#ga5f3e6eecea4f75ea9eea31e520b4f0bc">More...</a><br/></td></tr>
 <tr class="separator:ga5f3e6eecea4f75ea9eea31e520b4f0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +130,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Configure</b> (art::E
 <tr class="memitem:gaab1841058478f2ef51067eeb588d1711"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaab1841058478f2ef51067eeb588d1711"></a>
 art::Ptr&lt; simb::MCTruth &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>TrackIDToMCTruth</b> (art::Event const &amp;e, std::string _geant_producer, int geant_track_id)</td></tr>
 <tr class="separator:gaab1841058478f2ef51067eeb588d1711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a9ecae08d8a56e37cc9ef723eca6907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga3a9ecae08d8a56e37cc9ef723eca6907">CollectMCParticles</a> (const art::Event &amp;evt, const std::string &amp;label, lar_pandora::MCParticleVector &amp;particleVector)</td></tr>
+<tr class="memdesc:ga3a9ecae08d8a56e37cc9ef723eca6907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect a vector of MCParticle objects from the ART event record.  <a href="group__lee.html#ga3a9ecae08d8a56e37cc9ef723eca6907">More...</a><br/></td></tr>
+<tr class="separator:ga3a9ecae08d8a56e37cc9ef723eca6907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c7126fa2d3a506830f25ccad4fa0b3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2c7126fa2d3a506830f25ccad4fa0b3c">CollectMCParticles</a> (const art::Event &amp;evt, const std::string &amp;label, lar_pandora::MCTruthToMCParticles &amp;truthToParticles, lar_pandora::MCParticlesToMCTruth &amp;particlesToTruth)</td></tr>
+<tr class="memdesc:ga2c7126fa2d3a506830f25ccad4fa0b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect truth information from the ART event record.  <a href="group__lee.html#ga2c7126fa2d3a506830f25ccad4fa0b3c">More...</a><br/></td></tr>
+<tr class="separator:ga2c7126fa2d3a506830f25ccad4fa0b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classlee_1_1HelperBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlee_1_1HelperBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classlee_1_1HelperBase.html">lee::HelperBase</a></td></tr>
 <tr class="memitem:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlee_1_1HelperBase.html#ad80955b099f76d5e298e6f5e37cd17aa">setDebug</a> (bool b)</td></tr>
 <tr class="memdesc:ad80955b099f76d5e298e6f5e37cd17aa inherit pub_methods_classlee_1_1HelperBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug parameter.  <a href="#ad80955b099f76d5e298e6f5e37cd17aa">More...</a><br/></td></tr>
@@ -148,6 +157,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ga2adc9100d7afd42201e3b158c537231c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2adc9100d7afd42201e3b158c537231c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_configured</b> = false</td></tr>
 <tr class="separator:ga2adc9100d7afd42201e3b158c537231c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga406cf8f7ace556f0b1dcfb9e4722efb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga406cf8f7ace556f0b1dcfb9e4722efb8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isOverlaidSample</b> = false</td></tr>
+<tr class="separator:ga406cf8f7ace556f0b1dcfb9e4722efb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8e095d1281cac84da211ba143991440"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab8e095d1281cac84da211ba143991440"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_debug</b> = false</td></tr>
 <tr class="separator:gab8e095d1281cac84da211ba143991440"><td class="memSeparator" colspan="2">&#160;</td></tr>

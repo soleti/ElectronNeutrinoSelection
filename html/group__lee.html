@@ -267,6 +267,9 @@ const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <tr class="memitem:ga403b726646563c7fa8bce4c316226e15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga403b726646563c7fa8bce4c316226e15">lee::GeometryHelper::buildRectangle</a> (double length, double width, std::vector&lt; double &gt; &amp;start, std::vector&lt; double &gt; &amp;axis, std::vector&lt; std::vector&lt; double &gt;&gt; &amp;points)</td></tr>
 <tr class="memdesc:ga403b726646563c7fa8bce4c316226e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rectangle.  <a href="#ga403b726646563c7fa8bce4c316226e15">More...</a><br/></td></tr>
 <tr class="separator:ga403b726646563c7fa8bce4c316226e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d66370ea594fcdbe6aec9fae1fbf6ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8d66370ea594fcdbe6aec9fae1fbf6ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraInterfaceHelper::reconfigure</b> (fhicl::ParameterSet const &amp;pset)</td></tr>
+<tr class="separator:ga8d66370ea594fcdbe6aec9fae1fbf6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5f3e6eecea4f75ea9eea31e520b4f0bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga5f3e6eecea4f75ea9eea31e520b4f0bc">lee::PandoraInterfaceHelper::traversePFParticleTree</a> (const art::ValidHandle&lt; std::vector&lt; recob::PFParticle &gt;&gt; pfparticles, size_t top_index, std::vector&lt; size_t &gt; &amp;unordered_daugthers, std::string _pfp_producer)</td></tr>
 <tr class="memdesc:ga5f3e6eecea4f75ea9eea31e520b4f0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Travers the tree of the daughters of a PFParticle.  <a href="#ga5f3e6eecea4f75ea9eea31e520b4f0bc">More...</a><br/></td></tr>
 <tr class="separator:ga5f3e6eecea4f75ea9eea31e520b4f0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -288,6 +291,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraInterface
 <tr class="memitem:gaab1841058478f2ef51067eeb588d1711"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaab1841058478f2ef51067eeb588d1711"></a>
 art::Ptr&lt; simb::MCTruth &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraInterfaceHelper::TrackIDToMCTruth</b> (art::Event const &amp;e, std::string _geant_producer, int geant_track_id)</td></tr>
 <tr class="separator:gaab1841058478f2ef51067eeb588d1711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a9ecae08d8a56e37cc9ef723eca6907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga3a9ecae08d8a56e37cc9ef723eca6907">lee::PandoraInterfaceHelper::CollectMCParticles</a> (const art::Event &amp;evt, const std::string &amp;label, lar_pandora::MCParticleVector &amp;particleVector)</td></tr>
+<tr class="memdesc:ga3a9ecae08d8a56e37cc9ef723eca6907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect a vector of MCParticle objects from the ART event record.  <a href="#ga3a9ecae08d8a56e37cc9ef723eca6907">More...</a><br/></td></tr>
+<tr class="separator:ga3a9ecae08d8a56e37cc9ef723eca6907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c7126fa2d3a506830f25ccad4fa0b3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga2c7126fa2d3a506830f25ccad4fa0b3c">lee::PandoraInterfaceHelper::CollectMCParticles</a> (const art::Event &amp;evt, const std::string &amp;label, lar_pandora::MCTruthToMCParticles &amp;truthToParticles, lar_pandora::MCParticlesToMCTruth &amp;particlesToTruth)</td></tr>
+<tr class="memdesc:ga2c7126fa2d3a506830f25ccad4fa0b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect truth information from the ART event record.  <a href="#ga2c7126fa2d3a506830f25ccad4fa0b3c">More...</a><br/></td></tr>
+<tr class="separator:ga2c7126fa2d3a506830f25ccad4fa0b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3783391baff0585de9261a559a8d28ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3783391baff0585de9261a559a8d28ef"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer</b> (fhicl::ParameterSet const &amp;pset)</td></tr>
 <tr class="separator:ga3783391baff0585de9261a559a8d28ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -539,6 +548,9 @@ lar_pandora::PFParticlesToHits&#160;</td><td class="memItemRight" valign="bottom
 <tr class="memitem:ga2adc9100d7afd42201e3b158c537231c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2adc9100d7afd42201e3b158c537231c"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraInterfaceHelper::_configured</b> = false</td></tr>
 <tr class="separator:ga2adc9100d7afd42201e3b158c537231c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga406cf8f7ace556f0b1dcfb9e4722efb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga406cf8f7ace556f0b1dcfb9e4722efb8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraInterfaceHelper::m_isOverlaidSample</b> = false</td></tr>
+<tr class="separator:ga406cf8f7ace556f0b1dcfb9e4722efb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab8e095d1281cac84da211ba143991440"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab8e095d1281cac84da211ba143991440"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>lee::PandoraInterfaceHelper::_debug</b> = false</td></tr>
 <tr class="separator:gab8e095d1281cac84da211ba143991440"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1434,6 +1446,97 @@ std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight"
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>flashana::QCluster_t object containing the photons </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3a9ecae08d8a56e37cc9ef723eca6907"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PandoraInterfaceHelper::CollectMCParticles </td>
+          <td>(</td>
+          <td class="paramtype">const art::Event &amp;&#160;</td>
+          <td class="paramname"><em>evt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lar_pandora::MCParticleVector &amp;&#160;</td>
+          <td class="paramname"><em>particleVector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Collect a vector of MCParticle objects from the ART event record. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evt</td><td>the ART event record </td></tr>
+    <tr><td class="paramname">label</td><td>the label for the truth information in the event </td></tr>
+    <tr><td class="paramname">particleVector</td><td>the output vector of MCParticle objects </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2c7126fa2d3a506830f25ccad4fa0b3c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PandoraInterfaceHelper::CollectMCParticles </td>
+          <td>(</td>
+          <td class="paramtype">const art::Event &amp;&#160;</td>
+          <td class="paramname"><em>evt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>label</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lar_pandora::MCTruthToMCParticles &amp;&#160;</td>
+          <td class="paramname"><em>truthToParticles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lar_pandora::MCParticlesToMCTruth &amp;&#160;</td>
+          <td class="paramname"><em>particlesToTruth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Collect truth information from the ART event record. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evt</td><td>the ART event record </td></tr>
+    <tr><td class="paramname">label</td><td>the label for the truth information in the event </td></tr>
+    <tr><td class="paramname">truthToParticles</td><td>output map from MCTruth to MCParticle objects </td></tr>
+    <tr><td class="paramname">particlesToTruth</td><td>output map from MCParticle to MCTruth objects </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
