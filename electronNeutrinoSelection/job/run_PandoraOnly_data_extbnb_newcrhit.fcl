@@ -25,7 +25,10 @@ energy_helper:
   RecombinationAlpha: 0.921969
 }
 
-
+pandora_helper:
+{
+  isOverlaidSample:            false
+}
 lee_pandora_analyzer:
 {
     module_type:                "PandoraLEEAnalyzer"
@@ -36,6 +39,7 @@ lee_pandora_analyzer:
     HitFinderLabel:             "pandoraCosmicHitRemoval"
     PFParticleLabel:            "pandoraNu"
     SpacePointLabel:            "pandoraNu"
+    PandoraInterfaceHelper:     @local::pandora_helper
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     UseParticleID:              true

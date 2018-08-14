@@ -58,27 +58,29 @@ class PandoraInterfaceHelper : public HelperBase
     PandoraInterfaceHelper();
     ~PandoraInterfaceHelper() {}
 
+    void reconfigure(fhicl::ParameterSet const &pset);
+
     /**
-  * @brief Travers the tree of the daughters of a PFParticle
-  *
-  * @param pfparticles PFParticles handle
-  * @param top_index Index of the parent
-  * @param unordered_daugthers Vector of PFParticles daughters
-  */
+    * @brief Travers the tree of the daughters of a PFParticle
+    *
+    * @param pfparticles PFParticles handle
+    * @param top_index Index of the parent
+    * @param unordered_daugthers Vector of PFParticles daughters
+    */
     void traversePFParticleTree(
         const art::ValidHandle<std::vector<recob::PFParticle>> pfparticles,
         size_t top_index, std::vector<size_t> &unordered_daugthers,
         std::string _pfp_producer);
 
     /**
-   * @brief Measures the three-dimensional center of the deposited charge for a
-   * PFParticle
-   *
-   * @param ipf Index of the PFParticle
-   * @param pfparticles PFParticles handle
-   * @param evt art Event
-   * @return vector with: lowest x_sps, center in y, z, and total deposited charge on the collection plane.
-   */
+     * @brief Measures the three-dimensional center of the deposited charge for a
+     * PFParticle
+     *
+     * @param ipf Index of the PFParticle
+     * @param pfparticles PFParticles handle
+     * @param evt art Event
+     * @return vector with: lowest x_sps, center in y, z, and total deposited charge on the collection plane.
+     */
     std::vector<double> calculateChargeCenter(
         size_t ipf,
         const art::ValidHandle<std::vector<recob::PFParticle>> pfparticles,
@@ -86,8 +88,8 @@ class PandoraInterfaceHelper : public HelperBase
         std::string _pfp_producer);
 
     void get_daughter_tracks(std::vector<size_t> pf_ids, const art::Event &evt,
-                             std::vector<art::Ptr<recob::Track>> &tracks,
-                             std::string _pfp_producer);
+                              std::vector<art::Ptr<recob::Track>> &tracks,
+                              std::string _pfp_producer);
 
     void get_daughter_showers(std::vector<size_t> pf_ids, const art::Event &evt,
                               std::vector<art::Ptr<recob::Shower>> &showers,
@@ -112,20 +114,43 @@ class PandoraInterfaceHelper : public HelperBase
     void GetRecoToTrueMatches(lar_pandora::PFParticlesToMCParticles &matchedParticles);
 
     void Configure(art::Event const &e,
-                   std::string _pfp_producer,
-                   std::string _spacepoint_producer,
-                   std::string _hitfinder_producer,
-                   std::string _geant_producer,
-                   std::string _hit_mcp_producer);
+                    std::string _pfp_producer,
+                    std::string _spacepoint_producer,
+                    std::string _hitfinder_producer,
+                    std::string _geant_producer,
+                    std::string _hit_mcp_producer);
 
     art::Ptr<simb::MCTruth> TrackIDToMCTruth(art::Event const &e, std::string _geant_producer, int geant_track_id);
+
+    /**
+     *  @brief Collect a vector of MCParticle objects from the ART event record
+     *
+     *  @param evt the ART event record
+     *  @param label the label for the truth information in the event
+     *  @param particleVector the output vector of MCParticle objects
+     */
+    void CollectMCParticles(const art::Event &evt,
+                            const std::string &label,
+                            lar_pandora::MCParticleVector &particleVector);
+    /**
+     *  @brief Collect truth information from the ART event record
+     *
+     *  @param evt the ART event record
+     *  @param label the label for the truth information in the event
+     *  @param truthToParticles output map from MCTruth to MCParticle objects
+     *  @param particlesToTruth output map from MCParticle to MCTruth objects
+     */
+    void CollectMCParticles(const art::Event &evt,
+                            const std::string &label,
+                            lar_pandora::MCTruthToMCParticles &truthToParticles,
+                            lar_pandora::MCParticlesToMCTruth &particlesToTruth);
 
   protected:
     lar_pandora::HitsToMCParticles _hit_to_mcps_map; ///< A map from recon hits to MCParticles
     lar_pandora::PFParticlesToHits _pfp_to_hits_map; ///< A map from PFParticles to recon hits
   private:
     bool _configured = false;
-
+    bool m_isOverlaidSample = false;
     bool _debug = false;
     bool _verbose = false;
 };

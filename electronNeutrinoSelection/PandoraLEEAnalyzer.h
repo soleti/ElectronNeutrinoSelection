@@ -71,6 +71,7 @@
 #include "art/Framework/Services/Optional/TFileService.h"
 
 #include "ElectronEventSelectionAlg.h"
+#include "PandoraInterfaceHelper.h"
 
 #include "EnergyHelper.h"
 #include "GeometryHelper.h"

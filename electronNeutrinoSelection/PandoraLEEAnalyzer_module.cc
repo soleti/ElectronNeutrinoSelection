@@ -545,7 +545,7 @@ void lee::PandoraLEEAnalyzer::categorizePFParticles(
   pandoraHelper.Configure(evt, m_pfp_producer, m_spacepointLabel,
                           m_hitfinderLabel, _geantModuleLabel, m_hitmatching_producer);
   pandoraHelper.GetRecoToTrueMatches(matchedParticles);
-
+  std::cout << "Matched particle size " << matchedParticles.size() << std::endl;
   // art::ServiceHandle<cheat::BackTracker> bt;
 
   for (lar_pandora::PFParticlesToMCParticles::const_iterator
@@ -556,7 +556,7 @@ void lee::PandoraLEEAnalyzer::categorizePFParticles(
 
     art::Ptr<simb::MCParticle> mc_par = iter->second; // The MCParticle
     art::Ptr<recob::PFParticle> pf_par = iter->first; // The matched PFParticle
-
+    std::cout << "[PDG CODE] " << mc_par->PdgCode() << std::endl;
     const auto mc_truth =
         pandoraHelper.TrackIDToMCTruth(evt, _geantModuleLabel, mc_par->TrackId());
 
@@ -925,7 +925,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
   if ((!evt.isRealData() || m_isOverlaidSample) && !m_isCosmicInTime)
   {
-
+    std::cout << "Before categorize " << std::endl;
     categorizePFParticles(evt,
                           neutrino_pdg, neutrino_process, neutrino_energy, neutrino_pf,
                           cosmic_pdg, cosmic_process, cosmic_energy, cosmic_pf);
@@ -995,7 +995,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         std::vector<art::Ptr<recob::Cluster>> clusters = clusters_per_pfpart.at(pf_id);
         std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
         auto const &track_obj = track_per_pfpart.at(pf_id);
-
         recob::PFParticle const &pfparticle = pfparticle_handle->at(pf_id);
         _nu_track_daughters.push_back(pfparticle.Daughters());
 
@@ -1013,7 +1012,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         _track_dQdx.push_back(dqdx);
 
         std::vector<double> track_cali;
-
         energyHelper.get_cali(&spcpnts, &hits_per_spcpnts, track_cali);
 
         _track_energy_cali.push_back(track_cali);
@@ -1021,7 +1019,9 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
         double mean = std::numeric_limits<double>::lowest();
         double stdev = std::numeric_limits<double>::lowest();
+
         energyHelper.cluster_residuals(&clusters, &hits_per_cluster, mean, stdev);
+
         _track_res_mean.push_back(mean);
         _track_res_std.push_back(stdev);
 
@@ -1264,6 +1264,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
               _nu_matched_showers++;
               nu_hits += _shower_nhits[ish][2] + _shower_nhits[ish][1] + _shower_nhits[ish][0];
               _matched_showers[ish] = neutrino_pdg[ipf];
+              std::cout << "Matched shower " << neutrino_pdg[ipf] << std::endl;
               _matched_showers_process[ish] = neutrino_process[ipf];
               _matched_showers_energy[ish] = neutrino_energy[ipf];
             }
@@ -1279,12 +1280,14 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
               shower_cr_found = true;
               cr_hits += _shower_nhits[ish][2] + _shower_nhits[ish][1] + _shower_nhits[ish][0];
               _matched_showers[ish] = cosmic_pdg[ipf];
+              std::cout << "Matched shower " << cosmic_pdg[ipf] << std::endl;
               _matched_showers_process[ish] = cosmic_process[ipf];
               _matched_showers_energy[ish] = cosmic_energy[ipf];
             }
           }
         }
       }
+
 
       _shower_passed.push_back(pass_shower);
 
@@ -1307,6 +1310,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                 _nu_matched_tracks++;
                 nu_hits += _track_nhits[itr][2] + _track_nhits[itr][1] + _track_nhits[itr][0];
                 _matched_tracks[itr] = neutrino_pdg[ipf];
+                std::cout << "Matched track " << neutrino_pdg[ipf] << std::endl;
                 _matched_tracks_process[itr] = neutrino_process[ipf];
                 _matched_tracks_energy[itr] = neutrino_energy[ipf];
               }
@@ -1322,6 +1326,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                 track_cr_found = true;
                 cr_hits += _track_nhits[itr][2] + _track_nhits[itr][1] + _track_nhits[itr][0];
                 _matched_tracks[itr] = cosmic_pdg[ipf];
+                std::cout << "Matched track " << cosmic_pdg[ipf] << std::endl;
                 _matched_tracks_process[itr] = cosmic_process[ipf];
                 _matched_tracks_energy[itr] = cosmic_energy[ipf];
               }
@@ -1329,9 +1334,12 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
           }
         }
 
+
         _track_passed.push_back(pass_track);
       }
     }
+    std::cout << "Matched tracks " << fElectronEventSelectionAlg.get_n_tracks().at(ipf_candidate) << " " << _matched_tracks.size() << std::endl;
+    std::cout << "Matched showers " << fElectronEventSelectionAlg.get_n_showers().at(ipf_candidate) << " " << _matched_showers.size() << std::endl;
 
     _n_primaries = _primary_indexes.size();
     _cosmic_fraction = cr_hits / (cr_hits + nu_hits);
@@ -1340,8 +1348,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         !track_cr_found && _nu_matched_tracks == 0 && !shower_cr_found && _nu_matched_showers == 0 && _category != k_dirt && _category != k_data)
     {
       _category = k_other;
-      std::cout << "[PandoraLEE] "
-                << "***NOT NEUTRINO NOR COSMIC***" << std::endl;
     }
 
     if ((track_cr_found || shower_cr_found) &&
@@ -1351,6 +1357,11 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     }
 
     if ((track_cr_found || shower_cr_found) && _category != k_mixed)
+    {
+      _category = k_cosmic;
+    }
+
+    if (_category == k_other && m_isOverlaidSample)
     {
       _category = k_cosmic;
     }
@@ -1429,6 +1440,7 @@ void lee::PandoraLEEAnalyzer::reconfigure(fhicl::ParameterSet const &pset)
   //  m_particleLabel = pset.get<std::string>("PFParticleModule","pandoraNu");
   fElectronEventSelectionAlg.reconfigure(pset.get<fhicl::ParameterSet>("ElectronSelectionAlg"));
   energyHelper.reconfigure(pset.get<fhicl::ParameterSet>("EnergyHelper"));
+  pandoraHelper.reconfigure(pset.get<fhicl::ParameterSet>("PandoraInterfaceHelper"));
 
   m_fidvolXstart = pset.get<double>("fidvolXstart", 0);
   m_fidvolXend = pset.get<double>("fidvolXend", 0);

@@ -65,8 +65,8 @@ physics: {
      # ParameterSets for zero or more producer modules
      @table::ubxsec_mc_reco
      @table::ubxsec_mc_flashmatch
-     dedxcalibration: @local::simulation_calibration
-     pid: @local::particleidconfig
+     dedxcalibration:                @local::simulation_calibration
+     pid:                            @local::particleidconfig
      genieeventweightmultisim:       @local::genie_microboone_eventweight
      fluxeventweightmultisim:        @local::microboone_eventweight
 
