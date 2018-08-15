@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE project [
+<!ENTITY name "data">
+<!ENTITY project_version "v0">
+<!ENTITY release "v06_26_01_17">
+<!ENTITY qualifier "e10:prof">
+<!ENTITY user "foppiani">
+<!ENTITY dataset "prod_numi_ext_data_run1_reco2_mcc8_v1_goodruns">
+<!ENTITY tarball_location "/pnfs/uboone/resilient/users">
+<!-- <!ENTITY fcl_dir_first "/uboone/app/users"> -->
+<!-- <!ENTITY fcl_dir_second "Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/"> -->
+<!-- <!ENTITY fcl_name "run_PandoraOnly_dataext_numi.fcl"> -->
+<!ENTITY main_dir "/uboone/data/users">
+<!ENTITY folder_name "numi_analysis">
+]>
+
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>uboone</group>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!--  Project size  -->
+  <numevents>1000000</numevents>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>&qualifier;</qual>
+    <local>&tarball_location;/&user;/&folder_name;/&project_version;/numi.tar</local>
+    <!-- <fcldir>&fcl_dir_first;/&user;/&fcl_dir_second;</fcldir> -->
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="&name;">
+    <fcl>run_PandoraOnly_&name;_numi.fcl</fcl>
+    <inputdef>&dataset;</inputdef>
+
+    <outdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/out/</outdir>
+    <logdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/log/</logdir>
+    <workdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
+    <bookdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
+
+    <numjobs>500</numjobs>
+    <disk>2GB</disk>
+    <memory>3096</memory>
+    <maxfilesperjob>20</maxfilesperjob>
+    <schema>root</schema>
+    <jobsub>  --expected-lifetime=12h -q --generate-email-summary </jobsub>
+  </stage>
+
+</project>

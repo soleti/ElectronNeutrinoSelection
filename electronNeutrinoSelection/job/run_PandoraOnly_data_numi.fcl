@@ -78,7 +78,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid ]
+  prod: [ @sequence::ubxsec_data_producers, dedxcalibration, pid ]
   ana : [ robertoana, @sequence::ubxsec_data_analyzers ]
   stream: [ out1 ]
 
