@@ -128,6 +128,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("track_passed", "std::vector< int >", &_track_passed);
   myTTree->Branch("shower_passed", "std::vector< int >", &_shower_passed);
 
+  myTTree->Branch("shower_distance", "std::vector< double >", &_shower_distance);
   myTTree->Branch("shower_dir_x", "std::vector< double >", &_shower_dir_x);
   myTTree->Branch("shower_dir_y", "std::vector< double >", &_shower_dir_y);
   myTTree->Branch("shower_dir_z", "std::vector< double >", &_shower_dir_z);
@@ -138,11 +139,13 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
 
   myTTree->Branch("shower_theta", "std::vector< double >", &_shower_theta);
   myTTree->Branch("shower_phi", "std::vector< double >", &_shower_phi);
+  myTTree->Branch("shower_n_clusters", "std::vector< double >", &_shower_n_clusters);
 
   myTTree->Branch("shower_energy", "std::vector< std::vector< double > >", &_shower_energy);
   // myTTree->Branch("track_energy_dedx", "std::vector< double >", &_track_energy_dedx);
   myTTree->Branch("track_energy_hits", "std::vector< std::vector< double > >", &_track_energy_hits);
 
+  myTTree->Branch("track_distance", "std::vector< double >", &_track_distance);
   myTTree->Branch("track_dir_x", "std::vector< double >", &_track_dir_x);
   myTTree->Branch("track_dir_y", "std::vector< double >", &_track_dir_y);
   myTTree->Branch("track_dir_z", "std::vector< double >", &_track_dir_z);
@@ -177,6 +180,8 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
 
   myTTree->Branch("track_res_mean", "std::vector< double >", &_track_res_mean);
   myTTree->Branch("track_res_std", "std::vector< double >", &_track_res_std);
+  myTTree->Branch("track_n_clusters", "std::vector< double >", &_track_n_clusters);
+
   myTTree->Branch("shower_res_mean", "std::vector< double >", &_shower_res_mean);
   myTTree->Branch("shower_res_std", "std::vector< double >", &_shower_res_std);
   myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
@@ -408,9 +413,11 @@ void lee::PandoraLEEAnalyzer::clear()
 
   _shower_open_angle.clear();
   _shower_length.clear();
+  _shower_distance.clear();
   _shower_dir_x.clear();
   _shower_dir_y.clear();
   _shower_dir_z.clear();
+  _shower_n_clusters.clear();
 
   _n_total_candidates = std::numeric_limits<int>::lowest();
   _candidate_vx.clear();
@@ -429,9 +436,12 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_is_fiducial.clear();
   _shower_is_fiducial.clear();
 
+  _track_distance.clear();
   _track_start_x.clear();
   _track_start_y.clear();
   _track_start_z.clear();
+
+  _track_n_clusters.clear();
 
   _true_shower_x_sce.clear();
   _true_shower_y_sce.clear();
@@ -460,6 +470,8 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_length.clear();
   _track_id.clear();
 
+  _n_true_pions = 0;
+  _n_true_protons = 0;
   _nu_pdg = 0;
 
   _flash_passed.clear();
@@ -480,6 +492,8 @@ void lee::PandoraLEEAnalyzer::clear()
 
   _true_nu_is_fiducial = std::numeric_limits<int>::lowest();
   _nu_energy = std::numeric_limits<double>::lowest();
+  _nu_theta = std::numeric_limits<double>::lowest();
+  _nu_phi = std::numeric_limits<double>::lowest();
 
   _n_tracks = std::numeric_limits<int>::lowest();
   _n_showers = std::numeric_limits<int>::lowest();
@@ -774,6 +788,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         there_is_a_neutrino = true;
         _nu_pdg = gen.GetNeutrino().Nu().PdgCode();
         _nu_energy = gen.GetNeutrino().Nu().E();
+        _nu_theta = gen.GetNeutrino().Nu().Theta();
+        _nu_phi = gen.GetNeutrino().Nu().Phi();
 
         if (abs(_nu_pdg) == 12) {
             int n_bin = _h_lee_scaling->FindBin(_nu_energy*1000);
@@ -842,6 +858,14 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         _nu_daughters_E.push_back(mcparticle.E());
         _nu_daughters_pdg.push_back(mcparticle.PdgCode());
 
+        if (abs(mcparticle.PdgCode()) == 211)
+        {
+          _n_true_pions += 1;
+        }
+        else if (abs(mcparticle.PdgCode()) == 2212)
+        {
+          _n_true_protons += 1;
+        }
         _nu_daughters_px.push_back(mcparticle.Px());
         _nu_daughters_py.push_back(mcparticle.Py());
         _nu_daughters_pz.push_back(mcparticle.Pz());
@@ -913,6 +937,10 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
             << "True neutrino PDG " << _nu_pdg << std::endl;
     std::cout << "[PandoraLEEAnalyzer] "
               << "Nu energy " << _nu_energy << std::endl;
+    std::cout << "[PandoraLEEAnalyzer] "
+              << "Nu theta " << _nu_theta << std::endl;
+    std::cout << "[PandoraLEEAnalyzer] "
+              << "Nu phi " << _nu_phi << std::endl;
   }
   else
   {
@@ -996,6 +1024,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     _vx = reco_neutrino_vertex[0];
     _vy = reco_neutrino_vertex[1];
     _vz = reco_neutrino_vertex[2];
+    vector<double> reco_vertex = {_vx, _vy, _vz};
 
     if (_category != k_data)
     {
@@ -1045,6 +1074,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         energyHelper.cluster_residuals(&clusters, &hits_per_cluster, mean, stdev);
         _track_res_mean.push_back(mean);
         _track_res_std.push_back(stdev);
+
+        _track_n_clusters.push_back(clusters.size());
 
         if (m_useParticleID) {
           art::Ptr<anab::ParticleID> selected_pid = pid_per_track.at(track_obj->ID())[0];
@@ -1100,6 +1131,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
         _track_length.push_back(track_obj->Length());
         _track_id.push_back(track_obj->ID());
+
+        _track_distance.push_back(geoHelper.distance(start_point, reco_vertex));
         _track_dir_x.push_back(track_obj->StartDirection().X());
         _track_dir_y.push_back(track_obj->StartDirection().Y());
         _track_dir_z.push_back(track_obj->StartDirection().Z());
@@ -1159,7 +1192,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_res_mean.push_back(mean);
       _shower_res_std.push_back(stdev);
 
-      std::vector<double> pitches(3, std::numeric_limits<double>::lowest());
+      std::vector<double> pitches = {0, 0, 0);
+      std::vector<double> dQdx_hits_in_the_box = {-1, -1, -1);
 
       std::vector<double> dqdx(3, std::numeric_limits<double>::lowest());
       std::vector<double> dedx(3, std::numeric_limits<double>::lowest());
@@ -1171,11 +1205,18 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _matched_showers_process.push_back("");
 
       _matched_showers_energy.push_back(std::numeric_limits<double>::lowest());
-      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster, dqdx, dqdx_hits_shower, pitches);
+      energyHelper.dQdx(&(*shower_obj),
+                        &clusters,
+                        &hits_per_cluster,
+                        dqdx,
+                        dqdx_hits_shower,
+                        pitches,
+                        dQdx_hits_in_the_box);
       energyHelper.dQdx_cali(&(*shower_obj), dqdx_cali);
 
       _shower_dQdx_hits.push_back(dqdx_hits_shower[2]);
       _shower_pitches.push_back(pitches);
+      _shower_n_clusters.push_back(clusters.size());
 
       std::vector<std::vector<double>> dedx_hits_shower(3, std::vector<double>());
 
@@ -1195,6 +1236,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_dQdx.push_back(dqdx);
       _shower_dEdx.push_back(dedx);
 
+      _shower_dQdx_hits_in_the_box.push_back(dQdx_hits_in_the_box);
       _shower_dQdx_cali.push_back(dqdx_cali);
 
       _shower_dir_x.push_back(shower_obj->Direction().X());
@@ -1220,6 +1262,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_is_fiducial.push_back((int)(geoHelper.isFiducial(start_point) &&
                                           geoHelper.isFiducial(end_point)));
 
+      _shower_distance.push_back(geoHelper.distance(start_point, reco_vertex));
       _shower_start_x.push_back(shower_obj->ShowerStart().X());
       _shower_start_y.push_back(shower_obj->ShowerStart().Y());
       _shower_start_z.push_back(shower_obj->ShowerStart().Z());
@@ -1374,6 +1417,25 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     if ((track_cr_found || shower_cr_found) && _category != k_mixed)
     {
       _category = k_cosmic;
+    }
+
+    _re_category = _category;
+    if (abs(_nu_pdg) == 12)
+    {
+      if (_n_true_protons>0 && _n_true_pions==0)
+      {
+        if (_category==2) _re_category = 11;
+        else if (_category==7) _re_category = 14;
+      }
+      else
+      {
+        if (_category==2) _re_category = 12;
+        else if (_category==7) _re_category = 15;
+      }
+    }
+    else if (abs(_nu_pdg) == 14)
+    {
+      if (_category==7) _re_category = 16;
     }
 
     std::cout << "[PandoraLEE] "

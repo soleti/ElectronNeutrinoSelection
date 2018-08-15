@@ -232,6 +232,8 @@ private:
   const int k_mixed = 7;
   int _true_nu_is_fiducial;
   double _nu_energy;
+  double _nu_theta;
+  double _nu_phi;
 
   int _n_total_candidates;
   std::vector<double> _candidate_vx;
@@ -266,11 +268,14 @@ private:
   int _nu_pdg;
   int _ccnc;
   int _category;
+  int _re_category;
   int _run;
   int _subrun;
   int _event;
   int _n_candidates;
   int _n_true_nu;
+  int _n_true_protons;
+  int _n_true_pions;
   int _run_sr;
   int _subrun_sr;
   int _n_matched;
@@ -329,6 +334,7 @@ private:
 
   std::vector<double> _shower_open_angle;
   std::vector<double> _shower_length;
+  std::vector<double> _shower_distance;
   std::vector<double> _shower_dir_x;
   std::vector<double> _shower_dir_y;
   std::vector<double> _shower_dir_z;
@@ -337,6 +343,8 @@ private:
   std::vector<double> _shower_start_y;
   std::vector<double> _shower_start_z;
 
+  std::vector<double> _shower_n_clusters;
+
   std::vector<double> _shower_theta;
   std::vector<double> _shower_phi;
 
@@ -344,6 +352,7 @@ private:
   std::vector<std::vector<double>> _shower_energy_cali;
   std::vector<std::vector<double>> _track_energy_cali;
 
+  std::vector<double> _track_distance;
   std::vector<double> _track_dir_x;
   std::vector<double> _track_dir_y;
   std::vector<double> _track_dir_z;
@@ -359,6 +368,8 @@ private:
   std::vector<double> _track_start_x;
   std::vector<double> _track_start_y;
   std::vector<double> _track_start_z;
+
+  std::vector<double> _track_n_clusters;
 
   std::vector<double> _track_end_x;
   std::vector<double> _track_end_y;
