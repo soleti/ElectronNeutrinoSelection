@@ -11,10 +11,9 @@ It looks for neutrino PFParticles with at least one daughter shower and at least
 There are three FCL files, two for data (`run_PandoraOnly_data_bnb.fcl`, `run_PandoraOnly_data_extbnb.fcl`) and one for Monte Carlo (`run_PandoraOnly.fcl`).
 
 ## Requirements
-- `uboonecode v06_26_01_17` (MCC8.7)
-- `ParticleID` package, follow instructions on [DocDB 16299](https://microboone-docdb.fnal.gov/cgi-bin/private/RetrieveFile?docid=16299&filename=particle-users-guide%20%282%29.pdf&version=2). In particular, you need a modified version of `lardataobj` and a local version of `larana`. 
-- Checkout `uboonecode` feature `feature/alister1_EventWeightTreeUtility`
-- Checkout `uboonecode` feature `wvdp_lightcharge_v6_26`
+- `uboonecode v06_26_01_18` (MCC8.7)
+- Checkout `larana` `v06_03_18_13` `feature/srsoleti_overlaySupport`
+- Checkout `uboonecode` `v06_26_01_18` `feature/srsoleti_lee`
 
 # License
 
