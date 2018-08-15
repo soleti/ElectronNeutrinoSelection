@@ -101,7 +101,7 @@ std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_ga00266c70e046a9ee
 \begin{DoxyCompactList}\small\item\em Return the position in x of the center of the collected charge. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga4523185d78d6b7aa94dbf26475750282}{lee\-::\-Energy\-Helper\-::reconfigure} (fhicl\-::\-Parameter\-Set const \&pset)
 \begin{DoxyCompactList}\small\item\em Configure all of the parameters of this class. \end{DoxyCompactList}\item 
-void \hyperlink{group__lee_ga83891d9231c431e99e7615d02d570047}{lee\-::\-Energy\-Helper\-::d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)
+void \hyperlink{group__lee_ga7ccbc2f2f2b594291e89f29c8e4616a7}{lee\-::\-Energy\-Helper\-::d\-Qdx} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$mcps\-\_\-per\-\_\-hit, std\-::vector$<$ double $>$ \&dqdx, std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&dqdx\-\_\-hits, std\-::vector$<$ double $>$ \&pitches)
 \begin{DoxyCompactList}\small\item\em Measure the d\-Qdx of a shower. \end{DoxyCompactList}\item 
 double \hyperlink{group__lee_gab3e573f8d2d733f94b8ca862d7343864}{lee\-::\-Energy\-Helper\-::\-P\-I\-D} (art\-::\-Ptr$<$ anab\-::\-Particle\-I\-D $>$ selected\-\_\-pid, std\-::string Alg\-Name, anab\-::k\-Variable\-Type Variable\-Type, anab\-::k\-Track\-Dir Track\-Direction, int pdg\-Code)
 \begin{DoxyCompactList}\small\item\em Return the value of a specific Particle\-I\-D algorithm for a single track. \end{DoxyCompactList}\item 
@@ -111,7 +111,7 @@ void \hyperlink{group__lee_gac5f41d2b1bee9a0f761179f3059f8a49}{lee\-::\-Energy\-
 \begin{DoxyCompactList}\small\item\em Principal Component Analysis of reconstructed clusters. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_gaf141846d9be1716bcfcf351633bdf8e7}{lee\-::\-Energy\-Helper\-::get\-\_\-cali} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Space\-Point $>$$>$ $\ast$spcpnts, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-spcpnts, std\-::vector$<$ double $>$ \&cali\-\_\-corr)
 \begin{DoxyCompactList}\small\item\em Calibration value for the energy of a reconstructed object. \end{DoxyCompactList}\item 
-void \hyperlink{group__lee_gaabbb21a3db419c9580aec4976c5137a9}{lee\-::\-Energy\-Helper\-::energy\-\_\-from\-\_\-hits} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, std\-::vector$<$ int $>$ \&n\-Hits, std\-::vector$<$ double $>$ \&pfenergy)
+void \hyperlink{group__lee_ga974439f9a96ce4a0e022e5e2e7d5e633}{lee\-::\-Energy\-Helper\-::energy\-\_\-from\-\_\-hits} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$mcps\-\_\-per\-\_\-hit, std\-::vector$<$ int $>$ \&n\-Hits, std\-::vector$<$ double $>$ \&pfenergy)
 \begin{DoxyCompactList}\small\item\em Measure calorimetric energy for a reconstructed object. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga01205d4a5d2f8d5ad0d4d5462e0b7563}{lee\-::\-Energy\-Helper\-::cluster\-\_\-residuals} (std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$clusters, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster, double \&mean\-\_\-v, double \&std\-\_\-v)
 \begin{DoxyCompactList}\small\item\em Measure the spatial residuals of the hits in a reconstructed cluster along its direction. \end{DoxyCompactList}\item 
@@ -119,6 +119,9 @@ void \hyperlink{group__lee_ga27cd9ba04f447b9922c56bbb320bce08}{lee\-::\-Energy\-
 \begin{DoxyCompactList}\small\item\em Measure the d\-Q/dx and d\-E/dx of a track using the anab\-::\-Calorimetry information. \end{DoxyCompactList}\item 
 void \hyperlink{group__lee_ga4926738bfba2d91bc187ad8a7db6e997}{lee\-::\-Energy\-Helper\-::d\-Qdx\-\_\-cali} (const recob\-::\-Shower $\ast$shower\-\_\-obj, std\-::vector$<$ double $>$ \&dqdx\-\_\-cali)
 \begin{DoxyCompactList}\small\item\em Calibration value for the d\-Q/dx of a reconstructed shower. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga21b60eb8e5ccee6f04a795d319d5c0ee}{bool {\bfseries lee\-::\-Energy\-Helper\-::is\-\_\-hit\-\_\-data} (art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$mcps\-\_\-per\-\_\-hit, size\-\_\-t hit\-\_\-key)}\label{group__lee_ga21b60eb8e5ccee6f04a795d319d5c0ee}
+
+\item 
 bool \hyperlink{group__lee_ga4d4f0303130ac496452b30f60f43f5f1}{lee\-::\-Geometry\-Helper\-::is\-Inside} (std\-::vector$<$ double $>$ P, std\-::vector$<$ std\-::vector$<$ double $>$ $>$ V)
 \begin{DoxyCompactList}\small\item\em Determine if a point is within a rectangle (in 2\-D) \end{DoxyCompactList}\item 
 bool \hyperlink{group__lee_ga6d02792fc6869b86d850077460536b2a}{lee\-::\-Geometry\-Helper\-::is\-Fiducial} (const std\-::vector$<$ double $>$ \&x) const 
@@ -376,6 +379,9 @@ lariov\-::\-T\-P\-C\-Energy\-Calib\-Provider \& {\bfseries lee\-::\-Energy\-Help
 
 \item 
 \hypertarget{group__lee_ga227149dafb056c355057c753ac768b13}{double {\bfseries lee\-::\-Energy\-Helper\-::\-\_\-d\-Qdx\-\_\-rectangle\-\_\-width}}\label{group__lee_ga227149dafb056c355057c753ac768b13}
+
+\item 
+\hypertarget{group__lee_gaece8ac78e6116f08de723bbc87d33bf9}{bool {\bfseries lee\-::\-Energy\-Helper\-::m\-\_\-is\-Overlaid\-Sample}}\label{group__lee_gaece8ac78e6116f08de723bbc87d33bf9}
 
 \item 
 \hypertarget{group__lee_ga613fe58326a28695ad83ddd7bdf8ff57}{\hyperlink{classGeometryHelper}{Geometry\-Helper} {\bfseries lee\-::\-Energy\-Helper\-::geo\-\_\-helper}}\label{group__lee_ga613fe58326a28695ad83ddd7bdf8ff57}
@@ -1259,18 +1265,19 @@ Compute the 3\-D distance between two points.
 \begin{DoxyReturn}{Returns}
 Returns S\-Q\-R\-T( (a.\-x -\/ b.\-x)$^\wedge$2 + (a.\-y -\/ b.\-y)$^\wedge$2 + (a.\-z -\/ b.\-z)$^\wedge$2 ) 
 \end{DoxyReturn}
-\hypertarget{group__lee_ga83891d9231c431e99e7615d02d570047}{\index{Lee@{Lee}!d\-Qdx@{d\-Qdx}}
+\hypertarget{group__lee_ga7ccbc2f2f2b594291e89f29c8e4616a7}{\index{Lee@{Lee}!d\-Qdx@{d\-Qdx}}
 \index{d\-Qdx@{d\-Qdx}!Lee@{Lee}}
 \subsubsection[{d\-Qdx}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::d\-Qdx (
 \begin{DoxyParamCaption}
 \item[{const recob\-::\-Shower $\ast$}]{shower\-\_\-obj, }
 \item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$}]{clusters, }
 \item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
+\item[{art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$}]{mcps\-\_\-per\-\_\-hit, }
 \item[{std\-::vector$<$ double $>$ \&}]{dqdx, }
 \item[{std\-::vector$<$ std\-::vector$<$ double $>$$>$ \&}]{dqdx\-\_\-hits, }
 \item[{std\-::vector$<$ double $>$ \&}]{pitches}
 \end{DoxyParamCaption}
-)}}\label{group__lee_ga83891d9231c431e99e7615d02d570047}
+)}}\label{group__lee_ga7ccbc2f2f2b594291e89f29c8e4616a7}
 
 
 Measure the d\-Qdx of a shower. 
@@ -1325,16 +1332,17 @@ Method called at the end of each subrun, it stores the number of P\-O\-T.
 \mbox{\tt in}  & {\em sr} & current art\-::\-Sub\-Run \\
 \hline
 \end{DoxyParams}
-\hypertarget{group__lee_gaabbb21a3db419c9580aec4976c5137a9}{\index{Lee@{Lee}!energy\-\_\-from\-\_\-hits@{energy\-\_\-from\-\_\-hits}}
+\hypertarget{group__lee_ga974439f9a96ce4a0e022e5e2e7d5e633}{\index{Lee@{Lee}!energy\-\_\-from\-\_\-hits@{energy\-\_\-from\-\_\-hits}}
 \index{energy\-\_\-from\-\_\-hits@{energy\-\_\-from\-\_\-hits}!Lee@{Lee}}
 \subsubsection[{energy\-\_\-from\-\_\-hits}]{\setlength{\rightskip}{0pt plus 5cm}void Energy\-Helper\-::energy\-\_\-from\-\_\-hits (
 \begin{DoxyParamCaption}
 \item[{std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-Cluster $>$$>$ $\ast$}]{clusters, }
 \item[{art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$}]{hits\-\_\-per\-\_\-cluster, }
+\item[{art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$}]{mcps\-\_\-per\-\_\-hit, }
 \item[{std\-::vector$<$ int $>$ \&}]{n\-Hits, }
 \item[{std\-::vector$<$ double $>$ \&}]{pfenergy}
 \end{DoxyParamCaption}
-)}}\label{group__lee_gaabbb21a3db419c9580aec4976c5137a9}
+)}}\label{group__lee_ga974439f9a96ce4a0e022e5e2e7d5e633}
 
 
 Measure calorimetric energy for a reconstructed object. 
