@@ -17,6 +17,7 @@ void EnergyHelper::reconfigure(fhicl::ParameterSet const &pset) {
   _gain = pset.get<std::vector<double>>("Gains", _mc_gain);
   _betap = pset.get<double>("RecombinationBeta", 0.212);
   _alpha = pset.get<double>("RecombinationAlpha", 0.93);
+  m_isOverlaidSample = pset.get<bool>("isOverlaidSample", false);
 }
 
 
@@ -95,15 +96,29 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
 
 }
 
+bool EnergyHelper::is_hit_data(art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+                               size_t hit_key)
+{
+  std::vector<art::Ptr<simb::MCParticle>> mcp_v;
+  std::vector<anab::BackTrackerHitMatchingData const *> match_v;
+  mcps_per_hit->get(hit_key, mcp_v, match_v);
+
+  if (match_v.size() > 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
                                     art::FindManyP<recob::Hit> *hits_per_cluster,
-                                    std::vector<int>    &nHits,
+                                    art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+                                    std::vector<int> &nHits,
                                     std::vector<double> &pfenergy)
 {
 
   nHits.resize(3);
   pfenergy.resize(3);
-
   for (auto _cl: *clusters) {
     std::vector<art::Ptr<recob::Hit>> hits = hits_per_cluster->at(_cl.key());
 
@@ -113,6 +128,13 @@ void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clust
       if (plane_nr > 2 || plane_nr < 0)
         continue;
 
+      if (m_isOverlaidSample) {
+        if (is_hit_data(mcps_per_hit, hit.key())) {
+          _gain = _data_gain;
+        } else {
+          _gain = _mc_gain;
+        }
+      }
       // https://arxiv.org/pdf/1704.02927.pdf
       pfenergy[plane_nr] += 1.01 * hit->Integral() * _gain[plane_nr] * _work_function / _recombination_factor / 1000; // convert MeV to GeV
       nHits[plane_nr]++;
@@ -284,6 +306,7 @@ void EnergyHelper::dQdx_cali(const recob::Shower *shower_obj,
 void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         std::vector<art::Ptr<recob::Cluster>> *clusters,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
+                        art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
                         std::vector<double> &dqdx,
                         std::vector<std::vector<double>> &dqdx_hits,
                         std::vector<double> &pitches)
@@ -351,6 +374,18 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 
       if (is_within)
       {
+
+        if (m_isOverlaidSample)
+        {
+          if (is_hit_data(mcps_per_hit, hit.key()))
+          {
+            _gain = _data_gain;
+          }
+          else
+          {
+            _gain = _mc_gain;
+          }
+        }
         double q = hit->Integral() * _gain[_cl->Plane().Plane];
         dqdxs.push_back(q / fabs(pitch));
         dqdx_hits[_cl->Plane().Plane].push_back(q / fabs(pitch));

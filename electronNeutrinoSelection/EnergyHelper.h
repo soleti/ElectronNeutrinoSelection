@@ -42,6 +42,7 @@
 #include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibProvider.h"
 #include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibService.h"
 #include "lardataobj/AnalysisBase/ParticleID.h"
+#include "lardataobj/AnalysisBase/BackTrackerMatchingData.h"
 
 #include "uboone/ParticleID/Algorithms/uB_PlaneIDBitsetHelperFunctions.h"
 
@@ -72,6 +73,7 @@ public:
   void dQdx(const recob::Shower *shower_obj,
             std::vector<art::Ptr<recob::Cluster>> *clusters,
             art::FindManyP<recob::Hit> *hits_per_cluster,
+            art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
             std::vector<double> &dqdx,
             std::vector<std::vector<double>> &dqdx_hits,
             std::vector<double> &pitches);
@@ -95,14 +97,14 @@ public:
                            anab::kTrackDir TrackDirection,
                            int pdgCode);
 
-      /**
+  /**
    * @brief      Convert dQ/dx vector into dE/dx vector (in MeV)
    *
    * @param[out] dedx          Address of the dE/dx vector
    * @param[in]  dqdx          dQ/dx vector
    */
-      void dEdx_from_dQdx(std::vector<double> &dedx,
-                          std::vector<double> dqdx);
+  void dEdx_from_dQdx(std::vector<double> &dedx,
+                      std::vector<double> dqdx);
 
   /**
    * @brief      Principal Component Analysis of reconstructed clusters
@@ -134,10 +136,11 @@ public:
    * @param[out] nHits             Address of the vector of the number of hits per plane
    * @param[out] pfenergy          Address of the vector of reconstructed energy per plane
    */
-  void  energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
-                                    art::FindManyP<recob::Hit> *hits_per_cluster,
-                                    std::vector<int>    &nHits,
-                                    std::vector<double> &pfenergy);
+  void energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
+                        art::FindManyP<recob::Hit> *hits_per_cluster,
+                        art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+                        std::vector<int> &nHits,
+                        std::vector<double> &pfenergy);
 
   /**
    * @brief      Measure the spatial residuals of the hits in a reconstructed cluster along its direction
@@ -172,23 +175,27 @@ public:
   void dQdx_cali(const recob::Shower *shower_obj,
                  std::vector<double> &dqdx_cali);
 
-  private:
-    std::vector<double> _data_gain = {236.41, 228.83, 242.72}; // DocDB 14754
-    std::vector<double> _mc_gain = {193.05, 196.85, 196.85};   // Plane 0, plane 1, plane 2
-    std::vector<double> _gain;
-    const lariov::TPCEnergyCalibProvider &_energy_calib_provider = art::ServiceHandle<lariov::TPCEnergyCalibService>()->GetProvider();
-    const detinfo::DetectorProperties *_detprop = lar::providerFrom<detinfo::DetectorPropertiesService>();
-    double _drift = _detprop->DriftVelocity() * 1e-3;
-    double _readout_window = 4.8;
-    double _from_tick_to_ns = _readout_window / _detprop->ReadOutWindowSize() * 1e6;
-    double _wire_spacing = 0.3;
-    double _work_function = 23 / 1e6;
-    double _betap;
-    double _alpha;
-    double _recombination_factor;
-    double _dQdx_rectangle_length;
-    double _dQdx_rectangle_width;
-    GeometryHelper geo_helper;
+  bool is_hit_data(art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+                                 size_t hit_key);
+
+private:
+  std::vector<double> _data_gain = {236.41, 228.83, 242.72}; // DocDB 14754
+  std::vector<double> _mc_gain = {193.05, 196.85, 196.85};  // Plane 0, plane 1, plane 2
+  std::vector<double> _gain;
+  const lariov::TPCEnergyCalibProvider &_energy_calib_provider = art::ServiceHandle<lariov::TPCEnergyCalibService>()->GetProvider();
+  const detinfo::DetectorProperties *_detprop = lar::providerFrom<detinfo::DetectorPropertiesService>();
+  double _drift = _detprop->DriftVelocity() * 1e-3;
+  double _readout_window = 4.8;
+  double _from_tick_to_ns = _readout_window / _detprop->ReadOutWindowSize() * 1e6;
+  double _wire_spacing = 0.3;
+  double _work_function = 23 / 1e6;
+  double _betap;
+  double _alpha;
+  double _recombination_factor;
+  double _dQdx_rectangle_length;
+  double _dQdx_rectangle_width;
+  bool m_isOverlaidSample;
+  GeometryHelper geo_helper;
 };
 } // namespace lee
 

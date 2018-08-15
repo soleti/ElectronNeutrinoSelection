@@ -162,9 +162,7 @@ namespace lee
     }
 
     // Now set the things we need for the future
-    std::cout << "Pfp_to_hits_map " << pfp_to_hits_map.size() << std::endl;
     _hit_to_mcps_map = hit_to_mcps_map;
-    std::cout << "Hit_to_mcps_map " << hit_to_mcps_map.size() << std::endl;
     _pfp_to_hits_map = pfp_to_hits_map;
 
     // std::cout << "hit_to_mcps_map size " << hit_to_mcps_map.size() << std::endl;
@@ -244,7 +242,6 @@ namespace lee
       if (_debug) std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] \t This PFP has " << hitVector.size() << " hits." << std::endl;
 
       lar_pandora::MCParticlesToHits truthContributionMap;
-      std::cout << "hitVector size " << hitVector.size() << std::endl;
       // Loop over all the hits associated to this reco particle
       for (auto hit : hitVector) {
 
