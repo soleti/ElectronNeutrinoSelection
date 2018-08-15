@@ -1024,7 +1024,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     _vx = reco_neutrino_vertex[0];
     _vy = reco_neutrino_vertex[1];
     _vz = reco_neutrino_vertex[2];
-    vector<double> reco_vertex = {_vx, _vy, _vz};
+    std::vector<double> reco_vertex = {_vx, _vy, _vz};
 
     if (_category != k_data)
     {
@@ -1192,8 +1192,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_res_mean.push_back(mean);
       _shower_res_std.push_back(stdev);
 
-      std::vector<double> pitches = {0, 0, 0);
-      std::vector<double> dQdx_hits_in_the_box = {-1, -1, -1);
+      std::vector<double> pitches = {0, 0, 0};
+      std::vector<int> dQdx_hits_in_the_box = {-1, -1, -1};
 
       std::vector<double> dqdx(3, std::numeric_limits<double>::lowest());
       std::vector<double> dedx(3, std::numeric_limits<double>::lowest());

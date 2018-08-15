@@ -75,7 +75,7 @@ public:
             std::vector<double> &dqdx,
             std::vector<std::vector<double>> &dqdx_hits,
             std::vector<double> &pitches,
-            std::vector<double> &dqdx_hits_in_the_box);
+            std::vector<int> &dqdx_hits_in_the_box);
 
   /**
    * @brief      Return the value of a specific ParticleID algorithm for a single track
