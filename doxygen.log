@@ -23,7 +23,7 @@ Otherwise you run the risk that the wrong font is being used for dot generated g
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/GeometryHelper.h:40: warning: Compound lee::GeometryHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/HelperBase.h:17: warning: Compound lee::HelperBase is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/PandoraInterfaceHelper.h:56: warning: Compound lee::PandoraInterfaceHelper is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:28: warning: Compound lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:31: warning: Compound lee::ElectronNeutrinoFilter is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:51: warning: Compound lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:62: warning: Compound lee::ElectronEventSelectionAlg is not documented.
 Searching for include files...
@@ -424,16 +424,24 @@ Compu/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelecti
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:30: warning: Member ElectronNeutrinoFilter(fhicl::ParameterSet const &p) (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:35: warning: Member ElectronNeutrinoFilter(ElectronNeutrinoFilter const &)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:36: warning: Member ElectronNeutrinoFilter(ElectronNeutrinoFilter &&)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:37: warning: Member operator=(ElectronNeutrinoFilter const &)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:38: warning: Member operator=(ElectronNeutrinoFilter &&)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:41: warning: Member filter(art::Event &e) override (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:44: warning: Member reconfigure(fhicl::ParameterSet const &p) override (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:45: warning: Member endSubRun(art::SubRun &sr) override (function) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:48: warning: Member fElectronEventSelectionAlg (variable) of class lee::ElectronNeutrinoFilter is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:49: warning: Member _run_subrun_list_file (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:34: warning: Member ElectronNeutrinoFilter(fhicl::ParameterSet const &p) (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:39: warning: Member ElectronNeutrinoFilter(ElectronNeutrinoFilter const &)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:40: warning: Member ElectronNeutrinoFilter(ElectronNeutrinoFilter &&)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:41: warning: Member operator=(ElectronNeutrinoFilter const &)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:42: warning: Member operator=(ElectronNeutrinoFilter &&)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:45: warning: Member filter(art::Event &e) override (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:48: warning: Member reconfigure(fhicl::ParameterSet const &p) override (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:49: warning: Member endSubRun(art::SubRun &sr) override (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:50: warning: Member clear() (function) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:53: warning: Member myPOTTTree (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:54: warning: Member fElectronEventSelectionAlg (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:55: warning: Member _run_subrun_list_file (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:56: warning: Member m_isOverlaidSample (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:57: warning: Member m_isData (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:58: warning: Member _run_sr (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:59: warning: Member _subrun_sr (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:60: warning: Member _pot (variable) of class lee::ElectronNeutrinoFilter is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc:61: warning: Member _mctruthLabel (variable) of class lee::ElectronNeutrinoFilter is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:178: warning: Member is_hit_data(art::FindManyP< simb::MCParticle, anab::BackTrackerHitMatchingData > *mcps_per_hit, size_t hit_key) (function) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:183: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
@@ -713,5 +721,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 361/65536 hits=1174 misses=378
+lookup cache used 361/65536 hits=1177 misses=378
 finished...

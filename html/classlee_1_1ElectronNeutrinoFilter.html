@@ -128,15 +128,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reconfigure</b> (fhic
 <tr class="memitem:a85815554f7381b9ececc94a83ee86859"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85815554f7381b9ececc94a83ee86859"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>endSubRun</b> (art::SubRun &amp;sr) override</td></tr>
 <tr class="separator:a85815554f7381b9ececc94a83ee86859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff0f9ad8cf9531ac2a743ade4758502c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff0f9ad8cf9531ac2a743ade4758502c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="separator:aff0f9ad8cf9531ac2a743ade4758502c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a71f4be7e318ce49ff07a948e17afe40d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71f4be7e318ce49ff07a948e17afe40d"></a>
+TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myPOTTTree</b></td></tr>
+<tr class="separator:a71f4be7e318ce49ff07a948e17afe40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a218cb05b2710a8cfaa9021cc7850bb28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a218cb05b2710a8cfaa9021cc7850bb28"></a>
 <a class="el" href="classlee_1_1ElectronEventSelectionAlg.html">lee::ElectronEventSelectionAlg</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fElectronEventSelectionAlg</b></td></tr>
 <tr class="separator:a218cb05b2710a8cfaa9021cc7850bb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9531a2782934676b4a5c5562da3139c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9531a2782934676b4a5c5562da3139c"></a>
 std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>_run_subrun_list_file</b></td></tr>
 <tr class="separator:ac9531a2782934676b4a5c5562da3139c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba0453be53b5ce2cdf28552611f6711"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acba0453be53b5ce2cdf28552611f6711"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isOverlaidSample</b></td></tr>
+<tr class="separator:acba0453be53b5ce2cdf28552611f6711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc078c72f7360f21250dfa5f16eace15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc078c72f7360f21250dfa5f16eace15"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isData</b></td></tr>
+<tr class="separator:abc078c72f7360f21250dfa5f16eace15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18314044dbcc5e207627d51bf023caa3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18314044dbcc5e207627d51bf023caa3"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_run_sr</b></td></tr>
+<tr class="separator:a18314044dbcc5e207627d51bf023caa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c94603539c2385aa2506873642f4d10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c94603539c2385aa2506873642f4d10"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_subrun_sr</b></td></tr>
+<tr class="separator:a4c94603539c2385aa2506873642f4d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afafabcd6b8132be5b9140806c1edff7c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afafabcd6b8132be5b9140806c1edff7c"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_pot</b></td></tr>
+<tr class="separator:afafabcd6b8132be5b9140806c1edff7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b91ab5f148464be875c2eb4438d091c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b91ab5f148464be875c2eb4438d091c"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_mctruthLabel</b> = &quot;generator&quot;</td></tr>
+<tr class="separator:a7b91ab5f148464be875c2eb4438d091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc</li>
