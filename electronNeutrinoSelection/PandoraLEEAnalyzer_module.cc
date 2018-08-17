@@ -336,7 +336,7 @@ void lee::PandoraLEEAnalyzer::endSubRun(const art::SubRun &sr)
   _subrun_sr = sr.subRun();
 
   art::Handle<sumdata::POTSummary> potListHandle;
-  if (!m_isData)
+  if (!m_isData || m_isOverlaidSample)
   {
     if (sr.getByLabel(_mctruthLabel, potListHandle))
       _pot = potListHandle->totpot;

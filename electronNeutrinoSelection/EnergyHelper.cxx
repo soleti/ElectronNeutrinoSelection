@@ -129,11 +129,7 @@ void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clust
         continue;
 
       if (m_isOverlaidSample) {
-        if (is_hit_data(mcps_per_hit, hit.key())) {
           _gain = _data_gain;
-        } else {
-          _gain = _mc_gain;
-        }
       }
       // https://arxiv.org/pdf/1704.02927.pdf
       pfenergy[plane_nr] += 1.01 * hit->Integral() * _gain[plane_nr] * _work_function / _recombination_factor / 1000; // convert MeV to GeV
@@ -377,14 +373,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 
         if (m_isOverlaidSample)
         {
-          if (is_hit_data(mcps_per_hit, hit.key()))
-          {
-            _gain = _data_gain;
-          }
-          else
-          {
-            _gain = _mc_gain;
-          }
+          _gain = _mc_gain;
         }
         double q = hit->Integral() * _gain[_cl->Plane().Plane];
         dqdxs.push_back(q / fabs(pitch));
