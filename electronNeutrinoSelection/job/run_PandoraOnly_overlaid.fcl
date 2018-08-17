@@ -13,6 +13,7 @@ nueFilter:
 {
     module_type:                "ElectronNeutrinoFilter"
     ElectronSelectionAlg:       @local::lee_electron_alg
+    isOverlaidSample:           true
 }
 
 nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
