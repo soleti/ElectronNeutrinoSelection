@@ -25,6 +25,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("flux_weights", "std::map< std::string, std::vector< double > >", &_flux_weights);
 
   myTTree->Branch("category", &_category, "category/I");
+  myTTree->Branch("re_category", &_re_category, "re_category/I");
 
   myTTree->Branch("n_tracks", &_n_tracks, "n_tracks/I");
   myTTree->Branch("n_showers", &_n_showers, "n_showers/I");
@@ -39,6 +40,10 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("true_vy", &_true_vy, "true_vy/d");
   myTTree->Branch("true_vz", &_true_vz, "true_vz/d");
 
+  myTTree->Branch("true_daughter_E", &_true_daughter_E, "true_daughter_E/d");
+  myTTree->Branch("true_daughter_theta", &_true_daughter_theta, "true_daughter_theta/d");
+  myTTree->Branch("true_daughter_phi", &_true_daughter_phi, "true_daughter_phi/d");
+
   myTTree->Branch("true_shower_x_sce", "std::vector< double >", &_true_shower_x_sce);
   myTTree->Branch("true_shower_y_sce", "std::vector< double >", &_true_shower_y_sce);
   myTTree->Branch("true_shower_z_sce", "std::vector< double >", &_true_shower_z_sce);
@@ -50,6 +55,8 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("true_vz_sce", &_true_vz_sce, "true_vz_sce/d");
 
   myTTree->Branch("nu_E", &_nu_energy, "nu_E/d");
+  myTTree->Branch("nu_theta", &_nu_theta, "nu_theta/d");
+  myTTree->Branch("nu_phi", &_nu_phi, "nu_phi/d");
   myTTree->Branch("passed", &_event_passed, "passed/I");
   myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/I");
   myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/I");
@@ -61,6 +68,8 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
 
   myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/I");
   myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/I");
+  myTTree->Branch("n_true_pions", &_n_true_pions, "n_true_pions/I");
+  myTTree->Branch("n_true_protons", &_n_true_protons, "n_true_protons/I");
   myTTree->Branch("distance", &_distance, "distance/d");
   myTTree->Branch("true_nu_is_fiducial", &_true_nu_is_fiducial,
                   "true_nu_is_fiducial/I");
@@ -142,6 +151,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("shower_n_clusters", "std::vector< double >", &_shower_n_clusters);
 
   myTTree->Branch("shower_energy", "std::vector< std::vector< double > >", &_shower_energy);
+  myTTree->Branch("shower_energy_new_method", "std::vector< std::vector< double > >", &_shower_energy_new_method);
   // myTTree->Branch("track_energy_dedx", "std::vector< double >", &_track_energy_dedx);
   myTTree->Branch("track_energy_hits", "std::vector< std::vector< double > >", &_track_energy_hits);
 
@@ -464,6 +474,7 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_phi.clear();
 
   _shower_energy.clear();
+  _shower_energy_new_method.clear();
   _track_energy_dedx.clear();
   _track_energy_hits.clear();
 
@@ -505,6 +516,10 @@ void lee::PandoraLEEAnalyzer::clear()
   _true_vx = std::numeric_limits<double>::lowest();
   _true_vy = std::numeric_limits<double>::lowest();
   _true_vz = std::numeric_limits<double>::lowest();
+
+  _true_daughter_E = std::numeric_limits<double>::lowest();
+  _true_daughter_theta = std::numeric_limits<double>::lowest();
+  _true_daughter_phi = std::numeric_limits<double>::lowest();
 
   _true_vx_sce = std::numeric_limits<double>::lowest();
   _true_vy_sce = std::numeric_limits<double>::lowest();
@@ -788,8 +803,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         there_is_a_neutrino = true;
         _nu_pdg = gen.GetNeutrino().Nu().PdgCode();
         _nu_energy = gen.GetNeutrino().Nu().E();
-        _nu_theta = gen.GetNeutrino().Nu().Theta();
-        _nu_phi = gen.GetNeutrino().Nu().Phi();
+        _nu_theta = gen.GetNeutrino().Nu().Momentum().Theta();
+        _nu_phi = gen.GetNeutrino().Nu().Momentum().Phi();
 
         if (abs(_nu_pdg) == 12) {
             int n_bin = _h_lee_scaling->FindBin(_nu_energy*1000);
@@ -877,6 +892,16 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         _nu_daughters_endx.push_back(mcparticle.EndX());
         _nu_daughters_endy.push_back(mcparticle.EndY());
         _nu_daughters_endz.push_back(mcparticle.EndZ());
+
+        if (_ccnc == 0)
+        {
+          if (mcparticle.PdgCode() == _pdg_daughter[_nu_pdg])
+          {
+            _true_daughter_E = mcparticle.E();
+            _true_daughter_theta = mcparticle.Momentum().Theta();
+            _true_daughter_phi = mcparticle.Momentum().Phi();
+          }
+        }
       }
     }
 
@@ -1271,9 +1296,11 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_theta.push_back(shower_obj->Direction().Theta());
 
       std::vector<double> this_energy;
+      std::vector<double> this_energy_new_method;
       std::vector<int> this_nhits;
 
       energyHelper.energy_from_hits(&clusters, &hits_per_cluster, this_nhits, this_energy);
+      energyHelper.energy_from_hits_new_method(&clusters, &hits_per_cluster, this_nhits, this_energy_new_method);
       std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
 
       std::vector<double> shower_cali;
@@ -1281,6 +1308,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
       _shower_energy_cali.push_back(shower_cali);
       _shower_energy.push_back(this_energy);
+      _shower_energy_new_method.push_back(this_energy_new_method);
 
       std::vector<std::vector<double>> pca;
       pca.resize(2, std::vector<double>(3));

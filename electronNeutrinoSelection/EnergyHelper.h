@@ -173,6 +173,26 @@ public:
   void dQdx_cali(const recob::Shower *shower_obj,
                  std::vector<double> &dqdx_cali);
 
+       /**
+    * @brief      Convert charge to energy (in MeV)
+    *
+    * @param[in] q          Charge vvalue
+    */
+   double charge2energy(double q);
+
+   /**
+    * @brief      Measure calorimetric energy for a reconstructed object
+    *
+    * @param[in]  clusters          Pointer to the vector of reconstructed clusters
+    * @param[in]  hits_per_cluster  Pointer to the hits-cluster association
+    * @param[out] nHits             Address of the vector of the number of hits per plane
+    * @param[out] pfenergy          Address of the vector of reconstructed energy per plane
+    */
+   void energy_from_hits_new_method(std::vector<art::Ptr<recob::Cluster>> *clusters,
+                                     art::FindManyP<recob::Hit> *hits_per_cluster,
+                                     std::vector<int>    &nHits,
+                                     std::vector<double> &pfenergy);
+
   private:
     std::vector<double> _data_gain = {236.41, 228.83, 242.72}; // DocDB 14754
     std::vector<double> _mc_gain = {193.05, 196.85, 196.85};   // Plane 0, plane 1, plane 2

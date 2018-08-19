@@ -245,6 +245,9 @@ private:
   double _vx;
   double _vy;
   double _vz;
+  double _true_daughter_E;
+  double _true_daughter_theta;
+  double _true_daughter_phi;
 
   double _true_vx;
   double _true_vy;
@@ -349,6 +352,7 @@ private:
   std::vector<double> _shower_phi;
 
   std::vector<std::vector<double>> _shower_energy;
+  std::vector<std::vector<double>> _shower_energy_new_method;
   std::vector<std::vector<double>> _shower_energy_cali;
   std::vector<std::vector<double>> _track_energy_cali;
 
@@ -422,6 +426,7 @@ private:
   std::vector<std::vector<int>> _shower_nhits;
   std::vector<std::vector<int>> _track_nhits;
 
+  std::map<int, int> _pdg_daughter = {{12, 11}, {14, 13}, {-12, -11}, {-14, -13}};
 };
 
 }

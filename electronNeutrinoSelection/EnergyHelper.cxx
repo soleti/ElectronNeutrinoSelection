@@ -378,18 +378,41 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 void EnergyHelper::dEdx_from_dQdx(std::vector<double> &dedx,
                                   std::vector<double> dqdx)
 {
-  double Rho = 1.4;
-  double Efield = 0.273;
-
   for (size_t i = 0; i < dqdx.size(); i++)
   {
-    dedx.push_back((exp(dqdx[i]*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield)));
+    dedx.push_back(charge2energy(dqdx[i]));
   }
 }
 
-void EnergyHelper::length2energy_track(double length)
+double EnergyHelper::charge2energy(double charge)
 {
-  return (_g_proton_range.Eval(length * _argon_density, 0, "S") / 1000.);
+  double Rho = 1.4;
+  double Efield = 0.273;
+
+  return (exp(charge*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield));
+}
+
+void EnergyHelper::energy_from_hits_new_method(std::vector<art::Ptr<recob::Cluster>> *clusters,
+                                    art::FindManyP<recob::Hit> *hits_per_cluster,
+                                    std::vector<int>    &nHits,
+                                    std::vector<double> &pfenergy)
+{
+  nHits.resize(3);
+  pfenergy.resize(3);
+
+  for (auto _cl: *clusters) {
+    std::vector<art::Ptr<recob::Hit>> hits = hits_per_cluster->at(_cl.key());
+
+    for (auto &hit : hits)
+    {
+      auto plane_nr = hit->View();
+      if (plane_nr > 2 || plane_nr < 0)
+        continue;
+
+      pfenergy[plane_nr] += charge2energy(hit->Integral());
+      nHits[plane_nr]++;
+    }
+  }
 }
 
 } // namespace lee

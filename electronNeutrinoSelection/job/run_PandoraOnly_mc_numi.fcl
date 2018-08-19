@@ -75,7 +75,7 @@ physics: {
   analyzers: {
      # ParameterSets for zero or more analyzer modules
      robertoana:  @local::lee_pandora_analyzer
-     @table::ubxsec_mc_ana
+     # @table::ubxsec_mc_ana
   }
 
   filters : {
