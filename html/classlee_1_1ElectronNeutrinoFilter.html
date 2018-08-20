@@ -137,12 +137,36 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a71f4be7e318ce49ff07a948e17afe40d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71f4be7e318ce49ff07a948e17afe40d"></a>
 TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myPOTTTree</b></td></tr>
 <tr class="separator:a71f4be7e318ce49ff07a948e17afe40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd8d0a8b3466ad728bd8b520c2fd392"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cd8d0a8b3466ad728bd8b520c2fd392"></a>
+TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myTTree</b></td></tr>
+<tr class="separator:a0cd8d0a8b3466ad728bd8b520c2fd392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a218cb05b2710a8cfaa9021cc7850bb28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a218cb05b2710a8cfaa9021cc7850bb28"></a>
 <a class="el" href="classlee_1_1ElectronEventSelectionAlg.html">lee::ElectronEventSelectionAlg</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fElectronEventSelectionAlg</b></td></tr>
 <tr class="separator:a218cb05b2710a8cfaa9021cc7850bb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9531a2782934676b4a5c5562da3139c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9531a2782934676b4a5c5562da3139c"></a>
 std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>_run_subrun_list_file</b></td></tr>
 <tr class="separator:ac9531a2782934676b4a5c5562da3139c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae709489ed7e674f1e54d7e756058bacf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae709489ed7e674f1e54d7e756058bacf"></a>
+<a class="el" href="classlee_1_1GeometryHelper.html">GeometryHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>geoHelper</b></td></tr>
+<tr class="separator:ae709489ed7e674f1e54d7e756058bacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affbf7de91f50382bd10ac94512a6bb54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affbf7de91f50382bd10ac94512a6bb54"></a>
+<a class="el" href="classlee_1_1PandoraInterfaceHelper.html">PandoraInterfaceHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pandoraHelper</b></td></tr>
+<tr class="separator:affbf7de91f50382bd10ac94512a6bb54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe0c623e95ee20604061b1b9af89fcae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe0c623e95ee20604061b1b9af89fcae"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_lee_bins</b> [12] = {200, 300, 375, 475, 550, 675, 800, 950, 1100, 1300, 1500, 3000}</td></tr>
+<tr class="separator:afe0c623e95ee20604061b1b9af89fcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c12458489f044717ce4acbb46ec8a5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c12458489f044717ce4acbb46ec8a5c"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_lee_scaling</b> [13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0}</td></tr>
+<tr class="separator:a3c12458489f044717ce4acbb46ec8a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4603c127eb117ed2e1cb0cc2f9ab8305"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4603c127eb117ed2e1cb0cc2f9ab8305"></a>
+TH1F *&#160;</td><td class="memItemRight" valign="bottom"><b>_h_lee_scaling</b> = new TH1F(&quot;h_lee_scaling&quot;, &quot;&quot;, 11, _lee_bins)</td></tr>
+<tr class="separator:a4603c127eb117ed2e1cb0cc2f9ab8305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709a8b99dfeeecb1bcfa257b68720668"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a709a8b99dfeeecb1bcfa257b68720668"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_lee_weight</b></td></tr>
+<tr class="separator:a709a8b99dfeeecb1bcfa257b68720668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33bf99b17017e472dc71e7e2cf48c1e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33bf99b17017e472dc71e7e2cf48c1e6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_passed</b></td></tr>
+<tr class="separator:a33bf99b17017e472dc71e7e2cf48c1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acba0453be53b5ce2cdf28552611f6711"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acba0453be53b5ce2cdf28552611f6711"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isOverlaidSample</b></td></tr>
 <tr class="separator:acba0453be53b5ce2cdf28552611f6711"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,14 +179,60 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_run_sr</b></
 <tr class="memitem:a4c94603539c2385aa2506873642f4d10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c94603539c2385aa2506873642f4d10"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_subrun_sr</b></td></tr>
 <tr class="separator:a4c94603539c2385aa2506873642f4d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f05be9559cb86c6cc44777f084bac9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f05be9559cb86c6cc44777f084bac9e"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_true_nu</b></td></tr>
+<tr class="separator:a4f05be9559cb86c6cc44777f084bac9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad81983f8dff6ebf659accd8bcf9cd592"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad81983f8dff6ebf659accd8bcf9cd592"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_ccnc</b></td></tr>
+<tr class="separator:ad81983f8dff6ebf659accd8bcf9cd592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d49a87b7b626a8c752ad333094a8a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94d49a87b7b626a8c752ad333094a8a0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_pdg</b></td></tr>
+<tr class="separator:a94d49a87b7b626a8c752ad333094a8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d699e9d44882c88e543548d5937405"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8d699e9d44882c88e543548d5937405"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_interaction_type</b></td></tr>
+<tr class="separator:ac8d699e9d44882c88e543548d5937405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf1bb1a9189ea476599097e31bdb517"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cf1bb1a9189ea476599097e31bdb517"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_true_nu_is_fiducial</b></td></tr>
+<tr class="separator:a6cf1bb1a9189ea476599097e31bdb517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef727e4de42995c92b6f679c2134e2d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef727e4de42995c92b6f679c2134e2d0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_energy</b></td></tr>
+<tr class="separator:aef727e4de42995c92b6f679c2134e2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afafabcd6b8132be5b9140806c1edff7c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afafabcd6b8132be5b9140806c1edff7c"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>_pot</b></td></tr>
 <tr class="separator:afafabcd6b8132be5b9140806c1edff7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472e49172a8e61052ca8b41dbf718a1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a472e49172a8e61052ca8b41dbf718a1e"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_neutrino_vertex</b></td></tr>
+<tr class="separator:a472e49172a8e61052ca8b41dbf718a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d8f690fcc654c52df01d0740ddb4b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96d8f690fcc654c52df01d0740ddb4b0"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_true_neutrino_vertex_sce</b></td></tr>
+<tr class="separator:a96d8f690fcc654c52df01d0740ddb4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9f16e2d7a07b5e9b6f1ad4a0d498ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae9f16e2d7a07b5e9b6f1ad4a0d498ab"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_E</b></td></tr>
+<tr class="separator:aae9f16e2d7a07b5e9b6f1ad4a0d498ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8618e4d9a89d2a11a6a0e2f2587ee0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8618e4d9a89d2a11a6a0e2f2587ee0b"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_pdg</b></td></tr>
+<tr class="separator:aa8618e4d9a89d2a11a6a0e2f2587ee0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adadc9f67a7081c711beb31212f756c7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adadc9f67a7081c711beb31212f756c7e"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_p</b></td></tr>
+<tr class="separator:adadc9f67a7081c711beb31212f756c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7abfee2964d910a5caf074bc53389453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7abfee2964d910a5caf074bc53389453"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_start_v</b></td></tr>
+<tr class="separator:a7abfee2964d910a5caf074bc53389453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7877ffa0e396de6907ed7dca3e5c5e1d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7877ffa0e396de6907ed7dca3e5c5e1d"></a>
+std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_daughters_end_v</b></td></tr>
+<tr class="separator:a7877ffa0e396de6907ed7dca3e5c5e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b91ab5f148464be875c2eb4438d091c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b91ab5f148464be875c2eb4438d091c"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_mctruthLabel</b> = &quot;generator&quot;</td></tr>
 <tr class="separator:a7b91ab5f148464be875c2eb4438d091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af903bbd240a90b34caeb1eddf5313642"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af903bbd240a90b34caeb1eddf5313642"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_mcparticleLabel</b> = &quot;largeant&quot;</td></tr>
+<tr class="separator:af903bbd240a90b34caeb1eddf5313642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/<a class="el" href="ElectronNeutrinoFilter_8h_source.html">ElectronNeutrinoFilter.h</a></li>
 <li>/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter_module.cc</li>
 </ul>
 </div><!-- contents -->
