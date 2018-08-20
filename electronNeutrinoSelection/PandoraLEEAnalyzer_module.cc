@@ -1337,8 +1337,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     _n_primaries = _primary_indexes.size();
     _cosmic_fraction = cr_hits / (cr_hits + nu_hits);
 
-    if (
-        !track_cr_found && _nu_matched_tracks == 0 && !shower_cr_found && _nu_matched_showers == 0 && _category != k_dirt && _category != k_data)
+    if (!track_cr_found && _nu_matched_tracks == 0 && !shower_cr_found && _nu_matched_showers == 0 && _category != k_dirt && _category != k_data)
     {
       _category = k_other;
     }
@@ -1354,10 +1353,18 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _category = k_cosmic;
     }
 
-    if (_category == k_other && m_isOverlaidSample)
-    {
-      _category = k_cosmic;
+    if (m_isOverlaidSample) {
+      if (_nu_matched_tracks == 0 && _nu_matched_showers == 0)
+      {
+        _category = k_cosmic;
+      }
+
+      if (_nu_matched_tracks > 0 || _nu_matched_showers > 0)
+      {
+        _category = k_mixed;
+      }
     }
+
 
     std::cout << "[PandoraLEE] "
               << "Category " << _category << std::endl;
