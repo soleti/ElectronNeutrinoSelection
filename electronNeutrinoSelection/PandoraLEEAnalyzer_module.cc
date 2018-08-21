@@ -972,6 +972,25 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     _category = k_data;
   }
 
+  _re_category = _category;
+  if (abs(_nu_pdg) == 12)
+  {
+    if (_n_true_protons>0 && _n_true_pions==0)
+    {
+      if (_category==2) _re_category = 11;
+      else if (_category==7) _re_category = 14;
+    }
+    else
+    {
+      if (_category==2) _re_category = 12;
+      else if (_category==7) _re_category = 15;
+    }
+  }
+  else if (abs(_nu_pdg) == 14)
+  {
+    if (_category==7) _re_category = 16;
+  }
+
 
   std::vector<art::Ptr<recob::PFParticle>> neutrino_pf;
   std::vector<art::Ptr<recob::PFParticle>> cosmic_pf;
@@ -1298,9 +1317,10 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       std::vector<double> this_energy;
       std::vector<double> this_energy_new_method;
       std::vector<int> this_nhits;
+      std::vector<int> this_nhits_new_method;
 
       energyHelper.energy_from_hits(&clusters, &hits_per_cluster, this_nhits, this_energy);
-      energyHelper.energy_from_hits_new_method(&clusters, &hits_per_cluster, this_nhits, this_energy_new_method);
+      energyHelper.energy_from_hits_new_method(&clusters, &hits_per_cluster, this_nhits_new_method, this_energy_new_method);
       std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
 
       std::vector<double> shower_cali;
@@ -1432,6 +1452,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         !track_cr_found && _nu_matched_tracks == 0 && !shower_cr_found && _nu_matched_showers == 0 && _category != k_dirt && _category != k_data)
     {
       _category = k_other;
+      _re_category = k_other;
       std::cout << "[PandoraLEE] "
                 << "***NOT NEUTRINO NOR COSMIC***" << std::endl;
     }
@@ -1440,30 +1461,13 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         (_nu_matched_tracks > 0 || _nu_matched_showers > 0))
     {
       _category = k_mixed;
+      _re_category = k_other;
     }
 
     if ((track_cr_found || shower_cr_found) && _category != k_mixed)
     {
       _category = k_cosmic;
-    }
-
-    _re_category = _category;
-    if (abs(_nu_pdg) == 12)
-    {
-      if (_n_true_protons>0 && _n_true_pions==0)
-      {
-        if (_category==2) _re_category = 11;
-        else if (_category==7) _re_category = 14;
-      }
-      else
-      {
-        if (_category==2) _re_category = 12;
-        else if (_category==7) _re_category = 15;
-      }
-    }
-    else if (abs(_nu_pdg) == 14)
-    {
-      if (_category==7) _re_category = 16;
+      _re_category = k_other;
     }
 
     std::cout << "[PandoraLEE] "

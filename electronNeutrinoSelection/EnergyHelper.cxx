@@ -384,6 +384,7 @@ void EnergyHelper::dEdx_from_dQdx(std::vector<double> &dedx,
   }
 }
 
+// from charge to MeV
 double EnergyHelper::charge2energy(double charge)
 {
   double Rho = 1.4;
@@ -392,6 +393,7 @@ double EnergyHelper::charge2energy(double charge)
   return (exp(charge*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield));
 }
 
+// energy in GeV
 void EnergyHelper::energy_from_hits_new_method(std::vector<art::Ptr<recob::Cluster>> *clusters,
                                     art::FindManyP<recob::Hit> *hits_per_cluster,
                                     std::vector<int>    &nHits,
@@ -409,7 +411,7 @@ void EnergyHelper::energy_from_hits_new_method(std::vector<art::Ptr<recob::Clust
       if (plane_nr > 2 || plane_nr < 0)
         continue;
 
-      pfenergy[plane_nr] += charge2energy(hit->Integral());
+      pfenergy[plane_nr] += (charge2energy(hit->Integral() * _gain[plane_nr])/1000.);
       nHits[plane_nr]++;
     }
   }
