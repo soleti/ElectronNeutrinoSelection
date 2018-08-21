@@ -24,6 +24,9 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
 
   myTTree->Branch("true_neutrino_vertex", "std::vector< double >", &_true_neutrino_vertex);
   myTTree->Branch("true_neutrino_vertex_sce", "std::vector< double >", &_true_neutrino_vertex_sce);
+  myTTree->Branch("passed", &_passed, "passed/O");
+  myTTree->Branch("nu_energy", &_nu_energy, "nu_energy/D");
+  myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
 
   _run_subrun_list_file.open("run_subrun_list_filter.txt", std::ofstream::out | std::ofstream::trunc);
 
@@ -81,7 +84,7 @@ void lee::ElectronNeutrinoFilter::clear()
   _true_nu_is_fiducial = false;
   _nu_energy = std::numeric_limits<double>::lowest();
   _lee_weight = 0;
-
+  _passed = false;
   _pot = std::numeric_limits<double>::lowest();
   _run_sr = std::numeric_limits<unsigned int>::lowest();
   _subrun_sr = std::numeric_limits<unsigned int>::lowest();

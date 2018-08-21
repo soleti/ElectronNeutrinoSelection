@@ -220,12 +220,12 @@ double EnergyHelper::PID(art::Ptr<anab::ParticleID> selected_pid,
     {
       anab::sParticleIDAlgScores AlgScore = AlgScoresVec.at(i_algscore);
       int planeid = UBPID::uB_getSinglePlane(AlgScore.fPlaneID);
+
       if (planeid < 0 || planeid > 2)
       {
         std::cout << "[EnergyHelper::PID] No information for planeid " << planeid << std::endl;
         continue;
       }
-
       if (AlgScore.fAlgName == AlgName)
       {
         if (anab::kVariableType(AlgScore.fVariableType) == VariableType
