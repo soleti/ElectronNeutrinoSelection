@@ -89,7 +89,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, fluxeventweightmultisim, dedxcalibration, pid ]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, fluxeventweightmultisim, dedxcalibration]
   ana : [ robertoana ]
   stream: [ out1 ]
 
