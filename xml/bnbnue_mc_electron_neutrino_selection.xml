@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "mc">
+<!ENTITY name "bnb_nue_mc">
 <!ENTITY project_version "v1">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
-<!ENTITY dataset "prodgenie_numi_cosmic_uboone_mcc8.8_detsim_mec_reco2">
+<!ENTITY dataset "prodgenie_bnb_intrinsic_nue_cosmic_uboone_mcc8.7_reco2">
 <!ENTITY tarball_location "/pnfs/uboone/resilient/users">
 <!-- <!ENTITY fcl_dir_first "/uboone/app/users"> -->
 <!-- <!ENTITY fcl_dir_second "Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/"> -->
@@ -41,7 +41,7 @@
   <!-- Project stages -->
 
   <stage name="&name;">
-    <fcl>run_PandoraOnly_&name;_numi.fcl</fcl>
+    <fcl>run_PandoraOnly_newcrhit.fcl</fcl>
     <inputdef>&dataset;</inputdef>
 
     <outdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/out/</outdir>
@@ -49,7 +49,7 @@
     <workdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&main_dir;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>350</numjobs>
+    <numjobs>400</numjobs>
     <disk>2GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>15</maxfilesperjob>

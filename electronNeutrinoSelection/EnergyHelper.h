@@ -74,7 +74,8 @@ public:
             art::FindManyP<recob::Hit> *hits_per_cluster,
             std::vector<double> &dqdx,
             std::vector<std::vector<double>> &dqdx_hits,
-            std::vector<double> &pitches);
+            std::vector<double> &pitches,
+            std::vector<int> &dqdx_hits_in_the_box);
 
   /**
    * @brief      Return the value of a specific ParticleID algorithm for a single track
@@ -85,7 +86,7 @@ public:
    * @param[in]  VariableType    Type of variable (e.g. likelihood)
    * @param[in]  TrackDirection  Assumed direction of the track (anab::kBackward or anab::kForward)
    * @param[in]  pdgCode         Assumed PDG code of the track
-   * 
+   *
    * @return  Value of VariableType for the ParticleID AlgName algorithm,
    *          given its hypothetical PDG code
    */
@@ -101,7 +102,7 @@ public:
    * @param[out] dedx          Address of the dE/dx vector
    * @param[in]  dqdx          dQ/dx vector
    */
-      void dEdx_from_dQdx(std::vector<double> &dedx,
+  void dEdx_from_dQdx(std::vector<double> &dedx,
                           std::vector<double> dqdx);
 
   /**
@@ -134,7 +135,7 @@ public:
    * @param[out] nHits             Address of the vector of the number of hits per plane
    * @param[out] pfenergy          Address of the vector of reconstructed energy per plane
    */
-  void  energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
+  void energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
                                     art::FindManyP<recob::Hit> *hits_per_cluster,
                                     std::vector<int>    &nHits,
                                     std::vector<double> &pfenergy);
@@ -171,6 +172,26 @@ public:
    */
   void dQdx_cali(const recob::Shower *shower_obj,
                  std::vector<double> &dqdx_cali);
+
+       /**
+    * @brief      Convert charge to energy (in MeV)
+    *
+    * @param[in] q          Charge vvalue
+    */
+   double charge2energy(double q);
+
+   /**
+    * @brief      Measure calorimetric energy for a reconstructed object
+    *
+    * @param[in]  clusters          Pointer to the vector of reconstructed clusters
+    * @param[in]  hits_per_cluster  Pointer to the hits-cluster association
+    * @param[out] nHits             Address of the vector of the number of hits per plane
+    * @param[out] pfenergy          Address of the vector of reconstructed energy per plane
+    */
+   void energy_from_hits_new_method(std::vector<art::Ptr<recob::Cluster>> *clusters,
+                                     art::FindManyP<recob::Hit> *hits_per_cluster,
+                                     std::vector<int>    &nHits,
+                                     std::vector<double> &pfenergy);
 
   private:
     std::vector<double> _data_gain = {236.41, 228.83, 242.72}; // DocDB 14754

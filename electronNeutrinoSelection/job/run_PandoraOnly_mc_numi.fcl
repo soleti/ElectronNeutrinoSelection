@@ -75,7 +75,7 @@ physics: {
   analyzers: {
      # ParameterSets for zero or more analyzer modules
      robertoana:  @local::lee_pandora_analyzer
-     @table::ubxsec_mc_ana
+     # @table::ubxsec_mc_ana
   }
 
   filters : {
@@ -83,9 +83,10 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, dedxcalibration, pid ]
-  ana : [ robertoana] #, @sequence::ubxsec_mc_analyzers ]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ]
+  ana : [ robertoana ]
   stream: [ out1 ]
+
 
   trigger_paths: [ prod ]
 

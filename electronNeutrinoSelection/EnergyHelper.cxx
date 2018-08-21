@@ -286,7 +286,8 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
                         std::vector<double> &dqdx,
                         std::vector<std::vector<double>> &dqdx_hits,
-                        std::vector<double> &pitches)
+                        std::vector<double> &pitches,
+                        std::vector<int> &dqdx_hits_in_the_box)
 {
 
   double tolerance = 0.001;
@@ -296,6 +297,11 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
   pfp_dir.SetX(shower_obj->Direction().X());
   pfp_dir.SetY(shower_obj->Direction().Y());
   pfp_dir.SetZ(shower_obj->Direction().Z());
+
+  for (int i=0; i<3; i++)
+  {
+    pitches[i] = geo_helper.getPitch(pfp_dir, i);
+  }
 
   for (auto _cl: *clusters)
   {
@@ -307,7 +313,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
     double start_x = _detprop->ConvertTicksToX(_cl->StartTick(), _cl->Plane());
     double end_x = _detprop->ConvertTicksToX(_cl->EndTick(), _cl->Plane());
     // std::cout << "start " << start_x << ", end: " << end_x << std::endl;
-    double pitch = geo_helper.getPitch(pfp_dir, _cl->Plane().Plane);
+    double pitch = pitches[_cl->Plane().Plane];
 
     if (pitch >= 0)
     {
@@ -357,6 +363,8 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
       }
     }
 
+    dqdx_hits_in_the_box[_cl->Plane().Plane] = dqdxs.size();
+
     // Get the median
     if (dqdxs.size() > 0)
     {
@@ -370,12 +378,40 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 void EnergyHelper::dEdx_from_dQdx(std::vector<double> &dedx,
                                   std::vector<double> dqdx)
 {
+  for (size_t i = 0; i < dqdx.size(); i++)
+  {
+    dedx.push_back(charge2energy(dqdx[i]));
+  }
+}
+
+double EnergyHelper::charge2energy(double charge)
+{
   double Rho = 1.4;
   double Efield = 0.273;
 
-  for (size_t i = 0; i < dqdx.size(); i++)
-  {
-    dedx.push_back((exp(dqdx[i]*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield)));
+  return (exp(charge*(_betap/(Rho*Efield))*_work_function)-_alpha)/(_betap/(Rho*Efield));
+}
+
+void EnergyHelper::energy_from_hits_new_method(std::vector<art::Ptr<recob::Cluster>> *clusters,
+                                    art::FindManyP<recob::Hit> *hits_per_cluster,
+                                    std::vector<int>    &nHits,
+                                    std::vector<double> &pfenergy)
+{
+  nHits.resize(3);
+  pfenergy.resize(3);
+
+  for (auto _cl: *clusters) {
+    std::vector<art::Ptr<recob::Hit>> hits = hits_per_cluster->at(_cl.key());
+
+    for (auto &hit : hits)
+    {
+      auto plane_nr = hit->View();
+      if (plane_nr > 2 || plane_nr < 0)
+        continue;
+
+      pfenergy[plane_nr] += charge2energy(hit->Integral());
+      nHits[plane_nr]++;
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "mc">
+<!ENTITY name "mc_nofilter">
 <!ENTITY project_version "v1">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
