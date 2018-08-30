@@ -40,6 +40,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
 
     // Selected optional functions.
     void reconfigure(fhicl::ParameterSet const & p) override;
+    void respondToOpenInputFile(art::FileBlock const &fb) override;
     bool endSubRun(art::SubRun &sr) override;
     void clear();
 
@@ -58,6 +59,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     TH1F *_h_lee_scaling = new TH1F("h_lee_scaling", "", 11, _lee_bins);
 
     double _lee_weight;
+    double _sum_pot;
     bool _passed;
     bool m_isOverlaidSample;
     bool m_isData;

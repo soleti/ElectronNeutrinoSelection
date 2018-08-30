@@ -78,6 +78,8 @@
 
 #include "larcore/Geometry/WireGeo.h"
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
+#include "lardata/DetectorInfoServices/DetectorClocksService.h"
+#include "lardata/DetectorInfo/DetectorProperties.h"
 
 #include "uboone/EventWeight/EventWeightTreeUtility.h"
 

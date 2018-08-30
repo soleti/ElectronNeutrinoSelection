@@ -16,6 +16,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   }
   // create output tree
   art::ServiceHandle<art::TFileService> tfs;
+
   // myTFile = new TFile("PandoraLEEAnalyzerOutput.root", "RECREATE");
   myTTree = tfs->make<TTree>("pandoratree", "PandoraAnalysis Tree");
 
@@ -586,8 +587,9 @@ void lee::PandoraLEEAnalyzer::categorizePFParticles(
 void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 {
   clear();
+  auto const *theDetector = lar::providerFrom<detinfo::DetectorPropertiesService>();
+  auto const *detClocks = lar::providerFrom<detinfo::DetectorClocksService>();
   auto const *sce_service = lar::providerFrom<spacecharge::SpaceChargeService>();
-
   _run = evt.run();
   _subrun = evt.subRun();
   _event = evt.id().event();
@@ -790,8 +792,9 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
         if (sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz).size() == 3)
         {
+          double g4Ticks = detClocks->TPCG4Time2Tick(gen.GetNeutrino().Nu().T()) + theDetector->GetXTicksOffset(0, 0, 0) - theDetector->TriggerOffset();
           _true_vx_sce =
-              _true_vx - sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[0] + 0.7;
+              _true_vx - sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[0] + theDetector->ConvertTicksToX(g4Ticks, 0, 0, 0);
           _true_vy_sce =
               _true_vy + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[1];
           _true_vz_sce =

@@ -9,11 +9,19 @@
 start_window:  3.57
 end_window:    5.25
 
+pandora_helper:
+{
+  isOverlaidSample:            true
+}
+
+
 nueFilter:
 {
     module_type:                "ElectronNeutrinoFilter"
     ElectronSelectionAlg:       @local::lee_electron_alg
     isOverlaidSample:           true
+    PandoraInterfaceHelper:     @local::pandora_helper
+
 }
 
 nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
@@ -28,11 +36,6 @@ energy_helper:
   isOverlaidSample:            true
 }
 
-
-pandora_helper:
-{
-  isOverlaidSample:            true
-}
 
 lee_pandora_analyzer:
 {

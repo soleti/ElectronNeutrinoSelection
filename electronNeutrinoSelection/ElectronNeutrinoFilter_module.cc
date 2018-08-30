@@ -33,6 +33,12 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
   this->reconfigure(p);
 }
 
+void lee::ElectronNeutrinoFilter::respondToOpenInputFile(art::FileBlock const &fb)
+{
+    _sum_pot = 0;
+}
+
+
 bool lee::ElectronNeutrinoFilter::endSubRun(art::SubRun &sr)
 {
   _run_subrun_list_file << sr.run() << " " << sr.subRun() << std::endl;
@@ -41,11 +47,15 @@ bool lee::ElectronNeutrinoFilter::endSubRun(art::SubRun &sr)
   _subrun_sr = sr.subRun();
 
   art::Handle<sumdata::POTSummary> potListHandle;
+
   if (!m_isData || m_isOverlaidSample)
   {
     if (sr.getByLabel(_mctruthLabel, potListHandle)) {
-      _pot = potListHandle->totpot;
-
+      _pot = potListHandle->totpot - _sum_pot;
+      if (m_isOverlaidSample) {
+          _sum_pot += _pot;
+      }
+      std::cout << "Subrun POT " << _pot << std::endl;
     } else {
         _pot = 0.;
     }
@@ -54,6 +64,7 @@ bool lee::ElectronNeutrinoFilter::endSubRun(art::SubRun &sr)
   {
     if (sr.getByLabel("beamdata", "bnbETOR860", potListHandle)) {
       _pot = potListHandle->totpot;
+      std::cout << "Subrun POT " << _pot << std::endl;
     } else {
       _pot = 0.;
     }
@@ -113,6 +124,7 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
   auto const &generator_handle = e.getValidHandle<std::vector<simb::MCTruth>>(_mctruthLabel);
   auto const &generator(*generator_handle);
   _n_true_nu = generator.size();
+
   _true_nu_is_fiducial = 0;
   auto const *sce_service = lar::providerFrom<spacecharge::SpaceChargeService>();
 
@@ -167,7 +179,11 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
           mcparticle.StatusCode() == 1))
       continue;
 
+
     const auto mc_truth = pandoraHelper.TrackIDToMCTruth(e, _mcparticleLabel, mcparticle.TrackId());
+    // if (mc_truth.isNull())
+    //   continue;
+
     if (mc_truth->Origin() == simb::kBeamNeutrino)
     {
       _nu_daughters_E.push_back(mcparticle.E());
@@ -195,6 +211,7 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
       _nu_daughters_end_v.push_back(end_v);
 
     }
+
   }
 
   myTTree->Fill();
@@ -205,6 +222,8 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
 void lee::ElectronNeutrinoFilter::reconfigure(fhicl::ParameterSet const & p)
 {
   fElectronEventSelectionAlg.reconfigure(p.get<fhicl::ParameterSet>("ElectronSelectionAlg"));
+  pandoraHelper.reconfigure(p.get<fhicl::ParameterSet>("PandoraInterfaceHelper"));
+
   m_isOverlaidSample = p.get<bool>("isOverlaidSample", false);
   m_isData = p.get<bool>("isData", false);
 }
