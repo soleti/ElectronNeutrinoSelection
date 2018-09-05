@@ -16,6 +16,8 @@
 #include "nusimdata/SimulationBase/MCTruth.h"
 #include "larevt/SpaceChargeServices/SpaceChargeService.h"
 
+#include "uboone/EventWeight/MCEventWeight.h"
+
 #include <memory>
 
 namespace lee {
@@ -58,18 +60,45 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     TH1F *_h_lee_scaling = new TH1F("h_lee_scaling", "", 11, _lee_bins);
 
     double _lee_weight;
-    bool _passed;
+    double _bnbweight;
+
     bool m_isOverlaidSample;
     bool m_isData;
+
+    double m_fidvolXstart;
+    double m_fidvolXend;
+    double m_fidvolYstart;
+    double m_fidvolYend;
+    double m_fidvolZstart;
+    double m_fidvolZend;
+
+
+    bool _passed;
+    std::vector<double> _flash_PE;
+    std::vector<double> _flash_time;
+    double _TPC_x;
+    double _flash_x;
+    int _n_total_candidates;
+
+    double _pot;
     unsigned int _run_sr;
     unsigned int _subrun_sr;
+
     unsigned int _n_true_nu;
-    int _ccnc;
     int _nu_pdg;
+    int _ccnc;
     int _interaction_type;
-    bool _true_nu_is_fiducial;
+
     double _nu_energy;
-    double _pot;
+    double _nu_theta;
+    double _nu_phi;
+    double _nu_T;
+    double _true_vx;
+    double _true_vy;
+    double _true_vz;
+    bool _true_nu_is_fiducial;
+    bool _true_nu_is_active;
+
     std::vector<double> _true_neutrino_vertex;
     std::vector<double> _true_neutrino_vertex_sce;
     std::vector<double> _nu_daughters_E;
@@ -79,6 +108,16 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     std::vector < std::vector<double> > _nu_daughters_start_v;
     std::vector < std::vector<double> > _nu_daughters_end_v;
 
+    int _n_true_pions;
+    int _n_true_protons;
+    int _n_true_protons_above40;
+    int _n_true_protons_above21;
+    double _true_daughter_E;
+    double _true_daughter_theta;
+    double _true_daughter_phi;
+
     std::string _mctruthLabel = "generator";
     std::string _mcparticleLabel = "largeant";
+
+    std::map<int, int> _pdg_daughter = {{12, 11}, {14, 13}, {-12, -11}, {-14, -13}};
 };

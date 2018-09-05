@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
 <!ENTITY name "dataext_numi">
-<!ENTITY project_version "v0">
+<!ENTITY project_version "v5">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
@@ -25,7 +25,7 @@
   <os>SL6</os>
 
   <!--  Project size  -->
-  <numevents>1000000</numevents>
+  <numevents>100000000</numevents>
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
@@ -50,7 +50,8 @@
     <workdir>&resilient;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>10</numjobs>
+    <numjobs>1081</numjobs>
+    <!-- <numjobs>20</numjobs> -->
     <disk>2GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>15</maxfilesperjob>

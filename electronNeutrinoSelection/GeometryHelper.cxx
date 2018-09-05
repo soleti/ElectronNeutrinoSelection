@@ -59,6 +59,12 @@ bool GeometryHelper::isFiducial(const double x[3]) const {
   //   bnd[3] << " " <<
   //   bnd[4] << " " <<
   //   bnd[5] << " " <<
+  //   x[0] << " " <<
+  //   x[1] << " " <<
+  //   x[2] << " " <<
+  //   is_x << " " <<
+  //   is_y << " " <<
+  //   is_z << " " <<
   //   std::endl;
 
   return is_x && is_y && is_z;

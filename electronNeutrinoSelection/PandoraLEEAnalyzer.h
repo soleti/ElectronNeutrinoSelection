@@ -234,6 +234,7 @@ private:
   double _nu_energy;
   double _nu_theta;
   double _nu_phi;
+  double _nu_T;
 
   int _n_total_candidates;
   std::vector<double> _candidate_vx;
@@ -252,6 +253,7 @@ private:
   double _true_vx;
   double _true_vy;
   double _true_vz;
+
 
   double _true_vx_sce;
   double _true_vy_sce;
@@ -278,6 +280,8 @@ private:
   int _n_candidates;
   int _n_true_nu;
   int _n_true_protons;
+  int _n_true_protons_above40;
+  int _n_true_protons_above21;
   int _n_true_pions;
   int _run_sr;
   int _subrun_sr;

@@ -10,15 +10,15 @@
 start_window:  4.76
 end_window:    14.4
 
-# nueFilter:
-# {
-#     module_type:                "ElectronNeutrinoFilter"
-#     ElectronSelectionAlg:       @local::lee_electron_alg
-# }
+nueFilter:
+{
+    module_type:                "ElectronNeutrinoFilter"
+    ElectronSelectionAlg:       @local::lee_electron_alg
+}
 
-# nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
-# nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
-# nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
+nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
+nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 pandora_helper:
 {
@@ -86,11 +86,11 @@ physics: {
 
   filters : {
      # ParameterSets for zero or more filter modules
-     # nueFilter: @local::nueFilter
+     nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, dedxcalibration ]
-  ana : [ robertoana ]
+  prod: [ nueFilter ]
+  ana : [  ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]

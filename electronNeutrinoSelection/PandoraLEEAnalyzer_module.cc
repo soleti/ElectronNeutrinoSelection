@@ -57,6 +57,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("nu_E", &_nu_energy, "nu_E/d");
   myTTree->Branch("nu_theta", &_nu_theta, "nu_theta/d");
   myTTree->Branch("nu_phi", &_nu_phi, "nu_phi/d");
+  myTTree->Branch("nu_T", &_nu_T, "nu_T/d");
   myTTree->Branch("passed", &_event_passed, "passed/I");
   myTTree->Branch("numu_passed", &_numu_passed, "numu_passed/I");
   myTTree->Branch("numu_cuts", &_numu_cuts, "numu_cuts/I");
@@ -70,6 +71,8 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/I");
   myTTree->Branch("n_true_pions", &_n_true_pions, "n_true_pions/I");
   myTTree->Branch("n_true_protons", &_n_true_protons, "n_true_protons/I");
+  myTTree->Branch("n_true_protons_above40", &_n_true_protons_above40, "n_true_protons_above40/I");
+  myTTree->Branch("n_true_protons_above21", &_n_true_protons_above21, "n_true_protons_above21/I");
   myTTree->Branch("distance", &_distance, "distance/d");
   myTTree->Branch("true_nu_is_fiducial", &_true_nu_is_fiducial,
                   "true_nu_is_fiducial/I");
@@ -483,6 +486,8 @@ void lee::PandoraLEEAnalyzer::clear()
 
   _n_true_pions = 0;
   _n_true_protons = 0;
+  _n_true_protons_above40 = 0;
+  _n_true_protons_above21 = 0;
   _nu_pdg = 0;
 
   _flash_passed.clear();
@@ -516,6 +521,7 @@ void lee::PandoraLEEAnalyzer::clear()
   _true_vx = std::numeric_limits<double>::lowest();
   _true_vy = std::numeric_limits<double>::lowest();
   _true_vz = std::numeric_limits<double>::lowest();
+  _nu_T = std::numeric_limits<double>::lowest();
 
   _true_daughter_E = std::numeric_limits<double>::lowest();
   _true_daughter_theta = std::numeric_limits<double>::lowest();
@@ -736,10 +742,13 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     art::InputTag eventweight_tag("eventweight");
     auto const &eventweights_handle =
         evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(eventweight_tag);
-    if (!eventweights_handle.isValid()) {
+    if (!eventweights_handle.isValid())
+    {
       std::cout << "[PandoraLEEAnalyzer] No MCEventWeight data product" << std::endl;
       _bnbweight = 1;
-    } else {
+    }
+    else
+    {
       auto const &eventweights(*eventweights_handle);
       if (eventweights.size() > 0) {
         for (auto last : eventweights.at(0).fWeight) {
@@ -826,6 +835,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         _true_vy = true_neutrino_vertex[1];
         _true_vz = true_neutrino_vertex[2];
         _true_nu_is_fiducial = (int)geoHelper.isFiducial(true_neutrino_vertex);
+        _nu_T = gen.GetNeutrino().Nu().T();
 
         _interaction_type = gen.GetNeutrino().Mode();
 
@@ -880,6 +890,14 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         else if (abs(mcparticle.PdgCode()) == 2212)
         {
           _n_true_protons += 1;
+          if (mcparticle.E() > (0.938272 + 0.040))
+          {
+            _n_true_protons_above40 += 1;
+          }
+          if (mcparticle.E() > (0.938272 + 0.02108))
+          {
+            _n_true_protons_above21 += 1;
+          }
         }
         _nu_daughters_px.push_back(mcparticle.Px());
         _nu_daughters_py.push_back(mcparticle.Py());
@@ -975,7 +993,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   _re_category = _category;
   if (abs(_nu_pdg) == 12)
   {
-    if (_n_true_protons>0 && _n_true_pions==0)
+    if (_true_daughter_E>0.02 && _n_true_protons_above40>0 && _n_true_pions==0)
     {
       if (_category==2) _re_category = 11;
       else if (_category==7) _re_category = 14;
@@ -1461,13 +1479,13 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         (_nu_matched_tracks > 0 || _nu_matched_showers > 0))
     {
       _category = k_mixed;
-      _re_category = k_other;
+      _re_category = k_mixed;
     }
 
     if ((track_cr_found || shower_cr_found) && _category != k_mixed)
     {
       _category = k_cosmic;
-      _re_category = k_other;
+      _re_category = k_cosmic;
     }
 
     std::cout << "[PandoraLEE] "
