@@ -55,7 +55,7 @@ bool lee::ElectronNeutrinoFilter::endSubRun(art::SubRun &sr)
       if (m_isOverlaidSample) {
           _sum_pot += _pot;
       }
-      std::cout << "Subrun POT " << _pot << std::endl;
+      std::cout << "Subrun POT " << _pot << " " << potListHandle->totpot << " " << _sum_pot << std::endl;
     } else {
         _pot = 0.;
     }

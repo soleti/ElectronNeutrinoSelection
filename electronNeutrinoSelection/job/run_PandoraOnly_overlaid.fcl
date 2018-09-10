@@ -2,7 +2,6 @@
 #include "config_particle_identification.fcl"
 #include "particleid_microboone.fcl"
 #include "lee_selection_alg.fcl"
-##include "ubxsec_data_common.fcl"
 #include "ubxsec_mc_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
@@ -14,25 +13,23 @@ pandora_helper:
   isOverlaidSample:            true
 }
 
-
 nueFilter:
 {
     module_type:                "ElectronNeutrinoFilter"
     ElectronSelectionAlg:       @local::lee_electron_alg
     isOverlaidSample:           true
     PandoraInterfaceHelper:     @local::pandora_helper
-
 }
 
-nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
-nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
+nueFilter.ElectronSelectionAlg.startbeamtime:    @local::start_window
+nueFilter.ElectronSelectionAlg.endbeamtime:      @local::end_window
 nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 energy_helper:
 {
-  Gains: [236.41, 228.83, 242.72]
-  RecombinationBeta: 0.183592
-  RecombinationAlpha: 0.921969
+  Gains:                       [236.41, 228.83, 242.72]
+  RecombinationBeta:           0.183592
+  RecombinationAlpha:          0.921969
   isOverlaidSample:            true
 }
 
@@ -56,8 +53,8 @@ lee_pandora_analyzer:
     SelectEvents:               [ prod ]
 }
 
-lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
-lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
+lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime:    @local::start_window
+lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime:      @local::end_window
 lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 outputs:
@@ -76,8 +73,6 @@ physics: {
 
   producers : {
      # ParameterSets for zero or more producer modules
-     #@table::ubxsec_data_reco
-     #@table::ubxsec_data_flashmatch
      @table::ubxsec_mc_reco
      @table::ubxsec_mc_flashmatch
      dedxcalibration: @local::data_newboxrecomb
@@ -87,7 +82,6 @@ physics: {
   analyzers: {
      # ParameterSets for zero or more analyzer modules
      robertoana:  @local::lee_pandora_analyzer
-     # @table::ubxsec_data_ana
   }
 
   filters : {
@@ -95,8 +89,8 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter ]# @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid  ]
-  ana : [ robertoana ]
+  prod:   [ @sequence::ubxsec_mc_producers, nueFilter ] #, dedxcalibration, pid  ] # PID needs to be modified to work on overlay samples
+  ana :   [ robertoana ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]

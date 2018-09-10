@@ -1361,8 +1361,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       {
         _category = k_cosmic;
       }
-
-      if (_nu_matched_tracks > 0 || _nu_matched_showers > 0)
+      else if (_nu_matched_tracks != _n_tracks || _nu_matched_showers != _n_showers)
       {
         _category = k_mixed;
       }

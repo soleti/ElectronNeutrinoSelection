@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
     <!ENTITY name "overlay_electron_filter">
-    <!ENTITY dataset "prodgenie_bnb_nu_uboone_overlay_mcc8.11_reco2">
+    <!ENTITY dataset "overlay_goodruns_snapshot_083118">
     <!ENTITY larsoft_version "v06_26_01_13">
     <!ENTITY version "v06_26_01_18">
     <!ENTITY qualifier "e10:prof">
@@ -34,7 +34,7 @@
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
-        <numjobs>800</numjobs>
+        <numjobs>796</numjobs>
         <disk>1.6GB</disk>
         <memory>1536</memory>
         <maxfilesperjob>20</maxfilesperjob>
