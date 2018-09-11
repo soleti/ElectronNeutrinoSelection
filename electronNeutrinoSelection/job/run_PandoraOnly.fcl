@@ -10,20 +10,21 @@
 start_window:  3.16
 end_window:    4.84
 
+pandora_helper:
+{
+  isOverlaidSample:            false
+}
+
 nueFilter:
 {
     module_type:                "ElectronNeutrinoFilter"
     ElectronSelectionAlg:       @local::lee_electron_alg
+    PandoraInterfaceHelper:     @local::pandora_helper
 }
 
 nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
 nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
 nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
-
-pandora_helper:
-{
-  isOverlaidSample:            false
-}
 
 energy_helper:
 {
@@ -43,7 +44,7 @@ lee_pandora_analyzer:
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     HitMatchingLabel:           "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
-    UseParticleID:              true
+    UseParticleID:              false
     SelectEvents:               [ prod ]
 }
 
@@ -83,13 +84,13 @@ physics: {
      robertoana:  @local::lee_pandora_analyzer
      # @table::ubxsec_mc_ana
   }
-  
+
   filters : {
      # ParameterSets for zero or more filter modules
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, genieeventweightmultisim, fluxeventweightmultisim ] #, dedxcalibration, pid,
   ana : [ robertoana ]
   stream: [ out1 ]
 
@@ -107,6 +108,7 @@ cs_producerlabels_mcc8_calib_dedxcalib:
 }
 
 physics.producers.genieeventweightmultisim.weight_functions: [ genie_all ]
+physics.producers.genieeventweightmultisim.genie_all.number_of_multisims: 100
 
 physics.analyzers.robertoana.isData: false
 physics.analyzers.robertoana.saveFluxInfo: true

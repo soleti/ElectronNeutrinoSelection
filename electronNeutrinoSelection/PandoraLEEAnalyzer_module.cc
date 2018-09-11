@@ -22,8 +22,11 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
 
   myPOTTTree = tfs->make<TTree>("pot", "POT Tree");
 
-  myTTree->Branch("weights", "std::map< std::string, std::vector< double > >", &_weights);
-  myTTree->Branch("flux_weights", "std::map< std::string, std::vector< double > >", &_flux_weights);
+  myTTree->Branch("genie_weights", "std::vector< std::vector< double > >", &_genie_weights);
+  myTTree->Branch("genie_names", "std::vector< std::string >", &_genie_names);
+
+  myTTree->Branch("flux_weights", "std::vector< std::vector< double > >", &_flux_weights);
+  myTTree->Branch("flux_names", "std::vector< std::string >", &_flux_names);
 
   myTTree->Branch("category", &_category, "category/I");
   myTTree->Branch("reconstructed_energy", "std::vector< double >", &_energy);
@@ -360,9 +363,10 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_res_std.clear();
   _shower_res_mean.clear();
   _shower_res_std.clear();
-  _weights.clear();
+  _genie_weights.clear();
   _flux_weights.clear();
-
+  _genie_names.clear();
+  _flux_names.clear();
   _shower_pitches.clear();
   _shower_dQdx_hits_in_the_box.clear();
   _ccnc = std::numeric_limits<int>::lowest();
@@ -727,7 +731,12 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       else
       {
         auto const &genie_eventweights(*genie_eventweights_handle);
-        _weights = genie_eventweights.at(0).fWeight;
+        std::map<std::string, std::vector<double>> evtwgt_map = genie_eventweights.at(0).fWeight;
+        for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
+        {
+          _genie_names.push_back(it->first);         // filling the name of the function
+          _genie_weights.push_back(it->second);      // getting the vector of weights
+        }
       }
     } catch (...) {
       std::cout << "[PandoraLEEAnalyzer] No GENIE MCEventWeight data product" << std::endl;
@@ -744,7 +753,12 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       else
       {
         auto const &flux_eventweights(*flux_eventweights_handle);
-        _flux_weights = flux_eventweights.at(0).fWeight;
+        std::map<std::string, std::vector<double>> evtwgt_map = flux_eventweights.at(0).fWeight;
+        for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
+        {
+          _flux_names.push_back(it->first);         // filling the name of the function
+          _flux_weights.push_back(it->second);      // getting the vector of weights
+        }
       }
     }
     catch (...)

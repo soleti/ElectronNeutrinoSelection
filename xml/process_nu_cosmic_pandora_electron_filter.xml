@@ -28,15 +28,15 @@
 
     <!--  Project stages  -->
     <stage name="selection">
-        <fcl>run_PandoraOnly_newcrhit.fcl</fcl>
+        <fcl>run_PandoraOnly.fcl</fcl>
         <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
         <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
-        <numjobs>719</numjobs>
-        <disk>2GB</disk>
-        <memory>4096</memory>
+        <numjobs>50</numjobs>
+        <disk>20GB</disk>
+        <memory>6144</memory>
         <maxfilesperjob>15</maxfilesperjob>
         <datatier>reconstructed</datatier>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>

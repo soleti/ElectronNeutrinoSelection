@@ -250,8 +250,11 @@ private:
   double _true_vx_sce;
   double _true_vy_sce;
   double _true_vz_sce;
-  std::map<std::string, std::vector<double>> _weights;
-  std::map<std::string, std::vector<double>> _flux_weights;
+  std::vector< std::vector<double> > _genie_weights;
+  std::vector< std::string > _genie_names;
+
+  std::vector< std::vector<double> > _flux_weights;
+  std::vector< std::string > _flux_names;
 
   std::vector<double> _true_shower_x_sce;
   std::vector<double> _true_shower_y_sce;
