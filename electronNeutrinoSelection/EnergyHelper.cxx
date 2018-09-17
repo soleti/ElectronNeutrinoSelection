@@ -373,7 +373,7 @@ void EnergyHelper::dQdx(const recob::Shower *shower_obj,
 
         if (m_isOverlaidSample)
         {
-          _gain = _mc_gain;
+          _gain = _data_gain;
         }
         double q = hit->Integral() * _gain[_cl->Plane().Plane];
         dqdxs.push_back(q / fabs(pitch));

@@ -34,8 +34,8 @@
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
-        <numjobs>50</numjobs>
-        <disk>20GB</disk>
+        <numjobs>719</numjobs>
+        <disk>4GB</disk>
         <memory>6144</memory>
         <maxfilesperjob>15</maxfilesperjob>
         <datatier>reconstructed</datatier>
