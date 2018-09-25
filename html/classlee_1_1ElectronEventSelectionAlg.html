@@ -142,6 +142,10 @@ TVector3 &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class=
 const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga43afa7fb8c10333f89774c6d4ea714dc">get_n_showers</a> () const </td></tr>
 <tr class="memdesc:ga43afa7fb8c10333f89774c6d4ea714dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of showers for this pfparticle. <br/></td></tr>
 <tr class="separator:ga43afa7fb8c10333f89774c6d4ea714dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac88cb17999725f4af1233c4f3834cc83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac88cb17999725f4af1233c4f3834cc83"></a>
+const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gac88cb17999725f4af1233c4f3834cc83">get_n_showers_as_tracks</a> () const </td></tr>
+<tr class="memdesc:gac88cb17999725f4af1233c4f3834cc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of showers for this pfparticle, reconstructed as tracks;. <br/></td></tr>
+<tr class="separator:gac88cb17999725f4af1233c4f3834cc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad24d64eca5e56d0550572b24d5e213f7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad24d64eca5e56d0550572b24d5e213f7"></a>
 const std::map&lt; size_t, int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gad24d64eca5e56d0550572b24d5e213f7">get_n_tracks</a> () const </td></tr>
 <tr class="memdesc:gad24d64eca5e56d0550572b24d5e213f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of tracks for pfparticle index. <br/></td></tr>
@@ -156,6 +160,11 @@ const std::map&lt; size_t, <br class="typebreak"/>
 std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga00266c70e046a9ee27e979be75925a09">get_pfp_id_tracks_from_primary</a> () const </td></tr>
 <tr class="memdesc:ga00266c70e046a9ee27e979be75925a09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. <br/></td></tr>
 <tr class="separator:ga00266c70e046a9ee27e979be75925a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4b59155e267aadfd8ab0974632c74fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf4b59155e267aadfd8ab0974632c74fd"></a>
+const std::map&lt; size_t, <br class="typebreak"/>
+std::vector&lt; size_t &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gaf4b59155e267aadfd8ab0974632c74fd">get_pfp_id_showers_as_tracks_from_primary</a> () const </td></tr>
+<tr class="memdesc:gaf4b59155e267aadfd8ab0974632c74fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. <br/></td></tr>
+<tr class="separator:gaf4b59155e267aadfd8ab0974632c74fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga306e62904f73e727c6f938d2a197f68e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga306e62904f73e727c6f938d2a197f68e"></a>
 const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#ga306e62904f73e727c6f938d2a197f68e">get_flash_PE</a> () const </td></tr>
 <tr class="memdesc:ga306e62904f73e727c6f938d2a197f68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the list of total PE of the flashes. <br/></td></tr>
@@ -204,6 +213,13 @@ std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"
 std::map&lt; size_t, std::vector<br class="typebreak"/>
 &lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_pfp_id_tracks_from_primary</b></td></tr>
 <tr class="separator:ga5f8d5c0400bf9f2a5963a70615a04f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6abdd8903dd18f8c823546b7af01a5ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga6abdd8903dd18f8c823546b7af01a5ad"></a>
+std::map&lt; size_t, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_n_showers_as_tracks</b></td></tr>
+<tr class="separator:ga6abdd8903dd18f8c823546b7af01a5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96acbbb1e62d2c43375b66dacc8b6933"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga96acbbb1e62d2c43375b66dacc8b6933"></a>
+std::map&lt; size_t, std::vector<br class="typebreak"/>
+&lt; size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_pfp_id_showers_as_tracks_from_primary</b></td></tr>
+<tr class="separator:ga96acbbb1e62d2c43375b66dacc8b6933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gace044c6f4da66c667ce2106cb82b9851"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gace044c6f4da66c667ce2106cb82b9851"></a>
 std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_flash_PE</b></td></tr>
 <tr class="separator:gace044c6f4da66c667ce2106cb82b9851"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -279,6 +295,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_FM_all</b></td></tr
 <tr class="memitem:ga2a8178edfca11d99f8ccbd86dbd1c3bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2a8178edfca11d99f8ccbd86dbd1c3bd"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>m_isCosmicInTime</b></td></tr>
 <tr class="separator:ga2a8178edfca11d99f8ccbd86dbd1c3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga582ae23664b554465fc6bc1a1cae4877"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga582ae23664b554465fc6bc1a1cae4877"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_showersAsTracks</b></td></tr>
+<tr class="separator:ga582ae23664b554465fc6bc1a1cae4877"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf3cb19dac93bb287a5747ad4400c65ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf3cb19dac93bb287a5747ad4400c65ef"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gaf3cb19dac93bb287a5747ad4400c65ef">_do_opdet_swap</a></td></tr>
 <tr class="memdesc:gaf3cb19dac93bb287a5747ad4400c65ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true swaps reconstructed OpDets according to _opdet_swap_map. <br/></td></tr>

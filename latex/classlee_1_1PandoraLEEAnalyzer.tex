@@ -42,7 +42,10 @@ art\-::\-Ptr$<$ recob\-::\-Track $>$ \hyperlink{group__lee_gae76ba045ee298f69ff1
 
 \item 
 void \hyperlink{group__lee_gae0e0369a28fcbca90d62624f59d44aaa}{categorize\-P\-F\-Particles} (art\-::\-Event const \&evt, std\-::vector$<$ int $>$ \&neutrino\-\_\-pdg, std\-::vector$<$ std\-::string $>$ \&neutrino\-\_\-process, std\-::vector$<$ double $>$ \&neutrino\-\_\-energy, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-P\-F\-Particle $>$$>$ \&neutrino\-\_\-pf, std\-::vector$<$ int $>$ \&cosmic\-\_\-pdg, std\-::vector$<$ std\-::string $>$ \&cosmic\-\_\-process, std\-::vector$<$ double $>$ \&cosmic\-\_\-energy, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-P\-F\-Particle $>$$>$ \&cosmic\-\_\-pf)
-\begin{DoxyCompactList}\small\item\em Determines if a P\-F\-Particle is matched with a M\-C\-Particle coming from a neutrino interaction or a cosmic ray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Determines if a P\-F\-Particle is matched with a M\-C\-Particle coming from a neutrino interaction or a cosmic ray. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga18e65abc9c2d4948c591af5b6b2facf1}{void {\bfseries fill\-Track\-Fields} (size\-\_\-t pf\-\_\-id, recob\-::\-P\-F\-Particle const $\ast$pfparticle, art\-::\-Find\-Many\-P$<$ recob\-::\-Cluster $>$ $\ast$clusters\-\_\-per\-\_\-pfpart, art\-::\-Find\-Many\-P$<$ recob\-::\-Space\-Point $>$ $\ast$spcpnts\-\_\-per\-\_\-pfpart, art\-::\-Find\-One\-P$<$ recob\-::\-Track $>$ $\ast$track\-\_\-per\-\_\-pfpart, art\-::\-Find\-Many\-P$<$ anab\-::\-Calorimetry $>$ $\ast$calos\-\_\-per\-\_\-track, art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$mcps\-\_\-per\-\_\-hit, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-spcpnts, art\-::\-Find\-Many\-P$<$ anab\-::\-Particle\-I\-D $>$ $\ast$pid\-\_\-per\-\_\-track, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster)}\label{group__lee_ga18e65abc9c2d4948c591af5b6b2facf1}
+
+\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -101,6 +104,9 @@ void \hyperlink{group__lee_gae0e0369a28fcbca90d62624f59d44aaa}{categorize\-P\-F\
 
 \item 
 \hypertarget{group__lee_ga3c10053a4ef8cb336589fb86a5b6f587}{T\-Tree $\ast$ {\bfseries my\-P\-O\-T\-T\-Tree}}\label{group__lee_ga3c10053a4ef8cb336589fb86a5b6f587}
+
+\item 
+\hypertarget{group__lee_gaf5344d06ed15aebe8e400fde3f63b337}{bool {\bfseries m\-\_\-showers\-As\-Tracks}}\label{group__lee_gaf5344d06ed15aebe8e400fde3f63b337}
 
 \item 
 \hypertarget{group__lee_gafd61fa715317d7a54f36339589736b1e}{int {\bfseries \-\_\-interaction\-\_\-type}}\label{group__lee_gafd61fa715317d7a54f36339589736b1e}
@@ -179,6 +185,9 @@ void \hyperlink{group__lee_gae0e0369a28fcbca90d62624f59d44aaa}{categorize\-P\-F\
 
 \item 
 \hypertarget{group__lee_ga18da3a91fd8778add6fbd0c4e2244f89}{int {\bfseries \-\_\-n\-\_\-showers}}\label{group__lee_ga18da3a91fd8778add6fbd0c4e2244f89}
+
+\item 
+\hypertarget{group__lee_gaf39378c2980938803cbd7c3bce78845f}{int {\bfseries \-\_\-n\-\_\-showers\-\_\-as\-\_\-tracks}}\label{group__lee_gaf39378c2980938803cbd7c3bce78845f}
 
 \item 
 \hypertarget{group__lee_ga440e3b5b58670672f25f42dd09d0aa21}{double {\bfseries \-\_\-vx}}\label{group__lee_ga440e3b5b58670672f25f42dd09d0aa21}
@@ -394,6 +403,9 @@ $<$ double $>$ $>$ {\bfseries \-\_\-track\-\_\-d\-Edx}}\label{group__lee_ga81034
 
 \item 
 \hypertarget{group__lee_ga5253913419cf4211211558082106bd62}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries \-\_\-nu\-\_\-track\-\_\-ids}}\label{group__lee_ga5253913419cf4211211558082106bd62}
+
+\item 
+\hypertarget{group__lee_ga0f8c37d01207c4ac6f83bde788634462}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries \-\_\-nu\-\_\-shower\-\_\-as\-\_\-track\-\_\-ids}}\label{group__lee_ga0f8c37d01207c4ac6f83bde788634462}
 
 \item 
 \hypertarget{group__lee_ga063d4fec5b4b40b812147b1b77be79a3}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries \-\_\-nu\-\_\-shower\-\_\-ids}}\label{group__lee_ga063d4fec5b4b40b812147b1b77be79a3}

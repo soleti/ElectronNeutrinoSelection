@@ -76,6 +76,9 @@ T\-Vector3 $>$ \& \hyperlink{group__lee_gac098d39d04f407c9bfc574da4b82fee6}{lee\
 \hypertarget{group__lee_ga43afa7fb8c10333f89774c6d4ea714dc}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{group__lee_ga43afa7fb8c10333f89774c6d4ea714dc}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-showers} () const }\label{group__lee_ga43afa7fb8c10333f89774c6d4ea714dc}
 
 \begin{DoxyCompactList}\small\item\em Return number of showers for this pfparticle. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gac88cb17999725f4af1233c4f3834cc83}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{group__lee_gac88cb17999725f4af1233c4f3834cc83}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-showers\-\_\-as\-\_\-tracks} () const }\label{group__lee_gac88cb17999725f4af1233c4f3834cc83}
+
+\begin{DoxyCompactList}\small\item\em Return number of showers for this pfparticle, reconstructed as tracks;. \end{DoxyCompactList}\item 
 \hypertarget{group__lee_gad24d64eca5e56d0550572b24d5e213f7}{const std\-::map$<$ size\-\_\-t, int $>$ \& \hyperlink{group__lee_gad24d64eca5e56d0550572b24d5e213f7}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-n\-\_\-tracks} () const }\label{group__lee_gad24d64eca5e56d0550572b24d5e213f7}
 
 \begin{DoxyCompactList}\small\item\em Return number of tracks for pfparticle index. \end{DoxyCompactList}\item 
@@ -85,6 +88,10 @@ std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_ga7ea645ce175506b3
 \begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are showers that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
 \hypertarget{group__lee_ga00266c70e046a9ee27e979be75925a09}{const std\-::map$<$ size\-\_\-t, \\*
 std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_ga00266c70e046a9ee27e979be75925a09}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary} () const }\label{group__lee_ga00266c70e046a9ee27e979be75925a09}
+
+\begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_gaf4b59155e267aadfd8ab0974632c74fd}{const std\-::map$<$ size\-\_\-t, \\*
+std\-::vector$<$ size\-\_\-t $>$ $>$ \& \hyperlink{group__lee_gaf4b59155e267aadfd8ab0974632c74fd}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-as\-\_\-tracks\-\_\-from\-\_\-primary} () const }\label{group__lee_gaf4b59155e267aadfd8ab0974632c74fd}
 
 \begin{DoxyCompactList}\small\item\em Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes. \end{DoxyCompactList}\item 
 \hypertarget{group__lee_ga306e62904f73e727c6f938d2a197f68e}{const std\-::vector$<$ double $>$ \& \hyperlink{group__lee_ga306e62904f73e727c6f938d2a197f68e}{lee\-::\-Electron\-Event\-Selection\-Alg\-::get\-\_\-flash\-\_\-\-P\-E} () const }\label{group__lee_ga306e62904f73e727c6f938d2a197f68e}
@@ -203,7 +210,10 @@ art\-::\-Ptr$<$ recob\-::\-Track $>$ \hyperlink{group__lee_gae76ba045ee298f69ff1
 
 \item 
 void \hyperlink{group__lee_gae0e0369a28fcbca90d62624f59d44aaa}{lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::categorize\-P\-F\-Particles} (art\-::\-Event const \&evt, std\-::vector$<$ int $>$ \&neutrino\-\_\-pdg, std\-::vector$<$ std\-::string $>$ \&neutrino\-\_\-process, std\-::vector$<$ double $>$ \&neutrino\-\_\-energy, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-P\-F\-Particle $>$$>$ \&neutrino\-\_\-pf, std\-::vector$<$ int $>$ \&cosmic\-\_\-pdg, std\-::vector$<$ std\-::string $>$ \&cosmic\-\_\-process, std\-::vector$<$ double $>$ \&cosmic\-\_\-energy, std\-::vector$<$ art\-::\-Ptr$<$ recob\-::\-P\-F\-Particle $>$$>$ \&cosmic\-\_\-pf)
-\begin{DoxyCompactList}\small\item\em Determines if a P\-F\-Particle is matched with a M\-C\-Particle coming from a neutrino interaction or a cosmic ray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Determines if a P\-F\-Particle is matched with a M\-C\-Particle coming from a neutrino interaction or a cosmic ray. \end{DoxyCompactList}\item 
+\hypertarget{group__lee_ga18e65abc9c2d4948c591af5b6b2facf1}{void {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::fill\-Track\-Fields} (size\-\_\-t pf\-\_\-id, recob\-::\-P\-F\-Particle const $\ast$pfparticle, art\-::\-Find\-Many\-P$<$ recob\-::\-Cluster $>$ $\ast$clusters\-\_\-per\-\_\-pfpart, art\-::\-Find\-Many\-P$<$ recob\-::\-Space\-Point $>$ $\ast$spcpnts\-\_\-per\-\_\-pfpart, art\-::\-Find\-One\-P$<$ recob\-::\-Track $>$ $\ast$track\-\_\-per\-\_\-pfpart, art\-::\-Find\-Many\-P$<$ anab\-::\-Calorimetry $>$ $\ast$calos\-\_\-per\-\_\-track, art\-::\-Find\-Many\-P$<$ simb\-::\-M\-C\-Particle, anab\-::\-Back\-Tracker\-Hit\-Matching\-Data $>$ $\ast$mcps\-\_\-per\-\_\-hit, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-spcpnts, art\-::\-Find\-Many\-P$<$ anab\-::\-Particle\-I\-D $>$ $\ast$pid\-\_\-per\-\_\-track, art\-::\-Find\-Many\-P$<$ recob\-::\-Hit $>$ $\ast$hits\-\_\-per\-\_\-cluster)}\label{group__lee_ga18e65abc9c2d4948c591af5b6b2facf1}
+
+\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -234,6 +244,13 @@ $<$ size\-\_\-t $>$ $>$ {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::\
 \item 
 \hypertarget{group__lee_ga5f8d5c0400bf9f2a5963a70615a04f7f}{std\-::map$<$ size\-\_\-t, std\-::vector\\*
 $<$ size\-\_\-t $>$ $>$ {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::\-\_\-pfp\-\_\-id\-\_\-tracks\-\_\-from\-\_\-primary}}\label{group__lee_ga5f8d5c0400bf9f2a5963a70615a04f7f}
+
+\item 
+\hypertarget{group__lee_ga6abdd8903dd18f8c823546b7af01a5ad}{std\-::map$<$ size\-\_\-t, int $>$ {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::\-\_\-n\-\_\-showers\-\_\-as\-\_\-tracks}}\label{group__lee_ga6abdd8903dd18f8c823546b7af01a5ad}
+
+\item 
+\hypertarget{group__lee_ga96acbbb1e62d2c43375b66dacc8b6933}{std\-::map$<$ size\-\_\-t, std\-::vector\\*
+$<$ size\-\_\-t $>$ $>$ {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::\-\_\-pfp\-\_\-id\-\_\-showers\-\_\-as\-\_\-tracks\-\_\-from\-\_\-primary}}\label{group__lee_ga96acbbb1e62d2c43375b66dacc8b6933}
 
 \item 
 \hypertarget{group__lee_gace044c6f4da66c667ce2106cb82b9851}{std\-::vector$<$ double $>$ {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::\-\_\-flash\-\_\-\-P\-E}}\label{group__lee_gace044c6f4da66c667ce2106cb82b9851}
@@ -309,6 +326,9 @@ $<$ size\-\_\-t $>$ $>$ {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::\
 
 \item 
 \hypertarget{group__lee_ga2a8178edfca11d99f8ccbd86dbd1c3bd}{double {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::m\-\_\-is\-Cosmic\-In\-Time}}\label{group__lee_ga2a8178edfca11d99f8ccbd86dbd1c3bd}
+
+\item 
+\hypertarget{group__lee_ga582ae23664b554465fc6bc1a1cae4877}{bool {\bfseries lee\-::\-Electron\-Event\-Selection\-Alg\-::m\-\_\-showers\-As\-Tracks}}\label{group__lee_ga582ae23664b554465fc6bc1a1cae4877}
 
 \item 
 \hypertarget{group__lee_gaf3cb19dac93bb287a5747ad4400c65ef}{bool \hyperlink{group__lee_gaf3cb19dac93bb287a5747ad4400c65ef}{lee\-::\-Electron\-Event\-Selection\-Alg\-::\-\_\-do\-\_\-opdet\-\_\-swap}}\label{group__lee_gaf3cb19dac93bb287a5747ad4400c65ef}
@@ -480,6 +500,9 @@ lariov\-::\-T\-P\-C\-Energy\-Calib\-Provider \& {\bfseries lee\-::\-Energy\-Help
 \hypertarget{group__lee_ga3c10053a4ef8cb336589fb86a5b6f587}{T\-Tree $\ast$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::my\-P\-O\-T\-T\-Tree}}\label{group__lee_ga3c10053a4ef8cb336589fb86a5b6f587}
 
 \item 
+\hypertarget{group__lee_gaf5344d06ed15aebe8e400fde3f63b337}{bool {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::m\-\_\-showers\-As\-Tracks}}\label{group__lee_gaf5344d06ed15aebe8e400fde3f63b337}
+
+\item 
 \hypertarget{group__lee_gafd61fa715317d7a54f36339589736b1e}{int {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-interaction\-\_\-type}}\label{group__lee_gafd61fa715317d7a54f36339589736b1e}
 
 \item 
@@ -556,6 +579,9 @@ lariov\-::\-T\-P\-C\-Energy\-Calib\-Provider \& {\bfseries lee\-::\-Energy\-Help
 
 \item 
 \hypertarget{group__lee_ga18da3a91fd8778add6fbd0c4e2244f89}{int {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-n\-\_\-showers}}\label{group__lee_ga18da3a91fd8778add6fbd0c4e2244f89}
+
+\item 
+\hypertarget{group__lee_gaf39378c2980938803cbd7c3bce78845f}{int {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-n\-\_\-showers\-\_\-as\-\_\-tracks}}\label{group__lee_gaf39378c2980938803cbd7c3bce78845f}
 
 \item 
 \hypertarget{group__lee_ga440e3b5b58670672f25f42dd09d0aa21}{double {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-vx}}\label{group__lee_ga440e3b5b58670672f25f42dd09d0aa21}
@@ -771,6 +797,9 @@ $<$ double $>$ $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-track
 
 \item 
 \hypertarget{group__lee_ga5253913419cf4211211558082106bd62}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-nu\-\_\-track\-\_\-ids}}\label{group__lee_ga5253913419cf4211211558082106bd62}
+
+\item 
+\hypertarget{group__lee_ga0f8c37d01207c4ac6f83bde788634462}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-nu\-\_\-shower\-\_\-as\-\_\-track\-\_\-ids}}\label{group__lee_ga0f8c37d01207c4ac6f83bde788634462}
 
 \item 
 \hypertarget{group__lee_ga063d4fec5b4b40b812147b1b77be79a3}{std\-::vector$<$ size\-\_\-t $>$ {\bfseries lee\-::\-Pandora\-L\-E\-E\-Analyzer\-::\-\_\-nu\-\_\-shower\-\_\-ids}}\label{group__lee_ga063d4fec5b4b40b812147b1b77be79a3}

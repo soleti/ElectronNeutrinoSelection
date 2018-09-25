@@ -144,6 +144,9 @@ art::Ptr&lt; recob::Shower &gt;&#160;</td><td class="memItemRight" valign="botto
 <tr class="memitem:gae0e0369a28fcbca90d62624f59d44aaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__lee.html#gae0e0369a28fcbca90d62624f59d44aaa">categorizePFParticles</a> (art::Event const &amp;evt, std::vector&lt; int &gt; &amp;neutrino_pdg, std::vector&lt; std::string &gt; &amp;neutrino_process, std::vector&lt; double &gt; &amp;neutrino_energy, std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;neutrino_pf, std::vector&lt; int &gt; &amp;cosmic_pdg, std::vector&lt; std::string &gt; &amp;cosmic_process, std::vector&lt; double &gt; &amp;cosmic_energy, std::vector&lt; art::Ptr&lt; recob::PFParticle &gt;&gt; &amp;cosmic_pf)</td></tr>
 <tr class="memdesc:gae0e0369a28fcbca90d62624f59d44aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a PFParticle is matched with a MCParticle coming from a neutrino interaction or a cosmic ray.  <a href="group__lee.html#gae0e0369a28fcbca90d62624f59d44aaa">More...</a><br/></td></tr>
 <tr class="separator:gae0e0369a28fcbca90d62624f59d44aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18e65abc9c2d4948c591af5b6b2facf1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga18e65abc9c2d4948c591af5b6b2facf1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fillTrackFields</b> (size_t pf_id, recob::PFParticle const *pfparticle, art::FindManyP&lt; recob::Cluster &gt; *clusters_per_pfpart, art::FindManyP&lt; recob::SpacePoint &gt; *spcpnts_per_pfpart, art::FindOneP&lt; recob::Track &gt; *track_per_pfpart, art::FindManyP&lt; anab::Calorimetry &gt; *calos_per_track, art::FindManyP&lt; simb::MCParticle, anab::BackTrackerHitMatchingData &gt; *mcps_per_hit, art::FindManyP&lt; recob::Hit &gt; *hits_per_spcpnts, art::FindManyP&lt; anab::ParticleID &gt; *pid_per_track, art::FindManyP&lt; recob::Hit &gt; *hits_per_cluster)</td></tr>
+<tr class="separator:ga18e65abc9c2d4948c591af5b6b2facf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -204,6 +207,9 @@ TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myTTree</b></td></
 <tr class="memitem:ga3c10053a4ef8cb336589fb86a5b6f587"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3c10053a4ef8cb336589fb86a5b6f587"></a>
 TTree *&#160;</td><td class="memItemRight" valign="bottom"><b>myPOTTTree</b></td></tr>
 <tr class="separator:ga3c10053a4ef8cb336589fb86a5b6f587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5344d06ed15aebe8e400fde3f63b337"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf5344d06ed15aebe8e400fde3f63b337"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_showersAsTracks</b></td></tr>
+<tr class="separator:gaf5344d06ed15aebe8e400fde3f63b337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafd61fa715317d7a54f36339589736b1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gafd61fa715317d7a54f36339589736b1e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_interaction_type</b></td></tr>
 <tr class="separator:gafd61fa715317d7a54f36339589736b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -282,6 +288,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_tracks</b></td></tr
 <tr class="memitem:ga18da3a91fd8778add6fbd0c4e2244f89"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga18da3a91fd8778add6fbd0c4e2244f89"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_showers</b></td></tr>
 <tr class="separator:ga18da3a91fd8778add6fbd0c4e2244f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf39378c2980938803cbd7c3bce78845f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf39378c2980938803cbd7c3bce78845f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_n_showers_as_tracks</b></td></tr>
+<tr class="separator:gaf39378c2980938803cbd7c3bce78845f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga440e3b5b58670672f25f42dd09d0aa21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga440e3b5b58670672f25f42dd09d0aa21"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>_vx</b></td></tr>
 <tr class="separator:ga440e3b5b58670672f25f42dd09d0aa21"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -497,6 +506,9 @@ std::vector&lt; std::vector<br class="typebreak"/>
 <tr class="memitem:ga5253913419cf4211211558082106bd62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5253913419cf4211211558082106bd62"></a>
 std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_track_ids</b></td></tr>
 <tr class="separator:ga5253913419cf4211211558082106bd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f8c37d01207c4ac6f83bde788634462"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0f8c37d01207c4ac6f83bde788634462"></a>
+std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_shower_as_track_ids</b></td></tr>
+<tr class="separator:ga0f8c37d01207c4ac6f83bde788634462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga063d4fec5b4b40b812147b1b77be79a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga063d4fec5b4b40b812147b1b77be79a3"></a>
 std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_nu_shower_ids</b></td></tr>
 <tr class="separator:ga063d4fec5b4b40b812147b1b77be79a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
