@@ -25,6 +25,7 @@ nueFilter:
 nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
 nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
 nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+nueFilter.ElectronSelectionAlg.ShowersAsTracks:  true
 
 energy_helper:
 {
@@ -44,13 +45,15 @@ lee_pandora_analyzer:
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     HitMatchingLabel:           "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
-    UseParticleID:              false
+    UseParticleID:              true
     SelectEvents:               [ prod ]
+    ShowersAsTracks:            true
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
 lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+lee_pandora_analyzer.ElectronSelectionAlg.ShowersAsTracks:  true
 
 
 outputs:
@@ -90,7 +93,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter, genieeventweightmultisim, fluxeventweightmultisim ] #, dedxcalibration, pid,
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ] #, genieeventweightmultisim, fluxeventweightmultisim ] #
   ana : [ robertoana ]
   stream: [ out1 ]
 
@@ -106,7 +109,7 @@ cs_producerlabels_mcc8_calib_dedxcalib:
   TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
   CalorimetryLabel : "pandoraNucali::PandoraLEEAnalyzer"
 }
-
+physics.producers.pandoraNu.BuildShowersAsTracks : true
 physics.producers.genieeventweightmultisim.weight_functions: [ genie_all ]
 physics.producers.genieeventweightmultisim.genie_all.number_of_multisims: 100
 

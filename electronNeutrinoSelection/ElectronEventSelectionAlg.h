@@ -160,6 +160,11 @@ namespace lee {
     const std::map<size_t, int> & get_n_showers() const {return _n_showers;}
 
     /**
+    * @brief Return number of showers for this pfparticle, reconstructed as tracks;
+    */
+    const std::map<size_t, int> &get_n_showers_as_tracks() const { return _n_showers_as_tracks; }
+
+    /**
     * @brief Return number of tracks for pfparticle index
     */
     const std::map<size_t, int> & get_n_tracks() const {return _n_tracks;}
@@ -176,6 +181,12 @@ namespace lee {
     */
     const std::map<size_t,  std::vector<size_t> > &
     get_pfp_id_tracks_from_primary() const {return _pfp_id_tracks_from_primary;}
+
+    /**
+    * @brief Return the list of pfparticle indexes that are tracks that are associated with primary pfparticle indexes
+    */
+    const std::map<size_t, std::vector<size_t>> &
+    get_pfp_id_showers_as_tracks_from_primary() const { return _pfp_id_showers_as_tracks_from_primary; }
 
     /**
     * @brief Return the list of total PE of the flashes
@@ -215,7 +226,8 @@ namespace lee {
     std::map<size_t,  std::vector < size_t > > _pfp_id_showers_from_primary;
     std::map<size_t, int> _n_tracks;
     std::map<size_t, std::vector < size_t > > _pfp_id_tracks_from_primary;
-
+    std::map<size_t, int> _n_showers_as_tracks;
+    std::map<size_t, std::vector < size_t > > _pfp_id_showers_as_tracks_from_primary;
     std::vector<double> _flash_PE;
     std::vector<double> _flash_time;
 
@@ -251,7 +263,7 @@ namespace lee {
     bool m_flashmatching;
     bool m_FM_all;
     double m_isCosmicInTime;
-	  
+    bool m_showersAsTracks;
     bool _do_opdet_swap;              ///< If true swaps reconstructed OpDets according to _opdet_swap_map
     std::vector<int> _opdet_swap_map; ///< The OpDet swap map for reco flashes
 

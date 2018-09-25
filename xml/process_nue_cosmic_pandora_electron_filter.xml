@@ -18,7 +18,6 @@
     <!--  Batch resources  -->
     <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
 
-
     <!--  Larsoft information  -->
     <larsoft>
         <tag>&larsoft_version;</tag>
@@ -29,18 +28,17 @@
 
     <!--  Project stages  -->
     <stage name="selection">
-        <fcl>run_PandoraOnly_newcrhit.fcl</fcl>
+        <fcl>run_PandoraOnly.fcl</fcl>
         <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
         <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/&version;/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
         <numjobs>100</numjobs>
-        <disk>2GB</disk>
-        <memory>4096</memory>
+        <disk>4GB</disk>
+        <memory>6144</memory>
         <maxfilesperjob>15</maxfilesperjob>
         <datatier>filtered</datatier>
-        <resource>DEDICATED,OPPORTUNISTIC</resource>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
         <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>
         <schema>root</schema>

@@ -15,6 +15,9 @@
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
 #include "larevt/SpaceChargeServices/SpaceChargeService.h"
+#include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
+#include "lardata/DetectorInfoServices/DetectorClocksService.h"
+#include "lardata/DetectorInfo/DetectorProperties.h"
 
 #include <memory>
 
@@ -67,13 +70,21 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     unsigned int _subrun_sr;
     unsigned int _n_true_nu;
     int _ccnc;
+    double _qsqr;
+    double _pt;
+    double _theta;
+    double _w;
     int _nu_pdg;
     int _interaction_type;
     bool _true_nu_is_fiducial;
     double _nu_energy;
     double _pot;
-    std::vector<double> _true_neutrino_vertex;
-    std::vector<double> _true_neutrino_vertex_sce;
+    double _true_vx;
+    double _true_vy;
+    double _true_vz;
+    double _true_vx_sce;
+    double _true_vy_sce;
+    double _true_vz_sce;
     std::vector<double> _nu_daughters_E;
     std::vector<int> _nu_daughters_pdg;
 

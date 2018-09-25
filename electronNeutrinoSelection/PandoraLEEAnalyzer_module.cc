@@ -31,8 +31,10 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("category", &_category, "category/I");
   myTTree->Branch("reconstructed_energy", "std::vector< double >", &_energy);
 
+  myTTree->Branch("n_showers_as_tracks", &_n_showers_as_tracks, "n_showers_as_tracks/I");
   myTTree->Branch("n_tracks", &_n_tracks, "n_tracks/I");
   myTTree->Branch("n_showers", &_n_showers, "n_showers/I");
+
   myTTree->Branch("ccnc", &_ccnc, "ccnc/I");
   myTTree->Branch("cosmic_fraction", &_cosmic_fraction, "cosmic_fraction/d");
 
@@ -416,6 +418,7 @@ void lee::PandoraLEEAnalyzer::clear()
 
   _nu_track_ids.clear();
   _nu_shower_ids.clear();
+  _nu_shower_as_track_ids.clear();
   _nu_track_daughters.clear();
   _nu_shower_daughters.clear();
 
@@ -480,7 +483,7 @@ void lee::PandoraLEEAnalyzer::clear()
 
   _n_tracks = std::numeric_limits<int>::lowest();
   _n_showers = std::numeric_limits<int>::lowest();
-
+  _n_showers_as_tracks = std::numeric_limits<int>::lowest();
   _vx = std::numeric_limits<double>::lowest();
   _vy = std::numeric_limits<double>::lowest();
   _vz = std::numeric_limits<double>::lowest();
@@ -531,6 +534,130 @@ void lee::PandoraLEEAnalyzer::clear()
   _nu_daughters_endz.clear();
   _leeweight = std::numeric_limits<int>::lowest();
   _bnbweight = std::numeric_limits<int>::lowest();
+}
+
+void lee::PandoraLEEAnalyzer::fillTrackFields(size_t pf_id,
+                                              recob::PFParticle const *pfparticle,
+                                              art::FindManyP<recob::Cluster> *clusters_per_pfpart,
+                                              art::FindManyP<recob::SpacePoint> *spcpnts_per_pfpart,
+                                              art::FindOneP<recob::Track> *track_per_pfpart,
+                                              art::FindManyP<anab::Calorimetry> *calos_per_track,
+                                              art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+                                              art::FindManyP<recob::Hit> *hits_per_spcpnts,
+                                              art::FindManyP<anab::ParticleID> *pid_per_track,
+                                              art::FindManyP<recob::Hit> *hits_per_cluster)
+{
+  std::vector<art::Ptr<recob::Cluster>> clusters = clusters_per_pfpart->at(pf_id);
+  std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart->at(pf_id);
+  auto const &track_obj = track_per_pfpart->at(pf_id);
+  _nu_track_daughters.push_back(pfparticle->Daughters());
+
+  std::vector<double> dqdx(3, std::numeric_limits<double>::lowest());
+  std::vector<double> dedx(3, std::numeric_limits<double>::lowest());
+
+  if (calos_per_track->isValid())
+  {
+    std::vector<art::Ptr<anab::Calorimetry>> calos = calos_per_track->at(track_obj->ID());
+    energyHelper.track_dQdx(&calos, dqdx, dedx);
+  }
+  else
+  {
+    std::cout << "[PandoraLEEAnalyzer] calos_per_track not valid" << std::endl;
+  }
+
+  _track_dQdx.push_back(dqdx);
+
+  std::vector<double> track_cali;
+  energyHelper.get_cali(&spcpnts, hits_per_spcpnts, track_cali);
+
+  _track_energy_cali.push_back(track_cali);
+  _track_dEdx.push_back(dedx);
+
+  double mean = std::numeric_limits<double>::lowest();
+  double stdev = std::numeric_limits<double>::lowest();
+
+  energyHelper.cluster_residuals(&clusters, hits_per_cluster, mean, stdev);
+
+  _track_res_mean.push_back(mean);
+  _track_res_std.push_back(stdev);
+
+  if (m_useParticleID)
+  {
+    art::Ptr<anab::ParticleID> selected_pid = pid_per_track->at(track_obj->ID())[0];
+
+    double bragg_p = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 2212),
+                              energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 2212));
+
+    double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
+                               energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
+
+    double bragg_mip = energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0);
+
+    double pidchipr = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 2212);
+    double pidchimu = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 13);
+    double pidchipi = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 211);
+    double pidchika = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 321);
+
+    double pida_mean = energyHelper.PID(selected_pid, "PIDA_mean", anab::kPIDA, anab::kForward, 0);
+
+    _track_bragg_p.push_back(bragg_p);
+    _track_bragg_mu.push_back(bragg_mu);
+    _track_bragg_mip.push_back(bragg_mip);
+    _track_pida.push_back(pida_mean);
+    _track_pidchipr.push_back(pidchipr);
+    _track_pidchimu.push_back(pidchimu);
+    _track_pidchipi.push_back(pidchipi);
+    _track_pidchika.push_back(pidchika);
+  }
+  _matched_tracks.push_back(std::numeric_limits<int>::lowest());
+  _matched_tracks_process.push_back("");
+  _matched_tracks_energy.push_back(std::numeric_limits<double>::lowest());
+
+  std::vector<double> start_point;
+  std::vector<double> end_point;
+
+  start_point.push_back(track_obj->Start().X());
+  start_point.push_back(track_obj->Start().Y());
+  start_point.push_back(track_obj->Start().Z());
+
+  end_point.push_back(track_obj->End().X());
+  end_point.push_back(track_obj->End().Y());
+  end_point.push_back(track_obj->End().Z());
+
+  _track_is_fiducial.push_back((int)(geoHelper.isFiducial(start_point) &&
+                                     geoHelper.isFiducial(end_point)));
+
+  std::vector<double> this_energy;
+  std::vector<int> this_nhits;
+
+  energyHelper.energy_from_hits(&clusters, hits_per_cluster, mcps_per_hit, this_nhits, this_energy);
+
+  _track_energy_hits.push_back(this_energy);
+
+  _track_length.push_back(track_obj->Length());
+  _track_id.push_back(track_obj->ID());
+  _track_dir_x.push_back(track_obj->StartDirection().X());
+  _track_dir_y.push_back(track_obj->StartDirection().Y());
+  _track_dir_z.push_back(track_obj->StartDirection().Z());
+
+  _track_start_x.push_back(track_obj->Start().X());
+  _track_start_y.push_back(track_obj->Start().Y());
+  _track_start_z.push_back(track_obj->Start().Z());
+
+  _track_end_x.push_back(track_obj->End().X());
+  _track_end_y.push_back(track_obj->End().Y());
+  _track_end_z.push_back(track_obj->End().Z());
+
+  _track_theta.push_back(track_obj->Theta());
+  _track_phi.push_back(track_obj->Phi());
+
+  std::vector<std::vector<double>> pca;
+  pca.resize(2, std::vector<double>(3));
+
+  energyHelper.PCA(&clusters, hits_per_cluster, pca);
+
+  _track_pca.push_back(pca[0]);
+  _track_nhits.push_back(this_nhits);
 }
 
 void lee::PandoraLEEAnalyzer::categorizePFParticles(
@@ -694,8 +821,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       }
     }
   }
-
-
 
   if ((!evt.isRealData() || m_isOverlaidSample) && !m_isCosmicInTime)
   {
@@ -1008,115 +1133,45 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
       for (auto &pf_id : _nu_track_ids)
       {
-        std::vector<art::Ptr<recob::Cluster>> clusters = clusters_per_pfpart.at(pf_id);
-        std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
-        auto const &track_obj = track_per_pfpart.at(pf_id);
         recob::PFParticle const &pfparticle = pfparticle_handle->at(pf_id);
-        _nu_track_daughters.push_back(pfparticle.Daughters());
 
-        std::vector<double> dqdx(3, std::numeric_limits<double>::lowest());
-        std::vector<double> dedx(3, std::numeric_limits<double>::lowest());
+        fillTrackFields(pf_id,
+                        &pfparticle,
+                        &clusters_per_pfpart,
+                        &spcpnts_per_pfpart,
+                        &track_per_pfpart,
+                        &calos_per_track,
+                        &mcps_per_hit,
+                        &hits_per_spcpnts,
+                        &pid_per_track,
+                        &hits_per_cluster);
+      }
+    }
 
-        if (calos_per_track.isValid())
+
+    if (m_showersAsTracks) {
+      _n_showers_as_tracks = fElectronEventSelectionAlg.get_n_showers_as_tracks().at(ipf_candidate);
+
+      std::cout << "Ana N showers as tracks " << _n_showers_as_tracks << " " << ipf_candidate << std::endl;
+      if (_n_showers_as_tracks > 0) {
+        art::FindOneP<recob::Track> track_per_pfpart(pfparticle_handle, evt, m_pfp_producer);
+        _nu_shower_as_track_ids = fElectronEventSelectionAlg.get_pfp_id_showers_as_tracks_from_primary().at(ipf_candidate);
+
+        for (auto &pf_id : _nu_shower_as_track_ids)
         {
-          std::vector<art::Ptr<anab::Calorimetry>> calos = calos_per_track.at(track_obj->ID());
-          energyHelper.track_dQdx(&calos, dqdx, dedx);
-        } else {
-          std::cout << "[PandoraLEEAnalyzer] calos_per_track not valid" << std::endl;
+          recob::PFParticle const &pfparticle = pfparticle_handle->at(pf_id);
+
+          fillTrackFields(pf_id,
+                          &pfparticle,
+                          &clusters_per_pfpart,
+                          &spcpnts_per_pfpart,
+                          &track_per_pfpart,
+                          &calos_per_track,
+                          &mcps_per_hit,
+                          &hits_per_spcpnts,
+                          &pid_per_track,
+                          &hits_per_cluster);
         }
-
-        _track_dQdx.push_back(dqdx);
-
-        std::vector<double> track_cali;
-        energyHelper.get_cali(&spcpnts, &hits_per_spcpnts, track_cali);
-
-        _track_energy_cali.push_back(track_cali);
-        _track_dEdx.push_back(dedx);
-
-        double mean = std::numeric_limits<double>::lowest();
-        double stdev = std::numeric_limits<double>::lowest();
-
-        energyHelper.cluster_residuals(&clusters, &hits_per_cluster, mean, stdev);
-
-        _track_res_mean.push_back(mean);
-        _track_res_std.push_back(stdev);
-
-        if (m_useParticleID) {
-          art::Ptr<anab::ParticleID> selected_pid = pid_per_track.at(track_obj->ID())[0];
-
-          double bragg_p = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 2212),
-                                    energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 2212));
-
-          double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
-                                     energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
-
-          double bragg_mip = energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0);
-
-          double pidchipr = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 2212);
-          double pidchimu = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 13);
-          double pidchipi = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 211);
-          double pidchika = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 321);
-
-          double pida_mean = energyHelper.PID(selected_pid, "PIDA_mean", anab::kPIDA, anab::kForward, 0);
-
-          _track_bragg_p.push_back(bragg_p);
-          _track_bragg_mu.push_back(bragg_mu);
-          _track_bragg_mip.push_back(bragg_mip);
-          _track_pida.push_back(pida_mean);
-          _track_pidchipr.push_back(pidchipr);
-          _track_pidchimu.push_back(pidchimu);
-          _track_pidchipi.push_back(pidchipi);
-          _track_pidchika.push_back(pidchika);
-        }
-        _matched_tracks.push_back(std::numeric_limits<int>::lowest());
-        _matched_tracks_process.push_back("");
-        _matched_tracks_energy.push_back(std::numeric_limits<double>::lowest());
-
-        std::vector<double> start_point;
-        std::vector<double> end_point;
-
-        start_point.push_back(track_obj->Start().X());
-        start_point.push_back(track_obj->Start().Y());
-        start_point.push_back(track_obj->Start().Z());
-
-        end_point.push_back(track_obj->End().X());
-        end_point.push_back(track_obj->End().Y());
-        end_point.push_back(track_obj->End().Z());
-
-        _track_is_fiducial.push_back((int)(geoHelper.isFiducial(start_point) &&
-                                           geoHelper.isFiducial(end_point)));
-
-        std::vector<double> this_energy;
-        std::vector<int> this_nhits;
-
-        energyHelper.energy_from_hits(&clusters, &hits_per_cluster, &mcps_per_hit, this_nhits, this_energy);
-
-        _track_energy_hits.push_back(this_energy);
-
-        _track_length.push_back(track_obj->Length());
-        _track_id.push_back(track_obj->ID());
-        _track_dir_x.push_back(track_obj->StartDirection().X());
-        _track_dir_y.push_back(track_obj->StartDirection().Y());
-        _track_dir_z.push_back(track_obj->StartDirection().Z());
-
-        _track_start_x.push_back(track_obj->Start().X());
-        _track_start_y.push_back(track_obj->Start().Y());
-        _track_start_z.push_back(track_obj->Start().Z());
-
-        _track_end_x.push_back(track_obj->End().X());
-        _track_end_y.push_back(track_obj->End().Y());
-        _track_end_z.push_back(track_obj->End().Z());
-
-        _track_theta.push_back(track_obj->Theta());
-        _track_phi.push_back(track_obj->Phi());
-
-        std::vector<std::vector<double>> pca;
-        pca.resize(2, std::vector<double>(3));
-
-        energyHelper.PCA(&clusters, &hits_per_cluster, pca);
-
-        _track_pca.push_back(pca[0]);
-        _track_nhits.push_back(this_nhits);
       }
     }
 
@@ -1479,7 +1534,7 @@ void lee::PandoraLEEAnalyzer::reconfigure(fhicl::ParameterSet const &pset)
   m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandoraNu::McRecoStage2");
   m_printDebug = pset.get<bool>("PrintDebug", false);
   m_useParticleID = pset.get<bool>("UseParticleID", true);
-
+  m_showersAsTracks = pset.get<bool>("ShowersAsTracks", false);
   m_isData = pset.get<bool>("isData", false);
   m_isCosmicInTime = pset.get<bool>("isCosmicInTime", false);
   m_isOverlaidSample = pset.get<bool>("isOverlaidSample", false);

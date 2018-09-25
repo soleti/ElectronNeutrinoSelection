@@ -22,11 +22,20 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
 
   myTTree = tfs->make<TTree>("filtertree", "Filter Tree");
 
-  myTTree->Branch("true_neutrino_vertex", "std::vector< double >", &_true_neutrino_vertex);
-  myTTree->Branch("true_neutrino_vertex_sce", "std::vector< double >", &_true_neutrino_vertex_sce);
+
+  myTTree->Branch("true_vx", &_true_vx, "true_vx/d");
+  myTTree->Branch("true_vy", &_true_vy, "true_vy/d");
+  myTTree->Branch("true_vz", &_true_vz, "true_vz/d");
+  myTTree->Branch("ccnc", &_ccnc, "ccnc/I");
+  myTTree->Branch("theta", &_theta, "theta/d");
+  myTTree->Branch("w", &_w, "w/d");
+  myTTree->Branch("qsqr", &_qsqr, "qsqr/d");
+  myTTree->Branch("pt", &_pt, "pt/d");
+
   myTTree->Branch("passed", &_passed, "passed/O");
   myTTree->Branch("nu_energy", &_nu_energy, "nu_energy/D");
   myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
+  myTTree->Branch("nu_daughters_E", "std::vector< double >", &_nu_daughters_E);
 
   _run_subrun_list_file.open("run_subrun_list_filter.txt", std::ofstream::out | std::ofstream::trunc);
 
@@ -76,11 +85,13 @@ bool lee::ElectronNeutrinoFilter::endSubRun(art::SubRun &sr)
 
 void lee::ElectronNeutrinoFilter::clear()
 {
-  _true_neutrino_vertex.reserve(3);
-  _true_neutrino_vertex_sce.reserve(3);
-  _true_neutrino_vertex.clear();
-  _true_neutrino_vertex_sce.clear();
 
+  _true_vx = std::numeric_limits<double>::lowest();
+  _true_vy = std::numeric_limits<double>::lowest();
+  _true_vz = std::numeric_limits<double>::lowest();
+  _true_vx_sce = std::numeric_limits<double>::lowest();
+  _true_vy_sce = std::numeric_limits<double>::lowest();
+  _true_vz_sce = std::numeric_limits<double>::lowest();
   _nu_daughters_p.clear();
   _nu_daughters_start_v.clear();
   _nu_daughters_end_v.clear();
@@ -90,6 +101,11 @@ void lee::ElectronNeutrinoFilter::clear()
 
   _n_true_nu = std::numeric_limits<unsigned int>::lowest();
   _ccnc = std::numeric_limits<int>::lowest();
+  _qsqr = std::numeric_limits<double>::lowest();
+  _w = std::numeric_limits<double>::lowest();
+  _pt = std::numeric_limits<double>::lowest();
+  _theta = std::numeric_limits<double>::lowest();
+
   _nu_pdg = std::numeric_limits<int>::lowest();
   _interaction_type = std::numeric_limits<int>::lowest();
   _true_nu_is_fiducial = false;
@@ -127,6 +143,8 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
 
   _true_nu_is_fiducial = 0;
   auto const *sce_service = lar::providerFrom<spacecharge::SpaceChargeService>();
+  auto const *theDetector = lar::providerFrom<detinfo::DetectorPropertiesService>();
+  auto const *detClocks = lar::providerFrom<detinfo::DetectorClocksService>();
 
   for (auto &gen : generator)
   {
@@ -134,6 +152,10 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
     {
       _nu_pdg = gen.GetNeutrino().Nu().PdgCode();
       _nu_energy = gen.GetNeutrino().Nu().E();
+      _pt = gen.GetNeutrino().Pt();
+      _qsqr = gen.GetNeutrino().QSqr();
+      _theta = gen.GetNeutrino().Theta();
+      _w = gen.GetNeutrino().W();
 
       if (abs(_nu_pdg) == 12)
       {
@@ -143,20 +165,21 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
 
       _ccnc = gen.GetNeutrino().CCNC();
 
-      _true_neutrino_vertex[0] = gen.GetNeutrino().Nu().Vx();
-      _true_neutrino_vertex[1] = gen.GetNeutrino().Nu().Vy();
-      _true_neutrino_vertex[2] = gen.GetNeutrino().Nu().Vz();
+      _true_vx = gen.GetNeutrino().Nu().Vx();
+      _true_vy = gen.GetNeutrino().Nu().Vy();
+      _true_vz = gen.GetNeutrino().Nu().Vz();
 
       _interaction_type = gen.GetNeutrino().Mode();
 
-      std::vector<double> sce_offsets = sce_service->GetPosOffsets(_true_neutrino_vertex[0], _true_neutrino_vertex[1], _true_neutrino_vertex[2]);
-
-
-      if (sce_offsets.size() == 3)
+      if (sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz).size() == 3)
       {
-        _true_neutrino_vertex_sce[0] = _true_neutrino_vertex[0] - sce_offsets[0] + 0.7;
-        _true_neutrino_vertex_sce[1] = _true_neutrino_vertex[1] + sce_offsets[1];
-        _true_neutrino_vertex_sce[2] = _true_neutrino_vertex[2] + sce_offsets[2];
+        double g4Ticks = detClocks->TPCG4Time2Tick(gen.GetNeutrino().Nu().T()) + theDetector->GetXTicksOffset(0, 0, 0) - theDetector->TriggerOffset();
+        _true_vx_sce =
+            _true_vx - sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[0] + theDetector->ConvertTicksToX(g4Ticks, 0, 0, 0);
+        _true_vy_sce =
+            _true_vy + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[1];
+        _true_vz_sce =
+            _true_vz + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[2];
       }
       else
       {

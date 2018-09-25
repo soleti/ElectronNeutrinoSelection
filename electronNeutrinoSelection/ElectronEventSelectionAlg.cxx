@@ -18,8 +18,10 @@ void ElectronEventSelectionAlg::clear()
   _neutrino_vertex.clear();
   _n_showers.clear();
   _n_tracks.clear();
+  _n_showers_as_tracks.clear();
   _pfp_id_showers_from_primary.clear();
   _pfp_id_tracks_from_primary.clear();
+  _pfp_id_showers_as_tracks_from_primary.clear();
   _flash_PE.clear();
   _flash_time.clear();
 }
@@ -88,7 +90,7 @@ void ElectronEventSelectionAlg::reconfigure(fhicl::ParameterSet const &p)
   _do_opdet_swap = p.get<bool>("DoOpDetSwap", false);
   _opdet_swap_map = p.get<std::vector<int>>("OpDetSwapMap");
   m_isCosmicInTime = p.get<bool>("isCosmicInTime", false);
-
+  m_showersAsTracks = p.get<bool>("ShowersAsTracks", false);
   m_mgr.Configure(p.get<flashana::Config_t>("FlashMatchConfig"));
   fOpticalFlashFinderLabel = p.get<std::string>("OpticalFlashFinderLabel", "simpleFlashBeam");
 
@@ -448,6 +450,8 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
     _pfp_id_showers_from_primary[_i_primary] = std::vector<size_t>();
     _n_tracks[_i_primary] = 0;
     _pfp_id_tracks_from_primary[_i_primary] = std::vector<size_t>();
+    _n_showers_as_tracks[_i_primary] = 0;
+    _pfp_id_showers_as_tracks_from_primary[_i_primary] = std::vector<size_t>();
 
     // Get the neutrino vertex and check if it's fiducial:
     std::vector<double> neutrino_vertex;
@@ -479,8 +483,9 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
 
     int showers = 0;                // number of showers in the hierarchy of the pfp neutrino candidate.
     int tracks = 0;
-    int shower_daughters =0;        // number of showers that are direct daughters of the pfp neutrino candidate.
-    int track_daughters =0;
+    int shower_daughters = 0;       // number of showers that are direct daughters of the pfp neutrino candidate.
+    int track_daughters = 0;
+    int showers_as_tracks = 0;
 
     std::vector<size_t> daughters_id;
     pandoraHelper.traversePFParticleTree(pfparticle_handle, _i_primary, daughters_id, m_pfp_producer);
@@ -499,7 +504,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
           art::FindOneP<recob::Shower> shower_per_pfpart(pfparticle_handle, evt,
                                                          m_pfp_producer);
           auto const &shower_obj = shower_per_pfpart.at(pfdaughter);
-          
+
           if (shower_obj.isNull())
             continue;
 
@@ -509,6 +514,19 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
           }
           _pfp_id_showers_from_primary[_i_primary].push_back(pfdaughter);
           showers++;
+      }
+
+      if (pfparticle_handle->at(pfdaughter).PdgCode() == 11 && m_showersAsTracks)
+      {
+        art::FindOneP<recob::Track> track_per_pfpart(pfparticle_handle, evt, m_pfp_producer);
+
+        auto const &shower_as_track_obj = track_per_pfpart.at(pfdaughter);
+
+        if (shower_as_track_obj.isNull())
+          continue;
+
+        _pfp_id_showers_as_tracks_from_primary[_i_primary].push_back(pfdaughter);
+        showers_as_tracks++;
       }
 
       if (pfparticle_handle->at(pfdaughter).PdgCode() == 13)
@@ -527,6 +545,8 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
       }
 
     }
+    _n_showers_as_tracks[_i_primary] = showers_as_tracks;
+
     _n_tracks[_i_primary] = tracks;
     _n_showers[_i_primary] = showers;
 
@@ -544,7 +564,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
     }
 
 
-    if (track_daughters < m_nTracks){  
+    if (track_daughters < m_nTracks){
       // There are less direct daughter tracks than we want protons, FAIL   
       std::cout << "[ElectronEventSelectionAlg] There are less direct daughter tracks than we want protons, FAIL" << std::endl;             
       _neutrino_candidate_passed[_i_primary] = false;
@@ -556,7 +576,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
       _neutrino_candidate_passed[_i_primary] = false;
     }
     if (shower_daughters==0 && showers==1 && track_daughters < (m_nTracks+1) ){
-        std::cout << "[ElectronEventSelectionAlg] There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL" << std::endl;             
+        std::cout << "[ElectronEventSelectionAlg] There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL" << std::endl;
 
       // There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL
       _neutrino_candidate_passed[_i_primary] = false;

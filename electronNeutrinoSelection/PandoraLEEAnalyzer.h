@@ -183,6 +183,17 @@ public:
       std::vector<double> &cosmic_energy,
       std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf);
 
+  void fillTrackFields(size_t pf_id,
+                       recob::PFParticle const *pfparticle,
+                       art::FindManyP<recob::Cluster> *clusters_per_pfpart,
+                       art::FindManyP<recob::SpacePoint> *spcpnts_per_pfpart,
+                       art::FindOneP<recob::Track> *track_per_pfpart,
+                       art::FindManyP<anab::Calorimetry> *calos_per_track,
+                       art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+                       art::FindManyP<recob::Hit> *hits_per_spcpnts,
+                       art::FindManyP<anab::ParticleID> *pid_per_track,
+                       art::FindManyP<recob::Hit> *hits_per_cluster);
+
 private:
   std::string m_hitfinderLabel;
   std::string _geantModuleLabel = "largeant";
@@ -208,6 +219,8 @@ private:
   TFile *myTFile;
   TTree *myTTree;
   TTree *myPOTTTree;
+
+  bool m_showersAsTracks;
 
   int _interaction_type;
 
@@ -239,6 +252,7 @@ private:
 
   int _n_tracks;
   int _n_showers;
+  int _n_showers_as_tracks;
   double _vx;
   double _vy;
   double _vz;
@@ -324,6 +338,8 @@ private:
   std::vector<std::vector<double>> _track_dEdx;
 
   std::vector<size_t> _nu_track_ids;
+  std::vector<size_t> _nu_shower_as_track_ids;
+
   std::vector<size_t> _nu_shower_ids;
 
   std::vector< std::vector<size_t> > _nu_track_daughters;
