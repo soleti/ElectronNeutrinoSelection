@@ -8,15 +8,22 @@
 start_window:  3.19
 end_window:    4.87
 
+pandora_helper:
+{
+  isOverlaidSample:            false
+}
+
 nueFilter:
 {
     module_type:                "ElectronNeutrinoFilter"
     ElectronSelectionAlg:       @local::lee_electron_alg
+    PandoraInterfaceHelper:     @local::pandora_helper
 }
 
 nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
 nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
 nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+nueFilter.ElectronSelectionAlg.ShowersAsTracks:  true
 
 energy_helper:
 {
@@ -30,6 +37,7 @@ lee_pandora_analyzer:
     module_type:                "PandoraLEEAnalyzer"
     ElectronSelectionAlg:       @local::lee_electron_alg
     EnergyHelper:               @local::energy_helper
+    PandoraInterfaceHelper:     @local::pandora_helper
     isData:                     true
     PrintDebug:                 false
     HitFinderLabel:             "pandoraCosmicHitRemoval"
@@ -44,6 +52,7 @@ lee_pandora_analyzer:
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
 lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+lee_pandora_analyzer.ElectronSelectionAlg.ShowersAsTracks:  true
 
 outputs:
 {
@@ -96,6 +105,7 @@ cs_producerlabels_mcc8_calib_dedxcalib_data:
   CalorimetryLabel : "pandoraNucali::PandoraLEEAnalyzer"
 }
 
+physics.producers.pandoraNu.BuildShowersAsTracks : true
 physics.producers.pid:                                         @local::particleidconfig
 #physics.producers.pid.ProducerLabels: @local::producerlabels_mcc8_dedxcalib_data
 physics.producers.pid.BraggAlgo: @local::braggalgo_mcc8_data

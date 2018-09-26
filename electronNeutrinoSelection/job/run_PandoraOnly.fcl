@@ -103,12 +103,12 @@ physics: {
 
 }
 
-
 cs_producerlabels_mcc8_calib_dedxcalib:
 {  # producer label names
   TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
   CalorimetryLabel : "pandoraNucali::PandoraLEEAnalyzer"
 }
+
 physics.producers.pandoraNu.BuildShowersAsTracks : true
 physics.producers.genieeventweightmultisim.weight_functions: [ genie_all ]
 physics.producers.genieeventweightmultisim.genie_all.number_of_multisims: 100

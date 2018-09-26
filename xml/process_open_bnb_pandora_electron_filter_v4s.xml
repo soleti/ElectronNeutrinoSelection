@@ -23,12 +23,12 @@
         <tag>&larsoft_version;</tag>
         <qual>&qualifier;</qual>
         <fcldir>/uboone/app/users/&user;/&version;_2/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
-        <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local> 
+        <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local>
     </larsoft>
     
     <!--  Project stages  -->
     <stage name="selection">
-        <fcl>run_PandoraOnly_data_bnb_newcrhit.fcl</fcl>
+        <fcl>run_PandoraOnly_data_bnb.fcl</fcl>
         <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
         <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
@@ -36,7 +36,7 @@
         <inputdef>&dataset;</inputdef>
         <numjobs>209</numjobs>
         <disk>2GB</disk>
-        <memory>4096</memory>
+        <memory>6144</memory>
         <maxfilesperjob>15</maxfilesperjob>
         <datatier>filtered</datatier>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
