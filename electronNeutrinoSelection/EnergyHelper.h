@@ -38,13 +38,13 @@
 #include "canvas/Persistency/Common/FindOneP.h"
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
 #include "TPrincipal.h"
-#include "uboone/UBXSec/Algorithms/TrackQuality.h"
-#include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibProvider.h"
-#include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibService.h"
+// #include "uboone/UBXSec/Algorithms/TrackQuality.h"
+// #include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibProvider.h"
+#include "ubevt/Database/TPCEnergyCalib/TPCEnergyCalibService.h"
 #include "lardataobj/AnalysisBase/ParticleID.h"
 #include "lardataobj/AnalysisBase/BackTrackerMatchingData.h"
 
-#include "uboone/ParticleID/Algorithms/uB_PlaneIDBitsetHelperFunctions.h"
+// #include "uboone/ParticleID/Algorithms/uB_PlaneIDBitsetHelperFunctions.h"
 
 namespace lee {
 
@@ -138,7 +138,6 @@ public:
    */
   void energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
-                        art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
                         std::vector<int> &nHits,
                         std::vector<double> &pfenergy);
 

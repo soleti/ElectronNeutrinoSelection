@@ -1,12 +1,12 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
 parent electronNeutrinoSelection v00_01_00
-defaultqual e10
+defaultqual e17
 #
 fcldir product_dir job
 #
 product         version
-gcc		v4_9_3a
+gcc		v7_3_0
 
 cetbuildtools	v7_01_01	-	only_for_build
 end_product_list
@@ -14,9 +14,9 @@ end_product_list
   
 # e9  - with gcc 4.9.3 and -std=c++14
 qualifier	gcc	notes
-e10:debug	-nq-
-e10:opt		-nq-
-e10:prof	-nq-
+e17:debug	-nq-
+e17:opt		-nq-
+e17:prof	-nq-
 end_qualifier_list
 
 # Preserve tabs and formatting in emacs and vi / vim:

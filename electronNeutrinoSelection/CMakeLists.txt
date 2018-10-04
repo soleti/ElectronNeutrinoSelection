@@ -44,6 +44,8 @@ art_make(
                         uboonecode_uboone_SelectionTool_OpT0FinderAlgorithms
                         uboonecode_uboone_BasicTool_GeoAlgo
                         uboone_UBFlashFinder
+                        larevt_CalibrationDBI_IOVData
+                        larevt_CalibrationDBI_Providers
           MODULE_LIBRARIES
                         ElectronFilter
                         larpandora_LArPandoraInterface
@@ -77,13 +79,15 @@ art_make(
                         ${ROOT_GDML}
                         ${ROOT_BASIC_LIB_LIST}
                         ${SIMULATIONBASE}
-			uboonecode_uboone_UBXSec_DataTypes	
+			uboonecode_uboone_UBXSec_DataTypes
                         uboonecode_uboone_BasicTool_GeoAlgo
                         uboonecode_uboone_SelectionTool_OpT0FinderBase
                         uboonecode_uboone_SelectionTool_OpT0FinderAlgorithms
                         uboone_UBFlashFinder
                         uboonecode_uboone_UBXSec_Algorithms
                         EventWeight
+                        larevt_CalibrationDBI_IOVData
+                        larevt_CalibrationDBI_Providers
 )
 
 add_subdirectory(job)

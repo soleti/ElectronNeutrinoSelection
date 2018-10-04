@@ -112,7 +112,6 @@ bool EnergyHelper::is_hit_data(art::FindManyP<simb::MCParticle, anab::BackTracke
 
 void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
                                     art::FindManyP<recob::Hit> *hits_per_cluster,
-                                    art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
                                     std::vector<int> &nHits,
                                     std::vector<double> &pfenergy)
 {
