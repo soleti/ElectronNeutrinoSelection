@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "mc_nue_bnb">
-<!ENTITY project_version "v5">
+<!ENTITY name "data_numi">
+<!ENTITY project_version "v6">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
-<!ENTITY dataset "prodgenie_bnb_intrinsic_nue_cosmic_uboone_mcc8.7_reco2">
+<!-- <!ENTITY dataset "prod_numi_data_run1_reco2_mcc8_v1_no_anumi_goodruns"> -->
+<!ENTITY dataset "foppiani_numi_data1">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
 <!ENTITY data "/uboone/data/user">
@@ -25,7 +26,7 @@
   <os>SL6</os>
 
   <!--  Project size  -->
-  <numevents>1000000</numevents>
+  <numevents>100000000</numevents>
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
@@ -50,7 +51,8 @@
     <workdir>&resilient;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>750</numjobs>
+    <numjobs>1663</numjobs>
+    <!-- <numjobs>20</numjobs> -->
     <disk>2GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>15</maxfilesperjob>
