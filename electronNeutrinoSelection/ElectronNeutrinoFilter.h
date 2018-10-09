@@ -17,7 +17,7 @@
 #include "larevt/SpaceChargeServices/SpaceChargeService.h"
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
 #include "lardata/DetectorInfoServices/DetectorClocksService.h"
-#include "lardata/DetectorInfo/DetectorProperties.h"
+// #include "lardata/DetectorInfo/DetectorProperties.h"
 
 #include <memory>
 
@@ -42,7 +42,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     bool filter(art::Event & e) override;
 
     // Selected optional functions.
-    void reconfigure(fhicl::ParameterSet const & p) override;
+    void reconfigure(fhicl::ParameterSet const & p);
     void respondToOpenInputFile(art::FileBlock const &fb) override;
     bool endSubRun(art::SubRun &sr) override;
     void clear();
@@ -64,6 +64,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     double _lee_weight;
     double _sum_pot;
     bool _passed;
+    unsigned int _n_primaries;
     bool m_isOverlaidSample;
     bool m_isData;
     unsigned int _run_sr;
@@ -87,7 +88,8 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     double _true_vz_sce;
     std::vector<double> _nu_daughters_E;
     std::vector<int> _nu_daughters_pdg;
-
+    std::vector<double> _flash_time;
+    std::vector<double> _flash_pe;
     std::vector < std::vector<double> > _nu_daughters_p;
     std::vector < std::vector<double> > _nu_daughters_start_v;
     std::vector < std::vector<double> > _nu_daughters_end_v;

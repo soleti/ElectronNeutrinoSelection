@@ -50,7 +50,7 @@
 #include "ubana/LLSelectionTool/OpT0Finder/Base/OpT0FinderTypes.h"
 // #include "ubana/LLSelectionTool/OpT0Finder/Algorithms/LightCharge.h"
 #include "ubana/LLSelectionTool/OpT0Finder/Algorithms/PhotonLibHypothesis.h"
-#include "ubana/LLSelectionTool/OpT0Finder/Base/FlashMatchManager.h"
+// #include "ubana/LLSelectionTool/OpT0Finder/Base/FlashMatchManager.h"
 
 #include "GeometryHelper.h"
 #include "PandoraInterfaceHelper.h"
@@ -90,7 +90,7 @@ namespace lee {
     */
     const std::map<size_t, int > opticalfilter(const art::Event & evt,
                                                const std::vector<size_t> &pfplist,
-                                               const art::ValidHandle<std::vector<recob::PFParticle>> pfparticle_handle);
+                                               const art::Handle<std::vector<recob::PFParticle>> pfparticle_handle);
 
     /**
     * @brief Checks if there is a flash within the flash_window_start - flash_window_end window with enough PE.
@@ -102,7 +102,7 @@ namespace lee {
     */
     const std::map<size_t, int > flashBasedSelection(const art::Event & evt,
                                                      const std::vector<size_t> &pfplist,
-                                                     const art::ValidHandle<std::vector<recob::PFParticle>> pfparticle_handle);
+                                                     const art::Handle<std::vector<recob::PFParticle>> pfparticle_handle);
 
     /**
     * @brief Creates a photon cluster for a neutrino pfp hierarchy
@@ -114,14 +114,6 @@ namespace lee {
     */
     const flashana::QCluster_t collect3DHits(const art::Event &evt,
 	                                           const std::vector<size_t> &pfplist);
-
-    /**
-    * @brief Return the true coordinates corrected by the space-charge effect
-    *
-    * @param xyz TVector3 of the true position
-    * @return TVector3 of the space-charge corrected position
-    */
-    TVector3 spaceChargeTrueToReco(const TVector3 & xyz);
 
     /**
     * @brief Reset internal variables
@@ -279,7 +271,7 @@ namespace lee {
     // Helper class for dealing with pandora heirarchy:
     PandoraInterfaceHelper pandoraHelper;
 
-    flashana::FlashMatchManager m_mgr;
+    // flashana::FlashMatchManager m_mgr;
     art::ServiceHandle<geo::Geometry> m_geo;
   };
 

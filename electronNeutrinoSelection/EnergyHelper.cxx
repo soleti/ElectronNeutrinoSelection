@@ -96,18 +96,19 @@ void EnergyHelper::cluster_residuals(std::vector<art::Ptr<recob::Cluster>> *clus
 
 }
 
-bool EnergyHelper::is_hit_data(art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+bool EnergyHelper::is_hit_data(// art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
                                size_t hit_key)
 {
   std::vector<art::Ptr<simb::MCParticle>> mcp_v;
-  std::vector<anab::BackTrackerHitMatchingData const *> match_v;
-  mcps_per_hit->get(hit_key, mcp_v, match_v);
+  return true;
+  // std::vector<anab::BackTrackerHitMatchingData const *> match_v;
+  // mcps_per_hit->get(hit_key, mcp_v, match_v);
 
-  if (match_v.size() > 0) {
-    return false;
-  } else {
-    return true;
-  }
+  // if (match_v.size() > 0) {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
 }
 
 void EnergyHelper::energy_from_hits(std::vector<art::Ptr<recob::Cluster>> *clusters,
@@ -176,7 +177,7 @@ void EnergyHelper::get_cali(
   for (auto _sps : *spcpnts)
   {
     std::vector<art::Ptr<recob::Hit>> hits = hits_per_spcpnts->at(_sps.key());
-    const double *xyz = _sps->XYZ();
+    // const double *xyz = _sps->XYZ();
 
     for (auto &hit : hits)
     {
@@ -184,8 +185,8 @@ void EnergyHelper::get_cali(
       if (plane_nr > 2 || plane_nr < 0)
         continue;
       total_charge[plane_nr] += hit->Integral();
-      float yzcorrection = _energy_calib_provider.YZdqdxCorrection(plane_nr, xyz[1], xyz[2]);
-      float xcorrection = _energy_calib_provider.XdqdxCorrection(plane_nr, xyz[0]);
+      float yzcorrection = 1.0; //_energy_calib_provider.YZdqdxCorrection(plane_nr, xyz[1], xyz[2]);
+      float xcorrection = 1.0; //_energy_calib_provider.XdqdxCorrection(plane_nr, xyz[0]);
       if (!yzcorrection)
         yzcorrection = 1.0;
       if (!xcorrection)
@@ -209,34 +210,34 @@ void EnergyHelper::get_cali(
 
 double EnergyHelper::PID(art::Ptr<anab::ParticleID> selected_pid,
                          std::string AlgName,
-                         anab::kVariableType VariableType,
-                         anab::kTrackDir TrackDirection,
+                        //  anab::kVariableType VariableType,
+                        //  anab::kTrackDir TrackDirection,
                          int pdgCode)
 {
 
-    std::vector<anab::sParticleIDAlgScores> AlgScoresVec = selected_pid->ParticleIDAlgScores();
-    for (size_t i_algscore = 0; i_algscore < AlgScoresVec.size(); i_algscore++)
-    {
-      anab::sParticleIDAlgScores AlgScore = AlgScoresVec.at(i_algscore);
-      int planeid = UBPID::uB_getSinglePlane(AlgScore.fPlaneID);
+    // std::vector<anab::sParticleIDAlgScores> AlgScoresVec = selected_pid->ParticleIDAlgScores();
+    // for (size_t i_algscore = 0; i_algscore < AlgScoresVec.size(); i_algscore++)
+    // {
+    //   anab::sParticleIDAlgScores AlgScore = AlgScoresVec.at(i_algscore);
+    //   int planeid = UBPID::uB_getSinglePlane(AlgScore.fPlaneID);
 
-      if (planeid < 0 || planeid > 2)
-      {
-        std::cout << "[EnergyHelper::PID] No information for planeid " << planeid << std::endl;
-        continue;
-      }
-      if (AlgScore.fAlgName == AlgName)
-      {
-        if (anab::kVariableType(AlgScore.fVariableType) == VariableType
-            && anab::kTrackDir(AlgScore.fTrackDir) == TrackDirection)
-        {
-          if (AlgScore.fAssumedPdg == pdgCode) {
-              double alg_value = AlgScore.fValue;
-              return alg_value;
-          }
-        }
-      }
-    }
+    //   if (planeid < 0 || planeid > 2)
+    //   {
+    //     std::cout << "[EnergyHelper::PID] No information for planeid " << planeid << std::endl;
+    //     continue;
+    //   }
+    //   if (AlgScore.fAlgName == AlgName)
+    //   {
+    //     // if (anab::kVariableType(AlgScore.fVariableType) == VariableType
+    //     //     && anab::kTrackDir(AlgScore.fTrackDir) == TrackDirection)
+    //     // {
+    //       if (AlgScore.fAssumedPdg == pdgCode) {
+    //           double alg_value = AlgScore.fValue;
+    //           return alg_value;
+    //       }
+    //     // }
+    //   }
+    // }
     return std::numeric_limits<double>::lowest();
 }
 
@@ -246,48 +247,48 @@ void EnergyHelper::dQdx_cali(const recob::Shower *shower_obj,
   TVector3 pfp_dir;
 
   // Field needed for calibration factor
-  double x_start, y_start, z_start;
-  double x_middle, y_middle, z_middle;
-  double x_end, y_end, z_end;
+  // double x_start, y_start, z_start;
+  // double x_middle, y_middle, z_middle;
+  // double x_end, y_end, z_end;
   float start_corr, middle_corr, end_corr;
 
   pfp_dir.SetX(shower_obj->Direction().X());
   pfp_dir.SetY(shower_obj->Direction().Y());
   pfp_dir.SetZ(shower_obj->Direction().Z());
 
-  x_start = shower_obj->ShowerStart().X();
-  y_start = shower_obj->ShowerStart().Y();
-  z_start = shower_obj->ShowerStart().Z();
+  // x_start = shower_obj->ShowerStart().X();
+  // y_start = shower_obj->ShowerStart().Y();
+  // z_start = shower_obj->ShowerStart().Z();
 
   pfp_dir.SetMag(_dQdx_rectangle_length / 2.); //Go 2cm along the direction of the object.
-  x_middle = x_start + pfp_dir.X();
-  y_middle = y_start + pfp_dir.Y();
-  z_middle = z_start + pfp_dir.Z();
-  x_end = x_middle + pfp_dir.X();
-  y_end = y_middle + pfp_dir.Y();
-  z_end = z_middle + pfp_dir.Z();
+  // x_middle = x_start + pfp_dir.X();
+  // y_middle = y_start + pfp_dir.Y();
+  // z_middle = z_start + pfp_dir.Z();
+  // x_end = x_middle + pfp_dir.X();
+  // y_end = y_middle + pfp_dir.Y();
+  // z_end = z_middle + pfp_dir.Z();
   pfp_dir.SetMag(1.); //Normalise again for safety (not needed).
 
   for (int plane_nr = 0; plane_nr < 3; ++plane_nr)
   {
-    float yzcorrection_start = _energy_calib_provider.YZdqdxCorrection(plane_nr, y_start, z_start);
-    float xcorrection_start = _energy_calib_provider.XdqdxCorrection(plane_nr, x_start);
+    float yzcorrection_start = 1.0; //_energy_calib_provider.YZdqdxCorrection(plane_nr, y_start, z_start);
+    float xcorrection_start = 1.0; //_energy_calib_provider.XdqdxCorrection(plane_nr, x_start);
     if (!yzcorrection_start)
       yzcorrection_start = 1.0;
     if (!xcorrection_start)
       xcorrection_start = 1.0;
     start_corr = yzcorrection_start * xcorrection_start;
 
-    float yzcorrection_middle = _energy_calib_provider.YZdqdxCorrection(plane_nr, y_middle, z_middle);
-    float xcorrection_middle = _energy_calib_provider.XdqdxCorrection(plane_nr, x_middle);
+    float yzcorrection_middle = 1.0; //_energy_calib_provider.YZdqdxCorrection(plane_nr, y_middle, z_middle);
+    float xcorrection_middle = 1.0; //_energy_calib_provider.XdqdxCorrection(plane_nr, x_middle);
     if (!yzcorrection_middle)
       yzcorrection_middle = 1.0;
     if (!xcorrection_middle)
       xcorrection_middle = 1.0;
     middle_corr = yzcorrection_middle * xcorrection_middle;
 
-    float yzcorrection_end = _energy_calib_provider.YZdqdxCorrection(plane_nr, y_end, z_end);
-    float xcorrection_end = _energy_calib_provider.XdqdxCorrection(plane_nr, x_end);
+    float yzcorrection_end = 1.0; //_energy_calib_provider.YZdqdxCorrection(plane_nr, y_end, z_end);
+    float xcorrection_end = 1.0; //_energy_calib_provider.XdqdxCorrection(plane_nr, x_end);
     if (!yzcorrection_end)
       yzcorrection_end = 1.0;
     if (!xcorrection_end)
@@ -301,7 +302,6 @@ void EnergyHelper::dQdx_cali(const recob::Shower *shower_obj,
 void EnergyHelper::dQdx(const recob::Shower *shower_obj,
                         std::vector<art::Ptr<recob::Cluster>> *clusters,
                         art::FindManyP<recob::Hit> *hits_per_cluster,
-                        art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
                         std::vector<double> &dqdx,
                         std::vector<std::vector<double>> &dqdx_hits,
                         std::vector<double> &pitches)

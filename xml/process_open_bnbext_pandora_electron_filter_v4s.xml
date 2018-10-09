@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-    <!ENTITY name "bnbext_filter_data_v4s">
-    <!ENTITY dataset "prod_reco_optfilter_extbnb_v12_mcc8_gooodruns_v4s">
-    <!ENTITY larsoft_version "v06_26_01_13">
-    <!ENTITY version "v06_26_01_18">
-    <!ENTITY qualifier "e10:prof">
+    <!ENTITY name "bnbext_filter_data_mcc9">
+    <!ENTITY dataset "data_extbnb_mcc9_beta1_extbnb_reco_2d_reco2">
+    <!ENTITY larsoft_version "v07_05_00">
+    <!ENTITY version "v07_05_00_02">
+    <!ENTITY qualifier "e17:prof">
     <!ENTITY user "srsoleti">
 ]>
 
@@ -22,7 +22,7 @@
     <larsoft>
         <tag>&larsoft_version;</tag>
         <qual>&qualifier;</qual>
-        <fcldir>/uboone/app/users/&user;/&version;_2/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
+        <fcldir>/uboone/app/users/&user;/&version;/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
         <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local> 
     </larsoft>
 
@@ -34,9 +34,9 @@
         <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
         <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
-        <numjobs>658</numjobs>
+        <numjobs>222</numjobs>
         <disk>2GB</disk>
-        <memory>6144</memory>
+        <memory>2048</memory>
         <maxfilesperjob>15</maxfilesperjob>
         <datatier>filtered</datatier>
         <jobsub>--expected-lifetime=12h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>

@@ -63,9 +63,9 @@
 #include "lardataobj/RecoBase/Vertex.h"
 #include "nusimdata/SimulationBase/MCParticle.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
-#include "uboone/EventWeight/MCEventWeight.h"
+#include "larsim/EventWeight/Base/MCEventWeight.h"
 #include "larevt/SpaceChargeServices/SpaceChargeService.h"
-#include "uboone/UBXSec/DataTypes/SelectionResult.h"
+// #include "uboone/UBXSec/DataTypes/SelectionResult.h"
 #include "lardataobj/AnalysisBase/ParticleID.h"
 #include "TEfficiency.h"
 #include "art/Framework/Services/Optional/TFileService.h"
@@ -76,12 +76,12 @@
 #include "EnergyHelper.h"
 #include "GeometryHelper.h"
 
-#include "larcore/Geometry/WireGeo.h"
+// #include "larcore/Geometry/WireGeo.h"
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
 #include "lardata/DetectorInfoServices/DetectorClocksService.h"
-#include "lardata/DetectorInfo/DetectorProperties.h"
+// #include "lardata/DetectorInfo/DetectorProperties.h"
 
-#include "uboone/EventWeight/EventWeightTreeUtility.h"
+// #include "uboone/EventWeight/EventWeightTreeUtility.h"
 
 namespace lee {
 
@@ -117,7 +117,7 @@ public:
   *
   * @param[in] pset  set of FHICL parameters
   */
-  void reconfigure(fhicl::ParameterSet const &pset) override;
+  void reconfigure(fhicl::ParameterSet const &pset);
 
   /**
   * @brief Clears filled variables
@@ -209,7 +209,7 @@ private:
   EnergyHelper energyHelper;
   GeometryHelper geoHelper;
   PandoraInterfaceHelper pandoraHelper;
-  uboone::EWTreeUtil ewutil;
+//   uboone::EWTreeUtil ewutil;
 
   float _lee_bins[12] = {200, 300, 375, 475, 550, 675, 800, 950, 1100, 1300, 1500, 3000};
   float _lee_scaling[13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0};

@@ -1,7 +1,10 @@
 
+#include "services_microboone.fcl"
+#include "services_microboone_simulation.fcl"
+#include "reco_uboone_data_mcc8_driver_common.fcl"
 
 process_name : PandoraLEEAnalyzer      #The process name must NOT contain any underscores
-
+physics.filters.opfiltercommon: @local::physics.filters.opfiltercommonext
 source : {
   module_type : RootInput
   maxEvents   : -1
@@ -16,7 +19,7 @@ services :
   @table::microboone_services_reco
   @table::microboone_simulation_services
   #BackTracker:             @local::microboone_backtracker
-  TPCEnergyCalibService:         @local::microboone_tpcenergycalib_service
+  #TPCEnergyCalibService:    @local::microboone_tpcenergycalib_service
 }
 
 outputs: {
@@ -27,16 +30,18 @@ outputs: {
     fastCloning: false
   }
 }
+
 services.DetectorClocksService.InheritClockConfig:         false
 services.DetectorClocksService.TriggerOffsetTPC:           -0.400e3
 services.ChannelStatusService.ChannelStatusProvider.UseDB: false
+
 services.message.destinations :
 {
   STDCOUT:
   {
      type:      "cout"      #tells the message service to output this destination to cout
      threshold: "WARNING"   #tells the message service that this destination applies to WARNING and higher level messages
-     append:     true       #says to append all messages to the output
+     #append:     true       #says to append all messages to the output
      categories:
      {
        ChannelFilter:

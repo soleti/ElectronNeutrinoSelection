@@ -581,34 +581,34 @@ void lee::PandoraLEEAnalyzer::fillTrackFields(size_t pf_id,
   _track_res_mean.push_back(mean);
   _track_res_std.push_back(stdev);
 
-  if (m_useParticleID)
-  {
-    art::Ptr<anab::ParticleID> selected_pid = pid_per_track->at(track_obj->ID())[0];
+  // if (m_useParticleID)
+  // {
+  //   art::Ptr<anab::ParticleID> selected_pid = pid_per_track->at(track_obj->ID())[0];
 
-    double bragg_p = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 2212),
-                              energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 2212));
+    // double bragg_p = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 2212),
+    //                           energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 2212));
 
-    double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
-                               energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
+    // double bragg_mu = std::max(energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 13),
+    //                            energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kBackward, 13));
 
-    double bragg_mip = energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0);
+    // double bragg_mip = energyHelper.PID(selected_pid, "BraggPeakLLH", anab::kLikelihood, anab::kForward, 0);
 
-    double pidchipr = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 2212);
-    double pidchimu = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 13);
-    double pidchipi = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 211);
-    double pidchika = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 321);
+    // double pidchipr = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 2212);
+    // double pidchimu = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 13);
+    // double pidchipi = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 211);
+    // double pidchika = energyHelper.PID(selected_pid, "Chi2", anab::kGOF, anab::kForward, 321);
 
-    double pida_mean = energyHelper.PID(selected_pid, "PIDA_mean", anab::kPIDA, anab::kForward, 0);
+    // double pida_mean = energyHelper.PID(selected_pid, "PIDA_mean", anab::kPIDA, anab::kForward, 0);
 
-    _track_bragg_p.push_back(bragg_p);
-    _track_bragg_mu.push_back(bragg_mu);
-    _track_bragg_mip.push_back(bragg_mip);
-    _track_pida.push_back(pida_mean);
-    _track_pidchipr.push_back(pidchipr);
-    _track_pidchimu.push_back(pidchimu);
-    _track_pidchipi.push_back(pidchipi);
-    _track_pidchika.push_back(pidchika);
-  }
+    // _track_bragg_p.push_back(bragg_p);
+    // _track_bragg_mu.push_back(bragg_mu);
+    // _track_bragg_mip.push_back(bragg_mip);
+    // _track_pida.push_back(pida_mean);
+    // _track_pidchipr.push_back(pidchipr);
+    // _track_pidchimu.push_back(pidchimu);
+    // _track_pidchipi.push_back(pidchipi);
+    // _track_pidchika.push_back(pidchika);
+  // }
   _matched_tracks.push_back(std::numeric_limits<int>::lowest());
   _matched_tracks_process.push_back("");
   _matched_tracks_energy.push_back(std::numeric_limits<double>::lowest());
@@ -630,7 +630,7 @@ void lee::PandoraLEEAnalyzer::fillTrackFields(size_t pf_id,
   std::vector<double> this_energy;
   std::vector<int> this_nhits;
 
-  energyHelper.energy_from_hits(&clusters, hits_per_cluster, mcps_per_hit, this_nhits, this_energy);
+  energyHelper.energy_from_hits(&clusters, hits_per_cluster, this_nhits, this_energy);
 
   _track_energy_hits.push_back(this_energy);
 
@@ -733,50 +733,50 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
   _event_passed = (int)fElectronEventSelectionAlg.eventSelected(evt);
 
-  if (_event_passed && !evt.isRealData() && m_save_flux_info) {
-    std::cout<< "[PandoraLEEAnalyzer] Saving Flux info..." << std::endl;
-    art::Handle<std::vector<simb::GTruth>> gTruthHandle;
-    evt.getByLabel(_mctruthLabel, gTruthHandle);
-    if (!gTruthHandle.isValid())
-      return;
-    std::vector<art::Ptr<simb::GTruth>> gTruthVec;
-    art::fill_ptr_vector(gTruthVec, gTruthHandle);
-    if (gTruthVec.size() == 0)
-    {
-      std::cout << "\n[NUMUSEL] No GTruth Information" << std::endl;
-      return;
-    }
+  // if (_event_passed && !evt.isRealData() && m_save_flux_info) {
+  //   std::cout<< "[PandoraLEEAnalyzer] Saving Flux info..." << std::endl;
+  //   art::Handle<std::vector<simb::GTruth>> gTruthHandle;
+  //   evt.getByLabel(_mctruthLabel, gTruthHandle);
+  //   if (!gTruthHandle.isValid())
+  //     return;
+  //   std::vector<art::Ptr<simb::GTruth>> gTruthVec;
+  //   art::fill_ptr_vector(gTruthVec, gTruthHandle);
+  //   if (gTruthVec.size() == 0)
+  //   {
+  //     std::cout << "\n[NUMUSEL] No GTruth Information" << std::endl;
+  //     return;
+  //   }
 
-    art::Handle<std::vector<simb::MCFlux>> mcFluxHandle;
-    evt.getByLabel(_mctruthLabel, mcFluxHandle);
-    if (!mcFluxHandle.isValid())
-      return;
-    std::vector<art::Ptr<simb::MCFlux>> mcFluxVec;
-    art::fill_ptr_vector(mcFluxVec, mcFluxHandle);
-    if (mcFluxVec.size() == 0)
-    {
-      std::cout << "\n[NUMUSEL] No MCFlux Information" << std::endl;
-      return;
-    }
+  //   art::Handle<std::vector<simb::MCFlux>> mcFluxHandle;
+  //   evt.getByLabel(_mctruthLabel, mcFluxHandle);
+  //   if (!mcFluxHandle.isValid())
+  //     return;
+  //   std::vector<art::Ptr<simb::MCFlux>> mcFluxVec;
+  //   art::fill_ptr_vector(mcFluxVec, mcFluxHandle);
+  //   if (mcFluxVec.size() == 0)
+  //   {
+  //     std::cout << "\n[NUMUSEL] No MCFlux Information" << std::endl;
+  //     return;
+  //   }
 
-    art::Handle<std::vector<simb::MCTruth>> mcTruthHandle;
-    evt.getByLabel(_mctruthLabel, mcTruthHandle);
-    if (!mcTruthHandle.isValid())
-      return;
-    std::vector<art::Ptr<simb::MCTruth>> mcTruthVec;
-    art::fill_ptr_vector(mcTruthVec, mcTruthHandle);
-    if (mcTruthVec.size() == 0)
-    {
-      std::cout << "\n[NUMUSEL] No MCTruth Information" << std::endl;
-      return;
-    }
+  //   art::Handle<std::vector<simb::MCTruth>> mcTruthHandle;
+  //   evt.getByLabel(_mctruthLabel, mcTruthHandle);
+  //   if (!mcTruthHandle.isValid())
+  //     return;
+  //   std::vector<art::Ptr<simb::MCTruth>> mcTruthVec;
+  //   art::fill_ptr_vector(mcTruthVec, mcTruthHandle);
+  //   if (mcTruthVec.size() == 0)
+  //   {
+  //     std::cout << "\n[NUMUSEL] No MCTruth Information" << std::endl;
+  //     return;
+  //   }
 
-    const art::Ptr<simb::MCFlux> mcFlux = mcFluxVec.at(0);
-    const art::Ptr<simb::GTruth> gTruth = gTruthVec.at(0);
-    const art::Ptr<simb::MCTruth> mcTruth = mcTruthVec.at(0);
+  //   const art::Ptr<simb::MCFlux> mcFlux = mcFluxVec.at(0);
+  //   const art::Ptr<simb::GTruth> gTruth = gTruthVec.at(0);
+  //   const art::Ptr<simb::MCTruth> mcTruth = mcTruthVec.at(0);
 
-    ewutil.WriteTree(evt, mcFlux, mcTruth, gTruth);
-  }
+  //   ewutil.WriteTree(evt, mcFlux, mcTruth, gTruth);
+  // }
 
   _flash_PE = fElectronEventSelectionAlg.get_flash_PE();
   _flash_time = fElectronEventSelectionAlg.get_flash_time();
@@ -787,64 +787,64 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   std::vector<double> true_neutrino_vertex(3);
   std::cout << "[PandoraLEEAnalyzer] Is real data? " << evt.isRealData() << std::endl;
 
-  art::Handle<std::vector<ubana::SelectionResult>> selection_h;
-  evt.getByLabel("UBXSec", selection_h);
+  // art::Handle<std::vector<ubana::SelectionResult>> selection_h;
+  // evt.getByLabel("UBXSec", selection_h);
 
-  if (!selection_h.isValid() || selection_h->empty())
-  {
-    std::cout << "[PandoraLEEAnalyzer] SelectionResult handle is not valid or empty." << std::endl;
-  }
+  // if (!selection_h.isValid() || selection_h->empty())
+  // {
+  //   std::cout << "[PandoraLEEAnalyzer] SelectionResult handle is not valid or empty." << std::endl;
+  // }
 
-  std::vector<art::Ptr<ubana::SelectionResult>> selection_v;
-  if (selection_h.isValid())
-    art::fill_ptr_vector(selection_v, selection_h);
+  // std::vector<art::Ptr<ubana::SelectionResult>> selection_v;
+  // if (selection_h.isValid())
+  //   art::fill_ptr_vector(selection_v, selection_h);
 
-  if (selection_v.size() > 0) {
-    _numu_passed = (int)selection_v.at(0)->GetSelectionStatus();
-    if (selection_v.at(0)->GetSelectionStatus())
-    {
-        std::cout << "[PandoraLEEAnalyzer] Event is selected by UBXSec" << std::endl;
-    }
-    else
-    {
-        std::cout << "[PandoraLEEAnalyzer] Event is not selected by UBXSec" << std::endl;
-        std::cout << "[PandoraLEEAnalyzer] Failure reason " << selection_v.at(0)->GetFailureReason() << std::endl;
-    }
-    std::map<std::string, bool> failure_map = selection_v.at(0)->GetCutFlowStatus();
-    for (auto iter : failure_map)
-    {
-      if (m_printDebug) {
-          std::cout << "[PandoraLEEAnalyzer] UBXSec Cut: " << iter.first << "  >>>  " << (iter.second ? "PASSED" : "NOT PASSED") << std::endl;
-      }
-      if (iter.second) {
-          _numu_cuts += 1;
-      }
-    }
-  }
+  // if (selection_v.size() > 0) {
+  //   _numu_passed = (int)selection_v.at(0)->GetSelectionStatus();
+  //   if (selection_v.at(0)->GetSelectionStatus())
+  //   {
+  //       std::cout << "[PandoraLEEAnalyzer] Event is selected by UBXSec" << std::endl;
+  //   }
+  //   else
+  //   {
+  //       std::cout << "[PandoraLEEAnalyzer] Event is not selected by UBXSec" << std::endl;
+  //       std::cout << "[PandoraLEEAnalyzer] Failure reason " << selection_v.at(0)->GetFailureReason() << std::endl;
+  //   }
+  //   std::map<std::string, bool> failure_map = selection_v.at(0)->GetCutFlowStatus();
+  //   for (auto iter : failure_map)
+  //   {
+  //     if (m_printDebug) {
+  //         std::cout << "[PandoraLEEAnalyzer] UBXSec Cut: " << iter.first << "  >>>  " << (iter.second ? "PASSED" : "NOT PASSED") << std::endl;
+  //     }
+  //     if (iter.second) {
+  //         _numu_cuts += 1;
+  //     }
+  //   }
+  // }
 
   if ((!evt.isRealData() || m_isOverlaidSample) && !m_isCosmicInTime)
   {
     // nu_e flux must be corrected by event weight
-    art::InputTag eventweight_tag("eventweight");
-    auto const &eventweights_handle =
-        evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(eventweight_tag);
-    if (!eventweights_handle.isValid()) {
-      std::cout << "[PandoraLEEAnalyzer] No MCEventWeight data product" << std::endl;
-      _bnbweight = 1;
-    } else {
-      auto const &eventweights(*eventweights_handle);
-      if (eventweights.size() > 0) {
-        for (auto last : eventweights.at(0).fWeight) {
-          if (last.first.find("bnbcorrection") != std::string::npos && std::isfinite(last.second.at(0))) {
-              _bnbweight = last.second.at(0);
-          } else {
-            _bnbweight = 1;
-          }
-        }
-      } else {
-        _bnbweight = 1;
-      }
-    }
+    // art::InputTag eventweight_tag("eventweight");
+    // auto const &eventweights_handle =
+    //     evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(eventweight_tag);
+    // if (!eventweights_handle.isValid()) {
+    //   std::cout << "[PandoraLEEAnalyzer] No MCEventWeight data product" << std::endl;
+    //   _bnbweight = 1;
+    // } else {
+    //   auto const &eventweights(*eventweights_handle);
+    //   if (eventweights.size() > 0) {
+    //     for (auto last : eventweights.at(0).fWeight) {
+    //       if (last.first.find("bnbcorrection") != std::string::npos && std::isfinite(last.second.at(0))) {
+    //           _bnbweight = last.second.at(0);
+    //       } else {
+    //         _bnbweight = 1;
+    //       }
+    //     }
+    //   } else {
+    //     _bnbweight = 1;
+    //   }
+    // }
 
     try {
       art::InputTag genie_eventweight_tag("genieeventweightmultisim");
@@ -929,22 +929,13 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
         _interaction_type = gen.GetNeutrino().Mode();
 
-        if (sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz).size() == 3)
-        {
-          double g4Ticks = detClocks->TPCG4Time2Tick(gen.GetNeutrino().Nu().T()) + theDetector->GetXTicksOffset(0, 0, 0) - theDetector->TriggerOffset();
-          _true_vx_sce =
-              _true_vx - sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[0] + theDetector->ConvertTicksToX(g4Ticks, 0, 0, 0);
-          _true_vy_sce =
-              _true_vy + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[1];
-          _true_vz_sce =
-              _true_vz + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[2];
-        }
-        else
-        {
-          std::cout << "[PandoraLEEAnalyzer] "
-                    << "Space Charge service offset size < 3" << std::endl;
-          continue;
-        }
+        double g4Ticks = detClocks->TPCG4Time2Tick(gen.GetNeutrino().Nu().T()) + theDetector->GetXTicksOffset(0, 0, 0) - theDetector->TriggerOffset();
+        _true_vx_sce =
+            _true_vx - sce_service->GetPosOffsets(geo::Point_t(_true_vx, _true_vy, _true_vz)).X() + theDetector->ConvertTicksToX(g4Ticks, 0, 0, 0);
+        _true_vy_sce =
+            _true_vy + sce_service->GetPosOffsets(geo::Point_t(_true_vx, _true_vy, _true_vz)).Y();
+        _true_vz_sce =
+            _true_vz + sce_service->GetPosOffsets(geo::Point_t(_true_vx, _true_vy, _true_vz)).Z();
 
         if (!geoHelper.isActive(true_neutrino_vertex))
         {
@@ -1013,15 +1004,15 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
           z_det = mcshower.End().Z();
         }
 
-        _true_shower_x_sce.push_back(x_det - sce_service->GetPosOffsets(x_det, y_det, z_det)[0] + 0.7);
-        _true_shower_y_sce.push_back(y_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[1]);
-        _true_shower_z_sce.push_back(z_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[2]);
+        _true_shower_x_sce.push_back(x_det - sce_service->GetPosOffsets(geo::Point_t(x_det, y_det, z_det)).X() + 0.7);
+        _true_shower_y_sce.push_back(y_det + sce_service->GetPosOffsets(geo::Point_t(x_det, y_det, z_det)).Y());
+        _true_shower_z_sce.push_back(z_det + sce_service->GetPosOffsets(geo::Point_t(x_det, y_det, z_det)).Z());
 
         if (m_printDebug) {
           std::cout << "[PandoraLEEAnalyzer] "
-                    << "MCShower End: (" << x_det - sce_service->GetPosOffsets(x_det, y_det, z_det)[0] + 0.7
-                    << "," << y_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[1]
-                    << "," << z_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[2] << ")" << std::endl;
+                    << "MCShower End: (" << x_det - sce_service->GetPosOffsets(geo::Point_t(x_det, y_det, z_det)).X() + 0.7
+                    << "," << y_det + sce_service->GetPosOffsets(geo::Point_t(x_det, y_det, z_det)).Y()
+                    << "," << z_det + sce_service->GetPosOffsets(geo::Point_t(x_det, y_det, z_det)).Z() << ")" << std::endl;
 
           std::cout << "[PandoraLEEAnalyzer] "
                     << "TrueVTX: (" << _true_vx_sce << "," << _true_vy_sce << "," << _true_vz_sce << ")" << std::endl;
@@ -1221,7 +1212,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _matched_showers_process.push_back("");
 
       _matched_showers_energy.push_back(std::numeric_limits<double>::lowest());
-      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster, &mcps_per_hit, dqdx, dqdx_hits_shower, pitches);
+      energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster,dqdx, dqdx_hits_shower, pitches);
       energyHelper.dQdx_cali(&(*shower_obj), dqdx_cali);
 
       _shower_dQdx_hits.push_back(dqdx_hits_shower[2]);
@@ -1280,7 +1271,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       std::vector<double> this_energy;
       std::vector<int> this_nhits;
 
-      energyHelper.energy_from_hits(&clusters, &hits_per_cluster, &mcps_per_hit, this_nhits, this_energy);
+      energyHelper.energy_from_hits(&clusters, &hits_per_cluster, this_nhits, this_energy);
       std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
 
       std::vector<double> shower_cali;
@@ -1525,13 +1516,13 @@ void lee::PandoraLEEAnalyzer::reconfigure(fhicl::ParameterSet const &pset)
   geoHelper.setFiducialVolumeCuts(m_fidvolXstart, m_fidvolXend, m_fidvolYstart,
                                   m_fidvolYend, m_fidvolZstart, m_fidvolZend);
 
-  m_hitfinderLabel = pset.get<std::string>("HitFinderLabel", "pandoraCosmicHitRemoval::McRecoStage2");
-  m_pid_producer = pset.get<std::string>("ParticleIDModuleLabel", "pandoraNucalipid::McRecoCali");
-  m_calorimetry_producer = pset.get<std::string>("CalorimetryLabel", "pandoraNucali::McRecoCali");
-  m_hitmatching_producer = pset.get<std::string>("HitMatchingLabel", "crHitRemovalTruthMatch::McRecoStage2");
-  m_pfp_producer = pset.get<std::string>("PFParticleLabel", "pandoraNu::McRecoStage2");
-  m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandoraNu::McRecoStage2");
-  m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandoraNu::McRecoStage2");
+  m_hitfinderLabel = pset.get<std::string>("HitFinderLabel", "pandoraCosmicHitRemoval");
+  m_pid_producer = pset.get<std::string>("ParticleIDModuleLabel", "pandoraNucalipid");
+  m_calorimetry_producer = pset.get<std::string>("CalorimetryLabel", "pandoraNucali");
+  m_hitmatching_producer = pset.get<std::string>("HitMatchingLabel", "crHitRemovalTruthMatch");
+  m_pfp_producer = pset.get<std::string>("PFParticleLabel", "pandora");
+  m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandora");
+  m_spacepointLabel = pset.get<std::string>("SpacePointLabel", "pandora");
   m_printDebug = pset.get<bool>("PrintDebug", false);
   m_useParticleID = pset.get<bool>("UseParticleID", true);
   m_showersAsTracks = pset.get<bool>("ShowersAsTracks", false);

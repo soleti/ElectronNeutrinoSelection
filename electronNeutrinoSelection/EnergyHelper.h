@@ -33,13 +33,12 @@
 #include "lardataobj/RecoBase/PFParticle.h"
 #include "lardataobj/RecoBase/Shower.h"
 #include "lardataobj/RecoBase/Track.h"
-
+#include "nusimdata/SimulationBase/MCParticle.h"
 #include "canvas/Persistency/Common/FindManyP.h"
 #include "canvas/Persistency/Common/FindOneP.h"
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
 #include "TPrincipal.h"
 // #include "uboone/UBXSec/Algorithms/TrackQuality.h"
-// #include "uboone/Database/TPCEnergyCalib/TPCEnergyCalibProvider.h"
 #include "ubevt/Database/TPCEnergyCalib/TPCEnergyCalibService.h"
 #include "lardataobj/AnalysisBase/ParticleID.h"
 #include "lardataobj/AnalysisBase/BackTrackerMatchingData.h"
@@ -73,7 +72,6 @@ public:
   void dQdx(const recob::Shower *shower_obj,
             std::vector<art::Ptr<recob::Cluster>> *clusters,
             art::FindManyP<recob::Hit> *hits_per_cluster,
-            art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
             std::vector<double> &dqdx,
             std::vector<std::vector<double>> &dqdx_hits,
             std::vector<double> &pitches);
@@ -93,8 +91,8 @@ public:
    */
   double PID(art::Ptr<anab::ParticleID> selected_pid,
                            std::string AlgName,
-                           anab::kVariableType VariableType,
-                           anab::kTrackDir TrackDirection,
+                          //  anab::kVariableType VariableType,
+                          //  anab::kTrackDir TrackDirection,
                            int pdgCode);
 
   /**
@@ -174,7 +172,7 @@ public:
   void dQdx_cali(const recob::Shower *shower_obj,
                  std::vector<double> &dqdx_cali);
 
-  bool is_hit_data(art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
+  bool is_hit_data(//art::FindManyP<simb::MCParticle, anab::BackTrackerHitMatchingData> *mcps_per_hit,
                                  size_t hit_key);
 
 private:

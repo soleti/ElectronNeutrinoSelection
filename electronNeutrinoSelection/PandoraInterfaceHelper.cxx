@@ -57,7 +57,7 @@ namespace lee
     e.getByLabel(_hitfinder_producer, hit_h);
     if (!hit_h.isValid()) {
       std::cout << "[McPfpMatch] Hit Handle is not valid." << std::endl;
-      throw std::exception();
+      // throw std::exception();
     }
 
     art::fill_ptr_vector(hitVector, hit_h);
@@ -148,7 +148,7 @@ namespace lee
                 continue;
 
             hit_to_mcps_map[hit] = selectedParticle;
-          } catch (cet::exception &e) {
+          } catch (...) {
             std::cout << "[PandoraInterfaceHelper] " << "Error in the loop of the hits" << std::endl;
             continue;
           }
@@ -173,7 +173,7 @@ namespace lee
   void PandoraInterfaceHelper::CollectMCParticles(const art::Event &evt, const std::string &label, lar_pandora::MCParticleVector &particleVector)
   {
     if (evt.isRealData() && !m_isOverlaidSample)
-        throw cet::exception("LArPandora") << " PandoraCollector::CollectMCParticles --- Trying to access MC truth from real data ";
+        std::cout << " PandoraCollector::CollectMCParticles --- Trying to access MC truth from real data ";
 
     art::Handle<std::vector<simb::MCParticle>> theParticles;
     evt.getByLabel(label, theParticles);
@@ -225,7 +225,7 @@ namespace lee
 
     if (!_configured) {
       std::cout << "Call to " << __PRETTY_FUNCTION__ << " whitout having done configuration. Abort." << std::endl;
-      throw std::exception();
+      // throw std::exception();
     }
 
     // Loop over the reco particles
@@ -288,7 +288,7 @@ namespace lee
 
 
   void PandoraInterfaceHelper::traversePFParticleTree(
-      const art::ValidHandle<std::vector<recob::PFParticle>> pfparticles,
+      const art::Handle<std::vector<recob::PFParticle>> pfparticles,
       size_t top_index, std::vector<size_t> &unordered_daugthers,
       std::string _pfp_producer) {
 
@@ -319,7 +319,7 @@ namespace lee
                                                   lar_pandora::MCParticlesToMCTruth &particlesToTruth)
   {
     if (evt.isRealData() && !m_isOverlaidSample)
-      throw cet::exception("LArPandora") << " PandoraCollector::CollectMCParticles --- Trying to access MC truth from real data ";
+      std::cout << " PandoraCollector::CollectMCParticles --- Trying to access MC truth from real data ";
 
     art::Handle<std::vector<simb::MCParticle>> theParticles;
     evt.getByLabel(label, theParticles);
@@ -372,7 +372,7 @@ namespace lee
   // neutrino pfp)
   std::vector<double> PandoraInterfaceHelper::calculateChargeCenter(
       size_t top_particle_index,
-      const art::ValidHandle<std::vector<recob::PFParticle>> pfparticles,
+      const art::Handle<std::vector<recob::PFParticle>> pfparticles,
       const art::Event &evt,
       std::string _pfp_producer) {
 

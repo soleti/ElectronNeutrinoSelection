@@ -68,7 +68,7 @@ class PandoraInterfaceHelper : public HelperBase
     * @param unordered_daugthers Vector of PFParticles daughters
     */
     void traversePFParticleTree(
-        const art::ValidHandle<std::vector<recob::PFParticle>> pfparticles,
+        art::Handle<std::vector<recob::PFParticle>> pfparticles,
         size_t top_index, std::vector<size_t> &unordered_daugthers,
         std::string _pfp_producer);
 
@@ -83,7 +83,7 @@ class PandoraInterfaceHelper : public HelperBase
      */
     std::vector<double> calculateChargeCenter(
         size_t ipf,
-        const art::ValidHandle<std::vector<recob::PFParticle>> pfparticles,
+        art::Handle<std::vector<recob::PFParticle>> pfparticles,
         const art::Event &evt,
         std::string _pfp_producer);
 

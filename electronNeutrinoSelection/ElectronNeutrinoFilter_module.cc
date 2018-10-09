@@ -31,6 +31,9 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
   myTTree->Branch("w", &_w, "w/d");
   myTTree->Branch("qsqr", &_qsqr, "qsqr/d");
   myTTree->Branch("pt", &_pt, "pt/d");
+  myTTree->Branch("flash_time", "std::vector< double >", &_flash_time);
+  myTTree->Branch("flash_pe", "std::vector< double >", &_flash_pe);
+  myTTree->Branch("n_primaries", &_n_primaries, "n_primaries/i");
 
   myTTree->Branch("passed", &_passed, "passed/O");
   myTTree->Branch("nu_energy", &_nu_energy, "nu_energy/D");
@@ -92,6 +95,9 @@ void lee::ElectronNeutrinoFilter::clear()
   _true_vx_sce = std::numeric_limits<double>::lowest();
   _true_vy_sce = std::numeric_limits<double>::lowest();
   _true_vz_sce = std::numeric_limits<double>::lowest();
+
+  _flash_time.clear();
+  _flash_pe.clear();
   _nu_daughters_p.clear();
   _nu_daughters_start_v.clear();
   _nu_daughters_end_v.clear();
@@ -112,6 +118,7 @@ void lee::ElectronNeutrinoFilter::clear()
   _nu_energy = std::numeric_limits<double>::lowest();
   _lee_weight = 0;
   _passed = false;
+  _n_primaries = 0;
   _pot = std::numeric_limits<double>::lowest();
   _run_sr = std::numeric_limits<unsigned int>::lowest();
   _subrun_sr = std::numeric_limits<unsigned int>::lowest();
@@ -126,6 +133,18 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
 
   _passed = fElectronEventSelectionAlg.eventSelected(e);
   std::cout << "[ElectronNeutrinoFilter] Passing filter? " << _passed << std::endl;
+
+  _n_primaries = fElectronEventSelectionAlg.get_primary_indexes().size();
+  std::cout << "[ElectronNeutrinoFilter] N primaries " << _n_primaries << std::endl;
+
+
+  _flash_time = fElectronEventSelectionAlg.get_flash_time();
+  std::cout << "[ElectronNeutrinoFilter] Flashes " << _flash_time.size() << std::endl;
+
+  _flash_pe = fElectronEventSelectionAlg.get_flash_PE();
+
+  for (size_t i_fl = 0; i_fl < _flash_time.size(); i_fl++)
+    std::cout << "[ElectronNeutrinoFilter] Flash time " << _flash_time[i_fl] << std::endl;
 
   bool is_data = e.isRealData();
   if (m_isOverlaidSample) {
@@ -171,22 +190,15 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
 
       _interaction_type = gen.GetNeutrino().Mode();
 
-      if (sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz).size() == 3)
-      {
-        double g4Ticks = detClocks->TPCG4Time2Tick(gen.GetNeutrino().Nu().T()) + theDetector->GetXTicksOffset(0, 0, 0) - theDetector->TriggerOffset();
-        _true_vx_sce =
-            _true_vx - sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[0] + theDetector->ConvertTicksToX(g4Ticks, 0, 0, 0);
-        _true_vy_sce =
-            _true_vy + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[1];
-        _true_vz_sce =
-            _true_vz + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[2];
-      }
-      else
-      {
-        std::cout << "[PandoraLEEAnalyzer] "
-                  << "Space Charge service offset size < 3" << std::endl;
-        continue;
-      }
+
+      double g4Ticks = detClocks->TPCG4Time2Tick(gen.GetNeutrino().Nu().T()) + theDetector->GetXTicksOffset(0, 0, 0) - theDetector->TriggerOffset();
+      _true_vx_sce =
+          _true_vx - sce_service->GetPosOffsets(geo::Point_t(_true_vx, _true_vy, _true_vz)).X() + theDetector->ConvertTicksToX(g4Ticks, 0, 0, 0);
+      _true_vy_sce =
+          _true_vy + sce_service->GetPosOffsets(geo::Point_t(_true_vx, _true_vy, _true_vz)).Y();
+      _true_vz_sce =
+          _true_vz + sce_service->GetPosOffsets(geo::Point_t(_true_vx, _true_vy, _true_vz)).Z();
+
 
       break; // In case of events with more than one neutrino (2% of the total) we take for the moment only the first one
     }
