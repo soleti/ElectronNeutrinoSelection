@@ -6,7 +6,7 @@
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
 <!-- <!ENTITY dataset "prod_numi_data_run1_reco2_mcc8_v1_no_anumi_goodruns"> -->
-<!ENTITY dataset "foppiani_numi_data1">
+<!ENTITY dataset "foppiani_numi_data2">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
 <!ENTITY data "/uboone/data/user">
