@@ -249,6 +249,7 @@ private:
   double _true_daughter_E;
   double _true_daughter_theta;
   double _true_daughter_phi;
+  double _true_daughter_T;
 
   double _true_vx;
   double _true_vy;
@@ -356,7 +357,6 @@ private:
   std::vector<double> _shower_phi;
 
   std::vector<std::vector<double>> _shower_energy;
-  std::vector<std::vector<double>> _shower_energy_new_method;
   std::vector<std::vector<double>> _shower_energy_cali;
   std::vector<std::vector<double>> _track_energy_cali;
 

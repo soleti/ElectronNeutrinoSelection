@@ -115,6 +115,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     double _true_daughter_E;
     double _true_daughter_theta;
     double _true_daughter_phi;
+    double _true_daughter_T;
 
     std::string _mctruthLabel = "generator";
     std::string _mcparticleLabel = "largeant";

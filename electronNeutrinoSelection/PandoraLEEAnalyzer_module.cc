@@ -43,6 +43,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("true_daughter_E", &_true_daughter_E, "true_daughter_E/d");
   myTTree->Branch("true_daughter_theta", &_true_daughter_theta, "true_daughter_theta/d");
   myTTree->Branch("true_daughter_phi", &_true_daughter_phi, "true_daughter_phi/d");
+  myTTree->Branch("true_daughter_T", &_true_daughter_T, "true_daughter_T/d");
 
   myTTree->Branch("true_shower_x_sce", "std::vector< double >", &_true_shower_x_sce);
   myTTree->Branch("true_shower_y_sce", "std::vector< double >", &_true_shower_y_sce);
@@ -154,7 +155,6 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("shower_n_clusters", "std::vector< double >", &_shower_n_clusters);
 
   myTTree->Branch("shower_energy", "std::vector< std::vector< double > >", &_shower_energy);
-  myTTree->Branch("shower_energy_new_method", "std::vector< std::vector< double > >", &_shower_energy_new_method);
   // myTTree->Branch("track_energy_dedx", "std::vector< double >", &_track_energy_dedx);
   myTTree->Branch("track_energy_hits", "std::vector< std::vector< double > >", &_track_energy_hits);
 
@@ -477,7 +477,6 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_phi.clear();
 
   _shower_energy.clear();
-  _shower_energy_new_method.clear();
   _track_energy_dedx.clear();
   _track_energy_hits.clear();
 
@@ -526,6 +525,7 @@ void lee::PandoraLEEAnalyzer::clear()
   _true_daughter_E = std::numeric_limits<double>::lowest();
   _true_daughter_theta = std::numeric_limits<double>::lowest();
   _true_daughter_phi = std::numeric_limits<double>::lowest();
+  _true_daughter_T = std::numeric_limits<double>::lowest();
 
   _true_vx_sce = std::numeric_limits<double>::lowest();
   _true_vy_sce = std::numeric_limits<double>::lowest();
@@ -918,6 +918,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
             _true_daughter_E = mcparticle.E();
             _true_daughter_theta = mcparticle.Momentum().Theta();
             _true_daughter_phi = mcparticle.Momentum().Phi();
+            _true_daughter_T = mcparticle.T();
           }
         }
       }
@@ -1333,12 +1334,9 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _shower_theta.push_back(shower_obj->Direction().Theta());
 
       std::vector<double> this_energy;
-      std::vector<double> this_energy_new_method;
       std::vector<int> this_nhits;
-      std::vector<int> this_nhits_new_method;
 
       energyHelper.energy_from_hits(&clusters, &hits_per_cluster, this_nhits, this_energy);
-      energyHelper.energy_from_hits_new_method(&clusters, &hits_per_cluster, this_nhits_new_method, this_energy_new_method);
       std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
 
       std::vector<double> shower_cali;
@@ -1346,7 +1344,6 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
 
       _shower_energy_cali.push_back(shower_cali);
       _shower_energy.push_back(this_energy);
-      _shower_energy_new_method.push_back(this_energy_new_method);
 
       std::vector<std::vector<double>> pca;
       pca.resize(2, std::vector<double>(3));

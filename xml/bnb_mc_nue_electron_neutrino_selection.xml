@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
 <!ENTITY name "mc_nue_bnb">
-<!ENTITY project_version "v5">
+<!ENTITY project_version "v8">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
@@ -42,7 +42,7 @@
   <!-- Project stages -->
 
   <stage name="&name;">
-    <fcl>run_PandoraOnly_&name;.fcl</fcl>
+    <fcl>run_PandoraOnly_mc_nue_bnb.fcl</fcl>
     <inputdef>&dataset;</inputdef>
 
     <outdir>&scratch;/&user;/&folder_name;/&project_version;/&name;/out/</outdir>

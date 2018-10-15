@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "dataext_numi2">
+<!ENTITY name "mc_bnb">
 <!ENTITY project_version "v8">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
-<!-- <!ENTITY dataset "prod_numi_ext_data_run1_reco2_mcc8_v1_goodruns"> -->
-<!ENTITY dataset "foppiani_numi_ext2">
+<!ENTITY dataset "ahack379_mcc7_mcbnbcos_snapshot_14981403_oneFourth_0">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
 <!ENTITY data "/uboone/data/user">
@@ -26,7 +25,7 @@
   <os>SL6</os>
 
   <!--  Project size  -->
-  <numevents>100000000</numevents>
+  <numevents>1000000</numevents>
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
@@ -43,7 +42,7 @@
   <!-- Project stages -->
 
   <stage name="&name;">
-    <fcl>run_PandoraOnly_dataext_numi.fcl</fcl>
+    <fcl>run_PandoraOnly_mc_nue_bnb.fcl</fcl>
     <inputdef>&dataset;</inputdef>
 
     <outdir>&scratch;/&user;/&folder_name;/&project_version;/&name;/out/</outdir>
@@ -51,8 +50,7 @@
     <workdir>&resilient;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>626</numjobs>
-    <!-- <numjobs>20</numjobs> -->
+    <numjobs>750</numjobs>
     <disk>2GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>15</maxfilesperjob>

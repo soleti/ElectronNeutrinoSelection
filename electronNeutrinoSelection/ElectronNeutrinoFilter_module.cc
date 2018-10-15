@@ -55,6 +55,7 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
   myTTree->Branch("true_daughter_E", &_true_daughter_E, "true_daughter_E/D");
   myTTree->Branch("true_daughter_theta", &_true_daughter_theta, "true_daughter_theta/D");
   myTTree->Branch("true_daughter_phi", &_true_daughter_phi, "true_daughter_phi/D");
+  myTTree->Branch("true_daughter_T", &_true_daughter_T, "true_daughter_T/D");
 
   _run_subrun_list_file.open("run_subrun_list_filter.txt", std::ofstream::out | std::ofstream::trunc);
 
@@ -133,6 +134,7 @@ void lee::ElectronNeutrinoFilter::clear()
   _true_daughter_E = std::numeric_limits<double>::lowest();
   _true_daughter_theta = std::numeric_limits<double>::lowest();
   _true_daughter_phi = std::numeric_limits<double>::lowest();
+  _true_daughter_T = std::numeric_limits<double>::lowest();
 
   _pot = std::numeric_limits<double>::lowest();
   _run_sr = std::numeric_limits<unsigned int>::lowest();
@@ -310,6 +312,7 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
           _true_daughter_E = mcparticle.E();
           _true_daughter_theta = mcparticle.Momentum().Theta();
           _true_daughter_phi = mcparticle.Momentum().Phi();
+          _true_daughter_T = mcparticle.T();
         }
       }
 

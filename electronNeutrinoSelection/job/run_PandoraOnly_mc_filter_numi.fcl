@@ -7,23 +7,23 @@
 #include "ubxsec_mc_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
-start_window:  4.76
-end_window:    14.4
-
-nueFilter:
-{
-    module_type:                "ElectronNeutrinoFilter"
-    ElectronSelectionAlg:       @local::lee_electron_alg
-}
-
-nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
-nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
-nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+start_window:  4.702
+end_window:    14.502
 
 pandora_helper:
 {
   isOverlaidSample:            false
 }
+nueFilter:
+{
+    module_type:                "ElectronNeutrinoFilter"
+    ElectronSelectionAlg:       @local::lee_electron_alg
+    PandoraInterfaceHelper:     @local::pandora_helper
+}
+
+nueFilter.ElectronSelectionAlg.startbeamtime: @local::start_window
+nueFilter.ElectronSelectionAlg.endbeamtime: @local::end_window
+nueFilter.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
 
 energy_helper:
 {
@@ -99,7 +99,6 @@ physics: {
 
 }
 
-
 cs_producerlabels_mcc8_calib_dedxcalib:
 {  # producer label names
   TrackLabel       : "pandoraNu::PandoraLEEAnalyzer"
@@ -107,6 +106,7 @@ cs_producerlabels_mcc8_calib_dedxcalib:
 }
 
 physics.producers.genieeventweightmultisim.weight_functions: [ genie_all ]
+physics.producers.genieeventweightmultisim.genie_all.number_of_multisims: 100
 
 physics.analyzers.robertoana.isData: false
 physics.analyzers.robertoana.saveFluxInfo: true
