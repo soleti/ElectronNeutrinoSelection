@@ -8,7 +8,7 @@
 <!ENTITY dataset "ahack379_mcc7_mcbnbcos_snapshot_14981403_oneFourth_0">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
-<!ENTITY data "/uboone/data/user">
+<!ENTITY data "/uboone/data/users">
 <!-- <!ENTITY fcl_dir_first "/uboone/app/users"> -->
 <!-- <!ENTITY fcl_dir_second "Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/"> -->
 <!-- <!ENTITY fcl_name "run_PandoraOnly_dataext_numi.fcl"> -->
