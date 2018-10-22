@@ -40,12 +40,12 @@ lee_pandora_analyzer:
     EnergyHelper:               @local::energy_helper
     PandoraInterfaceHelper:     @local::pandora_helper
     PrintDebug:                 false
-    HitFinderLabel:             "pandoraCosmicHitRemoval"
+    HitFinderLabel:             "gaushit"
     PFParticleLabel:            "pandora"
     SpacePointLabel:            "pandora"
     ParticleIDModuleLabel:      "pid"
     CalorimetryLabel:           "dedxcalibration"
-    HitMatchingLabel:           "pandoraCosmicHitRemoval"
+    HitMatchingLabel:           "gaushitTruthMatch"
     UseParticleID:              false
     SelectEvents:               [ prod ]
     ShowersAsTracks:            false
