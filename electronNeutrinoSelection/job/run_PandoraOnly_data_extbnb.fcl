@@ -52,11 +52,13 @@ lee_pandora_analyzer:
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     UseParticleID:              true
     SelectEvents:               [ prod ]
+    ShowersAsTracks:            true
 }
 
 lee_pandora_analyzer.ElectronSelectionAlg.startbeamtime: @local::start_window
 lee_pandora_analyzer.ElectronSelectionAlg.endbeamtime: @local::end_window
 lee_pandora_analyzer.ElectronSelectionAlg.PFParticleLabel:  "pandoraNu"
+lee_pandora_analyzer.ElectronSelectionAlg.ShowersAsTracks:  true
 
 outputs:
 {

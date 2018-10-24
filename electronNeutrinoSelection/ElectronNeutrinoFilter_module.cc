@@ -22,21 +22,31 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
 
   myTTree = tfs->make<TTree>("filtertree", "Filter Tree");
 
+  myTTree->Branch("flash_time", "std::vector< double >", &_flash_time);
 
   myTTree->Branch("true_vx", &_true_vx, "true_vx/d");
   myTTree->Branch("true_vy", &_true_vy, "true_vy/d");
   myTTree->Branch("true_vz", &_true_vz, "true_vz/d");
+  myTTree->Branch("true_vx_sce", &_true_vx_sce, "true_vx_sce/d");
+  myTTree->Branch("true_vy_sce", &_true_vy_sce, "true_vy_sce/d");
+  myTTree->Branch("true_vz_sce", &_true_vz_sce, "true_vz_sce/d");
   myTTree->Branch("ccnc", &_ccnc, "ccnc/I");
   myTTree->Branch("theta", &_theta, "theta/d");
   myTTree->Branch("w", &_w, "w/d");
   myTTree->Branch("qsqr", &_qsqr, "qsqr/d");
   myTTree->Branch("pt", &_pt, "pt/d");
+  myTTree->Branch("flash_time", "std::vector< double >", &_flash_time);
+  myTTree->Branch("flash_pe", "std::vector< double >", &_flash_pe);
+
+  myTTree->Branch("n_primaries", &_n_primaries, "n_primaries/i");
 
   myTTree->Branch("passed", &_passed, "passed/O");
   myTTree->Branch("nu_energy", &_nu_energy, "nu_energy/D");
   myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
+  myTTree->Branch("nu_daughters_pdg", "std::vector< int >", &_nu_daughters_pdg);
   myTTree->Branch("nu_daughters_E", "std::vector< double >", &_nu_daughters_E);
-
+  myTTree->Branch("nu_daughters_start_v", "std::vector< std::vector< double > >", &_nu_daughters_start_v);
+  myTTree->Branch("nu_daughters_end_v", "std::vector< std::vector< double > >", &_nu_daughters_end_v);
   _run_subrun_list_file.open("run_subrun_list_filter.txt", std::ofstream::out | std::ofstream::trunc);
 
   this->reconfigure(p);
@@ -111,6 +121,9 @@ void lee::ElectronNeutrinoFilter::clear()
   _true_nu_is_fiducial = false;
   _nu_energy = std::numeric_limits<double>::lowest();
   _lee_weight = 0;
+  _n_primaries = 0;
+  _flash_time.clear();
+  _flash_pe.clear();
   _passed = false;
   _pot = std::numeric_limits<double>::lowest();
   _run_sr = std::numeric_limits<unsigned int>::lowest();
@@ -126,6 +139,19 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
 
   _passed = fElectronEventSelectionAlg.eventSelected(e);
   std::cout << "[ElectronNeutrinoFilter] Passing filter? " << _passed << std::endl;
+
+  _n_primaries = fElectronEventSelectionAlg.get_primary_indexes().size();
+  std::cout << "[ElectronNeutrinoFilter] N primaries " << _n_primaries << std::endl;
+
+  _flash_time = fElectronEventSelectionAlg.get_flash_time();
+  std::cout << "[ElectronNeutrinoFilter] Flashes " << _flash_time.size() << std::endl;
+
+  _flash_pe = fElectronEventSelectionAlg.get_flash_PE();
+
+  for (size_t i_fl = 0; i_fl < _flash_time.size(); i_fl++) {
+    std::cout << "[ElectronNeutrinoFilter] Flash time " << _flash_time[i_fl] << std::endl;
+  }
+
 
   bool is_data = e.isRealData();
   if (m_isOverlaidSample) {

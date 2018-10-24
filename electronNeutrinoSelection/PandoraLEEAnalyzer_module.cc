@@ -286,10 +286,13 @@ art::Ptr<recob::Track> lee::PandoraLEEAnalyzer::get_longest_track(
   art::Ptr<recob::Track> longest_track;
 
   double max_length = std::numeric_limits<double>::lowest();
+  std::cout << "Before track loop " << std::endl;
+  std::cout << "tracks size " << tracks.size() << std::endl;
   for (auto const &track : tracks)
   {
     try
     {
+      std::cout << "Track length " << track->Length() << std::endl;
       if (track->Length() > max_length)
       {
         longest_track = track;
@@ -315,15 +318,24 @@ lee::PandoraLEEAnalyzer::choose_candidate(std::vector<size_t> &candidates,
 
   size_t chosen_candidate = 0;
   double most_z = -1;
-  double longest_track_dir;
+  double longest_track_dir = -999;
 
   for (auto const &ic : candidates)
   {
+    chosen_candidate = ic;
+
     std::vector<art::Ptr<recob::Track>> nu_tracks;
     std::cout << "[PandoraLEE] Candidate " << ic << std::endl;
     std::vector<size_t> _nu_track_ids = fElectronEventSelectionAlg.get_pfp_id_tracks_from_primary().at(ic);
+    std::cout << "Before daughter tracks" << std::endl;
     pandoraHelper.get_daughter_tracks(_nu_track_ids, evt, nu_tracks, m_pfp_producer);
+    std::cout << "After daughter tracks" << std::endl;
+    if (nu_tracks.size() < 1) {
+      continue;
+    }
     longest_track_dir = get_longest_track(nu_tracks)->StartDirection().Z();
+    std::cout << "nutracks size " << nu_tracks.size() << std::endl;
+
 
     if (longest_track_dir > most_z)
     {

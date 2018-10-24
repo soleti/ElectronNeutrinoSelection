@@ -76,6 +76,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     double _w;
     int _nu_pdg;
     int _interaction_type;
+    unsigned int _n_primaries;
     bool _true_nu_is_fiducial;
     double _nu_energy;
     double _pot;
@@ -87,6 +88,8 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     double _true_vz_sce;
     std::vector<double> _nu_daughters_E;
     std::vector<int> _nu_daughters_pdg;
+    std::vector<double> _flash_time;
+    std::vector<double> _flash_pe;
 
     std::vector < std::vector<double> > _nu_daughters_p;
     std::vector < std::vector<double> > _nu_daughters_start_v;

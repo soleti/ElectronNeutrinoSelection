@@ -123,10 +123,7 @@ const std::map<size_t, int> ElectronEventSelectionAlg::flashBasedSelection(const
   for (unsigned int ifl = 0; ifl < optical_handle->size(); ++ifl)
   {
     recob::OpFlash const &flash = optical_handle->at(ifl);
-    _flash_PE.push_back(flash.TotalPE());
-    _flash_time.push_back(flash.Time());
 
-    
     if ((flash.Time() < m_endbeamtime && flash.Time() > m_startbeamtime))
     {
       double thisPE = flash.TotalPE();
@@ -355,8 +352,6 @@ const std::map<size_t, int> ElectronEventSelectionAlg::opticalfilter(const art::
     for (unsigned int ifl = 0; ifl < optical_handle->size(); ++ifl)
     {
       recob::OpFlash const &flash = optical_handle->at(ifl);
-      _flash_PE.push_back(flash.TotalPE());
-      _flash_time.push_back(flash.Time());
 
       // Request flash in time window
       if ((flash.Time() < m_endbeamtime && flash.Time() > m_startbeamtime))
@@ -375,6 +370,9 @@ const std::map<size_t, int> ElectronEventSelectionAlg::opticalfilter(const art::
           // std::cout << "candidate " << pfp_i << " passed opt cut with flash " << ifl << std::endl;
         }
       }
+      else {
+        std::cout << "Flash not in time " << flash.Time() << std::endl;
+      }
     }
   }
   return result;
@@ -391,6 +389,16 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
       std::cout << "[ElectronEventSelectionAlg] START BEAM TIME " << m_startbeamtime << std::endl; 
   }
 
+  art::InputTag optical_tag{fOpticalFlashFinderLabel};
+  auto const &optical_handle = evt.getValidHandle<std::vector<recob::OpFlash>>(optical_tag);
+
+  for (unsigned int ifl = 0; ifl < optical_handle->size(); ++ifl)
+  {
+    recob::OpFlash const &flash = optical_handle->at(ifl);
+    _flash_PE.push_back(flash.TotalPE());
+    _flash_time.push_back(flash.Time());
+  }
+
   // Get the list of pfparticles:
   auto const &pfparticle_handle =
       evt.getValidHandle<std::vector<recob::PFParticle>>(m_pfp_producer);
@@ -402,6 +410,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
               << "NO RECO DATA PRODUCTS" << std::endl;
     return false;
   }
+
 
   // Get the list of primary pfparticles that are also neutrinos
   for (size_t _i_pfp = 0; _i_pfp < pfparticle_handle->size(); _i_pfp++)
@@ -566,7 +575,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
 
     if (track_daughters < m_nTracks){
       // There are less direct daughter tracks than we want protons, FAIL   
-      std::cout << "[ElectronEventSelectionAlg] There are less direct daughter tracks than we want protons, FAIL" << std::endl;             
+      std::cout << "[ElectronEventSelectionAlg] There are less direct daughter tracks than we want protons, FAIL" << std::endl;
       _neutrino_candidate_passed[_i_primary] = false;
     }
     if (showers==0){

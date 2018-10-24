@@ -64,7 +64,7 @@ outputs:
    fileName:    "%ifb_%tc_lee.root"
    dataTier:    "reconstructed"
    compressionLevel: 1
-   SelectEvents: [ prod ]
+   #SelectEvents: [ prod ]
    }
 }
 
@@ -93,9 +93,9 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ] #, genieeventweightmultisim, fluxeventweightmultisim ] #
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid, genieeventweightmultisim, fluxeventweightmultisim ] #
   ana : [ robertoana ]
-  stream: [ out1 ]
+  stream: [ ]
 
   trigger_paths: [ prod ]
 
