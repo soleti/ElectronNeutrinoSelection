@@ -210,6 +210,10 @@ namespace lee {
     */
     const double & get_TPC_x() const {return _TPC_x;}
 
+    /**
+    * @brief Return the selection failure mode
+    */
+    const int & get_selection_result() const { return _selection_result; }
 
   private:
 
@@ -233,7 +237,12 @@ namespace lee {
 
     double _TPC_x;
     double _flash_x;
-
+    int _selection_result;
+    int kPassed = 0;
+    int kNoNeutrino = 1;
+    int kNoShowers = 2;
+    int kNoTracks = 3;
+    int kNoValidFlash = 4;
     // Configurable variables from the fcl file:
     int m_nTracks;
     bool m_printDebug;

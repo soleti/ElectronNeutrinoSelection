@@ -544,8 +544,8 @@ void lee::PandoraLEEAnalyzer::clear()
   _nu_daughters_endx.clear();
   _nu_daughters_endy.clear();
   _nu_daughters_endz.clear();
-  _leeweight = std::numeric_limits<int>::lowest();
-  _bnbweight = std::numeric_limits<int>::lowest();
+  _leeweight = std::numeric_limits<double>::lowest();
+  _bnbweight = std::numeric_limits<double>::lowest();
 }
 
 void lee::PandoraLEEAnalyzer::fillTrackFields(size_t pf_id,

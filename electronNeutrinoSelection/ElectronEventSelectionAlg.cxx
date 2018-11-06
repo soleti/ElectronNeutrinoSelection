@@ -11,6 +11,7 @@ void ElectronEventSelectionAlg::clear()
   _n_neutrino_candidates = 0.0;
   _TPC_x = std::numeric_limits<double>::lowest();
   _flash_x = std::numeric_limits<double>::lowest();
+  _selection_result = -1;
 
   _primary_indexes.clear();
   _neutrino_candidate_passed.clear();
@@ -427,6 +428,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
   // If there are no particles flagged as primary, return false
   if (_primary_indexes.size() == 0)
   {
+    _selection_result = kNoNeutrino;
     return false;
   }
 
@@ -577,16 +579,17 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
       // There are less direct daughter tracks than we want protons, FAIL   
       std::cout << "[ElectronEventSelectionAlg] There are less direct daughter tracks than we want protons, FAIL" << std::endl;
       _neutrino_candidate_passed[_i_primary] = false;
+      _selection_result = kNoTracks;
     }
     if (showers==0){
       // There are no showers in the complete hierarchy, FAIL (this is probably where we lose LEE efficiency)
       std::cout << "[ElectronEventSelectionAlg] There are no showers in the complete hierarchy, FAIL" << std::endl;             
-
+      _selection_result = kNoShowers;
       _neutrino_candidate_passed[_i_primary] = false;
     }
     if (shower_daughters==0 && showers==1 && track_daughters < (m_nTracks+1) ){
-        std::cout << "[ElectronEventSelectionAlg] There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL" << std::endl;
-
+      std::cout << "[ElectronEventSelectionAlg] There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL" << std::endl;
+      _selection_result = kNoShowers;
       // There are no direct showers, but there is one shower in the hierarchy, this means we require N+1 direct tracks, otherwise, FAIL
       _neutrino_candidate_passed[_i_primary] = false;
     }
@@ -651,12 +654,15 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
     }
     if (val.second)
     {
+      _selection_result = kPassed;
       std::cout << "[ElectronEventSelectionAlg] "
                 << "EVENT SELECTED" << std::endl;
       return true;
     }
   }
-
+  if (_selection_result != kNoShowers && _selection_result != kNoTracks) {
+      _selection_result = kNoValidFlash;
+  }
   return false;
 }
 

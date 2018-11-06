@@ -18,6 +18,8 @@
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
 #include "lardata/DetectorInfoServices/DetectorClocksService.h"
 #include "lardata/DetectorInfo/DetectorProperties.h"
+#include "uboone/EventWeight/EventWeightTreeUtility.h"
+#include "uboone/EventWeight/MCEventWeight.h"
 
 #include <memory>
 
@@ -60,8 +62,16 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     float _lee_scaling[13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0};
 
     TH1F *_h_lee_scaling = new TH1F("h_lee_scaling", "", 11, _lee_bins);
+    int _selection_result;
+
+    std::vector< std::vector<double> > _genie_weights;
+    std::vector< std::string > _genie_names;
+
+    std::vector< std::vector<double> > _flux_weights;
+    std::vector< std::string > _flux_names;
 
     double _lee_weight;
+    double _bnbweight;
     double _sum_pot;
     bool _passed;
     bool m_isOverlaidSample;
@@ -86,6 +96,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     double _true_vx_sce;
     double _true_vy_sce;
     double _true_vz_sce;
+
     std::vector<double> _nu_daughters_E;
     std::vector<int> _nu_daughters_pdg;
     std::vector<double> _flash_time;

@@ -45,7 +45,7 @@ lee_pandora_analyzer:
     ParticleIDModuleLabel:      "pid::PandoraLEEAnalyzer"
     CalorimetryLabel:           "dedxcalibration::PandoraLEEAnalyzer"
     HitMatchingLabel:           "pandoraCosmicHitRemoval::PandoraLEEAnalyzer"
-    UseParticleID:              true
+    UseParticleID:              false
     SelectEvents:               [ prod ]
     ShowersAsTracks:            true
 }
@@ -93,7 +93,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid, genieeventweightmultisim, fluxeventweightmultisim ] #
+  prod: [ @sequence::ubxsec_mc_producers, genieeventweightmultisim, fluxeventweightmultisim, nueFilter ] #, dedxcalibration, pid,
   ana : [ robertoana ]
   stream: [ ]
 

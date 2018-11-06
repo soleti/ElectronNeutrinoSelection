@@ -22,7 +22,14 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
 
   myTTree = tfs->make<TTree>("filtertree", "Filter Tree");
 
-  myTTree->Branch("flash_time", "std::vector< double >", &_flash_time);
+  myTTree->Branch("genie_weights", "std::vector< std::vector< double > >", &_genie_weights);
+  myTTree->Branch("genie_names", "std::vector< std::string >", &_genie_names);
+
+  myTTree->Branch("flux_weights", "std::vector< std::vector< double > >", &_flux_weights);
+  myTTree->Branch("flux_names", "std::vector< std::string >", &_flux_names);
+
+  myTTree->Branch("bnbweight", &_bnbweight, "bnbweight/d");
+  myTTree->Branch("selection_result", &_selection_result, "selection_result/I");
 
   myTTree->Branch("true_vx", &_true_vx, "true_vx/d");
   myTTree->Branch("true_vy", &_true_vy, "true_vy/d");
@@ -37,13 +44,13 @@ lee::ElectronNeutrinoFilter::ElectronNeutrinoFilter(fhicl::ParameterSet const & 
   myTTree->Branch("pt", &_pt, "pt/d");
   myTTree->Branch("flash_time", "std::vector< double >", &_flash_time);
   myTTree->Branch("flash_pe", "std::vector< double >", &_flash_pe);
-
   myTTree->Branch("n_primaries", &_n_primaries, "n_primaries/i");
 
   myTTree->Branch("passed", &_passed, "passed/O");
   myTTree->Branch("nu_energy", &_nu_energy, "nu_energy/D");
   myTTree->Branch("nu_pdg", &_nu_pdg, "nu_pdg/I");
   myTTree->Branch("nu_daughters_pdg", "std::vector< int >", &_nu_daughters_pdg);
+  myTTree->Branch("nu_daughters_p", "std::vector< std::vector< double > >", &_nu_daughters_p);
   myTTree->Branch("nu_daughters_E", "std::vector< double >", &_nu_daughters_E);
   myTTree->Branch("nu_daughters_start_v", "std::vector< std::vector< double > >", &_nu_daughters_start_v);
   myTTree->Branch("nu_daughters_end_v", "std::vector< std::vector< double > >", &_nu_daughters_end_v);
@@ -128,6 +135,12 @@ void lee::ElectronNeutrinoFilter::clear()
   _pot = std::numeric_limits<double>::lowest();
   _run_sr = std::numeric_limits<unsigned int>::lowest();
   _subrun_sr = std::numeric_limits<unsigned int>::lowest();
+  _selection_result = std::numeric_limits<int>::lowest();
+  _bnbweight = 1;
+  _genie_weights.clear();
+  _flux_weights.clear();
+  _genie_names.clear();
+  _flux_names.clear();
 }
 
 bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
@@ -136,6 +149,8 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
   std::cout << "[ElectronNeutrinoFilter] "
             << "RUN " << e.run() << " SUBRUN " << e.subRun() << " EVENT " << e.id().event()
             << std::endl;
+
+  _selection_result = fElectronEventSelectionAlg.get_selection_result();
 
   _passed = fElectronEventSelectionAlg.eventSelected(e);
   std::cout << "[ElectronNeutrinoFilter] Passing filter? " << _passed << std::endl;
@@ -161,6 +176,74 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
   if (is_data) {
     myTTree->Fill();
     return _passed;
+  }
+
+
+  art::InputTag eventweight_tag("eventweight");
+  auto const &eventweights_handle = e.getValidHandle<std::vector<evwgh::MCEventWeight>>(eventweight_tag);
+
+  if (!eventweights_handle.isValid()) {
+    std::cout << "[PandoraLEEAnalyzer] No MCEventWeight data product" << std::endl;
+    _bnbweight = 1;
+  } else {
+    auto const &eventweights(*eventweights_handle);
+    if (eventweights.size() > 0) {
+      for (auto last : eventweights.at(0).fWeight) {
+        if (last.first.find("bnbcorrection") != std::string::npos && std::isfinite(last.second.at(0))) {
+          _bnbweight = last.second.at(0);
+        } else {
+          _bnbweight = 1;
+        }
+      }
+    } else {
+      _bnbweight = 1;
+    }
+  }
+
+  try
+  {
+    art::InputTag genie_eventweight_tag("genieeventweightmultisim");
+    auto const &genie_eventweights_handle = e.getValidHandle<std::vector<evwgh::MCEventWeight>>(genie_eventweight_tag);
+    if (!genie_eventweights_handle.isValid())
+    {
+      std::cout << "[PandoraLEEAnalyzer] GENIE MCEventWeight handle not valid" << std::endl;
+    }
+    else
+    {
+      auto const &genie_eventweights(*genie_eventweights_handle);
+      std::map<std::string, std::vector<double>> evtwgt_map = genie_eventweights.at(0).fWeight;
+      for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
+      {
+        _genie_names.push_back(it->first);         // filling the name of the function
+        _genie_weights.push_back(it->second);      // getting the vector of weights
+      }
+    }
+  } catch (...) {
+    std::cout << "[PandoraLEEAnalyzer] No GENIE MCEventWeight data product" << std::endl;
+  }
+
+  try
+  {
+    art::InputTag flux_eventweight_tag("fluxeventweightmultisim");
+    auto const &flux_eventweights_handle = e.getValidHandle<std::vector<evwgh::MCEventWeight>>(flux_eventweight_tag);
+    if (!flux_eventweights_handle.isValid())
+    {
+      std::cout << "[PandoraLEEAnalyzer] Flux MCEventWeight handle not valid" << std::endl;
+    }
+    else
+    {
+      auto const &flux_eventweights(*flux_eventweights_handle);
+      std::map<std::string, std::vector<double>> evtwgt_map = flux_eventweights.at(0).fWeight;
+      for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
+      {
+        _flux_names.push_back(it->first);         // filling the name of the function
+        _flux_weights.push_back(it->second);      // getting the vector of weights
+      }
+    }
+  }
+  catch (...)
+  {
+    std::cout << "[PandoraLEEAnalyzer] No Flux MCEventWeight data product" << std::endl;
   }
 
   auto const &generator_handle = e.getValidHandle<std::vector<simb::MCTruth>>(_mctruthLabel);
