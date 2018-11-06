@@ -47,7 +47,7 @@ lee_pandora_analyzer:
     CalorimetryLabel:           "dedxcalibration"
     HitMatchingLabel:           "gaushitTruthMatch"
     UseParticleID:              false
-    SelectEvents:               [ prod ]
+    #SelectEvents:               [ prod ]
     ShowersAsTracks:            false
 }
 
@@ -66,7 +66,7 @@ outputs:
    fileName:    "%ifb_%tc_lee.root"
    dataTier:    "reconstructed"
    compressionLevel: 1
-   SelectEvents: [ prod ]
+   #SelectEvents: [ prod ]
    }
 }
 
@@ -95,7 +95,7 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ nueFilter ] #, genieeventweightmultisim, fluxeventweightmultisim ] #
+  prod: [ ] #, genieeventweightmultisim, fluxeventweightmultisim ] #
   ana : [ robertoana ]
   stream: [ out1 ]
 

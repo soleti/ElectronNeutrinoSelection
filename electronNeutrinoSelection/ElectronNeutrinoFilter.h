@@ -60,7 +60,7 @@ class lee::ElectronNeutrinoFilter : public art::EDFilter {
     float _lee_scaling[13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0};
 
     TH1F *_h_lee_scaling = new TH1F("h_lee_scaling", "", 11, _lee_bins);
-
+    int _selection_result;
     double _lee_weight;
     double _sum_pot;
     bool _passed;

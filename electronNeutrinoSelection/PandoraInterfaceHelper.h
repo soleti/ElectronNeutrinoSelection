@@ -111,7 +111,7 @@ class PandoraInterfaceHelper : public HelperBase
     *
     *  @param matchedParticles the output matches between reconstructed and true particles
     */
-    void GetRecoToTrueMatches(lar_pandora::PFParticlesToMCParticles &matchedParticles);
+    void GetRecoToTrueMatches(lar_pandora::PFParticlesToMCParticles &matchedParticles, std::vector< float > &completeness);
 
     void Configure(art::Event const &e,
                     std::string _pfp_producer,

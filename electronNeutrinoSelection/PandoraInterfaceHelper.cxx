@@ -219,7 +219,7 @@ namespace lee
   }
 
   //___________________________________________________________________________________________________
-  void PandoraInterfaceHelper::GetRecoToTrueMatches(lar_pandora::PFParticlesToMCParticles &matchedParticles)
+  void PandoraInterfaceHelper::GetRecoToTrueMatches(lar_pandora::PFParticlesToMCParticles &matchedParticles, std::vector< float > &completeness)
   {
     bool _debug = false;
 
@@ -234,7 +234,8 @@ namespace lee
       // The PFParticle
       const art::Ptr<recob::PFParticle> recoParticle = iter1.first;
 
-      if (_debug) std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] Looking at PFP with ID " << recoParticle->Self() << std::endl;
+      // std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] Looking at PFP with ID " << recoParticle->Self() << std::endl;
+      std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] PFParticle PDG code " << recoParticle->PdgCode() << std::endl;
 
       // The PFParticle's hits
       const lar_pandora::HitVector &hitVector = iter1.second;
@@ -271,6 +272,11 @@ namespace lee
         }
       }
 
+      // std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] Max number of true hits matched " << mIter->second.size() << std::endl;
+      // std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] Reco hits " << hitVector.size() << std::endl;
+      std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] Completeness " << ((float)mIter->second.size())/hitVector.size() << std::endl;
+      std::cout << "[PandoraInterfaceHelper::GetRecoToTrueMatches] MCParticle PDG code " << mIter->first->PdgCode() << std::endl << std::endl;
+
       if (truthContributionMap.end() != mIter)
       {
         const art::Ptr<simb::MCParticle> trueParticle = mIter->first;
@@ -280,8 +286,10 @@ namespace lee
 
         // Emplace into the output map
         matchedParticles[recoParticle] = trueParticle;
+        completeness.push_back(((float)mIter->second.size())/hitVector.size());
+      } else {
+        completeness.push_back(-1);
       }
-
     } // _pfp_to_hits_map loop ends
 
   }

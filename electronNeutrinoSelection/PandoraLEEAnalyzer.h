@@ -177,11 +177,14 @@ public:
       std::vector<std::string> &neutrino_process,
       std::vector<double> &neutrino_energy,
       std::vector<art::Ptr<recob::PFParticle>> &neutrino_pf,
+      std::vector<float> &neutrino_completeness,
 
       std::vector<int> &cosmic_pdg,
       std::vector<std::string> &cosmic_process,
       std::vector<double> &cosmic_energy,
-      std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf);
+      std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf,
+      std::vector<float> &cosmic_completeness
+  );
 
   void fillTrackFields(size_t pf_id,
                        recob::PFParticle const *pfparticle,
@@ -313,9 +316,12 @@ private:
   std::vector<std::string> _matched_showers_process;
   std::vector<double> _matched_showers_energy;
 
+  std::vector<float> _matched_showers_completeness;
+  std::vector<float> _matched_tracks_completeness;
+
   int _n_primaries;
   int _chosen_candidate;
-
+  int _bad_event;
   float _leeweight;
   double _bnbweight;
 

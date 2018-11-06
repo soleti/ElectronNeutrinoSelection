@@ -110,6 +110,8 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("event", &_event, "event/I");
   myTTree->Branch("run", &_run, "run/I");
   myTTree->Branch("subrun", &_subrun, "subrun/I");
+  myTTree->Branch("bad_event", &_bad_event, "bad_event/I");
+
   myTTree->Branch("leeweight", &_leeweight, "leeweight/f");
 
   myTTree->Branch("bnbweight", &_bnbweight, "bnbweight/d");
@@ -231,14 +233,16 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
                   &_matched_tracks_energy);
   myTTree->Branch("matched_tracks_process", "std::vector< std::string >",
                   &_matched_tracks_process);
-
+  myTTree->Branch("matched_tracks_completeness", "std::vector< float >",
+                  &_matched_tracks_completeness);
   myTTree->Branch("matched_showers", "std::vector< int >",
                   &_matched_showers);
   myTTree->Branch("matched_showers_process", "std::vector< std::string >",
                   &_matched_showers_process);
   myTTree->Branch("matched_showers_energy", "std::vector< double >",
                   &_matched_showers_energy);
-
+  myTTree->Branch("matched_showers_completeness", "std::vector< float >",
+                  &_matched_showers_completeness);
   myTTree->Branch("shower_pca", "std::vector< std::vector< double > >",
                   &_shower_pca);
 
@@ -361,6 +365,7 @@ void lee::PandoraLEEAnalyzer::endSubRun(const art::SubRun &sr)
 }
 void lee::PandoraLEEAnalyzer::clear()
 {
+  _bad_event = 0;
   _track_res_mean.clear();
   _track_res_std.clear();
   _shower_res_mean.clear();
@@ -389,10 +394,12 @@ void lee::PandoraLEEAnalyzer::clear()
   _matched_tracks.clear();
   _matched_tracks_process.clear();
   _matched_tracks_energy.clear();
+  _matched_tracks_completeness.clear();
 
   _matched_showers.clear();
   _matched_showers_process.clear();
   _matched_showers_energy.clear();
+  _matched_showers_completeness.clear();
 
   _shower_dQdx_hits.clear();
   _shower_dEdx_hits.clear();
@@ -612,6 +619,7 @@ void lee::PandoraLEEAnalyzer::fillTrackFields(size_t pf_id,
   _matched_tracks.push_back(std::numeric_limits<int>::lowest());
   _matched_tracks_process.push_back("");
   _matched_tracks_energy.push_back(std::numeric_limits<double>::lowest());
+  _matched_tracks_completeness.push_back(std::numeric_limits<float>::lowest());
 
   std::vector<double> start_point;
   std::vector<double> end_point;
@@ -666,25 +674,30 @@ void lee::PandoraLEEAnalyzer::categorizePFParticles(
     std::vector<std::string> &neutrino_process,
     std::vector<double> &neutrino_energy,
     std::vector<art::Ptr<recob::PFParticle>> &neutrino_pf,
+    std::vector<float> &neutrino_completeness,
 
     std::vector<int> &cosmic_pdg,
     std::vector<std::string> &cosmic_process,
     std::vector<double> &cosmic_energy,
-    std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf)
+    std::vector<art::Ptr<recob::PFParticle>> &cosmic_pf,
+    std::vector<float> &cosmic_completeness)
 {
 
   lar_pandora::PFParticlesToMCParticles matchedParticles;
   pandoraHelper.Configure(evt, m_pfp_producer, m_spacepointLabel,
                           m_hitfinderLabel, _geantModuleLabel, m_hitmatching_producer);
-  pandoraHelper.GetRecoToTrueMatches(matchedParticles);
+
+  std::vector< float > completeness;
+  pandoraHelper.GetRecoToTrueMatches(matchedParticles, completeness);
   // art::ServiceHandle<cheat::BackTracker> bt;
 
+  size_t index = 0;
   for (lar_pandora::PFParticlesToMCParticles::const_iterator
            iter = matchedParticles.begin(),
            iterEnd = matchedParticles.end();
        iter != iterEnd; ++iter)
   {
-
+    std::cout << "Completeness " << completeness[index] << std::endl;
     art::Ptr<simb::MCParticle> mc_par = iter->second; // The MCParticle
     art::Ptr<recob::PFParticle> pf_par = iter->first; // The matched PFParticle
     const auto mc_truth =
@@ -699,6 +712,7 @@ void lee::PandoraLEEAnalyzer::categorizePFParticles(
         neutrino_process.push_back(mc_par->EndProcess());
       }
       neutrino_energy.push_back(mc_par->E());
+      neutrino_completeness.push_back(completeness[index]);
     }
 
     if (mc_truth->Origin() == simb::kCosmicRay)
@@ -710,7 +724,9 @@ void lee::PandoraLEEAnalyzer::categorizePFParticles(
         cosmic_process.push_back(mc_par->EndProcess());
       }
       cosmic_energy.push_back(mc_par->E());
+      cosmic_completeness.push_back(completeness[index]);
     }
+    index++;
   }
 }
 
@@ -730,6 +746,10 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
             << std::endl;
 
   std::vector<size_t> nu_candidates;
+  auto const &pfparticle_handle = evt.getValidHandle<std::vector<recob::PFParticle>>(m_pfp_producer);
+  if (pfparticle_handle->size() == 0) {
+      _bad_event = 1;
+  }
 
   _event_passed = (int)fElectronEventSelectionAlg.eventSelected(evt);
 
@@ -1053,12 +1073,14 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   std::vector<int> cosmic_pdg;
   std::vector<std::string> cosmic_process;
   std::vector<double> cosmic_energy;
+  std::vector<float> cosmic_completeness;
+  std::vector<float> neutrino_completeness;
 
   if ((!evt.isRealData() || m_isOverlaidSample) && !m_isCosmicInTime)
   {
     categorizePFParticles(evt,
-                          neutrino_pdg, neutrino_process, neutrino_energy, neutrino_pf,
-                          cosmic_pdg, cosmic_process, cosmic_energy, cosmic_pf);
+                          neutrino_pdg, neutrino_process, neutrino_energy, neutrino_pf, neutrino_completeness,
+                          cosmic_pdg, cosmic_process, cosmic_energy, cosmic_pf, cosmic_completeness);
 
     _n_matched = neutrino_pf.size();
   }
@@ -1212,6 +1234,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       _matched_showers_process.push_back("");
 
       _matched_showers_energy.push_back(std::numeric_limits<double>::lowest());
+      _matched_showers_completeness.push_back(std::numeric_limits<float>::lowest());
+
       energyHelper.dQdx(&(*shower_obj), &clusters, &hits_per_cluster,dqdx, dqdx_hits_shower, pitches);
       energyHelper.dQdx_cali(&(*shower_obj), dqdx_cali);
 
@@ -1328,6 +1352,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
               _matched_showers[ish] = neutrino_pdg[ipf];
               _matched_showers_process[ish] = neutrino_process[ipf];
               _matched_showers_energy[ish] = neutrino_energy[ipf];
+              _matched_showers_completeness[ish] = neutrino_completeness[ipf];
             }
           }
         }
@@ -1343,6 +1368,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
               _matched_showers[ish] = cosmic_pdg[ipf];
               _matched_showers_process[ish] = cosmic_process[ipf];
               _matched_showers_energy[ish] = cosmic_energy[ipf];
+              _matched_showers_completeness[ish] = cosmic_completeness[ipf];
             }
           }
         }
@@ -1372,6 +1398,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                 _matched_tracks[itr] = neutrino_pdg[ipf];
                 _matched_tracks_process[itr] = neutrino_process[ipf];
                 _matched_tracks_energy[itr] = neutrino_energy[ipf];
+                _matched_tracks_completeness[itr] = neutrino_completeness[ipf];
               }
             }
           }
@@ -1387,6 +1414,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                 _matched_tracks[itr] = cosmic_pdg[ipf];
                 _matched_tracks_process[itr] = cosmic_process[ipf];
                 _matched_tracks_energy[itr] = cosmic_energy[ipf];
+                _matched_tracks_completeness[itr] = cosmic_completeness[ipf];
               }
             }
           }
