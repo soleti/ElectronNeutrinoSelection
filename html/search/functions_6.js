@@ -16,6 +16,7 @@ var searchData=
   ['get_5fpfp_5fid_5fshowers_5ffrom_5fprimary',['get_pfp_id_showers_from_primary',['../group__lee.html#ga7ea645ce175506b368ceb116bbb77889',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fpfp_5fid_5ftracks_5ffrom_5fprimary',['get_pfp_id_tracks_from_primary',['../group__lee.html#ga00266c70e046a9ee27e979be75925a09',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5fprimary_5findexes',['get_primary_indexes',['../group__lee.html#ga317c107f710fc965cd7e062ac933d3df',1,'lee::ElectronEventSelectionAlg']]],
+  ['get_5fselection_5fresult',['get_selection_result',['../group__lee.html#gacce7de0bc089247cbd8ef69a0199619e',1,'lee::ElectronEventSelectionAlg']]],
   ['get_5ftpc_5fx',['get_TPC_x',['../group__lee.html#ga2c653a5d3225c3e3aa5dc84738ffa086',1,'lee::ElectronEventSelectionAlg']]],
   ['getaverageposition',['getAveragePosition',['../group__lee.html#ga1a7546e5a4c1693a9366126ac6c63ba9',1,'lee::GeometryHelper']]],
   ['getpitch',['getPitch',['../group__lee.html#ga02f688ef51442c37a5440d45cfad799f',1,'lee::GeometryHelper']]],
