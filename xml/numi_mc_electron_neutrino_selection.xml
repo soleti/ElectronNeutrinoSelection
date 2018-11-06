@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
 <!ENTITY name "mc_numi">
-<!ENTITY project_version "v8">
+<!ENTITY project_version "v9">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
@@ -51,7 +51,8 @@
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
     <numjobs>1220</numjobs>
-    <disk>2GB</disk>
+    <!-- <numjobs>20</numjobs> -->
+    <disk>10GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>6</maxfilesperjob>
     <schema>root</schema>

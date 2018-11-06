@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
 <!ENTITY name "data_numi2">
-<!ENTITY project_version "v8">
+<!ENTITY project_version "v9">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
@@ -53,7 +53,7 @@
 
     <numjobs>55</numjobs>
     <!-- <numjobs>20</numjobs> -->
-    <disk>2GB</disk>
+    <disk>10GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>15</maxfilesperjob>
     <schema>root</schema>

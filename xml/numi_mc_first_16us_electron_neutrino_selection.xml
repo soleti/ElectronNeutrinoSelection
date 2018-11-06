@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
-<!ENTITY name "mc_bnb">
-<!ENTITY project_version "v9">
+<!ENTITY name "mc_first_16us_numi">
+<!ENTITY project_version "v10">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
-<!ENTITY dataset "ahack379_mcc7_mcbnbcos_snapshot_14981403_oneFourth_0">
+<!ENTITY dataset "prodgenie_numi_cosmic_uboone_mcc8.8_detsim_mec_reco2">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
 <!ENTITY data "/uboone/data/users">
@@ -42,7 +42,7 @@
   <!-- Project stages -->
 
   <stage name="&name;">
-    <fcl>run_PandoraOnly_mc_nue_bnb.fcl</fcl>
+    <fcl>run_PandoraOnly_mc_numi_first_16us.fcl</fcl>
     <inputdef>&dataset;</inputdef>
 
     <outdir>&scratch;/&user;/&folder_name;/&project_version;/&name;/out/</outdir>
@@ -50,10 +50,11 @@
     <workdir>&resilient;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>750</numjobs>
+    <!-- <numjobs>1220</numjobs> -->
+    <numjobs>150</numjobs>
     <disk>10GB</disk>
     <memory>4096</memory>
-    <maxfilesperjob>15</maxfilesperjob>
+    <maxfilesperjob>6</maxfilesperjob>
     <schema>root</schema>
     <jobsub>--expected-lifetime=12h -q --generate-email-summary --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
     <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>

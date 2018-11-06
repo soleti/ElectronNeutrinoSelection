@@ -5,6 +5,8 @@
 #include "ubxsec_data_common.fcl"
 #include "pandora_lee_ana_common.fcl"
 
+#include "GeneratorLevelAnalysis_common.fcl"
+
 start_window:  5.702
 end_window:    15.502
 
@@ -12,6 +14,10 @@ pandora_helper:
 {
   isOverlaidSample:            false
 }
+
+loc_generatorLevelAnalyzer.isData: true
+loc_generatorLevelAnalyzer.beamStart: @local::start_window
+loc_generatorLevelAnalyzer.beamEnd: @local::end_window
 
 nueFilter:
 {
@@ -76,6 +82,7 @@ physics: {
 
   analyzers: {
      # ParameterSets for zero or more analyzer modules
+     genLevelAnalyzer: @local::loc_generatorLevelAnalyzer
      robertoana:  @local::lee_pandora_analyzer
      # @table::ubxsec_data_ana
   }
@@ -86,7 +93,7 @@ physics: {
   }
 
   prod: [ @sequence::ubxsec_data_producers, nueFilter, dedxcalibration, pid ]
-  ana : [ robertoana ]
+  ana : [ genLevelAnalyzer, robertoana ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]
@@ -127,6 +134,10 @@ physics.producers.UBXSec.BeamSpillStart:                 @local::start_window
 physics.producers.UBXSec.BeamSpillEnd:                   @local::end_window
 physics.producers.UBXSec.NuMuCCSelectionSettings.BeamSpillStarts: @local::start_window
 physics.producers.UBXSec.NuMuCCSelectionSettings.BeamSpillEnds:   @local::end_window
+
+physics.producers.pandoraCosmicFlashTag.FlashVetoTimeStart: @local::start_window
+physics.producers.pandoraCosmicFlashTag.FlashVetoTimeEnd:   @local::end_window
+
 physics.producers.UBXSec.UseGENIEInfo:                   false
 
 physics.producers.UBXSec.PFParticleProducer:                   "pandoraNu::PandoraLEEAnalyzer"

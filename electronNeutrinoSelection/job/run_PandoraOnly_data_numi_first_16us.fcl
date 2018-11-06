@@ -7,8 +7,8 @@
 
 #include "GeneratorLevelAnalysis_common.fcl"
 
-start_window:  6.061
-end_window:    15.861
+start_window:  5.702
+end_window:    7.502
 
 pandora_helper:
 {
@@ -16,7 +16,7 @@ pandora_helper:
 }
 
 loc_generatorLevelAnalyzer.isData: true
-    loc_generatorLevelAnalyzer.beamStart: @local::start_window
+loc_generatorLevelAnalyzer.beamStart: @local::start_window
 loc_generatorLevelAnalyzer.beamEnd: @local::end_window
 
 nueFilter:
