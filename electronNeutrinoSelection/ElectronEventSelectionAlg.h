@@ -243,6 +243,7 @@ namespace lee {
     int kNoShowers = 2;
     int kNoTracks = 3;
     int kNoValidFlash = 4;
+    int kNoDataProducts = 5;
     // Configurable variables from the fcl file:
     int m_nTracks;
     bool m_printDebug;

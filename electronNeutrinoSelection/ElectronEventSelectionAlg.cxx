@@ -409,6 +409,7 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
   {
     std::cout << "[ElectronEventSelectionAlg] "
               << "NO RECO DATA PRODUCTS" << std::endl;
+    _selection_result = kNoDataProducts;
     return false;
   }
 

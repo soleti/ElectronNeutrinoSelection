@@ -1008,10 +1008,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
        art::fill_ptr_vector(mcshowers, mcshower_handle);
        for (auto const mcshower: mcshowers)
        {
-         int pdg_mother = mcshower->MotherPdgCode();
-         std::cout << pdg_mother << std::endl;
-      
-     
+         int pdg_mother = mcshower->MotherPdgCode();     
          int origin = mcshower->Origin();
 
          if ((pdg_mother == 22 || pdg_mother == 11) && origin == 1)

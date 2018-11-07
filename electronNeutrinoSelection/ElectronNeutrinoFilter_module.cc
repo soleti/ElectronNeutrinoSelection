@@ -150,10 +150,11 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
             << "RUN " << e.run() << " SUBRUN " << e.subRun() << " EVENT " << e.id().event()
             << std::endl;
 
-  _selection_result = fElectronEventSelectionAlg.get_selection_result();
-
   _passed = fElectronEventSelectionAlg.eventSelected(e);
   std::cout << "[ElectronNeutrinoFilter] Passing filter? " << _passed << std::endl;
+
+  _selection_result = fElectronEventSelectionAlg.get_selection_result();
+  std::cout << "[ElectronNeutrinoFilter] Selection result " << _selection_result << std::endl;
 
   _n_primaries = fElectronEventSelectionAlg.get_primary_indexes().size();
   std::cout << "[ElectronNeutrinoFilter] N primaries " << _n_primaries << std::endl;
