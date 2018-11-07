@@ -9,7 +9,7 @@ To avoid this warning please remove this line from your configuration file or up
 Warning: doxygen no longer ships with the FreeSans font.
 You may want to clear or change DOT_FONTNAME.
 Otherwise you run the risk that the wrong font is being used for dot generated graphs.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:298: warning: end of file while inside a group
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:299: warning: end of file while inside a group
 
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:203: warning: end of file while inside a group
 
@@ -121,34 +121,35 @@ Flushing cached templa/home/travis/build/soleti/ElectronNeutrinoSelection/electr
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:243: warning: Member kNoShowers (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:244: warning: Member kNoTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:245: warning: Member kNoValidFlash (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:247: warning: Member m_nTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:248: warning: Member m_printDebug (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:249: warning: Member m_fidvolXstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:250: warning: Member m_fidvolXend (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:252: warning: Member m_fidvolYstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:253: warning: Member m_fidvolYend (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:255: warning: Member m_fidvolZstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:256: warning: Member m_fidvolZend (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:258: warning: Member m_fractionsigmaflashwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:259: warning: Member m_absoluteflashdist (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:261: warning: Member m_startbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:262: warning: Member m_endbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:263: warning: Member m_PE_threshold (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:266: warning: Member m_cut_zwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:267: warning: Member m_cut_sigzwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member m_cut_ywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:269: warning: Member m_cut_sigywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_charge_light_ratio (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:272: warning: Member m_flashmatching (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:273: warning: Member m_FM_all (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:274: warning: Member m_isCosmicInTime (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:275: warning: Member m_showersAsTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:281: warning: Member m_pfp_producer (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:283: warning: Member fOpticalFlashFinderLabel (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:286: warning: Member geoHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:289: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:291: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:292: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:246: warning: Member kNoDataProducts (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:248: warning: Member m_nTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:249: warning: Member m_printDebug (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:250: warning: Member m_fidvolXstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:251: warning: Member m_fidvolXend (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:253: warning: Member m_fidvolYstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:254: warning: Member m_fidvolYend (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:256: warning: Member m_fidvolZstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:257: warning: Member m_fidvolZend (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:259: warning: Member m_fractionsigmaflashwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:260: warning: Member m_absoluteflashdist (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:262: warning: Member m_startbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:263: warning: Member m_endbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:264: warning: Member m_PE_threshold (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:267: warning: Member m_cut_zwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member m_cut_sigzwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:269: warning: Member m_cut_ywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_cut_sigywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_charge_light_ratio (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:273: warning: Member m_flashmatching (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:274: warning: Member m_FM_all (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:275: warning: Member m_isCosmicInTime (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:276: warning: Member m_showersAsTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:282: warning: Member m_pfp_producer (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:284: warning: Member fOpticalFlashFinderLabel (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:287: warning: Member geoHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:290: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:292: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:293: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:182: warning: Member _data_gain (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:183: warning: Member _mc_gain (variable) of class lee::EnergyHelper is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/EnergyHelper.h:184: warning: Member _gain (variable) of class lee::EnergyHelper is not documented.
@@ -415,34 +416,35 @@ Flushing cached templa/home/travis/build/soleti/ElectronNeutrinoSelection/electr
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:243: warning: Member kNoShowers (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:244: warning: Member kNoTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:245: warning: Member kNoValidFlash (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:247: warning: Member m_nTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:248: warning: Member m_printDebug (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:249: warning: Member m_fidvolXstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:250: warning: Member m_fidvolXend (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:252: warning: Member m_fidvolYstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:253: warning: Member m_fidvolYend (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:255: warning: Member m_fidvolZstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:256: warning: Member m_fidvolZend (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:258: warning: Member m_fractionsigmaflashwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:259: warning: Member m_absoluteflashdist (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:261: warning: Member m_startbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:262: warning: Member m_endbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:263: warning: Member m_PE_threshold (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:266: warning: Member m_cut_zwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:267: warning: Member m_cut_sigzwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member m_cut_ywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:269: warning: Member m_cut_sigywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_charge_light_ratio (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:272: warning: Member m_flashmatching (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:273: warning: Member m_FM_all (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:274: warning: Member m_isCosmicInTime (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:275: warning: Member m_showersAsTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:281: warning: Member m_pfp_producer (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:283: warning: Member fOpticalFlashFinderLabel (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:286: warning: Member geoHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:289: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:291: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
-/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:292: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:246: warning: Member kNoDataProducts (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:248: warning: Member m_nTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:249: warning: Member m_printDebug (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:250: warning: Member m_fidvolXstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:251: warning: Member m_fidvolXend (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:253: warning: Member m_fidvolYstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:254: warning: Member m_fidvolYend (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:256: warning: Member m_fidvolZstart (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:257: warning: Member m_fidvolZend (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:259: warning: Member m_fractionsigmaflashwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:260: warning: Member m_absoluteflashdist (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:262: warning: Member m_startbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:263: warning: Member m_endbeamtime (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:264: warning: Member m_PE_threshold (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:267: warning: Member m_cut_zwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:268: warning: Member m_cut_sigzwidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:269: warning: Member m_cut_ywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:270: warning: Member m_cut_sigywidth (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:271: warning: Member m_charge_light_ratio (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:273: warning: Member m_flashmatching (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:274: warning: Member m_FM_all (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:275: warning: Member m_isCosmicInTime (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:276: warning: Member m_showersAsTracks (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:282: warning: Member m_pfp_producer (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:284: warning: Member fOpticalFlashFinderLabel (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:287: warning: Member geoHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:290: warning: Member pandoraHelper (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:292: warning: Member m_mgr (variable) of class lee::ElectronEventSelectionAlg is not documented.
+/home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronEventSelectionAlg.h:293: warning: Member m_geo (variable) of class lee::ElectronEventSelectionAlg is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter.h:33: warning: Member ElectronNeutrinoFilter(fhicl::ParameterSet const &p) (function) of class lee::ElectronNeutrinoFilter is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter.h:38: warning: Member ElectronNeutrinoFilter(ElectronNeutrinoFilter const &)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
 /home/travis/build/soleti/ElectronNeutrinoSelection/electronNeutrinoSelection/ElectronNeutrinoFilter.h:39: warning: Member ElectronNeutrinoFilter(ElectronNeutrinoFilter &&)=delete (function) of class lee::ElectronNeutrinoFilter is not documented.
@@ -795,5 +797,5 @@ Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 443/65536 hits=1425 misses=462
+lookup cache used 444/65536 hits=1427 misses=463
 finished...
