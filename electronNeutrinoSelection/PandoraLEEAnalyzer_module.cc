@@ -1001,46 +1001,51 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     }
 
     //Insert block to save the start point of the MCshower object for all showers that have a neutrino as mother and a kbeamneutrino as origin
-    auto const &mcshower_handle = evt.getValidHandle<std::vector<sim::MCShower>>("mcreco");
-    auto const &mcshowers(*mcshower_handle);
+     art::Handle <std::vector<sim::MCShower>> mcshower_handle;
+     evt.getByLabel("mcreco", mcshower_handle);
+     if (mcshower_handle.isValid()) {
+       std::vector< art::Ptr<sim::MCShower> > mcshowers;
+       art::fill_ptr_vector(mcshowers, mcshower_handle);
+       for (auto const mcshower: mcshowers)
+       {
+         int pdg_mother = mcshower->MotherPdgCode();
+         std::cout << pdg_mother << std::endl;
+      
+     
+         int origin = mcshower->Origin();
 
-    for (auto const &mcshower: mcshowers)
-    {
-      int pdg_mother = mcshower.MotherPdgCode();
-      int origin = mcshower.Origin();
+         if ((pdg_mother == 22 || pdg_mother == 11) && origin == 1)
+        {
+           _true_shower_pdg.push_back(mcshower->AncestorPdgCode());
+           _true_shower_depE.push_back(mcshower->DetProfile().E());
 
-      if ((pdg_mother == 22 || pdg_mother == 11) && origin == 1)
-      {
-        _true_shower_pdg.push_back(mcshower.AncestorPdgCode());
-        _true_shower_depE.push_back(mcshower.DetProfile().E());
+           double x_det = mcshower->Start().X();
+           double y_det = mcshower->Start().Y();
+           double z_det = mcshower->Start().Z();
 
-        double x_det = mcshower.Start().X();
-        double y_det = mcshower.Start().Y();
-        double z_det = mcshower.Start().Z();
+           if (pdg_mother == 22)
+           { //For photons take the end of the shower
+             x_det = mcshower->End().X();
+             y_det = mcshower->End().Y();
+             z_det = mcshower->End().Z();
+           }
 
-        if (pdg_mother == 22)
-        { //For photons take the end of the shower
-          x_det = mcshower.End().X();
-          y_det = mcshower.End().Y();
-          z_det = mcshower.End().Z();
-        }
+           _true_shower_x_sce.push_back(x_det - sce_service->GetPosOffsets(x_det, y_det, z_det)[0] + 0.7);
+           _true_shower_y_sce.push_back(y_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[1]);
+           _true_shower_z_sce.push_back(z_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[2]);
 
-        _true_shower_x_sce.push_back(x_det - sce_service->GetPosOffsets(x_det, y_det, z_det)[0] + 0.7);
-        _true_shower_y_sce.push_back(y_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[1]);
-        _true_shower_z_sce.push_back(z_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[2]);
+           if (m_printDebug) {
+             std::cout << "[PandoraLEEAnalyzer] "
+                       << "MCShower End: (" << x_det - sce_service->GetPosOffsets(x_det, y_det, z_det)[0] + 0.7
+                       << "," << y_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[1]
+                       << "," << z_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[2] << ")" << std::endl;
 
-        if (m_printDebug) {
-          std::cout << "[PandoraLEEAnalyzer] "
-                    << "MCShower End: (" << x_det - sce_service->GetPosOffsets(x_det, y_det, z_det)[0] + 0.7
-                    << "," << y_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[1]
-                    << "," << z_det + sce_service->GetPosOffsets(x_det, y_det, z_det)[2] << ")" << std::endl;
-
-          std::cout << "[PandoraLEEAnalyzer] "
-                    << "TrueVTX: (" << _true_vx_sce << "," << _true_vy_sce << "," << _true_vz_sce << ")" << std::endl;
-        }
+             std::cout << "[PandoraLEEAnalyzer] "
+                       << "TrueVTX: (" << _true_vx_sce << "," << _true_vy_sce << "," << _true_vz_sce << ")" << std::endl;
+           }
+         }
       }
     }
-
     if (_category != k_cosmic && _category != k_dirt && _category != k_nc)
     {
       if (abs(_nu_pdg) == 12)
