@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
 <!ENTITY name "mc_dirt_numi">
-<!ENTITY project_version "v9">
+<!ENTITY project_version "v12">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
 <!-- <!ENTITY dataset "prodgenie_numi_cosmic_uboone_mcc8.8_detsim_mec_reco2"> -->
-<!ENTITY file_list "/uboone/app/users/foppiani/Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/numi_dirt_test_list.txt">
+<!ENTITY file_list "/uboone/app/users/foppiani/Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/numi_dirt_test_list_v2.txt">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
 <!ENTITY data "/uboone/data/users">
@@ -52,10 +52,10 @@
     <workdir>&resilient;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>17</numjobs>
+    <numjobs>24</numjobs>
     <disk>10GB</disk>
     <memory>4096</memory>
-    <maxfilesperjob>6</maxfilesperjob>
+    <maxfilesperjob>4</maxfilesperjob>
     <schema>root</schema>
     <jobsub>--expected-lifetime=12h -q --generate-email-summary --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub>
     <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>

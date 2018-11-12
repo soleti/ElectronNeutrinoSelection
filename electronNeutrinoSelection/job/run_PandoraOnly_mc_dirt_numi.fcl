@@ -96,8 +96,8 @@ physics: {
      nueFilter: @local::nueFilter
   }
 
-  prod: [ @sequence::ubxsec_mc_producers ]
-  ana : [ genLevelAnalyzer ]
+  prod: [ @sequence::ubxsec_mc_producers, nueFilter, dedxcalibration, pid ]
+  ana : [ genLevelAnalyzer, robertoana ]
   stream: [ out1 ]
 
   trigger_paths: [ prod ]
