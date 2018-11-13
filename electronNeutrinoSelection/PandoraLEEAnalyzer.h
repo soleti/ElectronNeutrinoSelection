@@ -80,6 +80,7 @@
 #include "lardata/DetectorInfoServices/DetectorPropertiesService.h"
 #include "lardata/DetectorInfoServices/DetectorClocksService.h"
 #include "lardata/DetectorInfo/DetectorProperties.h"
+#include "larreco/RecoAlg/TrackMomentumCalculator.h"
 
 #include "uboone/EventWeight/EventWeightTreeUtility.h"
 
@@ -210,6 +211,7 @@ private:
   GeometryHelper geoHelper;
   PandoraInterfaceHelper pandoraHelper;
   uboone::EWTreeUtil ewutil;
+  trkf::TrackMomentumCalculator _trkmom;
 
   float _lee_bins[12] = {200, 300, 375, 475, 550, 675, 800, 950, 1100, 1300, 1500, 3000};
   float _lee_scaling[13] = {0, 3.88549, 3.05421, 1.59615, 0.383725, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -218,10 +220,12 @@ private:
 
   TFile *myTFile;
   TTree *myTTree;
+  TTree *mySBNTTree;
   TTree *myPOTTTree;
 
+  double _reco_nu_energy;
   bool m_showersAsTracks;
-
+  bool m_isLEE;
   int _interaction_type;
 
   double m_fidvolXstart;
@@ -246,6 +250,7 @@ private:
   const int k_data = 6;
   const int k_other = 0;
   const int k_mixed = 7;
+  const int k_nu_e_other = 8;
   std::vector<double> _energy;
   int _true_nu_is_fiducial;
   double _nu_energy;
@@ -256,7 +261,7 @@ private:
   double _vx;
   double _vy;
   double _vz;
-
+  double _interaction_length;
   double _true_vx;
   double _true_vy;
   double _true_vz;
@@ -313,6 +318,8 @@ private:
   std::vector<std::string> _matched_showers_process;
   std::vector<double> _matched_showers_energy;
 
+  std::map<std::string, std::vector<double>> _weights;
+
   int _n_primaries;
   int _chosen_candidate;
 
@@ -336,6 +343,7 @@ private:
   std::vector<std::vector<double>> _track_dQdx_cali;
 
   std::vector<std::vector<double>> _track_dEdx;
+  std::vector<double> _track_energy_length;
 
   std::vector<size_t> _nu_track_ids;
   std::vector<size_t> _nu_shower_as_track_ids;

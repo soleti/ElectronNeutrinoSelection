@@ -573,8 +573,8 @@ bool ElectronEventSelectionAlg::eventSelected(const art::Event &evt)
 
     if ((track_daughters + tracks + showers + shower_daughters) < 1) {
       _neutrino_candidate_passed[_i_primary] = false;
+      _selection_result = kNoShowers;
     }
-
 
     if (track_daughters < m_nTracks){
       // There are less direct daughter tracks than we want protons, FAIL   
