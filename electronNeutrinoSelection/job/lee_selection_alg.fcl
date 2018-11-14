@@ -4,12 +4,12 @@ BEGIN_PROLOG
 
 lee_electron_alg: {
     nTracks:                    0
-    fidvolXstart:               0  #10
-    fidvolXend:                 0  #10
-    fidvolYstart:               0  #20
-    fidvolYend:                 0  #20
-    fidvolZstart:               0  #10
-    fidvolZend:                 0  #50
+    fidvolXstart:               0
+    fidvolXend:                 0
+    fidvolYstart:               0
+    fidvolYend:                 0
+    fidvolZstart:               0
+    fidvolZend:                 0
 
     # Old optical selection parameters
     fractionsigmaflashwidth:    2.0
@@ -21,7 +21,7 @@ lee_electron_alg: {
 
     # New optical selection parameters 
     #(switch between the two optical selections using the bool)
-    Flashmatching:               true   
+    Flashmatching:               true
 
     # 1. Flash cuts
     startbeamtime:               3.2 # 3.2 for nue mc, 3.3 for on beam, 3.65 for off beam and mc intime

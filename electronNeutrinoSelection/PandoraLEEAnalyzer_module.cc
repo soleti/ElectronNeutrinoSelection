@@ -813,6 +813,8 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   _TPC_x = fElectronEventSelectionAlg.get_TPC_x();
   _category = 0;
   std::vector<double> true_neutrino_vertex(3);
+  std::vector<double> true_neutrino_vertex_sce(3);
+
   std::cout << "[PandoraLEEAnalyzer] Is real data? " << evt.isRealData() << std::endl;
 
   art::Handle<std::vector<ubana::SelectionResult>> selection_h;
@@ -977,6 +979,10 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
               _true_vy + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[1];
           _true_vz_sce =
               _true_vz + sce_service->GetPosOffsets(_true_vx, _true_vy, _true_vz)[2];
+          true_neutrino_vertex_sce[0] = _true_vx_sce;
+          true_neutrino_vertex_sce[1] = _true_vy_sce;
+          true_neutrino_vertex_sce[2] = _true_vz_sce;
+
         }
         else
         {
@@ -984,8 +990,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
                     << "Space Charge service offset size < 3" << std::endl;
           continue;
         }
-
-        if (!geoHelper.isActive(true_neutrino_vertex))
+        if (!geoHelper.isFiducial(true_neutrino_vertex_sce) || !geoHelper.isActive(true_neutrino_vertex))
         {
           _category = k_dirt;
         }
