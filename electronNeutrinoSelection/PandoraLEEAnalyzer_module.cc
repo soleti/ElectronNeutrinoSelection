@@ -1357,7 +1357,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       energyHelper.get_cali(&spcpnts, &hits_per_spcpnts, shower_cali);
 
       _shower_energy_cali.push_back(shower_cali);
-      _reco_nu_energy += (shower_cali[2]  + 9.85322e-03) / 7.82554e-01;
+      _reco_nu_energy += (shower_cali[2] * this_energy[2] + 3.33417e-02) / 7.70732e-01;
       _shower_energy.push_back(this_energy);
 
       std::vector<std::vector<double>> pca;
