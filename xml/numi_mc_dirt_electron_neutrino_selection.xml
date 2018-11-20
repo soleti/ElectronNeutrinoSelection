@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE project [
 <!ENTITY name "mc_dirt_numi">
-<!ENTITY project_version "v12">
+<!ENTITY project_version "v13">
 <!ENTITY release "v06_26_01_17">
 <!ENTITY qualifier "e10:prof">
 <!ENTITY user "foppiani">
 <!-- <!ENTITY dataset "prodgenie_numi_cosmic_uboone_mcc8.8_detsim_mec_reco2"> -->
-<!ENTITY file_list "/uboone/app/users/foppiani/Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/numi_dirt_test_list_v2.txt">
+<!ENTITY file_list "/uboone/app/users/foppiani/Binaries/MyLarsoft_v06_26_01_17/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job/numi_dirt_test_list_v2v3_merged.txt">
 <!ENTITY resilient "/pnfs/uboone/resilient/users">
 <!ENTITY scratch "/pnfs/uboone/scratch/users">
 <!ENTITY data "/uboone/data/users">
@@ -52,7 +52,7 @@
     <workdir>&resilient;/&user;/&folder_name;/&project_version;/&name;/work/</workdir>
     <bookdir>&data;/&user;/&folder_name;/&project_version;/&name;/book/</bookdir>
 
-    <numjobs>24</numjobs>
+    <numjobs>101</numjobs>
     <disk>10GB</disk>
     <memory>4096</memory>
     <maxfilesperjob>4</maxfilesperjob>
