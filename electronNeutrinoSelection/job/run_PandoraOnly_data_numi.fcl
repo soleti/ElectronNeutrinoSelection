@@ -7,8 +7,8 @@
 
 #include "GeneratorLevelAnalysis_common.fcl"
 
-start_window:  5.702
-end_window:    15.502
+start_window:  5.64
+end_window:    15.44
 
 pandora_helper:
 {

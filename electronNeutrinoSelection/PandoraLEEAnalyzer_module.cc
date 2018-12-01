@@ -71,6 +71,7 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   myTTree->Branch("n_candidates", &_n_candidates, "n_candidates/I");
   myTTree->Branch("n_true_nu", &_n_true_nu, "n_true_nu/I");
   myTTree->Branch("n_true_pions", &_n_true_pions, "n_true_pions/I");
+  myTTree->Branch("n_true_pions_above20", &_n_true_pions_above20, "n_true_pions_above20/I");
   myTTree->Branch("n_true_protons", &_n_true_protons, "n_true_protons/I");
   myTTree->Branch("n_true_protons_above40", &_n_true_protons_above40, "n_true_protons_above40/I");
   myTTree->Branch("n_true_protons_above21", &_n_true_protons_above21, "n_true_protons_above21/I");
@@ -484,6 +485,7 @@ void lee::PandoraLEEAnalyzer::clear()
   _track_id.clear();
 
   _n_true_pions = 0;
+  _n_true_pions_above20 = 0;
   _n_true_protons = 0;
   _n_true_protons_above40 = 0;
   _n_true_protons_above21 = 0;
@@ -886,6 +888,15 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
         if (abs(mcparticle.PdgCode()) == 211)
         {
           _n_true_pions += 1;
+          if (mcparticle.E() > (139.570 + 0.020))
+          {
+            _n_true_pions_above20 += 1;
+          }
+        }
+        if (abs(mcparticle.PdgCode()) == 111)
+        {
+          _n_true_pions += 1;
+          _n_true_pions_above20 += 1;
         }
         else if (abs(mcparticle.PdgCode()) == 2212)
         {
@@ -994,7 +1005,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   _re_category = _category;
   if (abs(_nu_pdg) == 12)
   {
-    if (_true_daughter_E>0.02 && _n_true_protons_above40>0 && _n_true_pions==0)
+    if (_true_daughter_E>0.02 && _n_true_protons_above40>0 && _n_true_pions_above20==0)
     {
       if (_category==2) _re_category = 11;
       else if (_category==7) _re_category = 14;

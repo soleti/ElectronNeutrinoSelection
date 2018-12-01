@@ -284,6 +284,7 @@ private:
   int _n_true_protons_above40;
   int _n_true_protons_above21;
   int _n_true_pions;
+  int _n_true_pions_above20;
   int _run_sr;
   int _subrun_sr;
   int _n_matched;
