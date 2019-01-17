@@ -33,7 +33,6 @@ lee::PandoraLEEAnalyzer::PandoraLEEAnalyzer(fhicl::ParameterSet const &pset)
   mySBNTTree->Branch("category", &_category, "category/I");
 
   myTTree->Branch("reconstructed_neutrino_energy", &_reco_nu_energy, "reconstructed_neutrino_energy/d");
-  mySBNTTree->Branch("reconstructed_neutrino_energy", &_reco_nu_energy, "reconstructed_neutrino_energy/d");
 
   myTTree->Branch("n_showers_as_tracks", &_n_showers_as_tracks, "n_showers_as_tracks/I");
   myTTree->Branch("n_tracks", &_n_tracks, "n_tracks/I");
@@ -591,7 +590,7 @@ void lee::PandoraLEEAnalyzer::fillTrackFields(size_t pf_id,
 
   _track_dQdx.push_back(dqdx);
 
-  std::vector<double> track_cali;
+  std::vector<double> track_cali(3);
   energyHelper.get_cali(&spcpnts, hits_per_spcpnts, track_cali);
 
   _track_energy_cali.push_back(track_cali);
@@ -856,77 +855,39 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
   {
     // nu_e flux must be corrected by event weight
     art::InputTag eventweight_tag("eventweight");
-    auto const &eventweights_handle =
-        evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(eventweight_tag);
+    art::Handle<std::vector<evwgh::MCEventWeight>> eventweights_handle;
+    evt.getByLabel(eventweight_tag, eventweights_handle);
 
     if (!eventweights_handle.isValid()) {
       std::cout << "[PandoraLEEAnalyzer] No MCEventWeight data product" << std::endl;
       _bnbweight = 1;
     } else {
-      auto const &eventweights(*eventweights_handle);
-      std::map<std::string, std::vector<double>> evtwgt_map = eventweights.at(0).fWeight;
+      std::vector<art::Ptr<evwgh::MCEventWeight>> eventweights;
+      art::fill_ptr_vector(eventweights, eventweights_handle);
+      std::map<std::string, std::vector<double>> evtwgt_map = eventweights.at(0)->fWeight;
       _weights.insert(evtwgt_map.begin(), evtwgt_map.end());
-      if (eventweights.size() > 0) {
-        for (auto last : evtwgt_map)
-        {
-          if (last.first.find("bnbcorrection") != std::string::npos && std::isfinite(last.second.at(0))) {
-              _bnbweight = last.second.at(0);
-          } else {
-            _bnbweight = 1;
-          }
+      for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
+      {
+
+        if ((it->first).find("FluxUnisim") != std::string::npos
+            || (it->first).find("kminus") != std::string::npos
+            || (it->first).find("kplus") != std::string::npos
+            || (it->first).find("piminus") != std::string::npos
+            || (it->first).find("piplus") != std::string::npos) {
+                _flux_names.push_back(it->first);         // filling the name of the function
+                _flux_weights.push_back(it->second);      // getting the vector of weights
         }
-      } else {
-        _bnbweight = 1;
-      }
-    }
 
-    try {
-      art::InputTag genie_eventweight_tag("genieeventweightmultisim");
-      auto const &genie_eventweights_handle = evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(genie_eventweight_tag);
-      if (!genie_eventweights_handle.isValid())
-      {
-        std::cout << "[PandoraLEEAnalyzer] GENIE MCEventWeight handle not valid" << std::endl;
-      }
-      else
-      {
-        auto const &genie_eventweights(*genie_eventweights_handle);
-        std::map<std::string, std::vector<double>> evtwgt_map = genie_eventweights.at(0).fWeight;
-        _weights.insert(evtwgt_map.begin(), evtwgt_map.end());
-
-        for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
-        {
+        if ((it->first).find("Genie") != std::string::npos) {
           _genie_names.push_back(it->first);         // filling the name of the function
           _genie_weights.push_back(it->second);      // getting the vector of weights
         }
-      }
-    } catch (...) {
-      std::cout << "[PandoraLEEAnalyzer] No GENIE MCEventWeight data product" << std::endl;
-    }
 
-    try
-    {
-      art::InputTag flux_eventweight_tag("fluxeventweightmultisim");
-      auto const &flux_eventweights_handle = evt.getValidHandle<std::vector<evwgh::MCEventWeight>>(flux_eventweight_tag);
-      if (!flux_eventweights_handle.isValid())
-      {
-        std::cout << "[PandoraLEEAnalyzer] Flux MCEventWeight handle not valid" << std::endl;
-      }
-      else
-      {
-        auto const &flux_eventweights(*flux_eventweights_handle);
-        std::map<std::string, std::vector<double>> evtwgt_map = flux_eventweights.at(0).fWeight;
-        _weights.insert(evtwgt_map.begin(), evtwgt_map.end());
-
-        for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
-        {
-          _flux_names.push_back(it->first);         // filling the name of the function
-          _flux_weights.push_back(it->second);      // getting the vector of weights
+        if ((it->first).find("bnbcorrection") != std::string::npos) {
+          _bnbweight = it->second[0];
         }
+
       }
-    }
-    catch (...)
-    {
-      std::cout << "[PandoraLEEAnalyzer] No Flux MCEventWeight data product" << std::endl;
     }
 
     auto const &generator_handle = evt.getValidHandle<std::vector<simb::MCTruth>>(_mctruthLabel);
@@ -1353,7 +1314,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
       energyHelper.energy_from_hits(&clusters, &hits_per_cluster, &mcps_per_hit, this_nhits, this_energy);
       std::vector<art::Ptr<recob::SpacePoint>> spcpnts = spcpnts_per_pfpart.at(pf_id);
 
-      std::vector<double> shower_cali;
+      std::vector<double> shower_cali(3);
       energyHelper.get_cali(&spcpnts, &hits_per_spcpnts, shower_cali);
 
       _shower_energy_cali.push_back(shower_cali);
@@ -1486,7 +1447,7 @@ void lee::PandoraLEEAnalyzer::analyze(art::Event const &evt)
     }
 
     if ((track_cr_found || shower_cr_found) &&
-        (_nu_matched_tracks > 0 || _nu_matched_showers > 0))
+        (_nu_matched_tracks > 0 || _nu_matched_showers > 0) && _cosmic_fraction > 0.5)
     {
       _category = k_mixed;
     }
