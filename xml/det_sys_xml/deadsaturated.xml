@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE project [
+    <!ENTITY name "deadsaturated">
+    <!ENTITY dataset "prodgenie_bnb_nu_cosmic_uboone_detsyst_deadSaturatedChannels_mcc8.17_reco2">
+    <!ENTITY larsoft_version "v06_26_01_13">
+    <!ENTITY version "v06_26_01_18">
+    <!ENTITY qualifier "e10:prof">
+    <!ENTITY user "srsoleti">
+]>
+
+<project name="&name;">
+    <!-- Doesn't matter for non-generating jobs -->
+    <numevents>1000000</numevents>
+
+    <!--  Operating System  -->
+    <os>SL6</os>
+
+    <!--  Batch resources  -->
+    <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+    <!--  Larsoft information  -->
+    <larsoft>
+        <tag>&larsoft_version;</tag>
+        <qual>&qualifier;</qual>
+        <fcldir>/uboone/app/users/&user;/&version;_2/srcs/ElectronNeutrinoSelection/electronNeutrinoSelection/job</fcldir>
+        <local>/pnfs/uboone/resilient/users/&user;/&version;.tar</local> 
+    </larsoft>
+
+    <!--  Project stages  -->
+    <stage name="selection">
+        <fcl>run_PandoraOnly_detsyst.fcl</fcl>
+        <outdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</outdir>
+        <logdir>/pnfs/uboone/scratch/users/&user;/&version;/lee/&name;</logdir>
+        <workdir>/pnfs/uboone/resilient/users/&user;/work/lee/&name;</workdir>
+        <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
+        <inputdef>&dataset;</inputdef>
+        <numjobs>196</numjobs>
+        <disk>2GB</disk>
+        <memory>4096</memory>
+        <maxfilesperjob>20</maxfilesperjob>
+        <datatier>reconstructed</datatier>
+        <jobsub>--expected-lifetime=24h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)' -e XRD_CONNECTIONRETRY=32 -e XRD_REDIRECTLIMIT=255 -e XRD_REQUESTTIMEOUT=3600 </jobsub>
+        <jobsub_start>--append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)'</jobsub_start>        
+        <schema>root</schema>
+    </stage>
+
+</project>
