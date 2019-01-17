@@ -178,73 +178,40 @@ bool lee::ElectronNeutrinoFilter::filter(art::Event &e)
     myTTree->Fill();
     return _passed;
   }
-
-
+  // nu_e flux must be corrected by event weight
   art::InputTag eventweight_tag("eventweight");
-  auto const &eventweights_handle = e.getValidHandle<std::vector<evwgh::MCEventWeight>>(eventweight_tag);
+  art::Handle<std::vector<evwgh::MCEventWeight>> eventweights_handle;
+  e.getByLabel(eventweight_tag, eventweights_handle);
 
   if (!eventweights_handle.isValid()) {
     std::cout << "[PandoraLEEAnalyzer] No MCEventWeight data product" << std::endl;
     _bnbweight = 1;
   } else {
-    auto const &eventweights(*eventweights_handle);
-    if (eventweights.size() > 0) {
-      for (auto last : eventweights.at(0).fWeight) {
-        if (last.first.find("bnbcorrection") != std::string::npos && std::isfinite(last.second.at(0))) {
-          _bnbweight = last.second.at(0);
-        } else {
-          _bnbweight = 1;
-        }
-      }
-    } else {
-      _bnbweight = 1;
-    }
-  }
+    std::vector<art::Ptr<evwgh::MCEventWeight>> eventweights;
+    art::fill_ptr_vector(eventweights, eventweights_handle);
+    std::map<std::string, std::vector<double>> evtwgt_map = eventweights.at(0)->fWeight;
 
-  try
-  {
-    art::InputTag genie_eventweight_tag("genieeventweightmultisim");
-    auto const &genie_eventweights_handle = e.getValidHandle<std::vector<evwgh::MCEventWeight>>(genie_eventweight_tag);
-    if (!genie_eventweights_handle.isValid())
+    for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
     {
-      std::cout << "[PandoraLEEAnalyzer] GENIE MCEventWeight handle not valid" << std::endl;
-    }
-    else
-    {
-      auto const &genie_eventweights(*genie_eventweights_handle);
-      std::map<std::string, std::vector<double>> evtwgt_map = genie_eventweights.at(0).fWeight;
-      for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
-      {
+
+      if ((it->first).find("FluxUnisim") != std::string::npos
+          || (it->first).find("kminus") != std::string::npos
+          || (it->first).find("kplus") != std::string::npos
+          || (it->first).find("piminus") != std::string::npos
+          || (it->first).find("piplus") != std::string::npos) {
+              _flux_names.push_back(it->first);         // filling the name of the function
+              _flux_weights.push_back(it->second);      // getting the vector of weights
+      }
+
+      if ((it->first).find("Genie") != std::string::npos) {
         _genie_names.push_back(it->first);         // filling the name of the function
         _genie_weights.push_back(it->second);      // getting the vector of weights
       }
-    }
-  } catch (...) {
-    std::cout << "[PandoraLEEAnalyzer] No GENIE MCEventWeight data product" << std::endl;
-  }
 
-  try
-  {
-    art::InputTag flux_eventweight_tag("fluxeventweightmultisim");
-    auto const &flux_eventweights_handle = e.getValidHandle<std::vector<evwgh::MCEventWeight>>(flux_eventweight_tag);
-    if (!flux_eventweights_handle.isValid())
-    {
-      std::cout << "[PandoraLEEAnalyzer] Flux MCEventWeight handle not valid" << std::endl;
-    }
-    else
-    {
-      auto const &flux_eventweights(*flux_eventweights_handle);
-      std::map<std::string, std::vector<double>> evtwgt_map = flux_eventweights.at(0).fWeight;
-      for (std::map<std::string, std::vector<double>>::iterator it = evtwgt_map.begin(); it != evtwgt_map.end(); ++it)
-      {
-        _flux_names.push_back(it->first);         // filling the name of the function
-        _flux_weights.push_back(it->second);      // getting the vector of weights
+      if ((it->first).find("bnbcorrection") != std::string::npos) {
+        _bnbweight = it->second[0];
       }
     }
-  }
-  catch (...)
-  {
-    std::cout << "[PandoraLEEAnalyzer] No Flux MCEventWeight data product" << std::endl;
   }
 
   auto const &generator_handle = e.getValidHandle<std::vector<simb::MCTruth>>(_mctruthLabel);
