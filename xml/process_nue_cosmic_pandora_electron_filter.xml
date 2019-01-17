@@ -35,7 +35,7 @@
         <bookdir>/uboone/data/users/&user;/&version;/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
         <numjobs>200</numjobs>
-        <disk>2GB</disk>
+        <disk>8GB</disk>
         <memory>7168</memory>
         <maxfilesperjob>10</maxfilesperjob>
         <datatier>filtered</datatier>

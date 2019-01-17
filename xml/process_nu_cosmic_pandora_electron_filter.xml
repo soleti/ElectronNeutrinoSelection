@@ -35,8 +35,8 @@
         <bookdir>/uboone/data/users/&user;/work/lee/&name;</bookdir>
         <inputdef>&dataset;</inputdef>
         <numjobs>1079</numjobs>
-        <disk>8GB</disk>
-        <memory>8192</memory>
+        <disk>2GB</disk>
+        <memory>7168</memory>
         <maxfilesperjob>10</maxfilesperjob>
         <datatier>reconstructed</datatier>
         <jobsub>--expected-lifetime=24h -Q --append_condor_requirements='(TARGET.HAS_CVMFS_uboone_opensciencegrid_org==true)' -e XRD_CONNECTIONRETRY=32 -e XRD_REDIRECTLIMIT=255 -e XRD_REQUESTTIMEOUT=3600 </jobsub>
